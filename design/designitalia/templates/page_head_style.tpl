@@ -8,6 +8,7 @@
 {ezcss_load( array(
         'vendor.css',
         'build.css',
+        'ez.css',
         'debug.css',
         'websitetoolbar.css',
         ezini( 'StylesheetSettings', 'CSSFileList', 'design.ini' ),
@@ -18,6 +19,7 @@
 {ezcss_load( array(
         'vendor.css',
         'build.css',
+        'ez.css',
         'debug.css',
         'websitetoolbar.css'
     ),

@@ -36,10 +36,9 @@
 
     {include uri='design:page_browser_alert.tpl'}
 
-    {* Todo: sistemare e riabilitare *}
-    {*if and( $pagedata.website_toolbar, array( 'edit', 'browse' )|contains( $ui_context )|not() )}
+    {if and( $pagedata.website_toolbar, array( 'edit', 'browse' )|contains( $ui_context )|not() )}
         {include uri='design:page_toolbar.tpl'}
-    {/if*}
+    {/if}
 
     {include uri='design:page_header.tpl'}
 

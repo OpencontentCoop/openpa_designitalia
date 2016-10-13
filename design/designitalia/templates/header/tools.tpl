@@ -120,15 +120,15 @@
         </ul>
     </div>
     <div class="Header-search" id="header-search">
-        <form class="Form">
+        <form class="Form" action="{"/content/search"|ezurl(no)}">
             <div class="Form-field Form-field--withPlaceholder Grid">
 
                 {if is_area_tematica()}
                     <input type="hidden" value="{is_area_tematica().node_id}" name="SubTreeArray[]" />
-                    <input type="text" id="cerca" class="Form-input Grid-cell u-sizeFill u-text-r-s" name="SearchText" required {if $pagedata.is_edit}disabled="disabled"{/if}>
+                    <input type="text" id="cerca" class="Form-input Grid-cell u-sizeFill u-text-r-s" name="SearchText" {*required*} {if $pagedata.is_edit}disabled="disabled"{/if}>
                     <label class="Form-label" for="cerca">Cerca in {is_area_tematica().name|wash()}</label>
                 {else}
-                    <input type="text" id="cerca" class="Form-input Grid-cell u-sizeFill u-text-r-s" name="SearchText" required {if $pagedata.is_edit}disabled="disabled"{/if}>
+                    <input type="text" id="cerca" class="Form-input Grid-cell u-sizeFill u-text-r-s" name="SearchText" {*required*} {if $pagedata.is_edit}disabled="disabled"{/if}>
                     <label class="Form-label" for="cerca">Cerca nel sito</label>
                 {/if}
 

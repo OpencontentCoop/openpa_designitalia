@@ -1,10 +1,10 @@
 {if $openpa.content_attachment.has_content}
-  <div class="u-sizeFull">
+  <div class="Grid Grid--withGutter">
   {foreach $openpa.content_attachment.attributes as $attribute}        
-    <div class="u-size3of12">
+    <div class="Grid-cell u-size3of12">
       <strong>{$attribute.contentclass_attribute_name|wash()}</strong>
     </div>
-    <div class="u-size9of12">
+    <div class="Grid-cell u-size9of12">
 	  {attribute_view_gui attribute=$attribute}
     </div>	
   {/foreach}

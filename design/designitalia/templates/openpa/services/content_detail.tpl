@@ -3,11 +3,11 @@
 {foreach $openpa.content_detail.attributes as $openpa_attribute}
     <div class="Grid Grid--withGutter">
         {if and( $openpa_attribute.full.show_label, $openpa_attribute.full.collapse_label|not() )}
-            <div class="Grid-cell u-md-size3of12">
+            <div class="Grid-cell u-size3of12">
                 <strong>{$openpa_attribute.label}</strong>
             </div>
         {/if}
-        <div class="Grid-cell u-md-size{if and( $openpa_attribute.full.show_label, $openpa_attribute.full.collapse_label|not() )}9{else}12{/if}of12">
+        <div class="Grid-cell u-size{if and( $openpa_attribute.full.show_label, $openpa_attribute.full.collapse_label|not() )}9{else}12{/if}of12">
             {if and( $openpa_attribute.full.show_label, $openpa_attribute.full.collapse_label )}
             <strong>{$openpa_attribute.label}</strong>
             {/if}

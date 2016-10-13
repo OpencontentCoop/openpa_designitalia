@@ -18,7 +18,6 @@
     {/if}
 </div>*}
 
-
 <div class="u-sizeFull u-md-size11of12 u-lg-size11of12 nav-section" id="subnav">
     {if count($tree_menu.children)|gt(0)}
         {if and( $openpa.control_menu.side_menu.root_node, $node.node_id|ne($openpa.control_menu.side_menu.root_node.node_id) )}

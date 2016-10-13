@@ -17,7 +17,9 @@
 {/literal}
 
 {ezscript_load( array(
-'ezjsc::jquery'
+    'ezjsc::jquery',
+    'ezjsc::jqueryUI',
+    'ezjsc::jqueryio'
 ))}
 
 <!-- include html5shim per Explorer 8 -->

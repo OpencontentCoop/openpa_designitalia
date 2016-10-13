@@ -4911,15 +4911,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	var Masonry = null;
 	
-	var _salvattore = __webpack_require__(25);
-	
-	var _salvattore2 = _interopRequireDefault(_salvattore);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	try {
+	  Masonry = __webpack_require__(25);
+	} catch (e) {
+	  /* HEY, I'm IE8 */
+	}
 	
 	exports['default'] = {
-	  Salvattore: _salvattore2['default']
+	  Masonry: Masonry
 	};
 	module.exports = exports['default'];
 
@@ -5716,21 +5717,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var multiselectable = _ref$multiselectable === undefined ? false : _ref$multiselectable;
 	
 	
-	  // CONSTANTS
-	  var doc = document;
-	  var docEl = doc.documentElement;
-	  var _q = function _q(el) {
-	    var ctx = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : doc;
-	    return [].slice.call(ctx.querySelectorAll(el));
-	  };
-	
-	  // SUPPORTS
-	  if (!('querySelector' in doc) || !('addEventListener' in window) || !docEl.classList) return null;
-	
-	  // SETUP
-	  // set treeview element NodeLists
-	  var treeviewContainers = _q(selector);
-	
 	  var keys = {
 	    tab: 9,
 	    enter: 13,
@@ -5799,6 +5785,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var curNdx = treeview.$visibleItems.index($item);
 	
 	    if (e.altKey || e.ctrlKey || e.shiftKey && e.keyCode != keys.tab) {
+	      return true;
+	    }
+	
+	    if (!(0, _jquery2['default'])(e.target).is('[role=treeitem]')) {
 	      return true;
 	    }
 	
@@ -5978,6 +5968,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      // do nothing
 	      return true;
 	    }
+	
+	    if (!(0, _jquery2['default'])(e.target).parent().is('[aria-expanded]')) {
+	      return true;
+	    }
+	
 	    treeview.$activeItem = $item;
 	    _updateStyling(treeview, $item);
 	    _toggleGroup(treeview, $item);
@@ -5990,6 +5985,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      // do nothing
 	      return true;
 	    }
+	
+	    if (!(0, _jquery2['default'])(e.target).parent().is('[aria-expanded]')) {
+	      return true;
+	    }
+	
 	    treeview.$activeItem = treeview.$el;
 	    _updateStyling(treeview, $item);
 	    e.stopPropagation();
@@ -6041,6 +6041,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    $el.find('li').each(function (i, li) {
 	      var $li = (0, _jquery2['default'])(li);
 	      $li.attr('role', 'treeitem').attr('tabindex', 0 === i ? '0' : '-1');
+	      //  .find('a[href]').not('[href^=#]').attr('tabindex', 0)
+	      //  .parent().attr('aria-label', function() { return $(this).text() })
 	      if ($li.find('ul').length !== 0) {
 	        if (!li.hasAttribute('aria-expanded')) {
 	          $li.attr('aria-expanded', 'false');
@@ -6053,21 +6055,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	
 	  function init() {
-	    if (treeviewContainers.length) {
-	      treeviewContainers.forEach(function (treeviewContainer) {
-	        var $el = (0, _jquery2['default'])(treeviewContainer);
-	        _addA11y($el);
-	        var treeview = {
-	          $el: $el,
-	          $items: $el.find('li'),
-	          $parents: $el.find('.' + classParent),
-	          $visibleItems: null,
-	          $activeItem: null
-	        };
-	        _collapseAll(treeview);
-	        _bindEvents(treeview);
-	      });
-	    }
+	    (0, _jquery2['default'])(selector).each(function (_, treeviewContainer) {
+	      var $el = (0, _jquery2['default'])(treeviewContainer);
+	      _addA11y($el);
+	      var treeview = {
+	        $el: $el,
+	        $items: $el.find('li'),
+	        $parents: $el.find('.' + classParent),
+	        $visibleItems: null,
+	        $activeItem: null
+	      };
+	      _collapseAll(treeview);
+	      _bindEvents(treeview);
+	    });
 	  }
 	
 	  init();
@@ -6081,7 +6081,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	new Frtreeview();
 	
-	exports['default'] = { Frtreeview: Frtreeview };
+	exports['default'] = {
+	  Frtreeview: Frtreeview
+	};
 	module.exports = exports['default'];
 
 /***/ },
