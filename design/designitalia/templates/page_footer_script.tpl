@@ -9,7 +9,7 @@
 <script src="{'javascript/polyfill.min.js'|ezdesign(no)}"></script>
 <![endif]-->
 
-<script src="{'javascript/IWT.js'|ezdesign(no)}"></script>
+<script src="{'javascript/IWT.min.js'|ezdesign(no)}"></script>
 
 {if openpaini( 'Seo', 'GoogleAnalyticsAccountID', false() )}
 <script type="text/javascript">

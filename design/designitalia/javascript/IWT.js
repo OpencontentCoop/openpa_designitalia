@@ -429,7 +429,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		value: true
 	});
 	var Fraccordion = function Fraccordion() {
-		var _ref = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+		var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	
 		var _ref$selector = _ref.selector;
 		var selector = _ref$selector === undefined ? '.js-fr-accordion' : _ref$selector;
@@ -455,7 +455,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		var doc = document;
 		var docEl = doc.documentElement;
 		var _q = function _q(el) {
-			var ctx = arguments.length <= 1 || arguments[1] === undefined ? doc : arguments[1];
+			var ctx = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : doc;
 			return [].slice.call(ctx.querySelectorAll(el));
 		};
 	
@@ -829,7 +829,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
 	/**
 	 * Owl Carousel v2.1.4
@@ -4403,7 +4403,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
 	/*!
 	 * jQuery Cookie Plugin v1.4.1
@@ -4524,7 +4524,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
 	/* global jQuery, define */
 	
@@ -4664,7 +4664,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		value: true
 	});
 	var Frdialogmodal = function Frdialogmodal() {
-		var _ref = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+		var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	
 		var _ref$selector = _ref.selector;
 		var selector = _ref$selector === undefined ? '.js-fr-dialogmodal' : _ref$selector;
@@ -4686,7 +4686,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		var doc = document;
 		var docEl = doc.documentElement;
 		var _q = function _q(el) {
-			var ctx = arguments.length <= 1 || arguments[1] === undefined ? doc : arguments[1];
+			var ctx = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : doc;
 			return [].slice.call(ctx.querySelectorAll(el));
 		};
 	
@@ -4744,7 +4744,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			container.classList.add(activeClass);
 		}
 		function _hideModal(modal) {
-			var returnfocus = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
+			var returnfocus = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
 	
 			//	get container element
 			var container = modal.parentElement;
@@ -4817,13 +4817,13 @@ return /******/ (function(modules) { // webpackBootstrap
 			});
 		}
 		function _bindClosePointer() {
-			var modal = arguments.length <= 0 || arguments[0] === undefined ? currModal : arguments[0];
+			var modal = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : currModal;
 	
 			var button = _q(closeSelector, modal)[0];
 			button.addEventListener('click', _eventClosePointer);
 		}
 		function _bindContainerPointer() {
-			var modal = arguments.length <= 0 || arguments[0] === undefined ? currModal : arguments[0];
+			var modal = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : currModal;
 	
 			var container = modal.parentElement;
 			container.addEventListener('click', _eventContainerPointer);
@@ -4841,7 +4841,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			});
 		}
 		function _unbindClosePointer() {
-			var modal = arguments.length <= 0 || arguments[0] === undefined ? currModal : arguments[0];
+			var modal = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : currModal;
 	
 			var button = _q(closeSelector, modal)[0];
 			button.removeEventListener('click', _eventClosePointer);
@@ -4929,7 +4929,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
 	/*!
 	 * Salvattore 1.0.9 by @rnmp and @ppold
@@ -5553,7 +5553,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		value: true
 	});
 	var Frbypasslinks = function Frbypasslinks() {
-		var _ref = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+		var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	
 		var _ref$selector = _ref.selector;
 		var selector = _ref$selector === undefined ? '.js-fr-bypasslinks' : _ref$selector;
@@ -5562,7 +5562,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		//	CONSTANTS
 		var doc = document;
 		var _q = function _q(el) {
-			var ctx = arguments.length <= 1 || arguments[1] === undefined ? doc : arguments[1];
+			var ctx = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : doc;
 			return [].slice.call(ctx.querySelectorAll(el));
 		};
 	
@@ -5702,7 +5702,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * Porting of http://www.oaa-accessibility.org/examplep/treeview1/
 	 */
 	var Frtreeview = function Frtreeview() {
-	  var _ref = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	
 	  var _ref$selector = _ref.selector;
 	  var selector = _ref$selector === undefined ? '.js-fr-treeview' : _ref$selector;
 	  var _ref$openOnClick = _ref.openOnClick;
@@ -5719,7 +5720,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var doc = document;
 	  var docEl = doc.documentElement;
 	  var _q = function _q(el) {
-	    var ctx = arguments.length <= 1 || arguments[1] === undefined ? doc : arguments[1];
+	    var ctx = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : doc;
 	    return [].slice.call(ctx.querySelectorAll(el));
 	  };
 	
@@ -5985,13 +5986,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	
 	  function _handleClick(treeview, $item, e) {
-
-	  	/*console.log($item[0].childNodes[0]);
-
-	  	if ($item[0].childElementCount == 1){
-			$($item[0].childNodes[0]).trigger('click');
-	  	}*/
-
 	    if (e.altKey || e.ctrlKey || e.shiftKey) {
 	      // do nothing
 	      return true;
@@ -6003,8 +5997,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	
 	  function _bindEvents(treeview) {
-	  	/*if (openOnClick) {*/
-	    if (false) {
+	    if (openOnClick) {
 	      treeview.$parents.click(function (e) {
 	        return _handleDblClick(treeview, (0, _jquery2['default'])(this), e);
 	      });
@@ -6016,7 +6009,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _handleClick(treeview, (0, _jquery2['default'])(this), e);
 	      });
 	    }
-
+	
 	    treeview.$items.keydown(function (e) {
 	      return _handleKeyDown(treeview, (0, _jquery2['default'])(this), e);
 	    });
@@ -6228,7 +6221,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {object} options Object containing configuration overrides
 	 */
 	var Froffcanvas = function Froffcanvas() {
-	  var _ref = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	
 	  var _ref$selector = _ref.selector;
 	  var selector = _ref$selector === undefined ? '.js-fr-offcanvas' : _ref$selector;
@@ -6246,7 +6239,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var doc = document;
 	  var docEl = doc.documentElement;
 	  var _q = function _q(el) {
-	    var ctx = arguments.length <= 1 || arguments[1] === undefined ? doc : arguments[1];
+	    var ctx = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : doc;
 	    return [].slice.call(ctx.querySelectorAll(el));
 	  };
 	
@@ -6306,8 +6299,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    panel.classList.add(activeClass);
 	  }
 	  function _hidePanel() {
-	    var panel = arguments.length <= 0 || arguments[0] === undefined ? currPanel : arguments[0];
-	    var returnfocus = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
+	    var panel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : currPanel;
+	    var returnfocus = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
 	
 	    //  add aria-hidden, remove focus
 	    panel.setAttribute('aria-hidden', true);
@@ -6383,7 +6376,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	  }
 	  function _bindClosePointer() {
-	    var panel = arguments.length <= 0 || arguments[0] === undefined ? currPanel : arguments[0];
+	    var panel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : currPanel;
 	
 	    var closeButton = _q(closeSelector, panel)[0];
 	    closeButton.addEventListener('click', _eventClosePointer);
@@ -6397,7 +6390,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  //  UNBIND EVENTS
 	  function _unbindOpenPointer() {
-	    var panel = arguments.length <= 0 || arguments[0] === undefined ? currPanel : arguments[0];
+	    var panel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : currPanel;
 	
 	    var openButtons = _q(openSelector + '[aria-controls="' + _getPanelId(panel) + '"]'); // yep its totally crazy
 	    openButtons.forEach(function (button) {
@@ -6405,7 +6398,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	  }
 	  function _unbindClosePointer() {
-	    var panel = arguments.length <= 0 || arguments[0] === undefined ? currPanel : arguments[0];
+	    var panel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : currPanel;
 	
 	    var closeButton = _q(closeSelector, panel)[0];
 	    closeButton.removeEventListener('click', _eventClosePointer);
@@ -6612,7 +6605,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
 	/*!
 	 * headroom.js v0.9.3 - Give your page some headroom. Hide your header until you need it
@@ -8112,7 +8105,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {object} options Object containing configuration overrides
 	 */
 	var Frtooltip = function Frtooltip() {
-		var _ref = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+		var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	
 		var _ref$selector = _ref.selector;
 		var selector = _ref$selector === undefined ? '.js-fr-tooltip' : _ref$selector;
@@ -8130,7 +8123,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		var doc = document;
 		var docEl = doc.documentElement;
 		var _q = function _q(el) {
-			var ctx = arguments.length <= 1 || arguments[1] === undefined ? doc : arguments[1];
+			var ctx = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : doc;
 			return [].slice.call(ctx.querySelectorAll(el));
 		};
 	

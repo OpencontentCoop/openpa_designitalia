@@ -1,1 +1,3 @@
-{$module_result.content}
+<section>
+    {$module_result.content}
+</section>
