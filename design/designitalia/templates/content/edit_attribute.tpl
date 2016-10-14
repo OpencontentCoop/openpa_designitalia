@@ -2,7 +2,7 @@
          $attribute_categorys        = ezini( 'ClassAttributeSettings', 'CategoryList', 'content.ini' )
          $attribute_default_category = ezini( 'ClassAttributeSettings', 'DefaultCategory', 'content.ini' )}
 
-<div class="Grid Grid--withGutter u-padding-top-xxl">
+<div class="Grid Grid--withGutter u-padding-top-xxl u-padding-bottom-xxl">
     <div class="Grid-cell u-sizeFull u-sm-size12of12 u-md-size8of12 u-lg-size8of12">
 
         <div class="Accordion fr-accordion js-fr-accordion" id="accordion-edit-attributes">
@@ -47,39 +47,18 @@
                             </div>
                         {else}
                             {if $is_translating_content}
-                                <div class="col-md-3">
-                                    <p{if $attribute.has_validation_error} class="message-error"{/if}>{first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}
-                                        {if $attribute.is_required} <span class="required"
-                                                                          title="{'required'|i18n( 'design/admin/content/edit_attribute' )}">
-                                                *</span>{/if}
-                                        {if $attribute.is_information_collector} <span class="collector">
-                                            ({'information collector'|i18n( 'design/admin/content/edit_attribute' )}
-                                            )</span>{/if}:
-                                        {if $contentclass_attribute.description} <span
-                                                class="classattribute-description">{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</span>{/if}
-                                    </p>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="well well-sm">
+                                <div class="ezcca-edit-datatype-{$attribute.data_type_string} u-padding-all-s">
+                                    {attribute_edit_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters html_class='Form-input' contentclass_attribute=$attribute.contentclass_attribute}
+                                    <input type="hidden" name="ContentObjectAttribute_id[]" value="{$attribute.id}"/>
+
+                                    <div class="u-background-grey-20 u-padding-all-s">
                                         {attribute_view_gui attribute_base=$attribute_base attribute=$from_content_attributes_grouped_data_map[$attribute_group][$attribute_identifier] view_parameters=$view_parameters image_class=medium}
                                     </div>
-                                    <div>
-                                        {if $attribute.display_info.edit.grouped_input}
-                                            <fieldset>
-                                                {attribute_edit_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters html_class='form-control'}
-                                                <input type="hidden" name="ContentObjectAttribute_id[]"
-                                                       value="{$attribute.id}"/>
-                                            </fieldset>
-                                        {else}
-                                            {attribute_edit_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters html_class='form-control'}
-                                            <input type="hidden" name="ContentObjectAttribute_id[]"
-                                                   value="{$attribute.id}"/>
-                                        {/if}
-                                    </div>
+
                                 </div>
                             {else}
                                 <div class="ezcca-edit-datatype-{$attribute.data_type_string} u-padding-all-s">
-                                    {attribute_edit_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters html_class='Form-input'}
+                                    {attribute_edit_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters html_class='Form-input' contentclass_attribute=$attribute.contentclass_attribute}
                                     <input type="hidden" name="ContentObjectAttribute_id[]" value="{$attribute.id}"/>
                                 </div>
                             {/if}

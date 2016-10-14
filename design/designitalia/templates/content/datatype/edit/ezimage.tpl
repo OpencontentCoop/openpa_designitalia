@@ -1,7 +1,6 @@
 {default attribute_base='ContentObjectAttribute' html_class='Form-input' placeholder=false() }
 {let attribute_content=$attribute.content}
 
-{def $contentclass_attribute = $attribute.contentclass_attribute}
 <fieldset class="Form-field{if $attribute.has_validation_error} has-error{/if}">
     <legend class="Form-label {if $attribute.is_required}is-required{/if}">
         {first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}
@@ -10,10 +9,10 @@
     </legend>
 
     {if $contentclass_attribute.description}
-        <em>{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</em>
+        <em class="attribute-description">{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</em>
     {/if}
 
-    <div class="Grid Grid--withGutter zones">
+    <div class="Grid Grid--withGutter">
 
         <div class="Grid-cell u-sizeFull u-sm-size1of3 u-md-size1of3 u-lg-size1of3">
 
@@ -66,7 +65,6 @@
 
 
 </fieldset>
-{undef $contentclass_attribute}
 
 {/let}
 {/default}

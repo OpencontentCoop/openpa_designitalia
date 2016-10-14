@@ -1,4 +1,3 @@
-{def $contentclass_attribute = $attribute.contentclass_attribute}
 <fieldset class="Form-field{if $attribute.has_validation_error} has-error{/if}">
     <legend class="Form-label {if $attribute.is_required}is-required{/if}">
         {first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}
@@ -7,7 +6,7 @@
     </legend>
 
     {if $contentclass_attribute.description}
-        <em>{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</em>
+        <em class="attribute-description">{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</em>
     {/if}
 
     {def $zone_id = ''
@@ -193,4 +192,3 @@
     {rdelim}
     </script>
 </fieldset>
-{undef $contentclass_attribute}

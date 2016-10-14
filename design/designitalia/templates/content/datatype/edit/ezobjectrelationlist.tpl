@@ -6,8 +6,7 @@
 
 {default html_class='full' placeholder=false()}
 
-{def $contentclass_attribute = $attribute.contentclass_attribute}
-<fieldset class="Form-field{if $attribute.has_validation_error} has-error{/if}">
+<fieldset class="Form-field {if array(2,3)|contains($class_content.selection_type)}Form-field--choose Grid-cell{/if} {if $attribute.has_validation_error} has-error{/if}">
     <legend class="Form-label {if $attribute.is_required}is-required{/if}">
         {first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}
         {if $attribute.is_information_collector} <em class="collector">{'information collector'|i18n( 'design/admin/content/edit_attribute' )}</em>{/if}
@@ -15,7 +14,7 @@
     </legend>
 
     {if $contentclass_attribute.description}
-        <em>{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</em>
+        <em class="attribute-description">{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</em>
     {/if}
 
 {* If current selection mode is not 'browse'. *}
@@ -43,7 +42,7 @@
         {case match=1} 
             <input type="hidden" name="single_select_{$attribute.id}" value="1" />
             {if ne( count( $nodesList ), 0)}
-            <select class="{$html_class}" name="{$attribute_base}_data_object_relation_list_{$attribute.id}[]">
+            <select class="Form-input" name="{$attribute_base}_data_object_relation_list_{$attribute.id}[]">
                 {if $attribute.contentclass_attribute.is_required|not}
                     <option value="no_relation" {if eq( $attribute.content.relation_list|count, 0 )} selected="selected"{/if}> </option>
                 {/if}
@@ -68,13 +67,15 @@
         {case match=2} 
             <input type="hidden" name="single_select_{$attribute.id}" value="1" />
             {if $attribute.contentclass_attribute.is_required|not}
-                <div class="radio"><label>
-                  <input type="radio" name="{$attribute_base}_data_object_relation_list_{$attribute.id}[]" value="no_relation"
-                {if eq( $attribute.content.relation_list|count, 0 )} checked="checked"{/if} />{'No relation'|i18n( 'design/standard/content/datatype' )}</label></div>{/if}
+                <label class="Form-label Form-label--block">
+                  <input type="radio" class="Form-input" name="{$attribute_base}_data_object_relation_list_{$attribute.id}[]" value="no_relation"{if eq( $attribute.content.relation_list|count, 0 )} checked="checked"{/if} />
+                    <span class="Form-fieldIcon" role="presentation"></span> {'No relation'|i18n( 'design/standard/content/datatype' )}
+                </label>
+            {/if}
                 
             {section var=node loop=$nodesList}
-                <div class="radio"><label>
-                <input type="radio" name="{$attribute_base}_data_object_relation_list_{$attribute.id}[]" value="{$node.contentobject_id}"
+                <label class="Form-label Form-label--block">
+                <input type="radio" class="Form-input" name="{$attribute_base}_data_object_relation_list_{$attribute.id}[]" value="{$node.contentobject_id}"
                 {if ne( count( $attribute.content.relation_list ), 0)}
                 {foreach $attribute.content.relation_list as $item}
                      {if eq( $item.contentobject_id, $node.contentobject_id )}
@@ -84,15 +85,15 @@
                 {/foreach}
                 {/if}
                 >
-                {$node.name|wash}
-                </label></div>
+                    <span class="Form-fieldIcon" role="presentation"></span> {$node.name|wash}
+                </label>
             {/section}
         {/case}
 
         {case match=3} {* check boxes list *}
             {section var=node loop=$nodesList}
-                <div class="checkbox"><label>
-                <input type="checkbox" name="{$attribute_base}_data_object_relation_list_{$attribute.id}[{$node.node_id}]" value="{$node.contentobject_id}"
+                <label class="Form-label Form-label--block">
+                <input class="Form-input" type="checkbox" name="{$attribute_base}_data_object_relation_list_{$attribute.id}[{$node.node_id}]" value="{$node.contentobject_id}"
                 {if ne( count( $attribute.content.relation_list ), 0)}
                 {foreach $attribute.content.relation_list as $item}
                      {if eq( $item.contentobject_id, $node.contentobject_id )}
@@ -102,8 +103,8 @@
                 {/foreach}
                 {/if}
                 />
-                {$node.name|wash}
-                </label></div>
+                        <span class="Form-fieldIcon" role="presentation"></span> {$node.name|wash}
+                </label>
             {/section}
         {/case}
 
@@ -270,20 +271,24 @@
             <div class="Grid-cell u-size12of12 u-sm-size12of12 u-md-size4of12 u-lg-size4of12">
                 <div class="Form-field Form-field--withPlaceholder Form--Grid-cell u-sizeFull u-sm-size6of12 u-md-size4of12 u-lg-size3of12">
                     <input type="text" class="ezobject-relation-search-text" />
-                    <button type="submit" class="ezobject-relation-search-btn u-background-40 u-padding-all-s u-color-white" name="CustomActionButton[{$attribute.id}_browse_objects]"><span class="fa fa-search"></span></button>
+                    <button type="submit"
+                            data-no_result="Nessun risultato per --search-string--"
+                            class="ezobject-relation-search-btn u-background-40 u-padding-all-s u-color-white"
+                            name="CustomActionButton[{$attribute.id}_browse_objects]">
+                        <span class="fa fa-search"></span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <ul class="u-border-top-m u-background-white inline-block ezobject-relation-search-browse hide"></ul>
 
-        {ezscript_require( array( 'ezjsc::jquery', 'ezjsc::jqueryio', 'ezajaxrelations_jquery.js' ) )}
+        {ezscript_require( array( 'ezjsc::jquery', 'ezjsc::jqueryio', 'plugins/edit.js' ) )}
 
     </div><!-- /div class="block" id="ezobjectrelationlist_browse_{$attribute.id}" -->
 {/if}
 
 </fieldset>
-{undef $contentclass_attribute}
 
 {/default}
 {/let}

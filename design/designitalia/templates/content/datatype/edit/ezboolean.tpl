@@ -12,7 +12,7 @@
 
         {$attribute.contentclass_attribute.name|wash()}
         {if $contentclass_attribute.description}
-            <em>{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</em>
+            <em class="attribute-description">{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</em>
         {/if}
 
     </label>

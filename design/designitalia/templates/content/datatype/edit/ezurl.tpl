@@ -7,7 +7,6 @@
     {def $id_base = concat( 'ezcoa-', $attribute.contentclassattribute_id, '_', $attribute.contentclass_attribute_identifier )}
 {/if}
 
-{def $contentclass_attribute = $attribute.contentclass_attribute}
 <fieldset class="Form-field{if $attribute.has_validation_error} has-error{/if}">
     <legend class="Form-label {if $attribute.is_required}is-required{/if}">
         {first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}
@@ -16,16 +15,21 @@
     </legend>
 
     {if $contentclass_attribute.description}
-        <em>{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</em>
+        <em class="attribute-description">{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</em>
     {/if}
 
-    <label class="Form-label" for="{$id_base}_url">Url</label>
-    <input placeholder="http://www.google.com" id="{$id_base}_url" class="Form-input" type="text" name="{$attribute_base}_ezurl_url_{$attribute.id}" value="{$attribute.content|wash( xhtml )} {if $attribute.is_required}required aria-required="true"{/if}" />
-    <label class="Form-label" for="{$id_base}_text">{'Text'|i18n( 'design/standard/content/datatype' )}</label>
-    <input id="{$id_base}_text" class="Form-input" type="text" name="{$attribute_base}_ezurl_text_{$attribute.id}" value="{$attribute.data_text|wash( xhtml )}" />
+    <div class="Grid Grid--withGutter">
+        <div class="Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
+            <label class="Form-label" for="{$id_base}_url">Url</label>
+            <input placeholder="http://www.google.com" id="{$id_base}_url" class="Form-input" type="text" name="{$attribute_base}_ezurl_url_{$attribute.id}" value="{$attribute.content|wash( xhtml )} {if $attribute.is_required}required aria-required="true"{/if}" />
+        </div>
+        <div class="Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
+            <label class="Form-label" for="{$id_base}_text">{'Text'|i18n( 'design/standard/content/datatype' )}</label>
+            <input id="{$id_base}_text" class="Form-input" type="text" name="{$attribute_base}_ezurl_text_{$attribute.id}" value="{$attribute.data_text|wash( xhtml )}" />
+        </div>
+    </div>
 
 </fieldset>
-{undef $contentclass_attribute}
 
 
 {/default}

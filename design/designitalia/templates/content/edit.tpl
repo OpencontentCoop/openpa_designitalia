@@ -16,37 +16,18 @@
     {set $_redirect = concat( $_redirect, '/(tab)/', $tab )}
 {/if}
 
-{include uri='design:parts/website_toolbar_edit.tpl'}
+{def $language_index = 0
+     $from_language_index = 0
+     $translation_list = $content_version.translation_list}
 
 <form class="Form Form--spaced u-padding-all-xl {*u-layout-prose*} u-text-r-xs" enctype="multipart/form-data" method="post" action={concat("/content/edit/",$object.id,"/",$edit_version,"/",$edit_language|not|choose(concat($edit_language,"/"),''))|ezurl}>
+    {include uri='design:parts/website_toolbar_edit.tpl'}
 
-    <div class="Grid Grid--withGutter">
-        <div class="Grid-cell u-md-size3of4 u-lg-size3of4">
-            <h2 class="u-text-h2">
-                <i class='icon-edit'></i>
-                <span>Modifica {$object.name|wash}</span>
-                <small>{$class.name|wash}</small>
-            </h2>
-        </div>
-
-        <div class="Grid-cell u-md-size1of4 u-lg-size1of4">
-            <p class="{*u-layout-prose*} u-color-grey-90 u-text-p u-padding-r-bottom u-padding-r-top">
-                {def $language_index = 0 $from_language_index = 0 $translation_list = $content_version.translation_list}
-                {foreach $translation_list as $index => $translation} {if eq( $edit_language, $translation.language_code )} {set $language_index = $index} {/if}{/foreach}
-
-                {if $is_translating_content}
-                    {def $from_language_object = $object.languages[$from_language]}
-
-                    {'Translating content from %from_lang to %to_lang'|i18n( 'design/ezwebin/content/edit',, hash(
-                '%from_lang', concat( $from_language_object.name, '&nbsp;<img src="', $from_language_object.locale|flag_icon, '" style="vertical-align: middle;" alt="', $from_language_object.locale, '" />' ),
-                '%to_lang', concat( $translation_list[$language_index].locale.intl_language_name, '&nbsp;<img src="', $translation_list[$language_index].language_code|flag_icon, '" style="vertical-align: middle;" alt="', $translation_list[$language_index].language_code, '" />' )
-                ) )}
-                {else}
-                    {'Content in %language'|i18n( 'design/ezwebin/content/edit',, hash( '%language', $translation_list[$language_index].locale.intl_language_name ))}&nbsp;<img src="{$translation_list[$language_index].language_code|flag_icon}" style="vertical-align: middle;" alt="{$translation_list[$language_index].language_code}" />
-                {/if}
-            </p>
-        </div>
-    </div>
+    <h2 class="u-text-h2">
+        <i class='icon-edit'></i>
+        <span>Modifica {$object.name|wash}</span>
+        <small>{$class.name|wash}</small>
+    </h2>
 
     {include uri="design:content/edit_validation.tpl"}
 

@@ -1,135 +1,95 @@
-<div class="panel panel-info">
-    <div class="panel-heading">{"Object info"|i18n("design/standard/content/edit")}</div>
-    <div class="panel-body">
-        <p class="menufieldlabel">{"Created"|i18n("design/standard/content/edit")}</p>
-
+<div class="Grid Grid--withGutter u-padding-bottom-s">
+    <div class="Grid-cell u-sizeFull u-sm-size1of3 u-md-size1of3 u-lg-size1of3">
+        <strong>{"Created"|i18n("design/standard/content/edit")}</strong>
+    </div>
+    <div class="Grid-cell u-sizeFull u-sm-size2of3 u-md-size2of3 u-lg-size2of3">
         {section show=$object.published}
-        <p class="menufield">{$object.published|l10n(date)}</p>
+        {$object.published|l10n(date)}
         {section-else}
-            <p class="menufield">
-                {"Not yet published"|i18n("design/standard/content/edit")}
-            </p>
+            {"Not yet published"|i18n("design/standard/content/edit")}
         {/section}
+    </div>
+</div>
 
-        <p class="menufieldlabel">{"Last Modified"|i18n("design/standard/content/edit")}</p>
+<div class="Grid Grid--withGutter u-padding-bottom-s">
+    <div class="Grid-cell u-sizeFull u-sm-size1of3 u-md-size1of3 u-lg-size1of3">
+        <strong>{"Last Modified"|i18n("design/standard/content/edit")}</strong>
+    </div>
+    <div class="Grid-cell u-sizeFull u-sm-size2of3 u-md-size2of3 u-lg-size2of3">
         {section show=$object.modified}
-        <p class="menufield">{$object.modified|l10n(date)}</p>
+            {$object.modified|l10n(date)}
         {section-else}
-            <p class="menufield">
-                {"Not yet published"|i18n("design/standard/content/edit")}
-            </p>
+            {"Not yet published"|i18n("design/standard/content/edit")}
         {/section}
     </div>
-</div>
-
-<div class="panel panel-info">
-    <div class="panel-heading">{"Sezioni"|i18n("design/standard/content/edit")}</div>
-    <div class="panel-body">
-        {include uri='design:content/parts/edit_sections.tpl'}
-    </div>
-</div>
-
-<div class="panel panel-info">
-    <div class="panel-heading">{"States"|i18n("design/standard/content/edit")}</div>
-    <div class="panel-body">
-        {include uri='design:content/parts/edit_states.tpl'}
-    </div>
-</div>
-
-<div class="panel panel-info">
-    <div class="panel-heading">{"Versions"|i18n("design/standard/content/edit")}</div>
-    <table class="table">
-        <tr>
-            <td class="menu">
-                <p class="menufieldlabel">{"Editing"|i18n("design/standard/content/edit")}</p>
-            </td>
-            <td class="menu" width="1">
-                <p class="menufield">{$edit_version}</p>
-            </td>
-        </tr>
-        <tr>
-            <td class="menu">
-                <p class="menufieldlabel">{"Current"|i18n("design/standard/content/edit")}</p>
-            </td>
-            <td class="menu" width="1">
-                <p class="menufield">{$object.current_version}</p>
-            </td>
-        </tr>
-        <tr>
-            <td class="menu" colspan="2" align="right">
-                <input class="menubutton" type="submit" name="VersionsButton" value="{'Manage'|i18n('design/standard/content/edit')}" />
-            </td>
-        </tr>
-    </table>
-</div>
-
-<div class="panel panel-info">
-    <div class="panel-heading">{"Translations"|i18n("design/standard/content/edit")}</div>
-    <table class="table">
-        <tr>
-            <td>
-                <p class="menufieldlabel">{'No translation'|i18n( 'design/standard/content/edit' )}</p>
-            </td>
-            <td>
-                <input type="radio" name="FromLanguage" value=""{if $from_language|not} checked="checked"{/if}{if $object.status|eq(0)} disabled="disabled"{/if} />
-            </td>
-        </tr>
-        {if $object.status}
-            {foreach $object.languages as $language}
-                <tr>
-                    <td>
-                        <p class="menufieldlabel">{$language.name|wash}</p>
-                    </td>
-                    <td>
-                        <input type="radio" name="FromLanguage" value="{$language.locale}"{if $language.locale|eq($from_language)} checked="checked"{/if} />
-                    </td>
-                </tr>
-            {/foreach}
-        {/if}
-
-        <tr>
-            <td colspan="2" align="right">
-                <input class="menubutton" type="submit" name="FromLanguageButton" value="{'Translate'|i18n( 'design/standard/content/edit' )}" />
-            </td>
-        </tr>
-    </table>
 </div>
 {*
-<div class="panel panel-info">
-    <div class="panel-heading">{"Related objects"|i18n("design/standard/content/edit")}</div>
-    <table class="table">
-    {section name=Object loop=$related_contentobjects sequence=array(bglight,bgdark)}
-    <tr>
-        <td class="{$Object:sequence}" align="left" colspan="1">
-            <p class="box">{node_view_gui view=thumb content_node=$Object:item.main_node}</p>
-            <span class="small">&lt;object id='{$Object:item.id}' /&gt;</span>
-    	</td>
-        <td class="{$Object:sequence}" align="right" colspan="1" width="1">
-            <input type="checkbox" name="DeleteRelationIDArray[]" value="{$Object:item.id}" />
-        </td>
-    </tr>
-    {/section}
-    <tr>
-        <td align="right" colspan="2">
-          <div class="buttonblock">
-            <input class="menubutton" type="image" name="BrowseObjectButton" value="{'Find'|i18n('design/standard/content/edit')}" src={"find.png"|ezimage} />
-            {section show=$related_contentobjects}
-            <input class="menubutton" type="image" name="DeleteRelationButton" value="{'Remove'|i18n('design/standard/content/edit')}" src={"trash.png"|ezimage} />
-            {/section}
-          </div>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2" align="right">
-            <select	name="ClassID" class="classcreate">
-                {section name=Classes loop=$object.can_create_class_list}
-                <option value="{$Classes:item.id}">{$Classes:item.name}</option>
-                {/section}
-            </select>
-            <input class="menubutton" type="submit" name="NewButton" value="{'New'|i18n('design/standard/content/edit')}" />
-            <input type="hidden" name="SectionID" value="{$object.section_id}" />
-        </td>
-    </tr>
-    </table>
-</div>
+<fieldset class="Form-field">
+    <legend class="Form-label">{"Versions"|i18n("design/standard/content/edit")}</legend>
+    <div class="Grid Grid--withGutter">
+        <div class="Grid-cell u-sizeFull u-sm-size1of3 u-md-size1of3 u-lg-size1of3">
+            <strong>{"Editing"|i18n("design/standard/content/edit")}</strong>
+        </div>
+        <div class="Grid-cell u-sizeFull u-sm-size2of3 u-md-size2of3 u-lg-size2of3">
+            {$edit_version}
+        </div>
+    </div>
+    <div class="Grid Grid--withGutter">
+        <div class="Grid-cell u-sizeFull u-sm-size1of3 u-md-size1of3 u-lg-size1of3">
+            <strong>{"Current"|i18n("design/standard/content/edit")}</strong>
+        </div>
+        <div class="Grid-cell u-sizeFull u-sm-size2of3 u-md-size2of3 u-lg-size2of3">
+            {$object.current_version}
+        </div>
+    </div>
+</fieldset>
 *}
+<fieldset class="Form-field">
+    <legend class="Form-label">{"Sezioni"|i18n("design/standard/content/edit")}</legend>
+    {include uri='design:content/parts/edit_sections.tpl'}
+</fieldset>
+
+<fieldset class="Form-field">
+    <legend class="Form-label">{"States"|i18n("design/standard/content/edit")}</legend>
+    {include uri='design:content/parts/edit_states.tpl'}
+</fieldset>
+
+
+<fieldset class="Form-field Form-field--choose Grid-cell">
+    <legend class="Form-label">
+
+        {foreach $translation_list as $index => $translation} {if eq( $edit_language, $translation.language_code )} {set $language_index = $index} {/if}{/foreach}
+
+        {if $is_translating_content}
+            {def $from_language_object = $object.languages[$from_language]}
+
+            {'Translating content from %from_lang to %to_lang'|i18n( 'design/ezwebin/content/edit',, hash(
+        '%from_lang', concat( $from_language_object.name, '&nbsp;<img src="', $from_language_object.locale|flag_icon, '" style="vertical-align: middle;" alt="', $from_language_object.locale, '" />' ),
+        '%to_lang', concat( $translation_list[$language_index].locale.intl_language_name, '&nbsp;<img src="', $translation_list[$language_index].language_code|flag_icon, '" style="vertical-align: middle;" alt="', $translation_list[$language_index].language_code, '" />' )
+        ) )}
+        {else}
+            {'Content in %language'|i18n( 'design/ezwebin/content/edit',, hash( '%language', $translation_list[$language_index].locale.intl_language_name ))}&nbsp;<img src="{$translation_list[$language_index].language_code|flag_icon}" style="vertical-align: middle;" alt="{$translation_list[$language_index].language_code}" />
+        {/if}
+    </legend>
+
+    <label class="Form-label Form-label--block">
+        <input type="radio"
+               name="FromLanguage" value=""{if $from_language|not} checked="checked"{/if}{if $object.status|eq(0)} disabled="disabled"{/if}
+               class="Form-input"> <span class="Form-fieldIcon" role="presentation"></span> {'No translation'|i18n( 'design/standard/content/edit' )}
+    </label>
+
+    {if $object.status}
+        {foreach $object.languages as $language}
+            <label class="Form-label Form-label--block">
+                <input type="radio"
+                       name="FromLanguage" value="{$language.locale}"{if $language.locale|eq($from_language)} checked="checked"{/if}
+                       class="Form-input"> <span class="Form-fieldIcon" role="presentation"></span> {$language.name|wash}
+            </label>
+        {/foreach}
+    {/if}
+
+</fieldset>
+<div class="pull-right">
+    <input class="button" type="submit" name="FromLanguageButton" value="{'Translate'|i18n( 'design/standard/content/edit' )}" />
+</div>
+

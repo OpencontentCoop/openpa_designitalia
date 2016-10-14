@@ -61,13 +61,11 @@ div.embed{
     margin: 20px 0;
 }
 
-.block .element, .block .halfelement {
-    float: left;
-    padding-right: 10px;
+.attribute-description{
+    display: block;
+    font-size: .8em;
+    margin-bottom: 5px;
 }
-
-.block .element input{display: inline-block;}
-
 
 /* eztags */
 div.tagssuggest ul li{
@@ -111,10 +109,16 @@ div.tags-list p.loading, div.tags-list p.no-results{
 
 .ezobject-relation-search-browse{
     margin: 10px 0;
+    position: relative;
 }
 
-.ezobject-relation-search-browse p a{
+.ezobject-relation-search-browse a{
     cursor: pointer;
+}
+.ezobject-relation-search-browse a.close{
+    position: absolute;
+    right: 3px;
+    top: 3px;
 }
 
 /* ezdate ezdatetime */
@@ -586,6 +590,75 @@ p.text-justify, td.text-justify, th.text-justify, *.text-justify
     text-align: justify;
 }
 
+.leaflet-div-icon {
+    background: transparent;
+    border: none;
+}
+p .leaflet-div-icon{
+
+}
+
+.ezgml-data input{
+    border: none;
+    background: inherit;
+}
+
+.ezgml-form-fields p{
+    margin:0
+}
+
+.ezgml-form-fields label{
+    display: block;
+    line-height: 0.5;
+    font-weight: bold;
+}
+
+.ezgml-form-fields p small.key{
+    font-style: italic;
+    padding-right: 5px;
+}
+
+.ezgml-form-fields small.key{
+    margin:0
+}
+
+.ezgml-search-results {
+    position: relative;
+    max-width: 400px;
+}
+
+.ezgml-search-results .leaflet-marker-icon{
+    position: relative;
+    float: left;
+    padding-right: 10px;
+    height: 41px;
+}
+
+.ezgml-search-results a.close {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+}
+
+.leaflet-marker-icon .number {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 20px;
+    color: #000;
+    font-size: 1em;
+    font-weight: bold;
+    height: 21px;
+    line-height: 21px;
+    margin-left: 2px;
+    position: relative;
+    text-align: center;
+    top: -42px;
+    width: 21px;
+}
+
+.leaflet-div-icon{
+    background-color: transparent !important;
+    border: none !important;
+}
 
 /* todo: mixins openpa */
 .block-color-select.default-1 {
