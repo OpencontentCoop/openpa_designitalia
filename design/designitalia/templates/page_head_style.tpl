@@ -6,6 +6,7 @@
 {ezcss_load( array(
         'vendor.css',
         'build.css',
+        'carousel.css',
         'ez.css',
         'debug.css',
         'font-awesome.min.css',
@@ -19,6 +20,7 @@
 {ezcss_load( array(
         'vendor.css',
         'build.css',
+        'carousel.css',
         'ez.css',
         'debug.css',
         'font-awesome.min.css',
