@@ -45,12 +45,11 @@
 </fieldset>
 *}
 <fieldset class="Form-field">
-    <legend class="Form-label">{"Sezioni"|i18n("design/standard/content/edit")}</legend>
     {include uri='design:content/parts/edit_sections.tpl'}
 </fieldset>
 
 <fieldset class="Form-field">
-    <legend class="Form-label">{"States"|i18n("design/standard/content/edit")}</legend>
+    <legend class="Form-label">{"Stati"|i18n("design/standard/content/edit")}</legend>
     {include uri='design:content/parts/edit_states.tpl'}
 </fieldset>
 

@@ -3,7 +3,7 @@
          $attribute_default_category = ezini( 'ClassAttributeSettings', 'DefaultCategory', 'content.ini' )}
 
 <div class="Grid Grid--withGutter u-padding-top-xxl u-padding-bottom-xxl">
-    <div class="Grid-cell u-sizeFull u-sm-size12of12 u-md-size8of12 u-lg-size8of12">
+    <div class="Grid-cell u-sizeFull u-sm-size12of12 u-md-size9of12 u-lg-size9of12">
 
         <div class="Accordion fr-accordion js-fr-accordion" id="accordion-edit-attributes">
             {foreach $content_attributes_grouped_data_map as $attribute_group => $content_attributes_grouped}
@@ -24,21 +24,15 @@
 
                         {* Show view GUI if we can't edit, otherwise: show edit GUI. *}
                         {if and( eq( $attribute.can_translate, 0 ), ne( $object.initial_language_code, $attribute.language_code ) )}
-                            <div class="col-md-3">
-                                <p>{first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}
-                                    {if $attribute.can_translate|not} <span class="nontranslatable">
-                                        ({'not translatable'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}
-                                    :
-                                    {if $contentclass_attribute.description} <span
-                                            class="classattribute-description">{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</span>{/if}
+                            <div class="ezcca-edit-datatype-{$attribute.data_type_string} u-padding-all-s">
+                                <p class="Form-label">{first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}
+                                    {if $attribute.can_translate|not} <span class="nontranslatable"> ({'not translatable'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}:
+                                    {if $contentclass_attribute.description} <em class="classattribute-description">{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</em>{/if}
                                 </p>
-                            </div>
-                            <div class="col-md-9">
                                 {if $is_translating_content}
-                                    <div class="original">
+                                    <div class="u-background-grey-20 u-padding-all-s">
                                         {attribute_view_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters}
-                                        <input type="hidden" name="ContentObjectAttribute_id[]"
-                                               value="{$attribute.id}"/>
+                                        <input type="hidden" name="ContentObjectAttribute_id[]" value="{$attribute.id}"/>
                                     </div>
                                 {else}
                                     {attribute_view_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters}
@@ -71,7 +65,7 @@
         </div>
     </div>
 
-    <div class="Grid-cell u-sizeFull u-sm-size12of12 u-md-size4of12 u-lg-size4of12">
+    <div class="Grid-cell u-sizeFull u-sm-size12of12 u-md-size3of12 u-lg-size3of12">
         {include uri="design:content/edit_properties.tpl"}
     </div>
 
