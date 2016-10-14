@@ -10,7 +10,7 @@
      $show_left = and( $openpa.control_menu.show_side_menu, count( $tree_menu.children )|gt(0) )}
 
 
-<div class="u-layout-wide u-layoutCenter u-layout-withGutter u-padding-r-top content-view-full class-{$node.class_identifier}">
+<div class="content-view-full class-{$node.class_identifier}">
     <div class="u-padding-bottom-l content-title">
         {include uri='design:openpa/full/parts/node_languages.tpl'}
         <h2 class="u-text-h2">{$node.name|wash()}</h2>

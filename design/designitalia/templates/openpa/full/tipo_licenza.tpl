@@ -26,7 +26,7 @@
     'jquery.opendataDataTable.js',
     'jquery.opendataTools.js'    
 ))}
-
+<div class="content-view-full class-{$node.class_identifier}">
 <script type="text/javascript" language="javascript" class="init">
     var mainQuery = "{concat( 'raw[', solr_meta_subfield('licenza','id'), '] = ', $node.contentobject_id )}";
     
@@ -147,9 +147,6 @@
     </style>
 {/literal}
 
-
-
-<div class="u-layout-wide u-layoutCenter u-layout-withGutter u-padding-r-top content-view-full class-{$node.class_identifier} row">
 
     <div class="u-padding-bottom-l content-title">
         {include uri='design:openpa/full/parts/node_languages.tpl'}

@@ -26,7 +26,7 @@
     'jquery.opendataDataTable.js',
     'jquery.opendataTools.js'    
 ))}
-
+<div class="content-view-full class-{$node.class_identifier}">
 <script type="text/javascript" language="javascript" class="init">
     var mainQuery = "{concat( 'raw[', solr_meta_subfield('lista_elettorale','id'), '] = ', $node.contentobject_id )}";
     
@@ -148,8 +148,6 @@
 {/literal}
 
 
-
-<div class="u-layout-wide u-layoutCenter u-layout-withGutter u-padding-r-top content-view-full class-{$node.class_identifier}">
     <div class="u-padding-bottom-l content-title">
         {include uri='design:openpa/full/parts/node_languages.tpl'}
         <h2 class="u-text-h2">{$node.name|wash()}</h2>

@@ -20,7 +20,7 @@
      $from_language_index = 0
      $translation_list = $content_version.translation_list}
 
-<form class="Form Form--spaced u-padding-all-xl {*u-layout-prose*} u-text-r-xs" enctype="multipart/form-data" method="post" action={concat("/content/edit/",$object.id,"/",$edit_version,"/",$edit_language|not|choose(concat($edit_language,"/"),''))|ezurl}>
+<form class="Form Form--spaced {*u-layout-prose*} u-text-r-xs" enctype="multipart/form-data" method="post" action={concat("/content/edit/",$object.id,"/",$edit_version,"/",$edit_language|not|choose(concat($edit_language,"/"),''))|ezurl}>
     {include uri='design:parts/website_toolbar_edit.tpl'}
 
     <h2 class="u-text-h2">
