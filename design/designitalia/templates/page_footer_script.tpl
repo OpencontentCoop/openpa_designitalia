@@ -1,12 +1,12 @@
 <!--[if IE 8]>
-<script src="{'javascript/respond.min.js'|ezdesign(no)}"></script>
-<script src="{'javascript/rem.min.js'|ezdesign(no)}"></script>
-<script src="{'javascript/selectivizr.js'|ezdesign(no)}"></script>
-<script src="{'javascript/slice.js'|ezdesign(no)}"></script>
+<script src="{'javascript/vendor/respond.min.js'|ezdesign(no)}"></script>
+<script src="{'javascript/vendor/rem.min.js'|ezdesign(no)}"></script>
+<script src="{'javascript/vendor/selectivizr.js'|ezdesign(no)}"></script>
+<script src="{'javascript/vendor/slice.js'|ezdesign(no)}"></script>
 <![endif]-->
 
 <!--[if lte IE 9]>
-<script src="{'javascript/polyfill.min.js'|ezdesign(no)}"></script>
+<script src="{'javascript/vendor/polyfill.min.js'|ezdesign(no)}"></script>
 <![endif]-->
 
 <script src="{'javascript/IWT.min.js'|ezdesign(no)}"></script>

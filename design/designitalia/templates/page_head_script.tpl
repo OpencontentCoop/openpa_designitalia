@@ -23,7 +23,7 @@
 ))}
 
 <!-- include html5shim per Explorer 8 -->
-<script src="{'javascript/modernizr.js'|ezdesign(no)}"></script>
+<script src="{'javascript/vendor/modernizr.js'|ezdesign(no)}"></script>
 
 
 

@@ -54,7 +54,7 @@
 
 {/cache-block}
 
-    <div id="main">
+    <div id="main  u-layoutProse">
         {include uri='design:page_mainarea.tpl'}
 
         {cache-block expiry=86400 keys=array( $module_result.uri, $user_hash_cache_key, $access_type.name, $extra_cache_key )}
