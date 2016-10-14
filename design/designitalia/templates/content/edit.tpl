@@ -16,7 +16,7 @@
     {set $_redirect = concat( $_redirect, '/(tab)/', $tab )}
 {/if}
 
-{*{include uri='design:parts/website_toolbar_edit.tpl'}*}
+{include uri='design:parts/website_toolbar_edit.tpl'}
 
 <form class="Form Form--spaced u-padding-all-xl {*u-layout-prose*} u-text-r-xs" enctype="multipart/form-data" method="post" action={concat("/content/edit/",$object.id,"/",$edit_version,"/",$edit_language|not|choose(concat($edit_language,"/"),''))|ezurl}>
 

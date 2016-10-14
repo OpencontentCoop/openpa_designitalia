@@ -9,6 +9,10 @@
         {if $attribute.is_required} ({'richiesto'|i18n('design/ocbootstrap/designitalia')}){/if}
     </legend>
 
+    {if $contentclass_attribute.description}
+        <em>{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</em>
+    {/if}
+
     <div class="Grid Grid--withGutter zones">
 
         <div class="Grid-cell u-sizeFull u-sm-size1of3 u-md-size1of3 u-lg-size1of3">

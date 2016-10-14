@@ -1,12 +1,14 @@
 {default $view_parameters            = array()
-$attribute_categorys        = ezini( 'ClassAttributeSettings', 'CategoryList', 'content.ini' )
-$attribute_default_category = ezini( 'ClassAttributeSettings', 'DefaultCategory', 'content.ini' )}
+         $attribute_categorys        = ezini( 'ClassAttributeSettings', 'CategoryList', 'content.ini' )
+         $attribute_default_category = ezini( 'ClassAttributeSettings', 'DefaultCategory', 'content.ini' )}
 
 <div class="Grid Grid--withGutter u-padding-top-xxl">
     <div class="Grid-cell u-sizeFull u-sm-size12of12 u-md-size8of12 u-lg-size8of12">
 
         <div class="Accordion fr-accordion js-fr-accordion" id="accordion-edit-attributes">
             {foreach $content_attributes_grouped_data_map as $attribute_group => $content_attributes_grouped}
+
+                {if $attribute_group|eq('hidden')}<div style="display: none !important;">{/if}
 
                 {if $attribute_default_category|ne($attribute_group)}
                     <h2 class="Accordion-header js-fr-accordion__header fr-accordion__header"
@@ -15,7 +17,7 @@ $attribute_default_category = ezini( 'ClassAttributeSettings', 'DefaultCategory'
                     </h2>
                 {/if}
                 <div id="accordion-panel-{$attribute_group}"
-                     class="Accordion-panel{if $attribute_default_category|ne($attribute_group)} fr-accordion__panel js-fr-accordion__panel{/if} {*u-layout-prose*} u-color-grey-90 u-padding-top-l">
+                     class="Accordion-panel{if $attribute_default_category|ne($attribute_group)} fr-accordion__panel js-fr-accordion__panel {/if} {*u-layout-prose*} u-background-grey-10 u-color-grey-90">
 
                     {foreach $content_attributes_grouped as $attribute_identifier => $attribute}
                         {def $contentclass_attribute = $attribute.contentclass_attribute}
@@ -76,7 +78,7 @@ $attribute_default_category = ezini( 'ClassAttributeSettings', 'DefaultCategory'
                                     </div>
                                 </div>
                             {else}
-                                <div class="ezcca-edit-datatype-{$attribute.data_type_string}">
+                                <div class="ezcca-edit-datatype-{$attribute.data_type_string} u-padding-all-s">
                                     {attribute_edit_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters html_class='Form-input'}
                                     <input type="hidden" name="ContentObjectAttribute_id[]" value="{$attribute.id}"/>
                                 </div>
@@ -85,12 +87,13 @@ $attribute_default_category = ezini( 'ClassAttributeSettings', 'DefaultCategory'
                         {undef $contentclass_attribute}
                     {/foreach}
                 </div>
+                {if $attribute_group|eq('hidden')}</div>{/if}
             {/foreach}
         </div>
     </div>
 
     <div class="Grid-cell u-sizeFull u-sm-size12of12 u-md-size4of12 u-lg-size4of12">
-        {include uri="design:content/edit_right_menu.tpl"}
+        {include uri="design:content/edit_properties.tpl"}
     </div>
 
 </div>

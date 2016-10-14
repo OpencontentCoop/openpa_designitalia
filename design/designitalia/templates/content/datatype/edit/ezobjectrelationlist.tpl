@@ -14,6 +14,10 @@
         {if $attribute.is_required} ({'richiesto'|i18n('design/ocbootstrap/designitalia')}){/if}
     </legend>
 
+    {if $contentclass_attribute.description}
+        <em>{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</em>
+    {/if}
+
 {* If current selection mode is not 'browse'. *}
 {if $class_content.selection_type|ne( 0 )} 
         {default attribute_base=ContentObjectAttribute}
@@ -271,9 +275,9 @@
             </div>
         </div>
 
-        <ul class="Callout Callout--could inline-block ezobject-relation-search-browse hide"></ul>
+        <ul class="u-border-top-m u-background-white inline-block ezobject-relation-search-browse hide"></ul>
 
-        {include uri='design:content/datatype/edit/ezobjectrelation_ajax_search.tpl'}
+        {ezscript_require( array( 'ezjsc::jquery', 'ezjsc::jqueryio', 'ezajaxrelations_jquery.js' ) )}
 
     </div><!-- /div class="block" id="ezobjectrelationlist_browse_{$attribute.id}" -->
 {/if}
