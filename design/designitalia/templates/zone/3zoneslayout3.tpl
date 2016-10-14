@@ -1,6 +1,6 @@
 <div class="Grid Grid--withGutter frontpage">
     
-    <div class="Grid-cell u-md-size4of12">
+    <div class="Grid-cell u-sizeFull u-md-size4of12 u-lg-size4of12">
 
 	{if and( is_set( $zones[0].blocks ), $zones[0].blocks|count() )}	
 	{foreach $zones[0].blocks as $block}
@@ -16,7 +16,7 @@
 
 	</div>
 
-	<div class="Grid-cell u-md-size4of12">
+	<div class="Grid-cell u-sizeFull u-md-size4of12 u-lg-size4of12">
 
 	{if and( is_set( $zones[1].blocks ), $zones[1].blocks|count() )}
 	{foreach $zones[1].blocks as $block}
@@ -32,7 +32,7 @@
 
 	</div>
 
-	<div class="Grid-cell u-md-size4of12">
+	<div class="Grid-cell u-sizeFull u-md-size4of12 u-lg-size4of12">
 
 	{if and( is_set( $zones[2].blocks ), $zones[2].blocks|count() )}
 	{foreach $zones[2].blocks as $block}
