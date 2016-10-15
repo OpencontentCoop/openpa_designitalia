@@ -85,8 +85,8 @@ div#ezwt-ezlogo
 div#ezwt-help
 {
     position: absolute;
-    top: 14px;
-    right: 15px;
+    top: 8px;
+    right: 8px;
 }
 
 div#ezwt-help a
@@ -100,6 +100,7 @@ div#ezwt-help a
 
 div#ezwt-help a:hover {
     color: #ffe9bd;
+    text-decoration: none;
 }
 
 

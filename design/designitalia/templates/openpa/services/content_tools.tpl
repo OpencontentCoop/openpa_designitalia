@@ -1,13 +1,6 @@
-{* Todo: riabiliatere in prod
-<section id="editor_tools" class="Grid Grid--withGutter u-padding-all-s editor_tools">
-    <div class="Grid-cell">
-        <div class="Card Card--shadow Card--round">
-            <div class="Card-content u-padding-r-all u-backgroud-grey-40">
-                <div class="Callout Callout--should u-text-r-xs">
-                    <mark class="u-text-r-l"><i class="fa fa-info-circle"></i> Informazioni per l'editor</mark>
-                </div>
-                {include uri="design:openpa/services/tools/info.tpl"}
-            </div>
-        </div>
+<section id="editor_tools" class="editor_tools u-margin-bottom-l u-hidden u-md-block u-lg-block">
+    <div class="Callout Callout--should u-text-r-xs">
+        <p class="u-text-h3"><i class="fa fa-info-circle"></i> Informazioni per l'editor</p>
+        {include uri="design:openpa/services/tools/info.tpl"}
     </div>
-</section>*}
+</section>

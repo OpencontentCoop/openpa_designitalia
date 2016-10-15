@@ -138,7 +138,7 @@
                         <li>
                             <a href="{concat( $node.url_alias, '/(language)/', $language.locale )|ezurl(no)}">
                                 {if $language.locale|eq($node.object.current_language)}<strong>{/if}
-                                    <small>{$language.name|wash()}</small>
+                                    {$language.name|wash()}
                                     {if $language.locale|eq($node.object.current_language)}</strong>{/if}
                             </a>
                         </li>
@@ -153,7 +153,7 @@
                         <input type="hidden" name="NodeID" value="{$node.node_id}"/>
                         <input type="hidden" name="ContentNodeID" value="{$node.node_id}"/>
                         <input type="hidden" name="ContentObjectLanguageCode" value="" />
-                        <input type="submit" name="EditButton" class="button btn-xs btn-default" value="Modifica/inserisci traduzione"/>
+                        <input type="submit" name="EditButton" class="Button Button--info u-text-xxs" value="Modifica/inserisci traduzione"/>
                     </form>
                 </li>
             </ul>
@@ -176,7 +176,7 @@
                         <input type="hidden" name="ContentLanguageCode" value="ita-IT"/>
                         <input type="hidden" name="ContentObjectLanguageCode" value="ita-IT"/>
                         <input type="hidden" value="global_layout" name="ClassIdentifier"/>
-                        <input type="submit" class="btn btn-xs btn-default" value="Crea un box dedicato" name="NewButton"/>
+                        <input type="submit" class="Button Button--info u-text-xxs" value="Crea un box dedicato" name="NewButton"/>
                         <input type="hidden" name="RedirectIfDiscarded" value="{$node.url_alias}"/>
                         <input type="hidden" name="RedirectURIAfterPublish" value="{$node.url_alias}"/>
                     </form>
@@ -184,11 +184,11 @@
             {/if}
             <form action="{"/content/action"|ezurl(no)}" method="post" class="form inline" style="display:inline">
                 {if $openpa.content_globalinfo.object.object.can_edit}
-                    <input type="submit" name="EditButton" value="Modifica box" class="btn btn-xs btn-default" title="Modifica {$openpa.content_globalinfo.object.name|wash()}"/>
+                    <input type="submit" name="EditButton" value="Modifica box" class="Button Button--info u-text-xxs" title="Modifica {$openpa.content_globalinfo.object.name|wash()}"/>
                     <input type="hidden" name="ContentObjectLanguageCode" value="{$openpa.content_globalinfo.object.object.current_language}"/>
                 {/if}
                 {if $openpa.content_globalinfo.object.object.can_remove}
-                    <input type="submit" class="btn btn-xs btn-default" name="ActionRemove" value="Elimina box" alt="Elimina {$openpa.content_globalinfo.object.name|wash()}" title="Elimina {$openpa.content_globalinfo.object.name|wash()}"/>
+                    <input type="submit" class="Button Button--info u-text-xxs" name="ActionRemove" value="Elimina box" alt="Elimina {$openpa.content_globalinfo.object.name|wash()}" title="Elimina {$openpa.content_globalinfo.object.name|wash()}"/>
                 {/if}
                 <input type="hidden" name="ContentObjectID" value="{$openpa.content_globalinfo.object.object.id}"/>
                 <input type="hidden" name="NodeID" value="{$openpa.content_globalinfo.object.node_id}"/>
@@ -208,7 +208,7 @@
                 <input type="hidden" name="ContentLanguageCode" value="ita-IT"/>
                 <input type="hidden" name="ContentObjectLanguageCode" value="ita-IT"/>
                 <input type="hidden" value="global_layout" name="ClassIdentifier"/>
-                <input type="submit" class="btn btn-xs btn-default" value="Crea un box dedicato" name="NewButton"/>
+                <input type="submit" class="Button Button--info u-text-xxs" value="Crea un box dedicato" name="NewButton"/>
             </form>
         </dd>
     {/if}
@@ -227,7 +227,7 @@
                             <option value="{$edition_id}">{$edition_name|wash()}</option>
                         {/foreach}
                     </select>
-                    <input class="btn btn-xs btn-default" type="submit" name="AddLocation" value="Aggiungi" />
+                    <input class="Button Button--info u-text-xxs" type="submit" name="AddLocation" value="Aggiungi" />
             </form>
         {/if}
         </dd>
@@ -236,14 +236,13 @@
 
 </dl>
 
-<hr />
 <p>
-    <a class="btn btn-sm btn-info" href="{concat('index/object/',$node.contentobject_id)|ezurl(no)}">Controlla indicizzazione contenuto</a>
-    <a class="btn btn-sm btn-info" href="{concat('content/history/',$node.contentobject_id)|ezurl(no)}">Gestisci versioni</a>
+    <a class="Button Button--info u-text-xxs" href="{concat('index/object/',$node.contentobject_id)|ezurl(no)}">Controlla indicizzazione contenuto</a>
+    <a class="Button Button--info u-text-xxs" href="{concat('content/history/',$node.contentobject_id)|ezurl(no)}">Gestisci versioni</a>
     {if $node.class_identifier|eq('organigramma')}
-        <a class="btn btn-sm btn-danger" href="{concat('openpa/refreshorganigramma/',$node.contentobject_id)|ezurl(no)}">Aggiorna {$node.class_name}</a>
+        <a class="Button Button--info u-text-xxs" href="{concat('openpa/refreshorganigramma/',$node.contentobject_id)|ezurl(no)}">Aggiorna {$node.class_name}</a>
     {/if}
     {if fetch( 'user', 'has_access_to', hash( 'module', 'classtools', 'function', 'class' ) )}
-        <a class="btn btn-sm btn-info" href="{concat('classtools/extra/',$node.class_identifier)|ezurl(no)}">Impostazioni visualizzazione oggetti {$node.class_name}</a>
+        <a class="Button Button--info u-text-xxs" href="{concat('classtools/extra/',$node.class_identifier)|ezurl(no)}">Impostazioni visualizzazione oggetti {$node.class_name}</a>
     {/if}
 </p>

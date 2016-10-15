@@ -13,6 +13,41 @@
   --Pac-font-family-sans: Titillium Web, HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
 }
 
+.dl-horizontal dt {
+    clear: left;
+    float: left;
+    overflow: hidden;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 160px;
+}
+dt {
+    font-weight: bold;
+}
+dt, dd {
+    line-height: 1.42857;
+}
+.dl-horizontal dd::before, .dl-horizontal dd::after {
+    content: " ";
+    display: table;
+}
+.dl-horizontal dd::after {
+    clear: both;
+}
+.dl-horizontal dd::before, .dl-horizontal dd::after {
+    content: " ";
+    display: table;
+}
+*::before, *::after {
+    box-sizing: border-box;
+}
+.dl-horizontal dd {
+    margin-left: 180px;
+}
+dd {
+    margin-left: 0;
+}
 
 .img-responsive{
     display: block;
