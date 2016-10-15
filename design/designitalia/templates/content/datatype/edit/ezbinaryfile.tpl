@@ -30,8 +30,7 @@
         <input type="hidden" name="MAX_FILE_SIZE" value="{$attribute.contentclass_attribute.data_int1}000000"/>
         <input id="ezcoa-{if ne( $attribute_base, 'ContentObjectAttribute' )}{$attribute_base}-{/if}{$attribute.contentclassattribute_id}_{$attribute.contentclass_attribute_identifier}"
                class="Form-input ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}"
-               name="{$attribute_base}_data_binaryfilename_{$attribute.id}" type="file"
-               {if $attribute.is_required}required aria-required="true"{/if}/>
+               name="{$attribute_base}_data_binaryfilename_{$attribute.id}" type="file"/>
 
     </div>
 {/default}

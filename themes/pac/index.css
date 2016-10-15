@@ -55,18 +55,49 @@ dd {
 }
 
 .row{  @extend .Grid;  @extend .Grid--withGutter;  }
-.row .col-md-1{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-lg-size1of12;  @extend .u-lg-size1of12;  }
-.row .col-md-2{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-lg-size2of12;  @extend .u-lg-size2of12;  }
-.row .col-md-3{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-lg-size3of12;  @extend .u-lg-size3of12;  }
-.row .nav-section, .row .col-md-4{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-lg-size4of12;  @extend .u-lg-size4of12;  }
-.row .col-md-5{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-lg-size5of12;  @extend .u-lg-size5of12;  }
-.row .col-md-6{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-lg-size6of12;  @extend .u-lg-size6of12;  }
-.row .col-md-7{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-lg-size7of12;  @extend .u-lg-size7of12;  }
-.row .content-main, .row .col-md-8{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-lg-size8of12;  @extend .u-lg-size8of12;  }
-.row .col-md-9{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-lg-size9of12;  @extend .u-lg-size9of12;  }
-.row .col-md-10{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-lg-size10of12;  @extend .u-lg-size10of12;  }
-.row .col-md-11{ @extend .Grid-cell;@extend .Grid--withGutter > .Grid-cell;  @extend .u-lg-size11of12;  @extend .u-lg-size11of12;  }
+.row .col-md-1 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size1of12;  @extend .u-lg-size1of12;  }
+.row .col-md-2 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size2of12;  @extend .u-lg-size2of12;  }
+.row .col-md-3 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size3of12;  @extend .u-lg-size3of12;  }
+.row .nav-section, .row .col-md-4 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size4of12;  @extend .u-lg-size4of12;  }
+.row .col-md-5 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size5of12;  @extend .u-lg-size5of12;  }
+.row .col-md-6 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size6of12;  @extend .u-lg-size6of12;  }
+.row .col-md-7 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size7of12;  @extend .u-lg-size7of12;  }
+.row .content-main, .row .col-md-8 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size8of12;  @extend .u-lg-size8of12;  }
+.row .col-md-9 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size9of12;  @extend .u-lg-size9of12;  }
+.row .col-md-10{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size10of12;  @extend .u-lg-size10of12;  }
+.row .col-md-11{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size11of12;  @extend .u-lg-size11of12;  }
 .row .col-md-12{ @extend .Grid-cell;}
+.row .col-sm-1 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size1of12;  @extend .u-lg-size1of12;  }
+.row .col-sm-2 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size2of12;  @extend .u-lg-size2of12;  }
+.row .col-sm-3 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size3of12;  @extend .u-lg-size3of12;  }
+.row .col-sm-4 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size4of12;  @extend .u-lg-size4of12;  }
+.row .col-sm-5 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size5of12;  @extend .u-lg-size5of12;  }
+.row .col-sm-6 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size6of12;  @extend .u-lg-size6of12;  }
+.row .col-sm-7 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size7of12;  @extend .u-lg-size7of12;  }
+.row .col-sm-8 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size8of12;  @extend .u-lg-size8of12;  }
+.row .col-sm-9 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size9of12;  @extend .u-lg-size9of12;  }
+.row .col-sm-10{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size10of12;  @extend .u-lg-size10of12;  }
+.row .col-sm-11{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size11of12;  @extend .u-lg-size11of12;  }
+.row .col-sm-12{ @extend .Grid-cell;}
+.row .col-lg-1 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size1of12;  @extend .u-lg-size1of12;  }
+.row .col-lg-2 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size2of12;  @extend .u-lg-size2of12;  }
+.row .col-lg-3 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size3of12;  @extend .u-lg-size3of12;  }
+.row .col-lg-4 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size4of12;  @extend .u-lg-size4of12;  }
+.row .col-lg-5 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size5of12;  @extend .u-lg-size5of12;  }
+.row .col-lg-6 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size6of12;  @extend .u-lg-size6of12;  }
+.row .col-lg-7 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size7of12;  @extend .u-lg-size7of12;  }
+.row .col-lg-8 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size8of12;  @extend .u-lg-size8of12;  }
+.row .col-lg-9 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size9of12;  @extend .u-lg-size9of12;  }
+.row .col-lg-10{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size10of12;  @extend .u-lg-size10of12;  }
+.row .col-lg-11{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size11of12;  @extend .u-lg-size11of12;  }
+.row .col-lg-12{ @extend .Grid-cell;}
+
+.form-group{
+    @extend .Form-field;
+}
+.form-control{
+    @extend .Form-input;
+}
 
 .img-responsive{
     display: block;
@@ -103,6 +134,11 @@ dd {
     @extend .u-text-r-xs;
     @extend .u-color-50;
     @extend .Prose;
+}
+
+.media-heading a{
+    @extend .u-textWeight-700;
+    @extend .u-text-r-xs;
 }
 
 .openpa-full .title h2{
@@ -224,7 +260,6 @@ dd {
 
 .openpa-widget-title{
     @extend .Leads-title;
-    @extend .Prose;
 }
 .openpa-widget-title a{
     font-size: inherit;
