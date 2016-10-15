@@ -224,6 +224,7 @@ dd {
 
 .openpa-widget-title{
     @extend .Leads-title;
+    @extend .Prose;
 }
 .openpa-widget-title a{
     font-size: inherit;
@@ -236,6 +237,7 @@ dd {
     @extend .u-text-h4;
     @extend .u-textClean;
     @extend .u-color-black;
+    @extend .Prose;
 }
 .openpa-widget-title-lev2 a{
     @extend .u-text-h4;
