@@ -179,7 +179,6 @@ dd {
     @extend .Grid--withGutter;
     @extend .u-margin-bottom-s;
     @extend .Prose;
-    @extend .u-layout-prose;
 }
 
 .openpa-full .content-detail-item .label{

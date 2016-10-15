@@ -5248,7 +5248,7 @@ ol, ul {
   margin-right: auto !important;
 }
 
-.u-layout-prose, .Card-title, .Card-text, .openpa-full .content-main-abstract, .openpa-full .content-main-body, .openpa-full .content-detail-item {
+.u-layout-prose, .Card-title, .Card-text, .openpa-full .content-main-abstract, .openpa-full .content-main-body {
   max-width: 32em !important;
 }
 
