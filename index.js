@@ -5,7 +5,7 @@ import IwtTable from './ita-web-toolkit/src/components/table'
 
 import IwtAccordion from './ita-web-toolkit/src/modules/accordion'
 /*import IwtCarousel from './ita-web-toolkit/src/modules/carousel'*/
-import IwtCookiebar from './src/modules/cookiebar'
+import IwtCookiebar from './ita-web-toolkit/src/modules/cookiebar'
 import IwtDialog from './ita-web-toolkit/src/modules/dialog'
 import IwtMasonry from './ita-web-toolkit/src/modules/masonry'
 import IwtSkiplinks from './ita-web-toolkit/src/modules/skiplinks'

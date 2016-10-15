@@ -32,15 +32,15 @@ module.exports = {
     assetsPath: './'
   },
   'postcss-inline-svg': {
-    path: 'src/'
+    path: 'ita-web-toolkit/src/'
   },
   'postcss-assets': {
-    loadPaths: [ 'src/' ],
+    loadPaths: [ 'ita-web-toolkit/src/' ],
     cachebuster: true
   },
   postcss: {
     from: 'index.css',
-    to: 'build/build.css',
+    to: 'design/designitalia/stylesheets/build.css',
     map: false,
   }
 };

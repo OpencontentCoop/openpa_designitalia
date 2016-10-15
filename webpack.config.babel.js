@@ -12,6 +12,9 @@ var outputFile
 
 var loaders = []
 
+
+console.log(__dirname)
+
 if (env === 'build') {
   plugins.push(new UglifyJsPlugin({
     minimize: true
@@ -42,7 +45,7 @@ var config = {
   entry: __dirname + '/index.js',
   devtool: 'source-map',
   output: {
-    path: __dirname + '/build',
+    path: __dirname + '/design/designitalia/javascript',
     filename: outputFile,
     library: libraryName,
     libraryTarget: 'umd',
@@ -64,7 +67,7 @@ var config = {
     }]
   },
   resolve: {
-    root: path.resolve('./src'),
+    root: path.resolve('./ita-web-toolkit/src'),
     extensions: ['', '.js']
   },
   plugins: plugins,
