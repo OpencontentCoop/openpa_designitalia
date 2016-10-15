@@ -8,30 +8,21 @@
 
 {def $show_left = false()}
 
-
-<div class="content-view-full class-{$node.class_identifier}">
-    <div class="u-padding-bottom-l content-title">
+<div class="openpa-full class-{$node.class_identifier}">
+    <div class="openpa-title">
         {include uri='design:openpa/full/parts/node_languages.tpl'}
-        <h2 class="u-text-h2">{$node.name|wash()}</h2>
+        <h2>{$node.name|wash()}</h2>
     </div>
-    <div class="Grid Grid--withGutter">
-        <div class="Grid-cell u-padding-bottom-xl{if and( $openpa.control_menu.show_extra_menu|not(), $show_left|not() )} u-sizeFull{elseif or( $show_left, $openpa.control_menu.show_extra_menu )}  u-md-size7of12 u-lg-size7of12{/if}">
+    <div class="openpa-content-container">
+        <div class="openpa-content{if or( $show_left, $openpa.control_menu.show_extra_menu )}-wide{/if}">
 
             {include uri=$openpa.content_infocollection.template}
+
         </div>
 
-        {if or($openpa.control_menu.show_extra_menu, $show_left)}
-            <div class="Grid-cell u-sizeFull u-md-size4of12 u-lg-size4of12 u-md-before1of12 u-lg-before1of12 u-padding-bottom-xl">
-                {if $show_left}
-                    {include uri='design:openpa/full/parts/section_left.tpl'}
-                {/if}
-
-                {if $openpa.control_menu.show_extra_menu}
-                    {include uri='design:openpa/full/parts/section_right.tpl'}
-                {/if}
-
-                <a href="#" title="torna all'inizio del contenuto" class="u-hiddenVisually">torna all'inizio del contenuto</a>
-            </div>
-        {/if}
+        {include uri='design:openpa/full/parts/section_left.tpl'}
     </div>
+    {if $openpa.content_date.show_date}
+        {include uri=$openpa.content_date.template}
+    {/if}
 </div>

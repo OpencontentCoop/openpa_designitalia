@@ -13,43 +13,31 @@
     {def $show_left = false()}
 {/if}
 
-{def $show_extra_menu = $node.data_map.sindaco.has_content}
+{def $extra_template = cond( $node.data_map.sindaco.has_content, 'design:openpa/full/parts/section_left_extra.tpl', false())}
 
-<div class="content-view-full class-{$node.class_identifier}">
-    <div class="u-padding-bottom-l content-title">
+<div class="openpa-full class-{$node.class_identifier}">
+    <div class="openpa-title">
         {include uri='design:openpa/full/parts/node_languages.tpl'}
-        <h2 class="u-text-h2">{$node.name|wash()}</h2>
+        <h2>{$node.name|wash()}</h2>
     </div>
-    <div class="Grid Grid--withGutter">
-        <div class="Grid-cell u-padding-bottom-xl{if and( $show_extra_menu|not(), $show_left|not() )} u-sizeFull{elseif or( $show_left, $show_extra_menu )}  u-md-size7of12 u-lg-size7of12{/if}">
+    <div class="openpa-content-container">
+        <div class="openpa-content{if or( $show_left, $openpa.control_menu.show_extra_menu )}-wide{/if}">
 
             {include uri=$openpa.content_main.template}
+
+            {include uri=$openpa.content_contacts.template}
 
             {include uri=$openpa.content_detail.template}
 
             {include uri=$openpa.content_infocollection.template}
 
             {include uri=$openpa.control_children.template}
+
         </div>
 
-        {if or($show_extra_menu, $show_left)}
-            <div class="Grid-cell u-sizeFull u-md-size4of12 u-lg-size4of12 u-md-before1of12 u-lg-before1of12 u-padding-bottom-xl">
-                {if $show_left}
-                    {include uri='design:openpa/full/parts/section_left.tpl'}
-                {/if}
-
-                {if $show_extra_menu}
-                    {node_view_gui content_node=$node.data_map.sindaco.content.main_node view=panel}
-                {/if}
-
-                <a href="#" title="torna all'inizio del contenuto" class="u-hiddenVisually">torna all'inizio del contenuto</a>
-            </div>
-        {/if}
-
+        {include uri='design:openpa/full/parts/section_left.tpl' extra_template=$extra_template}
     </div>
     {if $openpa.content_date.show_date}
-        <div class="u-sizeFull u-margin-top-l">
-            <p class="u-floatRight">{include uri=$openpa.content_date.template}</p>
-        </div>
+        {include uri=$openpa.content_date.template}
     {/if}
 </div>

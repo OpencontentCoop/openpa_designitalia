@@ -18,8 +18,8 @@
 
 {cache-block keys=array( $module_result.uri, $user_hash_cache_key, $access_type.name, $extra_cache_key )}
     {def $pagedata = openpapagedata()
-    $locales = fetch( 'content', 'translation_list' )
-    $current_node_id = $pagedata.node_id}
+         $locales = fetch( 'content', 'translation_list' )
+         $current_node_id = $pagedata.node_id}
 
     {include uri='design:page_head.tpl'}
     {include uri='design:page_head_style.tpl'}
@@ -27,12 +27,11 @@
 
 </head>
 <body class="Pac">
+
     <ul class="Skiplinks js-fr-bypasslinks">
         <li><a accesskey="2" href="#main">Vai al Contenuto</a></li>
         <li><a accesskey="3" href="#menu">Vai alla navigazione del sito</a></li>
     </ul>
-
-    {*<script type="text/javascript">{literal}//<![CDATA[(function () {var c = document.body.className;c = c.replace(/no-js/, 'js');document.body.className = c;})();//]]>{/literal}</script>*}
 
     {include uri='design:page_browser_alert.tpl'}
 
@@ -46,6 +45,13 @@
 
     {if and( or($pagedata.is_homepage, is_area_tematica()), array( 'edit', 'browse' )|contains( $ui_context )|not() )}
         {include uri='design:header/banner.tpl'}
+    {/if}
+
+    {if and(is_set($pagedata.persistent_variable.has_sidemenu), $pagedata.persistent_variable.has_sidemenu)}
+        <p class="u-md-hidden u-lg-hidden u-padding-r-all u-text-m u-background-grey-20">
+            <span class="Icon-list u-text-r-xl u-alignMiddle u-padding-r-right" aria-hidden="true"></span>
+            <a accesskey="3"  class="js-scrollTo u-text-r-s u-textClean u-color-grey-50 u-alignMiddle" href="#subnav" >Vai menu di sezione</a>
+        </p>
     {/if}
 
     {if and( $pagedata.is_homepage|not(), $pagedata.is_search_page|not(), $pagedata.show_path, array( 'edit', 'browse' )|contains( $ui_context )|not(), is_set( $module_result.content_info ) )}
