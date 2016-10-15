@@ -26,6 +26,23 @@
     @extend .u-lg-block;
 }
 
+.media,
+.media-body {
+    overflow: hidden;
+}
+.media-body {
+    width: 10000px;
+}
+.media-left,
+.media-image,
+.media-body {
+    display: table-cell;
+    vertical-align: top;
+}
+.media-image, .media > .pull-left{
+    @extend .u-padding-right-s;
+}
+
 .openpa-full .title h2{
     @extend .u-text-h2;
 }
@@ -111,12 +128,35 @@
     @extend .u-padding-bottom-l;
 }
 
-.openpa-full .content-view-children{
-
+.openpa-full .content-view-children .openpa-line:nth-child(2n) {
+    @extend .u-background-grey-20;
 }
 
-.openpa-line{
+.openpa-line {
+    @extend .u-margin-bottom-m;
+    @extend .u-padding-all-m;
+}
 
+.openpa-line .media-heading{
+    @extend .u-padding-bottom-s;
+    @extend .u-textClean;
+    @extend .u-textWeight-700;
+    @extend .u-text-r-xs;
+    @extend .u-color-50;
+}
+
+.openpa-line .media-details{
+    @extend .Prose;
+}
+
+.openpa-line .media-details > li{
+    @extend .u-padding-bottom-xs;
+}
+
+.openpa-line .media-image{
+    @extend .u-hidden;
+    @extend .u-md-tableCell;
+    @extend .u-lg-tableCell;
 }
 
 .openpa-widget-title{

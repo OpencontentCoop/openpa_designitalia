@@ -68,7 +68,7 @@
                 <ul class="Linklist Linklist--padded u-layout-prose Treeview js-fr-treeview u-text-r-xs">
                     {foreach $classification as $className => $objects}
                         <li>
-                            <a href="#">{$className} <span class="badge">{$objects|count()}</span>
+                            <a href="#">{$className}
                                 <span class="menu-handler"></span>
                             </a>
                             <ul>

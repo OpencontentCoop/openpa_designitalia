@@ -14,7 +14,7 @@
         </h3>
 
         {if $openpa.content_line.has_content}
-          <ul class="list-unstyled">
+          <ul class="media-details">
             {foreach $openpa.content_line.attributes as $openpa_attribute}              
               <li>
                 {if $openpa_attribute.line.show_label}
