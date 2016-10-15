@@ -2,7 +2,7 @@
   'page_limit', 10,
   'view', 'line',
   'delimiter', '',
-  'exclude_classes', appini( 'ContentViewChildren', 'ExcludeClasses', array( 'image', 'video' ) ),
+  'exclude_classes', openpaini( 'ExcludedClassesAsChild', 'FromFolder', array( 'image', 'infobox', 'global_layout' ) ),
   'include_classes', array(),
   'type', 'exclude',
   'fetch_type', 'list',
@@ -10,9 +10,9 @@
 ))}
 
 {if $type|eq( 'exclude' )}
-{def $params = hash( 'class_filter_type', 'exclude', 'class_filter_array', $exclude_classes )}
+	{def $params = hash( 'class_filter_type', 'exclude', 'class_filter_array', $exclude_classes )}
 {else}
-{def $params = hash( 'class_filter_type', 'include', 'class_filter_array', $include_classes )}
+	{def $params = hash( 'class_filter_type', 'include', 'class_filter_array', $include_classes )}
 {/if}
 
 {def $children_count = fetch( content, concat( $fetch_type, '_count' ), hash( 'parent_node_id', $parent_node.node_id )|merge( $params ) )}

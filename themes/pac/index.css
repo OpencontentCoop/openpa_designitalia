@@ -102,6 +102,7 @@ dd {
     @extend .u-textWeight-700;
     @extend .u-text-r-xs;
     @extend .u-color-50;
+    @extend .Prose;
 }
 
 .openpa-full .title h2{
@@ -120,6 +121,9 @@ dd {
     @extend .u-sizeFull;
 }
 .openpa-full .content.withExtra{
+    @extend .Grid--withGutter > .Grid-cell;
+    @extend .Grid-cell;
+    @extend .u-padding-bottom-xl;
     @extend .u-md-size6of12;
     @extend .u-lg-size6of12;
 }
@@ -165,11 +169,10 @@ dd {
 .openpa-full .extra {
     @extend .Grid-cell;
     @extend .Grid--withGutter > .Grid-cell;
-    @extend .u-sizeFull;
     @extend .u-md-size4of12;
     @extend .u-lg-size4of12;
-    @extend .u-md-before1of12;
-    @extend .u-lg-before1of12;
+    @extend .u-md-before2of12;
+    @extend .u-lg-before2of12;
     @extend .u-padding-bottom-xl;
 }
 .openpa-full .extra .nav-section {
