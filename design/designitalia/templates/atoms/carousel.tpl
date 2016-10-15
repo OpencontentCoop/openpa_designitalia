@@ -22,7 +22,7 @@
         {foreach $items as $item}            
             <div class="item">
                 {node_view_gui content_node=$item view=$i_view image_class=$image_class}
-            </div>            
+            </div>
         {/foreach}
     </div>
 

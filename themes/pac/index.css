@@ -49,6 +49,25 @@ dd {
     margin-left: 0;
 }
 
+.list-group{
+    @extend .Linklist;
+    @extend .Linklist--padded;
+}
+
+.row{  @extend .Grid;  @extend .Grid--withGutter;  }
+.row .col-md-1{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-lg-size1of12;  @extend .u-lg-size1of12;  }
+.row .col-md-2{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-lg-size2of12;  @extend .u-lg-size2of12;  }
+.row .col-md-3{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-lg-size3of12;  @extend .u-lg-size3of12;  }
+.row .nav-section, .row .col-md-4{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-lg-size4of12;  @extend .u-lg-size4of12;  }
+.row .col-md-5{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-lg-size5of12;  @extend .u-lg-size5of12;  }
+.row .col-md-6{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-lg-size6of12;  @extend .u-lg-size6of12;  }
+.row .col-md-7{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-lg-size7of12;  @extend .u-lg-size7of12;  }
+.row .content-main, .row .col-md-8{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-lg-size8of12;  @extend .u-lg-size8of12;  }
+.row .col-md-9{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-lg-size9of12;  @extend .u-lg-size9of12;  }
+.row .col-md-10{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-lg-size10of12;  @extend .u-lg-size10of12;  }
+.row .col-md-11{ @extend .Grid-cell;@extend .Grid--withGutter > .Grid-cell;  @extend .u-lg-size11of12;  @extend .u-lg-size11of12;  }
+.row .col-md-12{ @extend .Grid-cell;}
+
 .img-responsive{
     display: block;
     height: auto;
@@ -76,6 +95,13 @@ dd {
 }
 .media-image, .media > .pull-left{
     @extend .u-padding-right-s;
+}
+.media-heading{
+    @extend .u-padding-bottom-s;
+    @extend .u-textClean;
+    @extend .u-textWeight-700;
+    @extend .u-text-r-xs;
+    @extend .u-color-50;
 }
 
 .openpa-full .title h2{
@@ -167,17 +193,12 @@ dd {
     @extend .u-background-grey-20;
 }
 
-.openpa-line {
-    @extend .u-margin-bottom-m;
+.openpa-full .content-view-children .openpa-line{
     @extend .u-padding-all-m;
 }
 
-.openpa-line .media-heading{
-    @extend .u-padding-bottom-s;
-    @extend .u-textClean;
-    @extend .u-textWeight-700;
-    @extend .u-text-r-xs;
-    @extend .u-color-50;
+.openpa-line {
+    @extend .u-margin-bottom-m;
 }
 
 .openpa-line .media-details{
@@ -194,10 +215,50 @@ dd {
     @extend .u-lg-tableCell;
 }
 
+.openpa-widget{
+    @extend .u-margin-bottom-m;
+}
+
 .openpa-widget-title{
     @extend .Leads-title;
+}
+.openpa-widget-title a{
+    font-size: inherit;
+    @extend .u-textClean;
+    @extend .u-color-black;
+}
+.openpa-widget-title-lev2{
+    @extend .u-padding-left-m;
+    @extend .u-padding-right-m;
+    @extend .u-text-h4;
+    @extend .u-textClean;
+    @extend .u-color-black;
+}
+.openpa-widget-title-lev2 a{
+    @extend .u-text-h4;
+    @extend .u-textClean;
+    @extend .u-color-black;
+}
+.openpa-widget-content{
+
 }
 
 .nav-section .openpa-widget-title{
     @extend .u-text-h3;
 }
+
+.openpa-accordion_content{
+    @extend .u-padding-top-m;
+    @extend .u-padding-left-m;
+    @extend .u-padding-right-m;
+    @extend .Prose;
+}
+
+.readmore{
+    @extend .u-text-h4;
+    @extend .u-textWeight-700;
+    @extend .u-margin-right-m;
+    @extend .u-margin-bottom-m;
+    float: right;
+}
+

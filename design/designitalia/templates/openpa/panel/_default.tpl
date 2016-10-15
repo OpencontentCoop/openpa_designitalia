@@ -1,19 +1,20 @@
-<section class="openpa-panel {$node|access_style}">
-    <div class="content">
-        {if $node|has_attribute('image')}
-            <figure {if $node|has_attribute('image_full')}class="bg-contain"{/if}
-                    style="background: url( {$node|attribute('image').content.imagefull.full_path|ezroot(no)} )"></figure>
-        {/if}
+<section class="openpa-panel {$node|access_style} Card Card--withBorder u-color-grey-30">
 
-        <div class="link">
-            <h4><a href="{$openpa.content_link.full_link}"
-                   title="{$node.name|wash()}">{$node.name|openpa_shorten(60)|wash()}</a></h4>
+    {if $node|has_attribute('image')}
+        <div class="Card-image">
+            <img src="{$node|attribute('image').content.imagefull.full_path|ezroot(no)}" class="u-sizeFull">
+        </div>
+    {/if}
 
-            <div class="abstract">
-                {$node|abstract()|openpa_shorten(270)}
-            </div>
+    <div class="Card-content u-padding-r-all">
+        <p class="Card-title">
+            <a class="Card-titleLink" href="{$openpa.content_link.full_link}"
+               title="{$node.name|wash()}">{$node.name|openpa_shorten(60)|wash()}</a>
+        </p>
 
-            <a class="readmore" href="{$openpa.content_link.full_link}" title="{$node.name|wash()}">Leggi</a>
+        <div class="Card-text">
+            {$node|abstract()}
         </div>
     </div>
+
 </section>
