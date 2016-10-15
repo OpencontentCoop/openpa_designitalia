@@ -8,7 +8,7 @@
             </a>
         </div>
     {/if}
-    
+
     <div class="media-body">
         <h3 class="media-heading">
             <a href="{$openpa.content_link.full_link}">{$node.name|wash()}</a>
