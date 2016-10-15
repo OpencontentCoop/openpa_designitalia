@@ -10,14 +10,12 @@
      $show_left = and( $openpa.control_menu.show_side_menu, count( $tree_menu.children )|gt(0) )}
 
 <div class="openpa-full class-{$node.class_identifier}">
-    <div class="openpa-title">
+    <div class="title">
         {include uri='design:openpa/full/parts/node_languages.tpl'}
         <h2>{$node.name|wash()}</h2>
     </div>
-    <div class="openpa-content-container">
-        <div class="openpa-content{if or( $show_left, $openpa.control_menu.show_extra_menu )}-wide{/if}">
-
-            {include uri=$openpa.content_main.template}
+    <div class="content-container">
+        <div class="content{if or( $show_left, $openpa.control_menu.show_extra_menu )} withExtra{/if}">
 
             {include uri=$openpa.content_main.template}
 

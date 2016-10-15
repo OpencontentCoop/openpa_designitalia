@@ -39,13 +39,13 @@
 </script>
 
 <div class="openpa-full class-{$node.class_identifier}">
-    <div class="openpa-title">
+    <div class="title">
         {include uri='design:openpa/full/parts/node_languages.tpl'}
         <h2>{$node.name|wash()}</h2>
     </div>
 
-    <div class="openpa-content-container">
-        <div class="openpa-content{if or( $show_left, $openpa.control_menu.show_extra_menu )}-wide{/if}">
+    <div class="content-container">
+        <div class="content{if or( $show_left, $openpa.control_menu.show_extra_menu )} withExtra{/if}">
 
             {include uri=$openpa.content_main.template}
 
@@ -61,12 +61,7 @@
             </div>
         </div>
 
-        {if $show_left}
-            <div class="openpa-extra">
-                {include uri='design:openpa/full/parts/section_left.tpl'}
-            </div>
-            {include uri='design:openpa/full/parts/back_to_main_content.tpl'}
-        {/if}
+        {include uri='design:openpa/full/parts/section_left.tpl' extra_template=false()}
     </div>
     {if $openpa.content_date.show_date}
         {include uri=$openpa.content_date.template}

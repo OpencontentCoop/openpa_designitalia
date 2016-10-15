@@ -1,17 +1,13 @@
 <div class="content-related">
 
     {if count($openpa.content_related.info)|gt(0)}
-        <div class="u-sizeFull u-md-size11of12 u-lg-size11of12 u-margin-top-m">
-            <div class="Card Card--withBorder u-color-grey-30">
-                <div class="u-background-50 u-padding-all-xs">
-                    <h4 class="u-text-h4 u-color-white"><i class="fa fa-link"></i> Informazioni correlate</h4>
-                </div>
-                <div class="Card-content u-color-black">
+        <div class="openpa-widget nav-section">
+                <h2 class="openpa-widget-title">Informazioni correlate</h2>
+                <div class="openpa-widget-content">
                     {foreach $openpa.content_related.info as $class_name => $infos}
-                        <ul>
+                        <ul class="Linklist Linklist--padded u-layout-prose">
                             {foreach $infos as $info}
                                 <li>
-                                    <strong>{$info.content_class.name|wash()}:</strong>
                                     {node_view_gui content_node=$info view=text_linked}
                                 </li>
                             {/foreach}
@@ -24,25 +20,21 @@
 
 
     {if $openpa.content_facets.has_data}
-        <div class="u-sizeFull u-md-size11of12 u-lg-size11of12 u-margin-top-m">
-            <div class="Card Card--withBorder u-color-grey-30">
-                <div class="u-background-50 u-padding-all-xs">
-                    <h4 class="u-text-h4 u-color-white"><i class="fa fa-archive"></i> Riferibili a {$node.name|wash()}</h4>
-                </div>
-                <div class="Card-content u-color-black">
-                    {foreach $openpa.content_facets.items as $item}
-                        <ul>
-                            {foreach $item as $data}
-                                <li>
-                                    <a href="{concat( "content/advancedsearch?Data[",$data.attribute_identifier,"][]=", $node.contentobject_id|urlencode, '&ClassArray[]=', $data.class_id)|ezurl(no)}"
-                                       title="Link a {$data.class_name|wash}">{$data.class_name|wash} {if count($item)|gt(1)}
-                                            <small>{$data.attribute_name}</small>{/if} <span
-                                                class="badge">{$data.value}</span></a>
-                                </li>
-                            {/foreach}
-                        </ul>
-                    {/foreach}
-                </div>
+        <div class="openpa-widget nav-section">
+            <h2 class="openpa-widget-title">Riferibili a {$node.name|wash()}</h2>
+            <div class="openpa-widget-content">
+                {foreach $openpa.content_facets.items as $item}
+                    <ul class="Linklist Linklist--padded u-layout-prose">
+                        {foreach $item as $data}
+                            <li>
+                                <a href="{concat( "content/advancedsearch?Data[",$data.attribute_identifier,"][]=", $node.contentobject_id|urlencode, '&ClassArray[]=', $data.class_id)|ezurl(no)}"
+                                   title="Link a {$data.class_name|wash}">{$data.class_name|wash} {if count($item)|gt(1)}
+                                        <small>{$data.attribute_name}</small>{/if} <span
+                                            class="badge">{$data.value}</span></a>
+                            </li>
+                        {/foreach}
+                    </ul>
+                {/foreach}
             </div>
         </div>
     {/if}
@@ -70,21 +62,21 @@
 
     {def $classification = $openpa.content_related.classification}
     {if count($classification)|gt(0)}
-        <div class="u-sizeFull u-md-size11of12 u-lg-size11of12 u-margin-top-m">
-            <div class="Card Card--withBorder u-color-grey-30">
-                <div class="u-background-50 u-padding-all-xs">
-                    <h4 class="u-text-h4 u-color-white"><i class="fa fa-info"></i> Classificazione dell'informazione</h4>
-                </div>
-                <div class="Card-content u-color-black">
-                    <ul>
-                        {foreach $classification as $className => $objects}
-                            <li>
-                                <strong>{$className}: </strong>
-                                {foreach $objects as $object}{node_view_gui content_node=$object.main_node view='text_linked'}{delimiter}, {/delimiter}{/foreach}
-                            </li>
-                        {/foreach}
-                    </ul>
-                </div>
+        <div class="openpa-widget nav-section">
+            <h2 class="openpa-widget-title">Classificazione dell'informazione</h2>
+            <div class="openpa-widget-content">
+                <ul class="Linklist Linklist--padded u-layout-prose Treeview js-fr-treeview u-text-r-xs">
+                    {foreach $classification as $className => $objects}
+                        <li>
+                            <a href="#">{$className} <span class="badge">{$objects|count()}</span>
+                                <span class="menu-handler"></span>
+                            </a>
+                            <ul>
+                            {foreach $objects as $object}<li>{node_view_gui content_node=$object.main_node view='text_linked'}</li>{/foreach}
+                            </ul>
+                        </li>
+                    {/foreach}
+                </ul>
             </div>
         </div>
     {/if}
@@ -92,11 +84,17 @@
 
     {* COLONNA DEFINITA NEL EZFLOW DEL FOLDER *}
     {if and( $node|has_attribute('layout'), $node|attribute('layout').content.zone_layout|eq('1ZonesLayoutFolder'), $node.depth|gt(2))}
-        <div class="extrainfo-box data_map_layout">
-            {attribute_view_gui attribute=$node.data_map.layout}
+        <div class="openpa-widget nav-section">
+            <div class="data_map_layout">
+                {attribute_view_gui attribute=$node.data_map.layout}
+            </div>
         </div>
     {elseif $openpa.content_globalinfo.has_content}
-        {attribute_view_gui attribute=$openpa.content_globalinfo.object.data_map.page}    
+        <div class="openpa-widget nav-section">
+            <div class="data_map_layout">
+                {attribute_view_gui attribute=$openpa.content_globalinfo.object.data_map.page}
+            </div>
+        </div>
     {/if}
 
     {if $openpa.content_reverse_related.has_data}

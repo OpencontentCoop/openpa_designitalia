@@ -16,12 +16,12 @@
 {def $extra_template = cond( $node.data_map.sindaco.has_content, 'design:openpa/full/parts/section_left_extra.tpl', false())}
 
 <div class="openpa-full class-{$node.class_identifier}">
-    <div class="openpa-title">
+    <div class="title">
         {include uri='design:openpa/full/parts/node_languages.tpl'}
         <h2>{$node.name|wash()}</h2>
     </div>
-    <div class="openpa-content-container">
-        <div class="openpa-content{if or( $show_left, $openpa.control_menu.show_extra_menu )}-wide{/if}">
+    <div class="content-container">
+        <div class="content{if or( $show_left, $openpa.control_menu.show_extra_menu )} withExtra{/if}">
 
             {include uri=$openpa.content_main.template}
 

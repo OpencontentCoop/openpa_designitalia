@@ -11,12 +11,12 @@
 {/if}
 
 <div class="openpa-full class-{$node.class_identifier}">
-    <div class="openpa-title">
+    <div class="title">
         {include uri='design:openpa/full/parts/node_languages.tpl'}
         <h2>{$node.name|wash()}</h2>
     </div>
-    <div class="openpa-content-container">
-        <div class="openpa-content{if or( $show_left, $openpa.control_menu.show_extra_menu )}-wide{/if}">
+    <div class="content-container">
+        <div class="content{if or( $show_left, $openpa.control_menu.show_extra_menu )} withExtra{/if}">
 
             {if $node.data_map.page.has_content}
                 {attribute_view_gui attribute=$node.data_map.page}
