@@ -1,0 +1,158 @@
+
+.openpa-full .title h2 {
+    @extend .u-text-h2;
+}
+
+.openpa-full .content-container {
+    @extend .Grid;
+    @extend .Grid--withGutter;
+}
+
+.openpa-full .content {
+    @extend .Grid--withGutter > .Grid-cell;
+    @extend .Grid-cell;
+    @extend .u-padding-bottom-xl;
+    @extend .u-sizeFull;
+}
+
+.openpa-full .content.withExtra {
+    @extend .Grid--withGutter > .Grid-cell;
+    @extend .Grid-cell;
+    @extend .u-padding-bottom-xl;
+    @extend .u-md-size6of12;
+    @extend .u-lg-size6of12;
+}
+
+.openpa-full .content-main-abstract,
+.openpa-full .content-main-body {
+    @extend .Prose;
+    @extend .u-layout-prose;
+}
+
+.openpa-full .main_image {
+    @extend .u-padding-bottom-l;
+}
+
+.openpa-full .content-detail {
+    @extend .u-margin-top-m;
+    @extend .u-margin-bottom-m;
+}
+
+.openpa-full .content-detail-item {
+    @extend .Grid;
+    @extend .Grid--withGutter;
+    @extend .u-margin-bottom-s;
+    @extend .Prose;
+}
+
+.openpa-full .content-detail-item .label {
+    @extend .Grid-cell;
+    @extend .Grid--withGutter > .Grid-cell;
+    @extend .u-sizeFull;
+    @extend .u-md-size3of12;
+    @extend .u-lg-size3of12;
+}
+
+.openpa-full .content-detail-item .value {
+    @extend .Grid-cell;
+    @extend .Grid--withGutter > .Grid-cell;
+}
+
+.openpa-full .content-detail-item.withLabel .value {
+    @extend .Grid-cell;
+    @extend .Grid--withGutter > .Grid-cell;
+    @extend .u-md-size9of12;
+    @extend .u-lg-size9of12;
+}
+
+.openpa-full .extra {
+    @extend .Grid-cell;
+    @extend .Grid--withGutter > .Grid-cell;
+    @extend .u-md-size4of12;
+    @extend .u-lg-size4of12;
+    @extend .u-md-before2of12;
+    @extend .u-lg-before2of12;
+    @extend .u-padding-bottom-xl;
+}
+
+.openpa-full .extra .nav-section {
+    @extend .u-sizeFull;
+    @extend .u-md-size11of12;
+    @extend .u-lg-size11of12;
+    @extend .u-padding-bottom-xl;
+}
+
+.openpa-full-last-modified {
+    @extend .u-padding-bottom-xl;
+}
+
+.openpa-full .state-navigation {
+    @extend .u-padding-bottom-l;
+}
+
+.openpa-full .content-view-children .openpa-line:nth-child(2n) {
+    @extend .u-background-grey-10;
+}
+
+.openpa-full .content-view-children .openpa-line {
+    @extend .u-padding-all-m;
+}
+
+
+
+.openpa-line {
+    @extend .u-margin-bottom-m;
+}
+
+.openpa-line .media-details {
+    @extend .Prose;
+}
+
+.openpa-line .media-details > li {
+    @extend .u-padding-bottom-xs;
+}
+
+.openpa-line .media-image {
+    @extend .u-hidden;
+    @extend .u-md-tableCell;
+    @extend .u-lg-tableCell;
+}
+
+
+.openpa-widget{
+    @extend .u-margin-bottom-m;
+}
+
+.openpa-accordion_content{
+    @extend .u-padding-top-m;
+    @extend .u-padding-left-m;
+    @extend .u-padding-right-m;
+    @extend .Prose;
+}
+
+.openpa-widget-title{
+    @extend .Leads-title;
+}
+.openpa-widget-title a{
+    font-size: inherit;
+    @extend .u-textClean;
+    @extend .u-color-black;
+}
+.openpa-widget-title-lev2{
+    @extend .u-padding-left-m;
+    @extend .u-padding-right-m;
+    @extend .u-text-h4;
+    @extend .u-textClean;
+    @extend .u-color-black;
+    @extend .Prose;
+    font-weight: normal !important;
+}
+.openpa-widget-title-lev2 a{
+    @extend .u-text-h4;
+    @extend .u-textClean;
+    @extend .u-color-black;
+    font-weight: normal !important;
+}
+.openpa-widget-content{
+
+}

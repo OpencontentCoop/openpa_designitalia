@@ -11,7 +11,6 @@
         'debug.css',
         'font-awesome.min.css',
         'websitetoolbar.css',
-        'debug.css',
         ezini( 'StylesheetSettings', 'CSSFileList', 'design.ini' ),
         ezini( 'StylesheetSettings', 'FrontendCSSFileList', 'design.ini' )
     ),

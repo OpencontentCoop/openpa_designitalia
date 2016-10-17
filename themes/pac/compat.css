@@ -1,0 +1,152 @@
+/* alert */
+.message-confirmation,
+.message-feedback,
+.feedback,
+.alert.alert-success{
+    @extend .Prose;
+    @extend .Alert;
+    @extend .Alert--success;
+}
+.message-warning,
+.warning,
+.alert.alert-warning{
+    @extend .Prose;
+    @extend .Alert;
+    @extend .Alert--warning;
+}
+.message-error,
+.alert.alert-danger{
+    @extend .Prose;
+    @extend .Alert;
+    @extend .Alert--error;
+}
+
+.img-responsive{
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+/* dl-horizontal */
+.dl-horizontal dt {
+    clear: left;
+    float: left;
+    overflow: hidden;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 160px;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dt, dd {
+    line-height: 1.42857;
+}
+
+.dl-horizontal dd::before, .dl-horizontal dd::after {
+    content: " ";
+    display: table;
+}
+
+.dl-horizontal dd::after {
+    clear: both;
+}
+
+.dl-horizontal dd::before, .dl-horizontal dd::after {
+    content: " ";
+    display: table;
+}
+
+*::before, *::after {
+    box-sizing: border-box;
+}
+
+.dl-horizontal dd {
+    margin-left: 180px;
+}
+
+dd {
+    margin-left: 0;
+}
+
+/* badge */
+.badge {
+@extend .u-background-80;
+@extend .u-color-white;
+    border-radius: 10px;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    min-width: 10px;
+    padding: 3px 7px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.Linklist .badge{
+    float: right;
+}
+.Linklist--padded .badge{
+    margin-right: 1em;
+}
+
+/* bootstrap */
+.list-group{  @extend .Linklist;  @extend .Linklist--padded;  }
+
+.row{  @extend .Grid;  @extend .Grid--withGutter;  }
+.row .col-md-1 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size1of12;  @extend .u-lg-size1of12;  }
+.row .col-md-2 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size2of12;  @extend .u-lg-size2of12;  }
+.row .col-md-3 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size3of12;  @extend .u-lg-size3of12;  }
+.row .nav-section, .row .col-md-4 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size4of12;  @extend .u-lg-size4of12;  }
+.row .col-md-5 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size5of12;  @extend .u-lg-size5of12;  }
+.row .col-md-6 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size6of12;  @extend .u-lg-size6of12;  }
+.row .col-md-7 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size7of12;  @extend .u-lg-size7of12;  }
+.row .content-main, .row .col-md-8 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size8of12;  @extend .u-lg-size8of12;  }
+.row .col-md-9 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size9of12;  @extend .u-lg-size9of12;  }
+.row .col-md-10{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size10of12;  @extend .u-lg-size10of12;  }
+.row .col-md-11{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size11of12;  @extend .u-lg-size11of12;  }
+.row .col-md-12{ @extend .Grid-cell;}
+.row .col-sm-1 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size1of12;  @extend .u-lg-size1of12;  }
+.row .col-sm-2 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size2of12;  @extend .u-lg-size2of12;  }
+.row .col-sm-3 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size3of12;  @extend .u-lg-size3of12;  }
+.row .col-sm-4 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size4of12;  @extend .u-lg-size4of12;  }
+.row .col-sm-5 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size5of12;  @extend .u-lg-size5of12;  }
+.row .col-sm-6 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size6of12;  @extend .u-lg-size6of12;  }
+.row .col-sm-7 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size7of12;  @extend .u-lg-size7of12;  }
+.row .col-sm-8 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size8of12;  @extend .u-lg-size8of12;  }
+.row .col-sm-9 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size9of12;  @extend .u-lg-size9of12;  }
+.row .col-sm-10{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size10of12;  @extend .u-lg-size10of12;  }
+.row .col-sm-11{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size11of12;  @extend .u-lg-size11of12;  }
+.row .col-sm-12{ @extend .Grid-cell;}
+.row .col-lg-1 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size1of12;  @extend .u-lg-size1of12;  }
+.row .col-lg-2 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size2of12;  @extend .u-lg-size2of12;  }
+.row .col-lg-3 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size3of12;  @extend .u-lg-size3of12;  }
+.row .col-lg-4 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size4of12;  @extend .u-lg-size4of12;  }
+.row .col-lg-5 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size5of12;  @extend .u-lg-size5of12;  }
+.row .col-lg-6 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size6of12;  @extend .u-lg-size6of12;  }
+.row .col-lg-7 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size7of12;  @extend .u-lg-size7of12;  }
+.row .col-lg-8 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size8of12;  @extend .u-lg-size8of12;  }
+.row .col-lg-9 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size9of12;  @extend .u-lg-size9of12;  }
+.row .col-lg-10{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size10of12;  @extend .u-lg-size10of12;  }
+.row .col-lg-11{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size11of12;  @extend .u-lg-size11of12;  }
+.row .col-lg-12{ @extend .Grid-cell;}
+
+.form-group{  @extend .Form-field;  }
+.form-control{  @extend .Form-input;  }
+
+.media, .media-body { overflow: hidden;  }
+.media-body {  width: 10000px;  }
+.media-left, .media-image, .media-body {  display: table-cell;  vertical-align: top;  }
+.media-image, .media > .pull-left{  @extend .u-padding-right-s;  }
+.media-heading{  @extend .u-padding-bottom-s;  @extend .u-textClean;  @extend .u-textWeight-700;  @extend .u-color-50;  @extend .u-text-h4;  line-height: normal;  }
+.media-heading a{  @extend .u-textWeight-700;  }
+
+.button{  @extend .Button;  @extend .Button--info; }
+.button.defaultbutton, .defaultbutton{  @extend .Button;  @extend .Button--default; }
+.btn{  @extend .Button; @extend .Button--info;  }
+.btn.btn-info{  @extend .Button; @extend .Button--info;  }
+.btn.btn-warning, .btn.btn-danger{ @extend .Button;  @extend .Button--danger;  }
