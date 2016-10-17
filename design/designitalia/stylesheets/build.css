@@ -4845,7 +4845,7 @@ ol, ul {
   color: #f5f5f0 !important;
 }
 
-.u-background-grey-10, .Treeview--default li[aria-expanded=true] > a, .Treeview--default li[aria-expanded=true] > a:hover, .GridStriped .Grid:nth-child(2n), .openpa-full .content-view-children .openpa-line:nth-child(2n) {
+.u-background-grey-10, .Treeview--default li[aria-expanded=true] > a, .Treeview--default li[aria-expanded=true] > a:hover, .GridStriped .Grid:nth-child(2n), .ContainerStriped .ItemStriped:nth-child(2n), .openpa-full .content-view-children .openpa-line:nth-child(2n) {
   background-color: #f5f5f0 !important;
 }
 

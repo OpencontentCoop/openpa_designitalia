@@ -145,6 +145,10 @@ dd {
     @extend .u-background-grey-10;
 }
 
+.ContainerStriped .ItemStriped:nth-child(2n) {
+    @extend .u-background-grey-10;
+}
+
 .openpa-full .title h2{
     @extend .u-text-h2;
 }

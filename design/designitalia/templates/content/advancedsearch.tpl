@@ -23,6 +23,11 @@
      $search_extras = $search['SearchExtras']
      $uri_suffix    = $search['UriSuffix']}
 
+<p class="u-md-hidden u-lg-hidden u-padding-r-all u-text-m u-background-grey-20">
+    <span class="Icon-list u-text-r-xl u-alignMiddle u-padding-r-right" aria-hidden="true"></span>
+    <a accesskey="3"  class="js-scrollTo u-text-r-s u-textClean u-color-grey-50 u-alignMiddle" href="#subnav" >Vai ai filtri di ricerca</a>
+</p>
+
 <div class="openpa-full">
 
     <div class="title">
@@ -43,10 +48,9 @@
 
         <div class="content-container">
             <div class="content withExtra">
-                <fieldset>
 
                     {if $isSingleClassSearch|not()}
-
+                    <fieldset class="u-hidden u-sm-block u-md-block u-lg-block">
                         {* RICERCA LIBERA *}
                         <div class="Form-field Form-field--withPlaceholder">
                             <input class="Form-input u-text-r-s u-padding-r-all u-color-black" id="SearchText" name="SearchText" value="{$search_text|wash}" style="margin: 0 !important;">
@@ -92,9 +96,9 @@
                                 </select>
                             </div>
                         </div>
+                    </fieldset>
                     {/if}
 
-                </fieldset>
 
                 {* FORSE CERCAVI... *}
                 {if $search_extras.spellcheck_collation}
@@ -157,16 +161,7 @@
 
                 {if $count|gt(0)}
 
-                    <div class="GridStriped">
-                        <div class="Grid Grid--withGutter u-margin-top-l">
-                            <div class="Grid-cell u-sizeFull u-sm-size3of4 u-md-size3of4 u-lg-size3of4">
-                                <p class="u-text-h4">Risultato della ricerca</p>
-                            </div>
-                            <div class="Grid-cell u-sizeFull u-sm-size1of4 u-md-size1of4 u-lg-size1of4">
-                                <p class="u-text-h4">Data</p>
-                            </div>
-                        </div>
-
+                    <div class="ContainerStriped">
                         {foreach $results as $result}
                             {node_view_gui view=ezfind_advanced_line sequence=false() content_node=$result}
                         {/foreach}
@@ -184,7 +179,7 @@
 
             </div>
 
-            <div class="extra">
+            <div class="extra" id="subnav">
 
                 {if $link_istruzioni_ricerca}
                     <a class="Button Button--info" href="{$link_istruzioni_ricerca.url_alias|ezurl(no)}"
@@ -195,7 +190,7 @@
 
 
                 {if $isSingleClassSearch}
-                    <a class="Button Button--info" href={concat( "/content/advancedsearch/", cond( is_area_tematica(), concat( '?SubTreeArray[]=', is_area_tematica().node_id ), '' ) )|ezurl()}>&larr; Ricerca generale</a>
+                    <a class="Button Button--info" href={concat( "/content/advancedsearch/", cond( is_area_tematica(), concat( '?SubTreeArray[]=', is_area_tematica().node_id ), '' ) )|ezurl()}>Annulla tutti i filtri</a>
                     <div class="openpa-widget nav-section u-margin-top-l">
                         {include name = searchform
                         uri = 'design:parts/class_search_form.tpl'
