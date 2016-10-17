@@ -261,7 +261,7 @@
 
         <div class="Grid">
             <div class="Grid-cell u-size12of12 u-sm-size12of12 u-md-size5of12 u-lg-size5of12">
-                <button class="btn u-padding-all-s" type="submit" name="CustomActionButton[{$attribute.id}_browse_objects]">
+                <button class="btn" type="submit" name="CustomActionButton[{$attribute.id}_browse_objects]">
                     {'Add existing objects'|i18n( 'design/standard/content/datatype' )}
                 </button>
             </div>

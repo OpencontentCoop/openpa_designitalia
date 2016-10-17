@@ -12,7 +12,7 @@
 {/if}
 
 {if $openpa.content_attachment.children_count}
-    <ol class="Prose Bullets">
+    <ul class="Prose">
         {foreach $openpa.content_attachment.children as $item}
             <li class="u-margin-bottom-s">
                 <p class="Prose u-layout-prose">
@@ -22,7 +22,7 @@
                            title="Scarica il file {$item|attribute( 'file' ).content.original_filename|wash( xhtml )}">
                             <i class="fa fa-download fa-2x"></i>
                             {$item.name|wash()}
-                            <small>File {$item|attribute( 'file' ).content.original_filename}
+                            <br /><small>File {$item|attribute( 'file' ).content.original_filename}
                                 ({$item|attribute( 'file' ).content.filesize|si( byte )})
                             </small>
                         </a>
@@ -35,5 +35,5 @@
                 </p>
             </li>
         {/foreach}
-    </ol>
+    </ul>
 {/if}

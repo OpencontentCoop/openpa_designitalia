@@ -2,15 +2,13 @@
  *	Only apply to body
  *		class="it-Pac"
  */
+
+@import "compat";
+@import "organigramma";
+@import "openpa";
+
 .Pac {
   font-family: var(--Pac-font-family-sans);
-}
-
-/**
- * 	Fonts
- */
-:root {
-  --Pac-font-family-sans: Titillium Web, HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
 }
 
 /**
@@ -20,132 +18,19 @@
     --Color-primary: #005463;
 }
 
-.dl-horizontal dt {
-    clear: left;
-    float: left;
-    overflow: hidden;
-    text-align: right;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 160px;
-}
-dt {
-    font-weight: bold;
-}
-dt, dd {
-    line-height: 1.42857;
-}
-.dl-horizontal dd::before, .dl-horizontal dd::after {
-    content: " ";
-    display: table;
-}
-.dl-horizontal dd::after {
-    clear: both;
-}
-.dl-horizontal dd::before, .dl-horizontal dd::after {
-    content: " ";
-    display: table;
-}
-*::before, *::after {
-    box-sizing: border-box;
-}
-.dl-horizontal dd {
-    margin-left: 180px;
-}
-dd {
-    margin-left: 0;
-}
 
-.list-group{
-    @extend .Linklist;
-    @extend .Linklist--padded;
-}
 
-.row{  @extend .Grid;  @extend .Grid--withGutter;  }
-.row .col-md-1 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size1of12;  @extend .u-lg-size1of12;  }
-.row .col-md-2 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size2of12;  @extend .u-lg-size2of12;  }
-.row .col-md-3 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size3of12;  @extend .u-lg-size3of12;  }
-.row .nav-section, .row .col-md-4 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size4of12;  @extend .u-lg-size4of12;  }
-.row .col-md-5 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size5of12;  @extend .u-lg-size5of12;  }
-.row .col-md-6 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size6of12;  @extend .u-lg-size6of12;  }
-.row .col-md-7 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size7of12;  @extend .u-lg-size7of12;  }
-.row .content-main, .row .col-md-8 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size8of12;  @extend .u-lg-size8of12;  }
-.row .col-md-9 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size9of12;  @extend .u-lg-size9of12;  }
-.row .col-md-10{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size10of12;  @extend .u-lg-size10of12;  }
-.row .col-md-11{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size11of12;  @extend .u-lg-size11of12;  }
-.row .col-md-12{ @extend .Grid-cell;}
-.row .col-sm-1 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size1of12;  @extend .u-lg-size1of12;  }
-.row .col-sm-2 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size2of12;  @extend .u-lg-size2of12;  }
-.row .col-sm-3 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size3of12;  @extend .u-lg-size3of12;  }
-.row .col-sm-4 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size4of12;  @extend .u-lg-size4of12;  }
-.row .col-sm-5 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size5of12;  @extend .u-lg-size5of12;  }
-.row .col-sm-6 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size6of12;  @extend .u-lg-size6of12;  }
-.row .col-sm-7 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size7of12;  @extend .u-lg-size7of12;  }
-.row .col-sm-8 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size8of12;  @extend .u-lg-size8of12;  }
-.row .col-sm-9 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size9of12;  @extend .u-lg-size9of12;  }
-.row .col-sm-10{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size10of12;  @extend .u-lg-size10of12;  }
-.row .col-sm-11{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size11of12;  @extend .u-lg-size11of12;  }
-.row .col-sm-12{ @extend .Grid-cell;}
-.row .col-lg-1 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size1of12;  @extend .u-lg-size1of12;  }
-.row .col-lg-2 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size2of12;  @extend .u-lg-size2of12;  }
-.row .col-lg-3 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size3of12;  @extend .u-lg-size3of12;  }
-.row .col-lg-4 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size4of12;  @extend .u-lg-size4of12;  }
-.row .col-lg-5 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size5of12;  @extend .u-lg-size5of12;  }
-.row .col-lg-6 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size6of12;  @extend .u-lg-size6of12;  }
-.row .col-lg-7 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size7of12;  @extend .u-lg-size7of12;  }
-.row .col-lg-8 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size8of12;  @extend .u-lg-size8of12;  }
-.row .col-lg-9 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size9of12;  @extend .u-lg-size9of12;  }
-.row .col-lg-10{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size10of12;  @extend .u-lg-size10of12;  }
-.row .col-lg-11{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size11of12;  @extend .u-lg-size11of12;  }
-.row .col-lg-12{ @extend .Grid-cell;}
-
-.form-group{
-    @extend .Form-field;
-}
-.form-control{
-    @extend .Form-input;
-}
-
-.img-responsive{
-    display: block;
-    height: auto;
-    max-width: 100%;
+/**
+ * 	Fonts
+ */
+:root {
+  --Pac-font-family-sans: Titillium Web, HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
 }
 
 #toolbar{
     @extend .u-hidden;
     @extend .u-md-block;
     @extend .u-lg-block;
-}
-
-.media,
-.media-body {
-    overflow: hidden;
-}
-.media-body {
-    width: 10000px;
-}
-.media-left,
-.media-image,
-.media-body {
-    display: table-cell;
-    vertical-align: top;
-}
-.media-image, .media > .pull-left{
-    @extend .u-padding-right-s;
-}
-.media-heading{
-    @extend .u-padding-bottom-s;
-    @extend .u-textClean;
-    @extend .u-textWeight-700;
-    @extend .u-text-r-xs;
-    @extend .u-color-50;
-    @extend .Prose;
-}
-
-.media-heading a{
-    @extend .u-textWeight-700;
-    @extend .u-text-r-xs;
 }
 
 .GridStriped .Grid:nth-child(2n) {
@@ -156,226 +41,11 @@ dd {
     @extend .u-background-grey-10;
 }
 
-.openpa-full .title h2{
-    @extend .u-text-h2;
-}
-
-.openpa-full .content-container{
-    @extend .Grid;
-    @extend .Grid--withGutter;
-}
-
-.openpa-full .content{
-    @extend .Grid--withGutter > .Grid-cell;
-    @extend .Grid-cell;
-    @extend .u-padding-bottom-xl;
-    @extend .u-sizeFull;
-}
-.openpa-full .content.withExtra{
-    @extend .Grid--withGutter > .Grid-cell;
-    @extend .Grid-cell;
-    @extend .u-padding-bottom-xl;
-    @extend .u-md-size6of12;
-    @extend .u-lg-size6of12;
-}
-
-.openpa-full .content-main-abstract,
-.openpa-full .content-main-body {
-    @extend .Prose;
-    @extend .u-layout-prose;
-}
-
-.openpa-full .main_image {
-    @extend .u-padding-bottom-l;
-}
-
-.openpa-full .content-detail-item{
-    @extend .Grid;
-    @extend .Grid--withGutter;
-    @extend .u-margin-bottom-s;
-    @extend .Prose;
-}
-
-.openpa-full .content-detail-item .label{
-    @extend .Grid-cell;
-    @extend .Grid--withGutter > .Grid-cell;
-    @extend .u-sizeFull;
-    @extend .u-md-size3of12;
-    @extend .u-lg-size3of12;
-}
-
-.openpa-full .content-detail-item .value {
-    @extend .Grid-cell;
-    @extend .Grid--withGutter > .Grid-cell;
-}
-
-.openpa-full .content-detail-item.withLabel .value {
-    @extend .Grid-cell;
-    @extend .Grid--withGutter > .Grid-cell;
-    @extend .u-md-size9of12;
-    @extend .u-lg-size9of12;
-}
-
-.openpa-full .extra {
-    @extend .Grid-cell;
-    @extend .Grid--withGutter > .Grid-cell;
-    @extend .u-md-size4of12;
-    @extend .u-lg-size4of12;
-    @extend .u-md-before2of12;
-    @extend .u-lg-before2of12;
-    @extend .u-padding-bottom-xl;
-}
-.openpa-full .extra .nav-section {
-    @extend .u-sizeFull;
-    @extend .u-md-size11of12;
-    @extend .u-lg-size11of12;
-    @extend .u-padding-bottom-xl;
-}
-
-.openpa-full .last-modified {
-    display: block;
-    text-align: right;
-    @extend .u-padding-bottom-xl;
-}
-
-.openpa-full .state-navigation{
-    @extend .u-padding-bottom-l;
-}
-
-.openpa-full .content-view-children .openpa-line:nth-child(2n) {
-    @extend .u-background-grey-10;
-}
-
-.openpa-full .content-view-children .openpa-line{
-    @extend .u-padding-all-m;
-}
-
-.openpa-line {
-    @extend .u-margin-bottom-m;
-}
-
-.openpa-line .media-details{
-    @extend .Prose;
-}
-
-.openpa-line .media-details > li{
-    @extend .u-padding-bottom-xs;
-}
-
-.openpa-line .media-image{
-    @extend .u-hidden;
-    @extend .u-md-tableCell;
-    @extend .u-lg-tableCell;
-}
-
-.openpa-widget{
-    @extend .u-margin-bottom-m;
-}
-
-.openpa-widget-title{
-    @extend .Leads-title;
-}
-.openpa-widget-title a{
-    font-size: inherit;
-    @extend .u-textClean;
-    @extend .u-color-black;
-}
-.openpa-widget-title-lev2{
-    @extend .u-padding-left-m;
-    @extend .u-padding-right-m;
-    @extend .u-text-h4;
-    @extend .u-textClean;
-    @extend .u-color-black;
-    @extend .Prose;
-    font-weight: normal !important;
-}
-.openpa-widget-title-lev2 a{
-    @extend .u-text-h4;
-    @extend .u-textClean;
-    @extend .u-color-black;
-    font-weight: normal !important;
-}
-.openpa-widget-content{
-
-}
-
-.nav-section .openpa-widget-title{
-    @extend .u-text-h3;
-}
-
-.openpa-carousel{
-    position: relative;
-}
-
-.openpa-accordion_content{
-    @extend .u-padding-top-m;
-    @extend .u-padding-left-m;
-    @extend .u-padding-right-m;
-    @extend .Prose;
-}
-
-.openpa-widget-content .widget_tabs ul > li{
-    display: inline;
-}
-
-.openpa-event-item{
-    @extend .Grid;
-    @extend .u-padding-all-s;
-}
-
-.openpa-event-item .calendar-date{
-    @extend .Grid-cell;
-    @extend .u-size4of12;
-    @extend .u-md-size3of12;
-    @extend .u-lg-size3of12;
-    border: 1px solid var(--Color-grey-30);
-}
-
-.openpa-event-item .calendar-date .month,
-.openpa-event-item .calendar-date .day{
-    @extend .u-textCenter;
-    display: block;
-}
-
-.openpa-event-item .calendar-date .month{
-    @extend .u-padding-all-xxs;
-    background-color: var(--Color-primary);
-    color: var(--Color-white);
-}
-
-.openpa-event-item .calendar-title{
-    @extend .Grid-cell;
-    @extend .u-size8of12;
-    @extend .u-md-size9of12;
-    @extend .u-lg-size9of12;
-    @extend .u-padding-all-s;
-}
-
-.openpa-event-item .calendar-title a{
-    @extend .u-alignMiddle;
-    @extend .u-text-h4;
-    @extend .u-textClean;
-    @extend .u-color-black;
-}
-
-
 .readmore{
-    /*@extend .u-text-h4;
-    @extend .u-textWeight-700;*/
     @extend .Button;
     @extend .Button--info;
-    @extend .u-text-r-xs;
+    @extend .u-text-xxs;
+    @extend .u-floatRight;
     @extend .u-margin-right-m;
     @extend .u-margin-bottom-m;
-    float: right;
-}
-
-.readmore::after {
-    content: " ";
-    clear: both;
-    display: block;
-}
-
-.well{
-    @extend .u-background-grey-20;
 }

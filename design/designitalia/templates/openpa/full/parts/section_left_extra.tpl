@@ -84,16 +84,12 @@
 
     {* COLONNA DEFINITA NEL EZFLOW DEL FOLDER *}
     {if and( $node|has_attribute('layout'), $node|attribute('layout').content.zone_layout|eq('1ZonesLayoutFolder'), $node.depth|gt(2))}
-        <div class="openpa-widget nav-section">
-            <div class="data_map_layout">
-                {attribute_view_gui attribute=$node.data_map.layout}
-            </div>
+        <div class="data_map_layout nav-section">
+            {attribute_view_gui attribute=$node.data_map.layout}
         </div>
     {elseif $openpa.content_globalinfo.has_content}
-        <div class="openpa-widget nav-section">
-            <div class="data_map_layout">
-                {attribute_view_gui attribute=$openpa.content_globalinfo.object.data_map.page}
-            </div>
+        <div class="data_map_layout nav-section">
+            {attribute_view_gui attribute=$openpa.content_globalinfo.object.data_map.page}
         </div>
     {/if}
 
