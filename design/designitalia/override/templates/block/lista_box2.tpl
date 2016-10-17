@@ -14,7 +14,7 @@ $valid_nodes_count = $valid_nodes|count()}
         {node_view_gui content_node=$valid_nodes[0] view=line}
 
     {elseif $valid_nodes_count|eq(2)}
-        <div class="Grid">
+        <div class="Grid Grid--withGutter">
             <div class="Grid-cell u-md-size1of2 u-lg-size1of2">
                 <h4 class="openpa-widget-title-lev2">{node_view_gui content_node=$valid_nodes[0] view=text_linked}</h4>
                 {node_view_gui content_node=$valid_nodes[0] view=accordion_content image_class=small}

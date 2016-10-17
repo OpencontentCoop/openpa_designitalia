@@ -23,7 +23,6 @@
                  pagination=true()
                  navigation=false()
                  image_class=squaremedium
-                 auto_height=true()
                  items_per_row=$items_per_row}
         </div>
     </div>

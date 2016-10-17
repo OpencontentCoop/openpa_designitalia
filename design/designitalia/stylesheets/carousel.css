@@ -18,8 +18,16 @@
 .carousel-top-control .owl-controls .owl-buttons {
     position: absolute;
     right: 0;
-    top: -32px;
+    top: -7rem;
 }
+.carousel-top-control .owl-controls .owl-buttons div.owl-prev,
+.carousel-top-control .owl-controls .owl-buttons div.owl-next{
+    padding: 3px !important;
+    font-size: 35px;
+    background: none;
+    color: #333;
+}
+
 .carousel-top-control .caption {
     padding-right: 10px;
 }

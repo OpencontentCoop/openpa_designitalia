@@ -69,15 +69,15 @@
                 {if and( $day_events_count|gt(0), $prossimi_count|gt(0) )}
                     <ul class="nav nav-tabs" role="tablist">
                         {if $day_events_count|ne(0)}
-                            <li class="active eventi-oggi">
-                                <a href="#oggi" data-toggle="tab" class="btn">
+                            <li class="nav-tab active eventi-oggi">
+                                <a href="#oggi" data-toggle="tab">
                                     Oggi
                                 </a>
                             </li>
                         {/if}
                         {if $prossimi_count|gt(0)}
-                            <li class="{if $day_events_count|eq(0)}active{/if} eventi-{$block.custom_attributes.tab_title|slugize}">
-                                <a href="#{$block.custom_attributes.tab_title|slugize}" data-toggle="tab" class="btn">
+                            <li class="nav-tab {if $day_events_count|eq(0)}active{/if} eventi-{$block.custom_attributes.tab_title|slugize}">
+                                <a href="#{$block.custom_attributes.tab_title|slugize}" data-toggle="tab">
                                     {$block.custom_attributes.tab_title}
                                 </a>
                             </li>

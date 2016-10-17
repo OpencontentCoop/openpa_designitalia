@@ -120,28 +120,30 @@
 
 
 .openpa-widget{
-    @extend .u-margin-bottom-m;
-    @extend .u-nbfc;
+    @extend .u-margin-r-bottom;
+    @extend .u-cf;
 }
 
-.openpa-accordion_content{
-    @extend .u-padding-top-m;
-    @extend .u-padding-left-m;
-    @extend .u-padding-right-m;
-    @extend .Prose;
-}
-
-.openpa-widget-title{
+.openpa-widget-title {
     @extend .Leads-title;
 }
 .openpa-widget-title a{
     font-size: inherit;
     @extend .u-textClean;
-    @extend .u-color-black;
 }
+
+.openpa-widget-layout .openpa-widget-title{
+    @extend .u-border-top-l;
+    @extend .u-padding-top-m;
+    @extend .u-color-70;
+}
+
+.openpa-widget-layout .openpa-widget-title a{
+    font-size: inherit;
+    @extend .u-color-70;
+}
+
 .openpa-widget-title-lev2{
-    @extend .u-padding-left-m;
-    @extend .u-padding-right-m;
     @extend .u-text-h4;
     @extend .u-textClean;
     @extend .u-color-black;
@@ -155,15 +157,22 @@
     font-weight: normal !important;
 }
 .openpa-widget-content{
+    @extend .u-cf;
+}
 
+.tab-pane > .openpa-accordion_content,
+.Accordion-panel > .openpa-accordion_content{
+    @extend .u-padding-top-s;
+    @extend .u-padding-left-s;
+    @extend .u-padding-right-s;
+}
+
+.openpa-accordion_content{
+    @extend .Prose;
 }
 
 .openpa-carousel{
     position: relative;
-}
-
-.openpa-widget-content .widget_tabs ul > li{
-    display: inline;
 }
 
 .openpa-event-item{
@@ -176,7 +185,6 @@
     @extend .u-size4of12;
     @extend .u-md-size3of12;
     @extend .u-lg-size3of12;
-    border: 1px solid var(--Color-grey-30);
 }
 
 .openpa-event-item .calendar-date .month,
@@ -187,8 +195,18 @@
 
 .openpa-event-item .calendar-date .month{
     @extend .u-padding-all-xxs;
-    background-color: var(--Color-primary);
+    @extend .u-background-70;
     color: var(--Color-white);
+    font-weight: bold;
+}
+
+.openpa-event-item .calendar-date .day{
+    @extend .u-background-white;
+    @extend .u-color-70;
+    font-size: 2em;
+    line-height: 65px;
+    font-weight: bold;
+    border: 1px solid var(--Color-primary);
 }
 
 .openpa-event-item .calendar-title{

@@ -32,7 +32,7 @@ $fetch_params = hash(  'class_filter_type', 'exclude',
 
 
     {elseif $valid_nodes_count|eq(2)}
-        <section class="Grid">
+        <section class="Grid Grid--withGutter">
 
             <div class="Grid-cell u-md-size1of2 u-lg-size1of2">
                 {set $children=fetch( 'content', 'tree', $fetch_params|merge(hash('parent_node_id', $valid_nodes[0].node_id)))}
@@ -67,7 +67,7 @@ $fetch_params = hash(  'class_filter_type', 'exclude',
             </div>
         </section>
     {elseif $valid_nodes_count|ge(3)}
-        <section class="Grid">
+        <section class="Grid Grid--withGutter">
 
             <div class="Grid-cell u-md-size1of3 u-lg-size1of3">
                 {set $children=fetch( 'content', 'tree', $fetch_params|merge(hash('parent_node_id', $valid_nodes[0].node_id)))}

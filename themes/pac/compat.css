@@ -125,4 +125,11 @@ dd {  margin-left: 0;  }
 .btn.btn-info{  @extend .Button; @extend .Button--info;  }
 .btn.btn-warning, .btn.btn-danger{ @extend .Button;  @extend .Button--danger;  }
 
-.well{  @extend .u-background-grey-20; @extend .u-padding-all-s}
+.well{  @extend .u-background-grey-10; @extend .u-padding-all-s}
+
+.nav-tabs{  border-bottom: 3px solid; @extend .u-color-70; @extend .u-flex;  }
+.nav-tab{ }
+.nav-tab a{ @extend .u-block;font-size: 1.2em;  line-height: normal; @extend .u-padding-top-xs; @extend .u-padding-bottom-xs; @extend .u-padding-left-s; @extend .u-padding-right-s; @extend .u-textClean; @extend .u-color-70;}
+.nav-tab.ui-tabs-active{ @extend .u-background-70}
+.nav-tab.ui-tabs-active a{ @extend .u-color-white}
+.ui-tabs-panel{@extend .u-background-grey-10; @extend .u-cf;}

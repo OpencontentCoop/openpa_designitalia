@@ -1,27 +1,27 @@
 {set_defaults( hash(
-    'i_view', 'carousel',
-    'items', array(),
-    'autoplay', 0,
-    'items_per_row', 1,
-    'image_class', 'carousel',
-    'navigation', true(),
-    'pagination', false(),
-    'auto_height', false(),
-    'top_pagination_position', false(),
-    'navigation_text', concat( "['", '<i class="fa fa-arrow-circle-left"></i>', "','", '<i class="fa fa-arrow-circle-right"></i>', "']"),
-    'css_id', $root_node.node_id
+'i_view', 'carousel',
+'items', array(),
+'autoplay', 0,
+'items_per_row', 1,
+'image_class', 'carousel',
+'navigation', true(),
+'pagination', false(),
+'auto_height', false(),
+'top_pagination_position', false(),
+'navigation_text', concat( "['", '<i class="fa fa-angle-left"></i>', "','", '<i class="fa fa-angle-right"></i>', "']"),
+'css_id', $root_node.node_id
 ))}
 
 {if and( $root_node, $items )}
-    {if $root_node}
+{if $root_node}
 
-        {ezscript_require( array( 'ezjsc::jquery', 'plugins/owl-carousel/owl.carousel.min.js', "plugins/blueimp/jquery.blueimp-gallery.min.js" ) )}
-        {ezcss_require( array( 'plugins/owl-carousel/owl.carousel.css', 'plugins/owl-carousel/owl.theme.css', "plugins/blueimp/blueimp-gallery.css" ) )}
+    {ezscript_require( array( 'ezjsc::jquery', 'plugins/owl-carousel/owl.carousel.min.js', "plugins/blueimp/jquery.blueimp-gallery.min.js" ) )}
+    {ezcss_require( array( 'plugins/owl-carousel/owl.carousel.css', 'plugins/owl-carousel/owl.theme.css', "plugins/blueimp/blueimp-gallery.css" ) )}
 
     <div id="carousel_{$css_id}" class="owl-carousel">
-        {foreach $items as $item}            
+        {foreach $items as $item}
             <div class="item">
-                {node_view_gui content_node=$item view=$i_view image_class=$image_class}
+                {node_view_gui content_node=$item.node view=$i_view image_class=$image_class event=$item}
             </div>
         {/foreach}
     </div>
@@ -37,7 +37,7 @@
                 autoPlay: {cond( $autoplay|gt(0), $autoplay, 'false')},
                 navigation: {cond( $navigation|gt(0), 'true', 'false')},
                 pagination: {cond( $pagination|gt(0), 'true', 'false')},
-                autoHeight : {if $auto_height}true{else}false{/if},
+                {if $auto_height}autoHeight : true,{/if}
                 navigationText: {cond( $navigation_text|ne(false()), $navigation_text, false )}
                 {if $top_pagination_position},afterInit : function(elem){ldelim}var that = this;that.owlControls.prependTo(elem){rdelim}{/if}
                 {rdelim});
@@ -45,8 +45,6 @@
     </script>
 
 
-    {/if}
+{/if}
 
 {unset_defaults( array('i_view','items','autoplay','items_per_row', 'image_class','navigation','pagination','navigation_text','css_id'))}
-
-
