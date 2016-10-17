@@ -13,6 +13,13 @@
   --Pac-font-family-sans: Titillium Web, HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
 }
 
+/**
+ * 	Brand color
+ */
+:root {
+    --Color-primary: #005463;
+}
+
 .dl-horizontal dt {
     clear: left;
     float: left;
@@ -296,6 +303,10 @@ dd {
     @extend .u-text-h3;
 }
 
+.openpa-carousel{
+    position: relative;
+}
+
 .openpa-accordion_content{
     @extend .u-padding-top-m;
     @extend .u-padding-left-m;
@@ -303,11 +314,68 @@ dd {
     @extend .Prose;
 }
 
-.readmore{
+.openpa-widget-content .widget_tabs ul > li{
+    display: inline;
+}
+
+.openpa-event-item{
+    @extend .Grid;
+    @extend .u-padding-all-s;
+}
+
+.openpa-event-item .calendar-date{
+    @extend .Grid-cell;
+    @extend .u-size4of12;
+    @extend .u-md-size3of12;
+    @extend .u-lg-size3of12;
+    border: 1px solid var(--Color-grey-30);
+}
+
+.openpa-event-item .calendar-date .month,
+.openpa-event-item .calendar-date .day{
+    @extend .u-textCenter;
+    display: block;
+}
+
+.openpa-event-item .calendar-date .month{
+    @extend .u-padding-all-xxs;
+    background-color: var(--Color-primary);
+    color: var(--Color-white);
+}
+
+.openpa-event-item .calendar-title{
+    @extend .Grid-cell;
+    @extend .u-size8of12;
+    @extend .u-md-size9of12;
+    @extend .u-lg-size9of12;
+    @extend .u-padding-all-s;
+}
+
+.openpa-event-item .calendar-title a{
+    @extend .u-alignMiddle;
     @extend .u-text-h4;
-    @extend .u-textWeight-700;
+    @extend .u-textClean;
+    @extend .u-color-black;
+}
+
+
+.readmore{
+    /*@extend .u-text-h4;
+    @extend .u-textWeight-700;*/
+    @extend .Button;
+    @extend .Button--info;
+    @extend .u-text-r-xs;
     @extend .u-margin-right-m;
     @extend .u-margin-bottom-m;
     float: right;
 }
 
+.readmore::after {
+    content: " ";
+    clear: both;
+    display: block;
+}
+
+.well{
+    @extend .u-background-grey-20;
+}
