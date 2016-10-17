@@ -150,3 +150,5 @@ dd {
 .btn{  @extend .Button; @extend .Button--info;  }
 .btn.btn-info{  @extend .Button; @extend .Button--info;  }
 .btn.btn-warning, .btn.btn-danger{ @extend .Button;  @extend .Button--danger;  }
+
+.well{  @extend .u-background-grey-20;  }

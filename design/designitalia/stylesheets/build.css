@@ -469,7 +469,7 @@ ol, ul {
   vertical-align: bottom !important;
 }
 
-.u-alignMiddle, .Header-logo img, .Share-reveal > a > span, .Share > ul > li > a, .Skiplinks > li {
+.u-alignMiddle, .Header-logo img, .Share-reveal > a > span, .Share > ul > li > a, .Skiplinks > li, .openpa-event-item .calendar-title a {
   vertical-align: middle !important;
 }
 
@@ -1607,7 +1607,7 @@ ol, ul {
   width: 30% !important;
 }
 
-.u-size1of3, .u-size2of6, .u-size4of12 {
+.u-size1of3, .u-size2of6, .u-size4of12, .openpa-event-item .calendar-date {
   -webkit-flex-basis: auto !important;
       -ms-flex-preferred-size: auto !important;
           flex-basis: auto !important;
@@ -1663,7 +1663,7 @@ ol, ul {
   width: 62.5% !important;
 }
 
-.u-size2of3, .u-size4of6, .u-size8of12 {
+.u-size2of3, .u-size4of6, .u-size8of12, .openpa-event-item .calendar-title {
   -webkit-flex-basis: auto !important;
       -ms-flex-preferred-size: auto !important;
           flex-basis: auto !important;
@@ -2077,7 +2077,7 @@ ol, ul {
     width: 20% !important;
   }
 
-  .u-md-size1of4, .u-md-size2of8, .u-md-size3of12, .row .col-md-3, .row .col-sm-3, .row .col-lg-3, .openpa-full .content-detail-item .label {
+  .u-md-size1of4, .u-md-size2of8, .u-md-size3of12, .row .col-md-3, .row .col-sm-3, .row .col-lg-3, .openpa-full .content-detail-item .label, .openpa-event-item .calendar-date {
     -webkit-flex-basis: auto !important;
         -ms-flex-preferred-size: auto !important;
             flex-basis: auto !important;
@@ -2161,7 +2161,7 @@ ol, ul {
     width: 70% !important;
   }
 
-  .u-md-size3of4, .u-md-size6of8, .u-md-size9of12, .row .col-md-9, .row .col-sm-9, .row .col-lg-9, .openpa-full .content-detail-item.withLabel .value {
+  .u-md-size3of4, .u-md-size6of8, .u-md-size9of12, .row .col-md-9, .row .col-sm-9, .row .col-lg-9, .openpa-full .content-detail-item.withLabel .value, .openpa-event-item .calendar-title {
     -webkit-flex-basis: auto !important;
         -ms-flex-preferred-size: auto !important;
             flex-basis: auto !important;
@@ -2319,7 +2319,7 @@ ol, ul {
     width: 20% !important;
   }
 
-  .u-lg-size1of4, .u-lg-size2of8, .u-lg-size3of12, .row .col-md-3, .row .col-sm-3, .row .col-lg-3, .openpa-full .content-detail-item .label {
+  .u-lg-size1of4, .u-lg-size2of8, .u-lg-size3of12, .row .col-md-3, .row .col-sm-3, .row .col-lg-3, .openpa-full .content-detail-item .label, .openpa-event-item .calendar-date {
     -webkit-flex-basis: auto !important;
         -ms-flex-preferred-size: auto !important;
             flex-basis: auto !important;
@@ -2403,7 +2403,7 @@ ol, ul {
     width: 70% !important;
   }
 
-  .u-lg-size3of4, .u-lg-size6of8, .u-lg-size9of12, .row .col-md-9, .row .col-sm-9, .row .col-lg-9, .openpa-full .content-detail-item.withLabel .value {
+  .u-lg-size3of4, .u-lg-size6of8, .u-lg-size9of12, .row .col-md-9, .row .col-sm-9, .row .col-lg-9, .openpa-full .content-detail-item.withLabel .value, .openpa-event-item .calendar-title {
     -webkit-flex-basis: auto !important;
         -ms-flex-preferred-size: auto !important;
             flex-basis: auto !important;
@@ -2521,7 +2521,7 @@ ol, ul {
  * Horizontal text alignment
  */
 
-.u-textCenter, .Bullets > li:before, .Header-toggle, .Header-logo, .ScrollTop, .ScrollTop-icon, .Share > ul > li, .Share-revealIcon {
+.u-textCenter, .Bullets > li:before, .Header-toggle, .Header-logo, .ScrollTop, .ScrollTop-icon, .Share > ul > li, .Share-revealIcon, .openpa-event-item .calendar-date .month, .openpa-event-item .calendar-date .day {
   text-align: center !important;
 }
 
@@ -4363,7 +4363,7 @@ ol, ul {
  *    the component.
  */
 
-.Grid, .row, .openpa-full .content-container, .openpa-full .content-detail-item {
+.Grid, .row, .openpa-full .content-container, .openpa-full .content-detail-item, openpa-event-item {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-box;
@@ -4473,7 +4473,7 @@ ol, ul {
  *    `Grid-cell` container - https://git.io/vw5oF
  */
 
-.Grid-cell, .row .col-md-1, .row .col-md-2, .row .col-md-3, .row .nav-section, .row .col-md-4, .row .col-md-5, .row .col-md-6, .row .col-md-7, .row .content-main, .row .col-md-8, .row .col-md-9, .row .col-md-10, .row .col-md-11, .row .col-md-12, .row .col-sm-1, .row .col-sm-2, .row .col-sm-3, .row .col-sm-4, .row .col-sm-5, .row .col-sm-6, .row .col-sm-7, .row .col-sm-8, .row .col-sm-9, .row .col-sm-10, .row .col-sm-11, .row .col-sm-12, .row .col-lg-1, .row .col-lg-2, .row .col-lg-3, .row .col-lg-4, .row .col-lg-5, .row .col-lg-6, .row .col-lg-7, .row .col-lg-8, .row .col-lg-9, .row .col-lg-10, .row .col-lg-11, .row .col-lg-12, .openpa-full .content, .openpa-full .content.withExtra, .openpa-full .content-detail-item .label, .openpa-full .content-detail-item .value, .openpa-full .content-detail-item.withLabel .value, .openpa-full .extra {
+.Grid-cell, .row .col-md-1, .row .col-md-2, .row .col-md-3, .row .nav-section, .row .col-md-4, .row .col-md-5, .row .col-md-6, .row .col-md-7, .row .content-main, .row .col-md-8, .row .col-md-9, .row .col-md-10, .row .col-md-11, .row .col-md-12, .row .col-sm-1, .row .col-sm-2, .row .col-sm-3, .row .col-sm-4, .row .col-sm-5, .row .col-sm-6, .row .col-sm-7, .row .col-sm-8, .row .col-sm-9, .row .col-sm-10, .row .col-sm-11, .row .col-sm-12, .row .col-lg-1, .row .col-lg-2, .row .col-lg-3, .row .col-lg-4, .row .col-lg-5, .row .col-lg-6, .row .col-lg-7, .row .col-lg-8, .row .col-lg-9, .row .col-lg-10, .row .col-lg-11, .row .col-lg-12, .openpa-full .content, .openpa-full .content.withExtra, .openpa-full .content-detail-item .label, .openpa-full .content-detail-item .value, .openpa-full .content-detail-item.withLabel .value, .openpa-full .extra, .openpa-event-item .calendar-date, .openpa-event-item .calendar-title {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
   -webkit-flex-basis: 100%;
@@ -4825,7 +4825,7 @@ ol, ul {
  *	To be overridden by themes
  */
 
-.u-color-black, .Card-titleLink, .openpa-widget-title a, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a {
+.u-color-black, .Card-titleLink, .openpa-widget-title a, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a, .openpa-event-item .calendar-title a {
   color: #000 !important;
 }
 
@@ -4853,7 +4853,7 @@ ol, ul {
   color: #eee !important;
 }
 
-.u-background-grey-20, .Megamenu--styled .Megamenu-list, .Share-reveal, .Share-revealIcon.is-open {
+.u-background-grey-20, .Megamenu--styled .Megamenu-list, .Share-reveal, .Share-revealIcon.is-open, .well {
   background-color: #eee !important;
 }
 
@@ -4934,75 +4934,75 @@ ol, ul {
 /* Color primary */
 
 .u-color-5 {
-  color: rgb(145, 145, 145) !important;
+  color: rgb(136, 204, 215) !important;
 }
 
 .u-background-5, .Accordion-header:hover, .Linklist a:hover, .Treeview--default ul a, .Treeview--default ul a:hover, .list-group a:hover {
-  background-color: rgb(145, 145, 145) !important;
+  background-color: rgb(136, 204, 215) !important;
 }
 
 .u-color-10 {
-  color: rgb(120, 120, 120) !important;
+  color: rgb(88, 194, 213) !important;
 }
 
 .u-background-10, .Linklist-link.Linklist-link--lev3 {
-  background-color: rgb(120, 120, 120) !important;
+  background-color: rgb(88, 194, 213) !important;
 }
 
 .u-color-20 {
-  color: rgb(94, 94, 94) !important;
+  color: rgb(37, 186, 212) !important;
 }
 
 .u-background-20, .Linklist-link.Linklist-link--lev2, .Linklist-link.Linklist-link--lev2:hover {
-  background-color: rgb(94, 94, 94) !important;
+  background-color: rgb(37, 186, 212) !important;
 }
 
 .u-color-30 {
-  color: rgb(69, 69, 69) !important;
+  color: rgb(20, 155, 179) !important;
 }
 
 .u-background-30 {
-  background-color: rgb(69, 69, 69) !important;
+  background-color: rgb(20, 155, 179) !important;
 }
 
 .u-color-40 {
-  color: rgb(38, 38, 38) !important;
+  color: rgb(10, 110, 127) !important;
 }
 
 .u-background-40, .Header-searchTrigger button, .Header-search.is-active {
-  background-color: rgb(38, 38, 38) !important;
+  background-color: rgb(10, 110, 127) !important;
 }
 
 .u-color-50, .Accordion-link, .Header-language.is-active, .Header-socialIcons [class^="Icon-"], .Header-socialIcons [class*=" Icon-"], .Linklist-link, .Linklist a, .Share-revealIcon.is-open, .Skiplinks > li > a, .list-group a, .media-heading {
-  color: #111 !important;
+  color: #005463 !important;
 }
 
 .u-background-50, .Bullets > li:before, .Header-navbar, .Share > ul > li, .Share-revealIcon {
-  background-color: #111 !important;
+  background-color: #005463 !important;
 }
 
 .u-color-60, .Header-banner {
-  color: rgb(5, 5, 5) !important;
+  color: rgb(0, 61, 71) !important;
 }
 
 .u-background-60 {
-  background-color: rgb(5, 5, 5) !important;
+  background-color: rgb(0, 61, 71) !important;
 }
 
 .u-color-70 {
-  color: rgb(0, 0, 0) !important;
+  color: rgb(0, 39, 46) !important;
 }
 
 .u-background-70 {
-  background-color: rgb(0, 0, 0) !important;
+  background-color: rgb(0, 39, 46) !important;
 }
 
 .u-color-80 {
-  color: rgb(0, 0, 0) !important;
+  color: rgb(0, 17, 20) !important;
 }
 
 .u-background-80, .badge {
-  background-color: rgb(0, 0, 0) !important;
+  background-color: rgb(0, 17, 20) !important;
 }
 
 .u-color-90, .Treeview--default ul a, .Treeview--default ul a:hover {
@@ -5309,11 +5309,11 @@ ol, ul {
 
 .u-padding-all-none { padding: 0 !important; }
 
-.u-padding-all-xxs, .Header-search, .Header-search.is-active { padding: 0.4rem !important; }
+.u-padding-all-xxs, .Header-search, .Header-search.is-active, .openpa-event-item .calendar-date .month { padding: 0.4rem !important; }
 
 .u-padding-all-xs, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Header-socialIcons [class^="Icon-"], .Header-socialIcons [class*=" Icon-"] { padding: 0.8rem !important; }
 
-.u-padding-all-s, .Accordion-link, .Footer-subBlock, .Header-searchTrigger button, .Tooltip--styled .Tooltip-tooltip { padding: 1.6rem !important; }
+.u-padding-all-s, .Accordion-link, .Footer-subBlock, .Header-searchTrigger button, .Tooltip--styled .Tooltip-tooltip, openpa-event-item, .openpa-event-item .calendar-title { padding: 1.6rem !important; }
 
 .u-padding-all-m, .openpa-full .content-view-children .openpa-line { padding: 2rem !important; }
 
@@ -5397,7 +5397,7 @@ ol, ul {
 
 .u-margin-bottom-xs, .Entrypoint-item, .Megamenu--styled .Megamenu-subnavGroup > li > ul > li > ul { margin-bottom: 0.8rem !important; }
 
-.u-margin-bottom-s, .u-text-h1, .u-text-h2, .u-text-h3, .u-text-h4, .u-text-h5, .u-text-h6, .Form--spaced .Form-fieldset, .Form--spaced .Form-legend, .Card-extra, .Card-title, .Leads-title, .media-heading, .openpa-full .title h2, .openpa-full .content-detail-item, .openpa-widget-title, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a { margin-bottom: 1.6rem !important; }
+.u-margin-bottom-s, .u-text-h1, .u-text-h2, .u-text-h3, .u-text-h4, .u-text-h5, .u-text-h6, .Form--spaced .Form-fieldset, .Form--spaced .Form-legend, .Card-extra, .Card-title, .Leads-title, .media-heading, .openpa-full .title h2, .openpa-full .content-detail-item, .openpa-widget-title, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a, .openpa-event-item .calendar-title a { margin-bottom: 1.6rem !important; }
 
 .u-margin-bottom-m, .Header-social, .openpa-full .content-detail, .openpa-line, .openpa-widget, .readmore { margin-bottom: 2rem !important; }
 
@@ -5531,7 +5531,7 @@ ol, ul {
   font-size: 2.2rem !important;
 }
 
-.u-text-m, .u-text-r-m, .u-text-h4, .Form-fieldset > legend, .Prose-blockquote > p, .Accordion-header, .Card-title, .Card-titleLink, .Footer-blockTitle, .Footer-subTitle, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Leads-link, .media-heading, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a {
+.u-text-m, .u-text-r-m, .u-text-h4, .Form-fieldset > legend, .Prose-blockquote > p, .Accordion-header, .Card-title, .Card-titleLink, .Footer-blockTitle, .Footer-subTitle, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Leads-link, .media-heading, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a, .openpa-event-item .calendar-title a {
   font-size: 2rem !important;
   letter-spacing: 0.007em !important;
 }
@@ -5565,7 +5565,7 @@ ol, ul {
     font-size: 2.4rem !important;
   }
 
-  .u-text-sm-m, .u-text-r-m, .u-text-h4, .Form-fieldset > legend, .Prose-blockquote > p, .Accordion-header, .Card-title, .Footer-blockTitle, .Footer-subTitle, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Header-titleLink a, .Leads-link, .media-heading, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a {
+  .u-text-sm-m, .u-text-r-m, .u-text-h4, .Form-fieldset > legend, .Prose-blockquote > p, .Accordion-header, .Card-title, .Footer-blockTitle, .Footer-subTitle, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Header-titleLink a, .Leads-link, .media-heading, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a, .openpa-event-item .calendar-title a {
     font-size: 2.1rem !important;
     letter-spacing: 0.007em !important;
   }
@@ -5601,7 +5601,7 @@ ol, ul {
     font-size: 2.8rem !important;
   }
 
-  .u-text-md-m, .u-text-r-m, .u-text-h4, .Form-fieldset > legend, .Prose-blockquote > p, .Accordion-header, .Card-title, .Footer-blockTitle, .Footer-subTitle, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Header-titleLink small, .Leads-link, .media-heading, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a {
+  .u-text-md-m, .u-text-r-m, .u-text-h4, .Form-fieldset > legend, .Prose-blockquote > p, .Accordion-header, .Card-title, .Footer-blockTitle, .Footer-subTitle, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Header-titleLink small, .Leads-link, .media-heading, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a, .openpa-event-item .calendar-title a {
     font-size: 2.1rem !important;
     letter-spacing: 0.007em !important;
   }
@@ -5636,7 +5636,7 @@ ol, ul {
     font-size: 3.2rem !important;
   }
 
-  .u-text-lg-m, .u-text-r-m, .u-text-h4, .Form-fieldset > legend, .Prose-blockquote > p, .Accordion-header, .Card-title, .Footer-blockTitle, .Footer-subTitle, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Header-titleLink small, .Headroom--fixed.Headroom--not-top .Header-titleLink a, .Headroom--pinned.Headroom--not-top .Header-titleLink a, .Leads-link, .media-heading, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a {
+  .u-text-lg-m, .u-text-r-m, .u-text-h4, .Form-fieldset > legend, .Prose-blockquote > p, .Accordion-header, .Card-title, .Footer-blockTitle, .Footer-subTitle, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Header-titleLink small, .Headroom--fixed.Headroom--not-top .Header-titleLink a, .Headroom--pinned.Headroom--not-top .Header-titleLink a, .Leads-link, .media-heading, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a, .openpa-event-item .calendar-title a {
     font-size: 2.3rem !important;
     letter-spacing: 0.007em !important;
   }
@@ -5694,7 +5694,7 @@ ol, ul {
   -webkit-font-smoothing: antialiased !important; /* 2 */
 }
 
-.u-textClean, .Accordion-link, .Breadcrumb-link, .Card-extra, .Card-extraLink, .Card-titleLink, .Header-serviceLink a, .Header-owner a, .Header-toggleText, .Header-titleLink a, .Header-titleLink small, .Header-language, .Leads-link, .Linklist-link, .Linklist a, .Megamenu--styled .Megamenu-item > a, .Megamenu--styled .Megamenu-subnavGroup > li > a, .Share-reveal > a > span, .Share > ul > li > a, .Skiplinks > li > a, .list-group a, .media-heading, .openpa-widget-title a, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a {
+.u-textClean, .Accordion-link, .Breadcrumb-link, .Card-extra, .Card-extraLink, .Card-titleLink, .Header-serviceLink a, .Header-owner a, .Header-toggleText, .Header-titleLink a, .Header-titleLink small, .Header-language, .Leads-link, .Linklist-link, .Linklist a, .Megamenu--styled .Megamenu-item > a, .Megamenu--styled .Megamenu-subnavGroup > li > a, .Share-reveal > a > span, .Share > ul > li > a, .Skiplinks > li > a, .list-group a, .media-heading, .openpa-widget-title a, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a, .openpa-event-item .calendar-title a {
   text-decoration: none !important;
 }
 
@@ -5714,7 +5714,7 @@ ol, ul {
   font-weight: 600 !important;
 }
 
-.u-textWeight-700, .u-text-h1, .u-text-h2, .u-text-h3, .u-text-h4, .u-text-h6, .Form-field > legend, .Breadcrumb-link, .Bullets > li:before, .Card-extra, .Card-title, .Footer-block a, .Header-serviceLink a, .Header-toggleText, .Header-titleLink a, .Header-language, .Leads-title, .ScrollTop-icon, .form-group > legend, .media-heading, .media-heading a, .openpa-full .title h2, .openpa-widget-title, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a {
+.u-textWeight-700, .u-text-h1, .u-text-h2, .u-text-h3, .u-text-h4, .u-text-h6, .Form-field > legend, .Breadcrumb-link, .Bullets > li:before, .Card-extra, .Card-title, .Footer-block a, .Header-serviceLink a, .Header-toggleText, .Header-titleLink a, .Header-language, .Leads-title, .ScrollTop-icon, .form-group > legend, .media-heading, .media-heading a, .openpa-full .title h2, .openpa-widget-title, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a, .openpa-event-item .calendar-title a {
   font-weight: 700 !important;
 }
 
@@ -7981,9 +7981,34 @@ ul.org-chart ul li:last-child {
 
 }
 
+.openpa-carousel{
+    position: relative;
+}
+
+.openpa-widget-content .widget_tabs ul > li{
+    display: inline;
+}
+
+.openpa-event-item .calendar-date{
+    border: 1px solid #ddd;
+}
+
+.openpa-event-item .calendar-date .month, .openpa-event-item .calendar-date .day{
+    display: block;
+}
+
+.openpa-event-item .calendar-date .month{
+    background-color: #005463;
+    color: #fff;
+}
+
 .Pac {
   font-family: Titillium Web, HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
 }
+
+/**
+ * 	Brand color
+ */
 
 /**
  * 	Fonts
@@ -8081,7 +8106,7 @@ ul.org-chart ul li:last-child {
 }
 
 .ie8 .Header-navbar {
-  background: #111 !important;
+  background: #005463 !important;
   color: white !important;
 }
 

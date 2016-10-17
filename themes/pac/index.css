@@ -12,6 +12,15 @@
 }
 
 /**
+ * 	Brand color
+ */
+:root {
+    --Color-primary: #005463;
+}
+
+
+
+/**
  * 	Fonts
  */
 :root {
