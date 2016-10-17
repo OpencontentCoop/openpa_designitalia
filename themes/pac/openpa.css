@@ -121,6 +121,7 @@
 
 .openpa-widget{
     @extend .u-margin-bottom-m;
+    @extend .u-nbfc;
 }
 
 .openpa-accordion_content{
@@ -165,7 +166,7 @@
     display: inline;
 }
 
-openpa-event-item{
+.openpa-event-item{
     @extend .Grid;
     @extend .u-padding-all-s;
 }
