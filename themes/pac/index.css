@@ -141,6 +141,10 @@ dd {
     @extend .u-text-r-xs;
 }
 
+.GridStriped .Grid:nth-child(2n) {
+    @extend .u-background-grey-10;
+}
+
 .openpa-full .title h2{
     @extend .u-text-h2;
 }
@@ -228,7 +232,7 @@ dd {
 }
 
 .openpa-full .content-view-children .openpa-line:nth-child(2n) {
-    @extend .u-background-grey-20;
+    @extend .u-background-grey-10;
 }
 
 .openpa-full .content-view-children .openpa-line{
@@ -272,11 +276,13 @@ dd {
     @extend .u-textClean;
     @extend .u-color-black;
     @extend .Prose;
+    font-weight: normal !important;
 }
 .openpa-widget-title-lev2 a{
     @extend .u-text-h4;
     @extend .u-textClean;
     @extend .u-color-black;
+    font-weight: normal !important;
 }
 .openpa-widget-content{
 
