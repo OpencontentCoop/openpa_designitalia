@@ -10,7 +10,7 @@
         </h3>
     {/if}
     <div class="openpa-widget-content">
-        <div class="relative carousel-top-control panels-container {if or( $show_title|not(), $block.name|eq('') )}title-placeholder{/if} {$block.view}">
+        <div class="carousel-top-control openpa-panels-container {if or( $show_title|not(), $block.name|eq('') )}title-placeholder{/if} {$block.view}">
 
 
 

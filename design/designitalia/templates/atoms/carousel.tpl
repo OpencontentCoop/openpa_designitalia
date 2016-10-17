@@ -6,7 +6,7 @@
     'image_class', 'carousel',
     'navigation', true(),
     'pagination', false(),
-    'auto_height', false(),
+    'auto_height', true(),
     'top_pagination_position', false(),
     'navigation_text', concat( "['", '<i class="fa fa-arrow-circle-left"></i>', "','", '<i class="fa fa-arrow-circle-right"></i>', "']"),
     'css_id', $root_node.node_id
@@ -34,7 +34,7 @@
                 itemsDesktopSmall : [900,{$items_per_row}], // betweem 900px and 601px
                 itemsTablet: [600,{$items_per_row}], // items between 600 and 0
                 itemsMobile : [400,1],
-                autoPlay: {cond( $autoplay|gt(0), $autoplay, 'false')},
+                autoPlay: false, // http://design.italia.it/linee-guida/layout/carousel/
                 navigation: {cond( $navigation|gt(0), 'true', 'false')},
                 pagination: {cond( $pagination|gt(0), 'true', 'false')},
                 autoHeight : {if $auto_height}true{else}false{/if},

@@ -8,11 +8,7 @@
 
 <section class="openpa-panel {$node|access_style} Card Card--withBorder u-color-grey-30">
 
-    {if $node|has_attribute('image')}
-        <div class="Card-image">
-            <img src="{$node|attribute('image').content.imagefull.full_path|ezroot(no)}" class="u-sizeFull">
-        </div>
-    {/if}
+    {include uri='design:openpa/panel/parts/image.tpl'}
 
     <div class="Card-content u-padding-r-all">
         <p class="Card-title">
@@ -49,5 +45,7 @@
         {/if}
 
     </div>
+
+    <a class="readmore" href="{object_handler($node).content_link.full_link}" title="{$node.name|wash()}">Leggi</a>
 
 </section>

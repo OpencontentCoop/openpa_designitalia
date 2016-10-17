@@ -32,12 +32,12 @@
           </div>
 
           <div class="calendar-date col-xs-8 col-sm-9 col-md-10">
-            <div class="row panels-container">
+            <div class="row openpa-panels-container">
               {foreach $calendarDay.events as $event}
                 <div class="col-md-6">
                   {node_view_gui view=panel content_node=$event.node image_class=small is_program=true()}
                 </div>
-                {delimiter modulo=2}</div><div class="row panels-container">{/delimiter}
+                {delimiter modulo=2}</div><div class="row openpa-panels-container">{/delimiter}
               {/foreach}
             </div>
         </div>

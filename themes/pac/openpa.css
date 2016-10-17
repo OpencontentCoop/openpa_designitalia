@@ -129,6 +129,7 @@
 }
 .openpa-widget-title a{
     font-size: inherit;
+    color: inherit;
     @extend .u-textClean;
 }
 
@@ -222,4 +223,37 @@
     @extend .u-text-h4;
     @extend .u-textClean;
     @extend .u-color-black;
+}
+
+.openpa-panels-container{
+    position: relative;
+}
+
+.openpa-panel-image{
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.openpa-panel-image.bg-contain{
+    background-size: contain !important;
+}
+
+.openpa-panel-label{
+    @extend .u-background-70;
+    @extend .u-color-white;
+    @extend .u-text-h4;
+    @extend .u-padding-all-s;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.openpa-panels-container .owl-carousel .owl-item .item {
+    padding: 5px;
+}
+
+/* bc */
+.global-view-full{
+    @extend .u-cf;
 }

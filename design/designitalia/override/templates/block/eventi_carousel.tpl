@@ -21,7 +21,7 @@
         </h3>
     {/if}
     <div class="openpa-widget-content">
-        <div class="relative carousel-top-control panels-container {$block.view}">
+        <div class="carousel-top-control openpa-panels-container {$block.view}">
             {include uri='design:calendar/carousel.tpl'
                     css_id=$block.id
                     items=$calendarData.events

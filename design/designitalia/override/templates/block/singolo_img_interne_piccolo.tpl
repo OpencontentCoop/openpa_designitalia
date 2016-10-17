@@ -6,7 +6,7 @@
     {if and( $show_title, $block.name|ne('') )}
         <h3 class="openpa-widget-title"><a href={$valid_node.url_alias|ezurl()}>{$block.name|wash()}</a></h3>
     {/if}
-    <div class="openpa-widget-content">
+    <div class="openpa-widget-content openpa-full">
         {include name=block_full uri=$current_openpa.content_main.template openpa=$current_openpa node=$valid_node}
     </div>
 </div>
