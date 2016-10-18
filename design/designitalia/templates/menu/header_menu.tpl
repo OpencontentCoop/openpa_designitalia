@@ -24,7 +24,7 @@
                         menu_item=$tree_menu current=or($tree_menu.item.node_id|eq($current_node_id), $pagedata.path_id_array|contains($tree_menu.item.node_id))}
                         {if $tree_menu.has_children}
                             {if $tree_menu.max_recursion|eq(1)}
-                                <div class="Megamenu-subnav u-jsDisplayNone u-textLeft">
+                                <div class="Megamenu-subnav u-jsDisplayNone u-textCenter">
                                     {foreach $tree_menu.children as $child}
                                         <ul class="Megamenu-subnavGroup u-size1of4">
                                             <li>
