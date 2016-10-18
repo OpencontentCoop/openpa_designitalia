@@ -16,7 +16,7 @@
             navigation=false()
             i_view=carousel_simple
             image_class=small
-            items_per_row=1}
+            items_per_row=$items_per_row}
   </div>
 
 {unset_defaults(array('show_title'))}

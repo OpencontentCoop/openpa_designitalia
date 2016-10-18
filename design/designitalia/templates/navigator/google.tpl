@@ -30,60 +30,58 @@
 
         {switch match=$:item_previous|lt(0) }
         {case match=0}
-            <div class="FlexItem"><div class="u-padding-all-s"><a
+            <div class="FlexItem"><a class="Button Button--info"
                         href={concat($page_uri,$:item_previous|gt(0)|choose('',concat($:offset_text,$:item_previous)),$:view_parameter_text,$page_uri_suffix)|ezurl}><span
-                            class="text">&laquo;&nbsp;{"Previous"|i18n("design/admin/navigator")}</span></a></div></div>
+                            class="text">&laquo;&nbsp;{"Previous"|i18n("design/admin/navigator")}</span></a></div>
         {/case}
         {case}
-            <div class="disabled FlexItem"><div class="u-padding-all-s"><span
-                        class="text disabled">&laquo;&nbsp;{"Previous"|i18n("design/admin/navigator")}</span></div></div>
+            <div class="disabled FlexItem"><span
+                        class="text disabled Button Button--info">&laquo;&nbsp;{"Previous"|i18n("design/admin/navigator")}</span></div>
         {/case}
         {/switch}
 
 
         {if $:current_page|gt($:left_max)}
-            <div class="FlexItem"><div class="u-padding-all-s"><a href={concat($page_uri,$:view_parameter_text,$page_uri_suffix)|ezurl}>1</a></div></div>
+            <div class="FlexItem"><a href={concat($page_uri,$:view_parameter_text,$page_uri_suffix)|ezurl}>1</a></div>
             {if sub($:current_page,$:left_length)|gt(1)}
-                <div class="other FlexItem"><div class="u-padding-all-s"><a>...</a></div></div>
+                <div class="other FlexItem"><a class="Button Button--info">...</a></div>
             {/if}
         {/if}
 
         {section loop=$:left_length}
             {let page_offset=sum(sub($ViewParameter:current_page,$ViewParameter:left_length),$:index)}
-                <div class="FlexItem"><div class="u-padding-all-s">
-                    <a href={concat($page_uri,$:page_offset|gt(0)|choose('',concat($:offset_text,mul($:page_offset,$item_limit))),$ViewParameter:view_parameter_text,$page_uri_suffix)|ezurl}>{$:page_offset|inc}</a>
-                    </div></div>
+                <div class="FlexItem"><a class="Button Button--info" href={concat($page_uri,$:page_offset|gt(0)|choose('',concat($:offset_text,mul($:page_offset,$item_limit))),$ViewParameter:view_parameter_text,$page_uri_suffix)|ezurl}>{$:page_offset|inc}</a>
+                    </div>
             {/let}
         {/section}
 
-        <div class="active FlexItem"><div class="u-padding-all-s"><a href="#">{$:current_page|inc}</a></div></div>
+        <div class="active FlexItem"><span class="Button">{$:current_page|inc}</span></div>
 
         {section loop=$:right_length}
             {let page_offset=sum($ViewParameter:current_page,1,$:index)}
-                <div class="FlexItem"><div class="u-padding-all-s"><a class="next"
+                <div class="FlexItem"><a class="Button Button--info" class="next"
                         href={concat($page_uri,$:page_offset|gt(0)|choose('',concat($:offset_text,mul($:page_offset,$item_limit))),$ViewParameter:view_parameter_text,$page_uri_suffix)|ezurl}>{$:page_offset|inc}</a>
-                    </div></div>
+                    </div>
             {/let}
         {/section}
 
         {if $:page_count|gt(sum($:current_page,$:right_max,1))}
             {if sum($:current_page,$:right_max,2)|lt($:page_count)}
-                <div class="other FlexItem"><div class="u-padding-all-s"><a>...</a></div></div>
+                <div class="other FlexItem"><span class="Button Button--info">...</span></div>
             {/if}
-            <div class="FlexItem"><div class="u-padding-all-s">
-                <a href={concat($page_uri,$:page_count|dec|gt(0)|choose('',concat($:offset_text,mul($:page_count|dec,$item_limit))),$:view_parameter_text,$page_uri_suffix)|ezurl}>{$:page_count}</a>
-            </div></div>
+            <div class="FlexItem">
+                <a class="Button Button--info" href={concat($page_uri,$:page_count|dec|gt(0)|choose('',concat($:offset_text,mul($:page_count|dec,$item_limit))),$:view_parameter_text,$page_uri_suffix)|ezurl}>{$:page_count}</a>
+            </div>
         {/if}
 
         {switch match=$:item_next|lt($item_count)}
         {case match=1}
-            <div class="FlexItem"><div class="u-padding-all-s">
-                <a href={concat($page_uri,$:offset_text,$:item_next,$:view_parameter_text,$page_uri_suffix)|ezurl}><span
-                            class="text">{"Next"|i18n("design/admin/navigator")}&nbsp;&raquo;</span></a></div></div>
+            <div class="FlexItem"><a class="Button Button--info" href={concat($page_uri,$:offset_text,$:item_next,$:view_parameter_text,$page_uri_suffix)|ezurl}><span
+                            class="text">{"Next"|i18n("design/admin/navigator")}&nbsp;&raquo;</span></a></div>
         {/case}
         {case}
-            <div class="disabled FlexItem"><div class="u-padding-all-s"><span class="text disabled">{"Next"|i18n("design/admin/navigator")}
-                    &nbsp;&raquo;</span></div></div>
+            <div class="disabled FlexItem"><span class="text disabled Button Button--info">{"Next"|i18n("design/admin/navigator")}
+                    &nbsp;&raquo;</span></div>
         {/case}
         {/switch}
 

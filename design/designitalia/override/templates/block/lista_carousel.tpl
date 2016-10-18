@@ -1,5 +1,5 @@
 {def $openpa= object_handler($block)}
-{set_defaults(hash('show_title', true()))}
+{set_defaults(hash('show_title', true(), 'items_per_row', 1))}
 
 <div class="openpa-widget {$block.view} {if is_set($block.custom_attributes.color_style)}color color-{$block.custom_attributes.color_style}{/if}">
     {if and( $show_title, $block.name|ne('') )}
@@ -15,7 +15,7 @@
                     autoplay=10000
                     pagination=true()
                     navigation= false()
-                    items_per_row=1}
+                    items_per_row=$items_per_row}
         </div>
     </div>
 </div>

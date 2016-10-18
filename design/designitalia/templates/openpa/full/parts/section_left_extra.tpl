@@ -2,18 +2,17 @@
 
     {if count($openpa.content_related.info)|gt(0)}
         <div class="openpa-widget nav-section">
-                <h2 class="openpa-widget-title">Informazioni correlate</h2>
-                <div class="openpa-widget-content">
-                    {foreach $openpa.content_related.info as $class_name => $infos}
-                        <ul class="Linklist Linklist--padded u-layout-prose">
-                            {foreach $infos as $info}
-                                <li>
-                                    {node_view_gui content_node=$info view=text_linked}
-                                </li>
-                            {/foreach}
-                        </ul>
-                    {/foreach}
-                </div>
+            <h2 class="openpa-widget-title">Informazioni correlate</h2>
+            <div class="openpa-widget-content">
+                {foreach $openpa.content_related.info as $class_name => $infos}
+                    <ul class="Linklist Linklist--padded u-layout-prose">
+                        {foreach $infos as $info}
+                            <li>
+                                {node_view_gui content_node=$info view=text_linked}
+                            </li>
+                        {/foreach}
+                    </ul>
+                {/foreach}
             </div>
         </div>
     {/if}
@@ -41,7 +40,7 @@
 
     {* TODO inserire blocco di ricerca nela caso di view filters *}
     {* {if $openpa.control_children.current_view|eq('filters')}{/if} *}
-    
+
     {* BLOCCO DI RICERCA
         compare solo nei folder e negli oggetti con padre folder
         qualora il campo 'engine' sia valorizzato la ricerca viene estesa a tutto il database *}
@@ -52,11 +51,11 @@
     {/if}
     {if $virtualFolder}
         {include name=searchbox
-                node=cond(is_set($parentOpenpa), $node.parent, $node )
-                subtree=$virtualFolder.subtree
-                class_filters=$virtualFolder.classes
-                open_advanced = cond(is_set($parentOpenpa), false(), true() )
-                uri='design:parts/search_class_and_attributes.tpl' }
+                 node=cond(is_set($parentOpenpa), $node.parent, $node )
+                 subtree=$virtualFolder.subtree
+                 class_filters=$virtualFolder.classes
+                 open_advanced = cond(is_set($parentOpenpa), false(), true() )
+                 uri='design:parts/search_class_and_attributes.tpl' }
     {elseif $openpa.control_children.current_view|eq('filters')}
         <div class="openpa-widget nav-section">
             <h2 class="openpa-widget-title">Ricerca per tipo</h2>
@@ -77,7 +76,8 @@
                                 <span class="menu-handler"></span>
                             </a>
                             <ul>
-                            {foreach $objects as $object}<li>{node_view_gui content_node=$object.main_node view='text_linked'}</li>{/foreach}
+                                {foreach $objects as $object}
+                                    <li>{node_view_gui content_node=$object.main_node view='text_linked'}</li>{/foreach}
                             </ul>
                         </li>
                     {/foreach}
@@ -101,9 +101,9 @@
     {if $openpa.content_reverse_related.has_data}
         {*OGGETTI INVERSAMENTE CORRELATI*}
         {include name = reverse_related_objects
-                 node = $node
-                 title = 'Riferimenti'
-                 uri = 'design:parts/reverse_related_objects.tpl'}
+        node = $node
+        title = 'Riferimenti'
+        uri = 'design:parts/reverse_related_objects.tpl'}
     {/if}
 
 

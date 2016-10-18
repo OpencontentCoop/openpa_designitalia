@@ -80,6 +80,7 @@
     @extend .u-md-size11of12;
     @extend .u-lg-size11of12;
     @extend .u-padding-bottom-xl;
+    @extend .u-layout-prose;
 }
 
 .openpa-full-last-modified {
