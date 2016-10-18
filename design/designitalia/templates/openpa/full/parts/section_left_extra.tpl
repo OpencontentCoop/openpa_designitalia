@@ -57,6 +57,11 @@
                 class_filters=$virtualFolder.classes
                 open_advanced = cond(is_set($parentOpenpa), false(), true() )
                 uri='design:parts/search_class_and_attributes.tpl' }
+    {elseif $openpa.control_children.current_view|eq('filters')}
+        <div class="openpa-widget nav-section">
+            <h2 class="openpa-widget-title">Ricerca per tipo</h2>
+            {include uri='design:parts/children_class_filters.tpl'}
+        </div>
     {/if}
 
 

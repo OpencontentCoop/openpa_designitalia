@@ -109,11 +109,13 @@ dd {  margin-left: 0;  }
 .row .col-lg-11{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size11of12;  @extend .u-lg-size11of12;  }
 .row .col-lg-12{ @extend .Grid-cell;}
 
-.form-group{  @extend .Form-field;  }
+#accordion-classFilters form{ @extend .Form; @extend .Form--spaced; @extend .u-padding-all-s}
+.form-group{  @extend .Form-field; @extend .Form--spaced .Form-field; }
 .form-control{  @extend .Form-input;  }
+.form-group label{  @extend .Form-label;  }
 
 .media, .media-body { overflow: hidden;  }
-.media-body {  width: 10000px;  }
+.media-body {  width: 10000px; @extend .Prose }
 .media-left, .media-image, .media-body {  display: table-cell;  vertical-align: top;  }
 .media-image, .media > .pull-left{  @extend .u-padding-right-s;  }
 .media-heading{  @extend .u-padding-bottom-s;  @extend .u-textClean;  @extend .u-textWeight-700;  @extend .u-color-50;  @extend .u-text-h4;  line-height: normal;  }

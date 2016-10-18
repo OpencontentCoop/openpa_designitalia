@@ -18,9 +18,14 @@
 
         {if is_set($is_program)|not()}
 
-        <div class="Grid">
-            <div class="GridCell u-size1of4">{include uri='design:parts/calendar_date.tpl' month=$from day=$to}</div>
-            <div class="GridCell u-size3of4">
+        <div class="Grid Grid--withGutter">
+            <div class="Grid-cell u-md-size1of4 u-lg-size1of4">
+                <div class="calendar-date">
+                    <span class="month">{$from}</span>
+                    <span class="day">{$to}</span>
+                </div>
+            </div>
+            <div class="Grid-cell u-md-size3of4 u-lg-size3of4">
         {/if}
 
         <div class="Card-text">
