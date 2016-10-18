@@ -7668,36 +7668,18 @@ dd {  margin-left: 0;  }
     position: relative;
 }
 
-.ui-widget-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
 .ui-tooltip {
-    padding: 8px;
-    position: absolute;
     z-index: 9999;
     max-width: 300px;
 }
 
-.ui-widget {
+.ui-tooltip.ui-widget {
     font-family: inherit;
     font-size: inherit;
 }
 
-.ui-widget .ui-widget {
-    font-size: inherit;
-}
-
-.ui-widget.ui-widget-content {
+.ui-tooltip.ui-widget-content {
     border: 1px solid #ddd;
-}
-
-.ui-widget-content {
-    border: 1px solid #dddddd;
     background: #fff;
     color: #1c2024;
 }

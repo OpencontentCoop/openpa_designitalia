@@ -118,7 +118,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	/*import IwtScrolltop from './ita-web-toolkit/src/modules/tooltip'*/
+	/*import IwtTooltip from './ita-web-toolkit/src/modules/tooltip'*/
 	
 	/*import IwtCarousel from './ita-web-toolkit/src/modules/carousel'*/
 	var __exports = {
@@ -135,7 +135,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		IwtMegamenu: _megamenu2['default'],
 		/*IwtTooltip,*/
 		IwtScripts: _scripts2['default'],
-		IwtScrolltop: IwtScrolltop,
+		IwtScrolltop: _scrolltop2['default'],
 		IwtShare: _share2['default'],
 		IwtForm: _form2['default']
 	};

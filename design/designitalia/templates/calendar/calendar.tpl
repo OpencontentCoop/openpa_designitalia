@@ -92,10 +92,10 @@ $(function() {
                     </select>
                 </div>
             {/if}
-            <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
+            <div class="Form-field Grid-cell u-size1of3 u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
                 <button class="Button Button--default" type="submit" name="SearchButton" title="Cerca"><i class="fa fa-search"></i> Cerca</button>
             </div>
-            <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
+            <div class="Form-field Grid-cell u-size2of3 u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
                 <button class="Button Button--info" type="submit" name="TodayButton" title="Azzera la ricerca"><i class="fa fa-close"></i> Annulla ricerca</button>
             </div>
         </div>
