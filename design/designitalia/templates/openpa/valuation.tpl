@@ -9,9 +9,9 @@
     <div class="valuation u-padding-all-xxl u-color-white text-left" xmlns="http://www.w3.org/1999/html">
 
 
-        {def $valutazione=$valuations.object_list[0]
-        $node = fetch(content,node,hash(node_id,$node_id))
-        $data_map=$valutazione.data_map}
+{def $valutazione=$valuations.object_list[0]
+     $node = fetch(content,node,hash(node_id,$node_id))
+     $data_map=$valutazione.data_map}
 
         <form class="Form Form--spaced" action="{'/content/action'|ezurl(no)}" method="post">
             <div class="Grid Grid--withGutter">
