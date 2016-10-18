@@ -14,9 +14,7 @@
        {if $menu_item.item.target}target="{$menu_item.item.target}"{/if}
        title="Vai a {$menu_item.item.name|wash()}">
 
-        {if $menu_item.level|eq(1)}<b>{/if}
-            {$menu_item.item.name|wash()}
-        {if $menu_item.level|eq(1)}</b>{/if}
+        {$menu_item.item.name|wash()}
 
         {if $menu_item.has_children}
             <span class="menu-handler"></span>

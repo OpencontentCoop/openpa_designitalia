@@ -275,4 +275,5 @@
 /* bc */
 .global-view-full{
     @extend .u-cf;
+    @extends .u-padding-all-s;
 }
