@@ -1,15 +1,19 @@
 .owl-controls .owl-buttons div {
     padding: 1px 10px !important;
 }
-.owl-controls .owl-buttons .owl-next, .owl-controls .owl-buttons .owl-prev {
-    margin: 0 0 0 3px;
-    border-radius: none;
-    background: #ccc;
-    color: #fff;
+.owl-theme  .owl-controls .owl-buttons .owl-next,
+.owl-theme .owl-controls .owl-buttons .owl-prev {
+    padding: 3px !important;
+    font-size: 35px;
+    background: none;
+    color: #333;
 }
-.owl-controls .owl-buttons .owl-next:hover, .owl-controls .owl-buttons .owl-prev:hover {
-    background: #999;
-    color: #fff;
+.owl-theme  .owl-controls .owl-buttons .owl-next:hover,
+.owl-theme  .owl-controls .owl-buttons .owl-prev:hover {
+    padding: 3px !important;
+    font-size: 35px;
+    background: none;
+    color: #333;
 }
 
 .carousel-top-control.title-placeholder {
