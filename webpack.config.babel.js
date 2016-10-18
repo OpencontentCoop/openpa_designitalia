@@ -12,9 +12,6 @@ var outputFile
 
 var loaders = []
 
-
-console.log(__dirname)
-
 if (env === 'build') {
   plugins.push(new UglifyJsPlugin({
     minimize: true

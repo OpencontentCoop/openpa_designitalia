@@ -49,3 +49,32 @@
     @extend .u-margin-right-m;
     @extend .u-margin-bottom-m;
 }
+
+.Megamenu--styled .Megamenu-item > a:hover,
+.Megamenu--styled .Megamenu-item > a.current{
+    @extend .u-background-grey-80;
+    color: var(--Color-white) !important;
+}
+
+.Megamenu--styled .Megamenu-list > li > a[aria-expanded=false]::after {
+    color: var(--Color-grey-80);
+}
+
+.Megamenu--styled .Megamenu-list > li > a[aria-expanded=true]::after {
+    color: var(--Color-white);
+}
+
+.Megamenu-subnavGroup {
+    max-width: 25%;
+}
+
+
+.Megamenu-subnavGroup  li a {
+    @extend .u-padding-all-xxs;
+}
+
+.Megamenu-subnavGroup  li  a:hover,
+.Megamenu-subnavGroup  li  a.current {
+    background-color: var(--Color-primary);
+    color: var(--Color-white);
+}
