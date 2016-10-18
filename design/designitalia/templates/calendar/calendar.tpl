@@ -43,23 +43,77 @@ $(function() {
 "Saturday"|i18n("ocbootstrap/calendar"),
 )}
 
-<form class="calendar-tools form-inline" method='GET' action={concat('openpa/calendar/', $node.node_id)|ezurl}>
+<form class="Form Form--spaced" method='GET' action={concat('openpa/calendar/', $node.node_id)|ezurl}>
     <input type='hidden' name="UrlAlias" value="{$node.url_alias}" />
     <input type='hidden' name="View" value="calendar" />
     <input type="hidden" name="SearchDate" value="{$calendarData.parameters.picker_date}" />
 
-    <div class="navigation-calendar pull-right">
-        <div class="btn-group">
+    <fieldset class="Form-fieldset">
+        <legend class="Form-legend">Calendario</legend>
+        <div class="Grid">
+            <div class="Form-field Grid-cell u-sizeFull">
+                {*<input type="submit" name="ViewCalendarButton" class="btn btn-primary hidden-xs" value="Calendario" />*}
+                <input type="submit" name="ViewProgramButton" class="btn btn-default hidden-xs" value="Visualizza lista" />
+            </div>
+        </div>
+
+        <div class="Grid u-padding-all-s u-background-grey-10">
+            <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
+                <label class="Form-label u-hiddenVisually" for="Sort">Cerca nel testo</label>
+                <input id="calendar_query"  class="query Form-input" placeholder="Cerca tra gli eventi" type="text" name="Query" value="{$calendarData.parameters.query|wash()}" />
+            </div>
+
+            <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
+                <label class="Form-label u-hiddenVisually" for="Order">Seleziona data</label>
+                <input id="calendar_picker" class="calendar_picker Form-input" placeholder="gg-mm-yyyy" type="text" name="SearchDate" title="Seleziona data" value="{$calendarData.parameters.picker_date|wash()}" />
+            </div>
+
+            {if count($facets)|gt(0)}
+                <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
+                    {foreach $calendarData.search_facets as $facetFieldName => $facets}
+
+                            <label class="Form-label u-hiddenVisually" for="calendar_facet">Cerca {$facetFieldName}</label>
+                            <select name="{$facetFieldName}" class="Form-input" id="calendar_facet">
+                                <option value="">{$facetFieldName}</option>
+                                {foreach $facets as $styleAndName}
+                                    <option value="{$styleAndName.value|wash()}"{if $calendarData.parameters[$facetFieldName]|eq($styleAndName.value)} selected="selected"{/if}>{if $styleAndName.indent}&nbsp;&nbsp;&nbsp;{/if}{$styleAndName.name|wash()}</option>
+                                {/foreach}
+                            </select>
+
+                    {/foreach}
+                </div>
+            {/if}
+            {if and( count($calendarData.search_facets)|eq(0), is_set( $view_parameters.Manifestazione ) )}
+                <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
+                    <label class="Form-label u-hiddenVisually" for="calendar_facet">Cerca Manifestazione</label>
+                    <select name="Manifestazione" class="Form-input" id="calendar_facet">
+                        <option value="">Manifestazione</option>
+                        <option value="{$view_parameters.Manifestazione|wash()}" selected="selected">{$view_parameters.Manifestazione|wash()}</option>
+                    </select>
+                </div>
+            {/if}
+            <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
+                <button class="Button Button--default" type="submit" name="SearchButton" title="Cerca"><i class="fa fa-search"></i> Cerca</button>
+            </div>
+            <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
+                <button class="Button Button--info" type="submit" name="TodayButton" title="Azzera la ricerca"><i class="fa fa-close"></i> Annulla ricerca</button>
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="Grid">
+        <div class="Form-field Grid-cell u-size1of3 u-md-size1of3 u-lg-size1of3">
             <input type="submit" name="PrevMonthCalendarButton" class="btn btn-default" value="&laquo;" />
-            <input type="submit" name="ViewCalendarButton" class="btn btn-primary hidden-xs" value="Calendario" />
-            <input type="submit" name="ViewProgramButton" class="btn btn-default hidden-xs" value="Lista" />
+        </div>
+        <div class="Form-field Grid-cell u-size1of3 u-md-size1of3 u-lg-size1of3 u-textCenter">
+            <h3>{$calendarData.parameters.timestamp|datetime( custom, '%F' )|upfirst()}&nbsp;{$temp_year}</h3>
+        </div>
+        <div class="Form-field Grid-cell u-size1of3 u-md-size1of3 u-lg-size1of3 u-textRight">
             <input type="submit" name="NextMonthCalendarButton" class="btn btn-default " value="&raquo;" />
         </div>
     </div>
 
-    <h1>{$calendarData.parameters.timestamp|datetime( custom, '%F' )|upfirst()}&nbsp;{$temp_year}</h1>
-    
-    <div class="well well-sm calendar-tools">            
+    {*<div class="well well-sm calendar-tools">
       <label class="hide" for="calendar_query">Cerca nel testo</label>
       <input id="calendar_query"  class="query form-control" placeholder="Cerca tra gli eventi" type="text" name="Query" value="{$calendarData.parameters.query|wash()}" />
       
@@ -88,10 +142,10 @@ $(function() {
       
       <button class="defaultbutton" type="submit" name="SearchButton" title="Cerca"><i class="fa fa-search"></i></button>
       <button class="button" type="submit" name="TodayButton" title="Azzera la ricerca"><i class="fa fa-close"></i></button>
-    </div>
-    
+    </div>*}
+
     <figure>
-    <table class="table-calendar">
+        <table class="openpa-table-calendar">
         <thead>
         <tr>
             <th>{"Mon"|i18n("design/ocbootstrap/full/event_view_calendar")}</th>
@@ -131,8 +185,8 @@ $(function() {
             {/if}
 
             {def $day_id = concat( $temp_year, '-', $temp_month, '-', $counter )}
-            <td class="{if and( is_set( $calendarData.day_by_day[$day_id] ), $calendarData.day_by_day[$day_id].count|gt(0) )}events {/if}{if eq($counter, $temp_today)}ezagenda_selected {/if}{if and(eq($counter, $curr_today), eq($curr_month, $temp_month))}ezagenda_current {/if}{$css_col_class}">
-                <h3 class="day"><span class="day-of-week">{$dayofweeks[$dayofweek]|i18n("design/ocbootstrap/full/event_view_calendar")}</span> <span class="num {if and(eq($counter, $curr_today), eq($curr_month, $temp_month))}label label-primary{/if}">{$counter}</span></h3>
+            <td width="14%" class="{if and( is_set( $calendarData.day_by_day[$day_id] ), $calendarData.day_by_day[$day_id].count|gt(0) )}events {/if}{if eq($counter, $temp_today)}ezagenda_selected {/if}{if and(eq($counter, $curr_today), eq($curr_month, $temp_month))}ezagenda_current {/if}{$css_col_class}">
+                <h3 class="day">{*<span class="day-of-week">{$dayofweeks[$dayofweek]|i18n("design/ocbootstrap/full/event_view_calendar")}</span>*} <span class="num {if and(eq($counter, $curr_today), eq($curr_month, $temp_month))}label label-primary{/if}">{$counter}</span></h3>
                 {if is_set( $calendarData.day_by_day[$day_id] )}
                     {if $calendarData.day_by_day[$day_id].count|gt(0)}
                         <ul>
@@ -146,10 +200,18 @@ $(function() {
                                 {foreach $calendarData.day_by_day[$day_id].events as $event offset 4}
                                     {set $title = concat( $title, $event.name|wash(), ', ' )}
                                 {/foreach}
-                                <li>
-                                    <a class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="{$title}" href={concat( $node.url_alias, '/(view)/program', $calendarData.day_by_day[$day_id].uri_suffix, '#day-', $calendarData.day_by_day[$day_id].identifier )|ezurl()}>
-                                        <em>{if $altri|eq(1)}...e un altro evento{else}...e altri {$altri} eventi{/if}</em>
-                                    </a>
+                                <li class="Entrypoint-item u-background-50 u-textBreak">
+                                    <p>
+                                        <a class="u-color-white" href="{concat( $node.url_alias, '/(view)/program', $calendarData.day_by_day[$day_id].uri_suffix, '#day-', $calendarData.day_by_day[$day_id].identifier )|ezurl(no)}">
+                                            <em>{if $altri|eq(1)}...e un altro evento{else}...e altri {$altri} eventi{/if}</em>
+                                            <span class="Tooltip Tooltip--styled fr-tooltip js-fr-tooltip">
+                                                <span class="Tooltip-toggle js-fr-tooltip-toggle"> (+)</span>
+                                                <span class="Tooltip-tooltip fr-tooltip-tooltip js-fr-tooltip-tooltip u-color-black">
+                                                    <em>{if $altri|eq(1)}...e un altro evento{else}...e altri {$altri} eventi{/if}</em>
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </p>
                                 </li>
                                 {undef $altri $title}
                             {/if}

@@ -227,13 +227,15 @@
     @extend .u-md-size9of12;
     @extend .u-lg-size9of12;
     @extend .u-padding-all-s;
+    @extend .u-text-h4;
+    @extend .u-layout-prose;
 }
 
 .openpa-event-item .calendar-title a{
-    @extend .u-alignMiddle;
-    @extend .u-text-h4;
-    @extend .u-textClean;
+    @extend .u-text-m;
     @extend .u-color-black;
+    @extend .u-textWeight-400;
+    @extend .u-textClean;
 }
 
 .openpa-panels-container{
@@ -262,6 +264,41 @@
 
 .openpa-panels-container .owl-carousel .owl-item .item {
     padding: 5px;
+}
+
+
+.openpa-table-calendar {
+    @extend .Table;
+    @extend .Table--withBorder;
+    @extend .Table--compact;
+    @extend .u-text-r-xxs;
+}
+
+.openpa-table-calendar tr td {
+    vertical-align: top;
+}
+
+.openpa-table-calendar .Entrypoint-item {
+    @extend .u-padding-all-xs;
+    /*padding: 0 !important;*/
+}
+
+.openpa-calendar-day-program {
+    @extend .Grid;
+}
+
+.openpa-calendar-day-program .calendar-date{
+    @extend .Grid-cell;
+    @extend .u-sizeFull;
+    @extend .u-md-size3of12;
+    @extend .u-lg-size2of12;
+}
+
+.openpa-calendar-day-program .calendar-events{
+    @extend .Grid-cell;
+    @extend .u-sizeFull;
+    @extend .u-md-size9of12;
+    @extend .u-lg-size10of12;
 }
 
 .withExtra .openpa-masonry [data-columns]::before {
