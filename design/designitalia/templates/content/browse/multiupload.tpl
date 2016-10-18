@@ -1,20 +1,20 @@
 {def $number_of_items=10
-    $select_name='SelectedObjectIDArray'
-    $select_type='checkbox'
-    $select_attribute='contentobject_id'
-    $browse_list_count=0
-    $page_uri_suffix=false()
-    $node_array=array()
-    $bookmark_list=fetch('content','bookmarks',array())
-    $is_search = false()}
+     $select_name='SelectedObjectIDArray'
+     $select_type='checkbox'
+     $select_attribute='contentobject_id'
+     $browse_list_count=0
+     $page_uri_suffix=false()
+     $node_array=array()
+     $bookmark_list=fetch('content','bookmarks',array())
+     $is_search = false()}
 
 {if is_set( $node_list )}
     {def $page_uri=$requested_uri
-    $main_node = fetch( content, node, hash(node_id, $browse.start_node ) )}
+         $main_node = fetch( content, node, hash(node_id, $browse.start_node ) )}
     {set $browse_list_count = $node_list_count
-    $node_array        = $node_list
-    $page_uri_suffix   = concat( '?', $requested_uri_suffix, '&SubTreeArray[]=', $browse.start_node )
-    $is_search = true()}
+         $node_array        = $node_list
+         $page_uri_suffix   = concat( '?', $requested_uri_suffix, '&SubTreeArray[]=', $browse.start_node )
+         $is_search = true()}
 {else}
     {def $page_uri=concat( '/content/browse/', $main_node.node_id )}
     {set $browse_list_count=fetch( content, list_count, hash( parent_node_id, $node_id, depth, 1, objectname_filter, $view_parameters.namefilter) )}
@@ -37,75 +37,72 @@
     {set select_type='radio'}
 {/if}
 
-<div class="row">
-    <div class="col-md-12">
-        {if $browse.description_template}
-            {include name=Description uri=$browse.description_template browse=$browse main_node=$main_node}
-        {else}
-            <div class="maincontentheader">
-                <form style="float: right" name="browse" method="post" action={$browse.from_page|ezurl}>
-                    <input class="defaultbutton" type="submit" name="BrowseCancelButton"
-                           value="{'Cancel'|i18n( 'design/admin/content/browse' )}"/>
-                </form>
-                <h1>{"Browse"|i18n("design/standard/content/browse")} - {$main_node.name|wash}</h1>
+
+{if $browse.description_template}
+    {include name=Description uri=$browse.description_template browse=$browse main_node=$main_node}
+{else}
+    <div class="u-padding-bottom-l">
+        <form style="float: right" name="browse" method="post" action={$browse.from_page|ezurl}>
+            <input class="defaultbutton" type="submit" name="BrowseCancelButton"
+                   value="{'Cancel'|i18n( 'design/admin/content/browse' )}"/>
+        </form>
+        <h1>{"Browse"|i18n("design/standard/content/browse")} - {$main_node.name|wash}</h1>
+    </div>
+{/if}
+
+<div class="Grid Grid--withGutter">
+    <div class="Grid-cell u-md-size1of2 u-lg-size1of2">
+
+        <form class="u-padding-bottom-l" action={"/content/search"|ezurl}>
+            <div class="Grid-cell Form-field Form-field--withPlaceholder">
+                <input style="padding:6px" class="Form-input u-text-r-s u-padding-r-all u-color-black"
+                       name="SearchText" type="text"
+                       value="{cond( ezhttp_hasvariable('SearchText','get'), ezhttp('SearchText','get'),'')}"
+                       size="12"/>
+                <input type="hidden" value="Cerca" name="SearchButton"/>
+                <input type="hidden" value="{$browse.start_node}" name="SubTreeArray[]"/>
+                <input name="Mode" type="hidden" value="browse"/>
+                <button name="SearchButton" value="Cerca" id="searchbox_submit" type="submit"
+                        class="u-background-40 u-color-white u-padding-all-s u-text-r-m u-textNoWrap">
+                    <span class="fa fa-search"></span>
+                </button>
+            </div>
+            {if and( $is_search, count($node_array)|gt(0) )}
+                <span class="input-group-btn">
+                  <a href={concat('content/browse/', $browse.start_node)|ezurl()} class="btn btn-danger">Annulla ricerca</a>
+                </span>
+            {/if}
+        </form>
+        {if and( $is_search, count($node_array)|eq(0) )}
+            <div class="warning message-warning">
+                Nessun elemento trovato <a href={concat('content/browse/', $browse.start_node)|ezurl()}>[Indietro]</a>
             </div>
         {/if}
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <div class="clearfix">
-            <form action={"/content/search"|ezurl}>
-                <div class="input-group">
-                    <input style="padding:6px" class="form-control" name="SearchText" type="text"
-                           value="{cond( ezhttp_hasvariable('SearchText','get'), ezhttp('SearchText','get'),'')}"
-                           size="12"/>
-                    <input type="hidden" value="Cerca" name="SearchButton"/>
-                    <input type="hidden" value="{$browse.start_node}" name="SubTreeArray[]"/>
-                    <input name="Mode" type="hidden" value="browse"/>
-			  <span class="input-group-btn">
-				<button name="SearchButton" value="Cerca" id="searchbox_submit" type="submit"
-                        class="btn btn-info searchbutton">
-                    <span class="glyphicon glyphicon-search"></span>
-                </button>
-			  </span>
-                    {if and( $is_search, count($node_array)|gt(0) )}
-                        <span class="input-group-btn">
-				  <a href={concat('content/browse/', $browse.start_node)|ezurl()} class="btn btn-danger">Annulla ricerca</a>
-				</span>
-                    {/if}
+        {*
+        <div class="pull-right">
+            <div class="content-view-ezmultiupload">
+                <div class="attribute-description">
+                    <div id="uploadButtonOverlay" style="position: absolute; z-index: 2"></div>
+                    <button id="uploadButton" class="button" type="button" style="z-index: 1">Aggiungi nuove immagini</button>
+                    <button id="cancelUploadButton" class="button" type="button" style="visibility: hidden">{'Cancel'|i18n('extension/ezmultiupload')}</button>
+                    <noscript>{'Javascript has been disabled, this is needed for multiupload!'|i18n('extension/ezmultiupload')}</noscript>
                 </div>
-            </form>
-            {if and( $is_search, count($node_array)|eq(0) )}
-                <div class="warning message-warning">
-                    Nessun elemento trovato <a href={concat('content/browse/', $browse.start_node)|ezurl()}>[Indietro]</a>
-                </div>
-            {/if}
-            {*
-            <div class="pull-right">
-                <div class="content-view-ezmultiupload">
-                    <div class="attribute-description">
-                        <div id="uploadButtonOverlay" style="position: absolute; z-index: 2"></div>
-                        <button id="uploadButton" class="button" type="button" style="z-index: 1">Aggiungi nuove immagini</button>
-                        <button id="cancelUploadButton" class="button" type="button" style="visibility: hidden">{'Cancel'|i18n('extension/ezmultiupload')}</button>
-                        <noscript>{'Javascript has been disabled, this is needed for multiupload!'|i18n('extension/ezmultiupload')}</noscript>
-                    </div>
-                    <div id="multiuploadProgress" style="width: 150px;">
-                        <p>
-                            <span id="multiuploadProgressFile">&nbsp;</span>&nbsp;
-                            <span id="multiuploadProgressFileName">&nbsp;</span>
-                        </p>
-                        <p id="multiuploadProgressMessage">&nbsp;</p>
-                        <div id="multiuploadProgressBarOutline"  style="width: 145px;">
-                            <div id="multiuploadProgressBar"></div>
-                        </div>
+                <div id="multiuploadProgress" style="width: 150px;">
+                    <p>
+                        <span id="multiuploadProgressFile">&nbsp;</span>&nbsp;
+                        <span id="multiuploadProgressFileName">&nbsp;</span>
+                    </p>
+                    <p id="multiuploadProgressMessage">&nbsp;</p>
+                    <div id="multiuploadProgressBarOutline"  style="width: 145px;">
+                        <div id="multiuploadProgressBar"></div>
                     </div>
                 </div>
             </div>
-            *}
         </div>
+        *}
 
-        <form class="clearfix" name="browse" method="post" action={$browse.from_page|ezurl}>
+
+        <form class="u-padding-bottom-l" name="browse" method="post" action={$browse.from_page|ezurl}>
 
             <div id="selection" class="context-block" style="margin: 20px 0">
                 <div class="panel panel-success">
@@ -203,9 +200,8 @@
                             <td>
                                 {if and( is_set($item.data_map.image), $item.data_map.image.has_content )}
                                     <img data-object="{$item.contentobject_id}" class="load-preview"
-                                         src={$item.data_map.image.content['small'].url|ezroot} style="height: 60px;
-                                         width: auto; max-width: 100px
-                                    " />
+                                         src="{$item.data_map.image.content['small'].url|ezroot(no)}"
+                                         style="height: 60px; width: auto; max-width: 100px"/>
                                 {/if}
                             </td>
                             <td class="object-name">
@@ -236,7 +232,7 @@
             </div>
         </form>
     </div>
-    <div class="col-md-6">
+    <div class="Grid-cell u-md-size1of2 u-lg-size1of2">
         <div id="preview-container"></div>
         <img id="spinner" style="display: none" src={'loader.gif'|ezimage()} alt="Attendere..."/>
     </div>
@@ -314,15 +310,16 @@
         };
 
         var selectUnselect = function (e) {
+            var selectTable = $("#select_table");
             var checkbox = $(e.currentTarget);
             var row = checkbox.closest('tr');
             if (checkbox.is(':checked')) {
-                $("#select_table").find('tbody').append(row);
+                selectTable.find('tbody').append(row);
                 addSelect(checkbox.val());
             } else {
                 $("#browse_table").find('tbody').prepend(row);
                 removeSelect(checkbox.val());
-                if ($("#select_table tr").length == 0) {
+                if (selectTable.find("tr").length == 0) {
                     $("#selection").hide();
                 }
             }
@@ -351,18 +348,19 @@
         };
 
         var showSelectedItems = function () {
+            var selection = $("#selection");
             var cookie = readCookie('ocb_browse');
             if (cookie != null && cookie !== '') {
-                $("#selection").show();
+                selection.show();
                 var spinner = $("#spinner").clone();
-                $("#selection").prepend(spinner.show().css({margin: '20px auto', display: 'block'}));
+                selection.prepend(spinner.show().css({margin: '20px auto', display: 'block'}));
                 var cookies = cookie.split('-');
                 $.each(cookies, function (i, v) {
                     $.ez('ezjsctemplate::browse_list_row::' + v + '::{/literal}{$select_type}{literal}::{/literal}{$select_name}{literal}::1', false, function (content) {
                         if (content.error_text.length) {
                             alert(content.error_text);
                         } else {
-                            $("#selection #spinner").remove();
+                            selection.find("#spinner").remove();
                             $('#select_table').find('tbody').prepend(content.content);
                         }
                     });
