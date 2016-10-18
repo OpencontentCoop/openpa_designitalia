@@ -1,3 +1,5 @@
+{if and( $pagedata.is_login_page|not(), array( 'edit', 'browse' )|contains( $ui_context )|not() )}
+    
 {def $top_menu_node_ids = openpaini( 'TopMenu', 'NodiCustomMenu', array() )}
 {def $top_menu_node_ids_count = $top_menu_node_ids|count()}
 
@@ -72,3 +74,4 @@
         </ul>
     </nav>
 </div>
+{/if}
