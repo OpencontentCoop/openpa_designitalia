@@ -1,4 +1,4 @@
-<div class="ItemStriped u-padding-all-s Prose">
+<div class="openpa-search-result ItemStriped u-padding-all-s Prose">
     <h3>
         <small class="u-color-grey-50">{$node.class_name}</small><br />
         <a href={$node.url_alias|ezurl()}>{$node.name|wash}</a>

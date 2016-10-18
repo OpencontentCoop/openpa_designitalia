@@ -106,7 +106,7 @@
 
 .openpa-line .media-details {
     @extend .Prose;
-    margin: 0 !important;;
+    margin: 0 !important;
 }
 
 .openpa-line .media-details > li {
@@ -120,6 +120,14 @@
     @extend .u-lg-tableCell;
 }
 
+.openpa-search-result ul{
+    margin: 0 !important;
+}
+
+.openpa-search-result li{
+    @extend .u-padding-bottom-xs;
+    list-style: none !important;
+}
 
 .openpa-widget{
     @extend .u-margin-r-bottom;
