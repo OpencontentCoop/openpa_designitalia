@@ -1,3 +1,8 @@
+{def $footerBlocksClass = 'u-md-size1of3 u-lg-size1of3'}
+{if or(is_set($pagedata.contacts.facebook), is_set($pagedata.contacts.twitter), is_set($pagedata.contacts.linkedin), is_set($pagedata.contacts.instagram))}
+    {set $footerBlocksClass = 'u-md-size1of4 u-lg-size1of4'}
+{/if}
+
 {if and( $ui_context|ne( 'edit' ), $ui_context|ne( 'browse' ) )}
     {if $pagedata.class_identifier|ne('')}
         <section class="survey u-background-95 u-textCenter u-padding-all-s">
@@ -32,81 +37,81 @@
 
                 {def $footer_notes = fetch( 'openpa', 'footer_notes' )}
                 {if $footer_notes}
-                    <div class="Footer-block Grid-cell u-md-size1of4 u-lg-size1of4">
+                    <div class="Footer-block Grid-cell {$footerBlocksClass}">
                         <h2 class="Footer-blockTitle">Informazioni</h2>
                         <div class="Footer-subBlock">
-
                             <div class="u-lineHeight-xl u-color-white">
                                 {attribute_view_gui attribute=$footer_notes}
                             </div>
-
                         </div>
                     </div>
                 {/if}
 
-                <div class="Footer-block Grid-cell u-md-size1of4 u-lg-size1of4">
+                <div class="Footer-block Grid-cell {$footerBlocksClass}">
                     <h2 class="Footer-blockTitle">Recapiti</h2>
                     <div class="Footer-subBlock">
                         {include uri='design:footer/address.tpl'}
                     </div>
                 </div>
 
-                <div class="Footer-block Grid-cell u-md-size1of4 u-lg-size1of4">
+                <div class="Footer-block Grid-cell {$footerBlocksClass}">
                     <h2 class="Footer-blockTitle">Contatti</h2>
                     {include uri='design:footer/contacts_list.tpl'}
                 </div>
 
-                <div class="Footer-block Grid-cell u-md-size1of4 u-lg-size1of4">
-                    <h2 class="Footer-blockTitle">Seguici su</h2>
-                    <div class="Footer-subBlock">
-                        <ul class="Footer-socialIcons">
-                            {if is_set($pagedata.contacts.facebook)}
-                                <li>
-                                    <a href="{$pagedata.contacts.facebook}">
-                                        <span class="openpa-icon fa-stack">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-facebook fa-stack-1x u-color-grey-80" aria-hidden="true"></i>
-                                        </span>
-                                        <span class="u-hiddenVisually">Facebook</span>
-                                    </a>
-                                </li>
-                            {/if}
-                            {if is_set($pagedata.contacts.twitter)}
-                                <li>
-                                    <a href="{$pagedata.contacts.twitter}">
-                                        <span class="openpa-icon fa-stack">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-twitter fa-stack-1x u-color-grey-80" aria-hidden="true"></i>
-                                        </span>
-                                        <span class="u-hiddenVisually">Twitter</span>
-                                    </a>
-                                </li>
-                            {/if}
-                            {if is_set($pagedata.contacts.linkedin)}
-                                <li>
-                                    <a href="{$pagedata.contacts.linkedin}">
-                                        <span class="openpa-icon fa-stack">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-linkedin fa-stack-1x u-color-grey-80" aria-hidden="true"></i>
-                                        </span>
-                                        <span class="u-hiddenVisually">Linkedin</span>
-                                    </a>
-                                </li>
-                            {/if}
-                            {if is_set($pagedata.contacts.instagram)}
-                                <li>
-                                    <a href="{$pagedata.contacts.instagram}">
-                                        <span class="openpa-icon fa-stack">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-instagram fa-stack-1x u-color-grey-80" aria-hidden="true"></i>
-                                        </span>
-                                        <span class="u-hiddenVisually">Instagram</span>
-                                    </a>
-                                </li>
-                            {/if}
-                        </ul>
+                {if or(is_set($pagedata.contacts.facebook), is_set($pagedata.contacts.twitter), is_set($pagedata.contacts.linkedin), is_set($pagedata.contacts.instagram))}
+                    <div class="Footer-block Grid-cell {$footerBlocksClass}">
+                        <h2 class="Footer-blockTitle">Seguici su</h2>
+                        <div class="Footer-subBlock">
+                            <ul class="Footer-socialIcons">
+                                {if is_set($pagedata.contacts.facebook)}
+                                    <li>
+                                        <a href="{$pagedata.contacts.facebook}">
+                                            <span class="openpa-icon fa-stack">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fa fa-facebook fa-stack-1x u-color-grey-80" aria-hidden="true"></i>
+                                            </span>
+                                            <span class="u-hiddenVisually">Facebook</span>
+                                        </a>
+                                    </li>
+                                {/if}
+                                {if is_set($pagedata.contacts.twitter)}
+                                    <li>
+                                        <a href="{$pagedata.contacts.twitter}">
+                                            <span class="openpa-icon fa-stack">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fa fa-twitter fa-stack-1x u-color-grey-80" aria-hidden="true"></i>
+                                            </span>
+                                            <span class="u-hiddenVisually">Twitter</span>
+                                        </a>
+                                    </li>
+                                {/if}
+                                {if is_set($pagedata.contacts.linkedin)}
+                                    <li>
+                                        <a href="{$pagedata.contacts.linkedin}">
+                                            <span class="openpa-icon fa-stack">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fa fa-linkedin fa-stack-1x u-color-grey-80" aria-hidden="true"></i>
+                                            </span>
+                                            <span class="u-hiddenVisually">Linkedin</span>
+                                        </a>
+                                    </li>
+                                {/if}
+                                {if is_set($pagedata.contacts.instagram)}
+                                    <li>
+                                        <a href="{$pagedata.contacts.instagram}">
+                                            <span class="openpa-icon fa-stack">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fa fa-instagram fa-stack-1x u-color-grey-80" aria-hidden="true"></i>
+                                            </span>
+                                            <span class="u-hiddenVisually">Instagram</span>
+                                        </a>
+                                    </li>
+                                {/if}
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                {/if}
 
             </div>
 

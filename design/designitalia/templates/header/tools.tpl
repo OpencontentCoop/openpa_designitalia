@@ -61,7 +61,6 @@
                         </a>
                     </li>
                 {/if}
-                <li><a href=""><span class="Icon-youtube"></span><span class="u-hiddenVisually">Youtube</span></a></li>
             </ul>
         {/if}
     </div>
