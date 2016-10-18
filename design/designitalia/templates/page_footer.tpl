@@ -1,5 +1,5 @@
 {if and( $ui_context|ne( 'edit' ), $ui_context|ne( 'browse' ) )}
-    {if and( $current_node_id|ne(2), $pagedata.class_identifier|ne('frontpage'), $pagedata.class_identifier|ne('') )}
+    {if $pagedata.class_identifier|ne('')}
         <section class="survey u-background-95 u-textCenter u-padding-all-s">
             <a href="#"
                onClick="getElementById('openpa-valuation').style.display='block';return false;"

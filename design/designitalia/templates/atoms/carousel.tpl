@@ -21,7 +21,7 @@
     <div id="carousel_{$css_id}" class="owl-carousel">
         {foreach $items as $item}            
             <div class="item">
-                {node_view_gui content_node=$item view=$i_view image_class=$image_class}
+                {node_view_gui content_node=$item view=$i_view image_class=$image_class items_per_row=$items_per_row}
             </div>
         {/foreach}
     </div>

@@ -15,7 +15,7 @@
 
         <form class="Form Form--spaced" action="{'/content/action'|ezurl(no)}" method="post">
             <div class="Grid Grid--withGutter">
-                <div class="Grid-cell u-md-size4of12 u-lg-size4of12 u-md-before1of12 u-lg-before1of12">
+                <div class="Grid-cell u-md-size1of3 u-lg-size1of3 u-md-before1of6 u-lg-before1of6">
 
                     {if is_set( $data_map.useful )}
                         <input type="hidden" value=""
@@ -85,7 +85,7 @@
 
                 </div>
 
-                <div class="Grid-cell u-md-size4of12 u-lg-size4of12 u-md-before1of12 u-lg-before1of12">
+                <div class="Grid-cell u-md-size1of3 u-lg-size1of3">
                     {if is_set( $data_map.comment )}
                         <div class="Form-field">
                             <label class="Form-label"
@@ -127,7 +127,7 @@
                                 <div class="Form-field">
                                     <label class="Form-label" for="nxc-captcha-collection-input-{$attribute.id}">Antispam</label>
 
-                                    <p class="text-center u-padding-all-xxl">
+                                    <p class="text-center u-padding-all-m">
                                         <img id="nxc-captcha-{$attribute.id}"
                                              alt="{'Secure code'|i18n( 'extension/nxc_captcha' )}"
                                              title="{'Secure code'|i18n( 'extension/nxc_captcha' )}"
@@ -168,7 +168,7 @@
                     <input type="hidden" value="{$valutazione.main_node.node_id}" name="ContentNodeID"/>
                     <input type="hidden" value="{$valutazione.id}" name="ContentObjectID"/>
                     <input type="hidden" name="ViewMode" value="full"/>
-                    <input class="Button Button--default pull-right" type="submit" value="Invia la valutazione"
+                    <input class="Button Button--info pull-right" type="submit" value="Invia la valutazione"
                            name="ActionCollectInformation"/>
 
                 </div>
