@@ -7,7 +7,7 @@
                name="{$attribute_base}_data_boolean_{$attribute.id}"
                {$attribute.data_int|choose( '', 'checked="checked"' )}
                value=""
-               {if $attribute.is_required}aria-required="true" required=""{/if} type="checkbox">
+               type="checkbox">
         <span class="Form-fieldIcon" role="presentation"></span>
 
         {$attribute.contentclass_attribute.name|wash()}

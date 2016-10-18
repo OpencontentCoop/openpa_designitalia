@@ -42,10 +42,6 @@
     {include name=Description uri=$browse.description_template browse=$browse main_node=$main_node}
 {else}
     <div class="u-padding-bottom-l">
-        <form style="float: right" name="browse" method="post" action={$browse.from_page|ezurl}>
-            <input class="defaultbutton" type="submit" name="BrowseCancelButton"
-                   value="{'Cancel'|i18n( 'design/admin/content/browse' )}"/>
-        </form>
         <h1>{"Browse"|i18n("design/standard/content/browse")} - {$main_node.name|wash}</h1>
     </div>
 {/if}
@@ -132,13 +128,13 @@
             </div>
 
             {include name=navigator
-            uri='design:navigator/alphabetical.tpl'
-            page_uri=$page_uri
-            page_uri_suffix=$page_uri_suffix
-            item_count=$browse_list_count
-            view_parameters=$view_parameters
-            node_id=$browse.start_node
-            item_limit=$number_of_items}
+                    uri='design:navigator/alphabetical.tpl'
+                    page_uri=$page_uri
+                    page_uri_suffix=$page_uri_suffix
+                    item_count=$browse_list_count
+                    view_parameters=$view_parameters
+                    node_id=$browse.start_node
+                    item_limit=$number_of_items}
 
             <div class="panel panel-default">
                 {def $current_node=fetch( content, node, hash( node_id, $browse.start_node ) )}
@@ -230,6 +226,10 @@
                     </tbody>
                 </table>
             </div>
+
+            <input class="pull-right Button Button--danger" type="submit" name="BrowseCancelButton"
+                   value="Esci"/>
+
         </form>
     </div>
     <div class="Grid-cell u-md-size1of2 u-lg-size1of2">

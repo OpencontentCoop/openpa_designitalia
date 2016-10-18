@@ -25,7 +25,7 @@
 
 
 {section show=$:page_count|gt(1)}
-    <div class="u-flex u-flexWrap u-sm-flexJustifyCenter u-md-flexJustifyCenter u-lg-flexJustifyCenter">
+    <div class="u-flex u-flexWrap u-sm-flexJustifyCenter u-md-flexJustifyCenter u-lg-flexJustifyCenter u-padding-top-l">
 
 
         {switch match=$:item_previous|lt(0) }

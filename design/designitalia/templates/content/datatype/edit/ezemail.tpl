@@ -15,7 +15,6 @@
            type="text"
            size="70"
            name="{$attribute_base}_data_text_{$attribute.id}"
-           value="{$attribute.data_text|wash( xhtml )}"
-           {if $attribute.is_required}required aria-required="true"{/if}>
+           value="{$attribute.data_text|wash( xhtml )}">
 </div>
 {/default}

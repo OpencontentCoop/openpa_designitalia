@@ -13,7 +13,7 @@
     <div class="Header-logo Grid-cell" aria-hidden="true">
         <a href="/" tabindex="-1">
             {if and( is_set($pagedata.header.logo.url), $pagedata.header.logo.url)}
-                <img class="header-logo" src={$pagedata.header.logo.url|ezroot()} alt="{ezini('SiteSettings','SiteName')}" alt="{ezini('SiteSettings','SiteName')}" />
+                <img src={$pagedata.header.logo.url|ezroot()} alt="{ezini('SiteSettings','SiteName')}" alt="{ezini('SiteSettings','SiteName')}" />
             {else}
                 <img src="//placehold.it/75x80" alt="{ezini('SiteSettings','SiteName')}">
             {/if}

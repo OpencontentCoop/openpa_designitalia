@@ -15,7 +15,6 @@
            id="ezcoa-{$attribute.contentclassattribute_id}_{$attribute.contentclass_attribute_identifier}"
            type="text"
            name="{$attribute_base}_ezkeyword_data_text_{$attribute.id}"
-           value="{$attribute.content.keyword_string|wash(xhtml)}"
-           {if $attribute.is_required}required aria-required="true"{/if} />
+           value="{$attribute.content.keyword_string|wash(xhtml)}" />
 </div>
 {/default}

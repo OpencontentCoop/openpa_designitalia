@@ -21,7 +21,7 @@
     <div class="Grid Grid--withGutter">
         <div class="Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
             <label class="Form-label" for="{$id_base}_url">Url</label>
-            <input placeholder="http://www.google.com" id="{$id_base}_url" class="Form-input" type="text" name="{$attribute_base}_ezurl_url_{$attribute.id}" value="{$attribute.content|wash( xhtml )} {if $attribute.is_required}required aria-required="true"{/if}" />
+            <input placeholder="http://www.google.com" id="{$id_base}_url" class="Form-input" type="text" name="{$attribute_base}_ezurl_url_{$attribute.id}" value="{$attribute.content|wash( xhtml )}" />
         </div>
         <div class="Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
             <label class="Form-label" for="{$id_base}_text">{'Text'|i18n( 'design/standard/content/datatype' )}</label>
