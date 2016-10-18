@@ -77,15 +77,19 @@
 
             <div class="Grid Grid--withGutter">
 
-                <div class="Footer-block Grid-cell u-md-size1of4 u-lg-size1of4">
-                    <h2 class="Footer-blockTitle">Note</h2>
-                    <div class="Footer-subBlock">
-                        {def $footer_notes = fetch( 'openpa', 'footer_notes' )}
-                        {if $footer_notes}
-                            {attribute_view_gui attribute=$footer_notes}
-                        {/if}
+                {def $footer_notes = fetch( 'openpa', 'footer_notes' )}
+                {if $footer_notes}
+                    <div class="Footer-block Grid-cell u-md-size1of4 u-lg-size1of4">
+                        <h2 class="Footer-blockTitle">Informazioni</h2>
+                        <div class="Footer-subBlock">
+
+                            <div class="u-lineHeight-xl u-color-white">
+                                {attribute_view_gui attribute=$footer_notes}
+                            </div>
+
+                        </div>
                     </div>
-                </div>
+                {/if}
 
                 <div class="Footer-block Grid-cell u-md-size1of4 u-lg-size1of4">
                     <h2 class="Footer-blockTitle">Recapiti</h2>
@@ -96,9 +100,7 @@
 
                 <div class="Footer-block Grid-cell u-md-size1of4 u-lg-size1of4">
                     <h2 class="Footer-blockTitle">Contatti</h2>
-                    <div class="Footer-subBlock">
-                        {include uri='design:footer/contacts_list.tpl'}
-                    </div>
+                    {include uri='design:footer/contacts_list.tpl'}
                 </div>
 
                 <div class="Footer-block Grid-cell u-md-size1of4 u-lg-size1of4">
@@ -111,7 +113,9 @@
                             {if is_set($pagedata.contacts.twitter)}
                                 <li><a href="{$pagedata.contacts.twitter}"><span class="Icon Icon-twitter"></span><span class="u-hiddenVisually">Twitter</span></a></li>
                             {/if}
-                            {*<li><a href=""><span class="Icon Icon-youtube"></span><span class="u-hiddenVisually">Youtube</span></a></li>*}
+                            {if is_set($pagedata.contacts.youtube)}
+                                <li><a href="{$pagedata.contacts.youtube}"><span class="Icon Icon-youtube"></span><span class="u-hiddenVisually">Youtube</span></a></li>
+                            {/if}
                         </ul>
                     </div>
                 </div>
