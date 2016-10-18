@@ -15,7 +15,7 @@ import IwtHeadroom from './ita-web-toolkit/src/modules/header'
 import IwtMegamenu from './ita-web-toolkit/src/modules/megamenu'
 import IwtShare from './ita-web-toolkit/src/modules/share'
 import IwtTooltip from './ita-web-toolkit/src/modules/scrolltop'
-import IwtScrolltop from './ita-web-toolkit/src/modules/tooltip'
+/*import IwtScrolltop from './ita-web-toolkit/src/modules/tooltip'*/
 
 const __exports = {
 	IwtTable,
@@ -29,7 +29,7 @@ const __exports = {
 	IwtOffcanvas,
 	IwtHeadroom,
 	IwtMegamenu,
-	IwtTooltip,
+	/*IwtTooltip,*/
 	IwtScripts,
 	IwtScrolltop,
 	IwtShare,

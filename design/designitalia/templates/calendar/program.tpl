@@ -153,9 +153,7 @@ $(function() {
               <div class="calendar-events">
                 <div class="openpa-panels-container">
                   {foreach $calendarDay.events as $event}
-                    <div class="u-md-padding-left-xs u-md-margin-bottom-xs u-lg-padding-left-xs u-lg-margin-bottom-xs">
                       {node_view_gui view=panel content_node=$event.node image_class=small is_program=true()}
-                    </div>
                   {/foreach}
                 </div>
               </div>

@@ -116,12 +116,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _scrolltop2 = _interopRequireDefault(_scrolltop);
 	
-	var _tooltip = __webpack_require__(38);
-	
-	var _tooltip2 = _interopRequireDefault(_tooltip);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
+	/*import IwtScrolltop from './ita-web-toolkit/src/modules/tooltip'*/
+	
+	/*import IwtCarousel from './ita-web-toolkit/src/modules/carousel'*/
 	var __exports = {
 		IwtTable: _table2['default'],
 		IwtAccordion: _accordion2['default'],
@@ -134,13 +133,13 @@ return /******/ (function(modules) { // webpackBootstrap
 		IwtOffcanvas: _offcanvas2['default'],
 		IwtHeadroom: _header2['default'],
 		IwtMegamenu: _megamenu2['default'],
-		IwtTooltip: _scrolltop2['default'],
+		/*IwtTooltip,*/
 		IwtScripts: _scripts2['default'],
-		IwtScrolltop: _tooltip2['default'],
+		IwtScrolltop: IwtScrolltop,
 		IwtShare: _share2['default'],
 		IwtForm: _form2['default']
 	};
-	/*import IwtCarousel from './ita-web-toolkit/src/modules/carousel'*/
+	
 	exports['default'] = __exports;
 	module.exports = exports['default'];
 
@@ -4420,271 +4419,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  threshold: threshold
 	};
 	module.exports = exports['default'];
-
-/***/ },
-/* 38 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _frTooltip = __webpack_require__(39);
-	
-	var _frTooltip2 = _interopRequireDefault(_frTooltip);
-	
-	var _tooltip = __webpack_require__(40);
-	
-	var _tooltip2 = _interopRequireDefault(_tooltip);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	/* eslint-enable */
-	
-	var tooltip = (0, _frTooltip2['default'])({
-		// String - Container selector, hook for JS init() method
-		selector: '.js-fr-tooltip',
-	
-		// String - Selector to define the tooltip element
-		tooltipSelector: '.js-fr-tooltip-tooltip',
-	
-		// String - Selector to define the toggle element controlling the tooltip
-		toggleSelector: '.js-fr-tooltip-toggle',
-	
-		// String - Prefix for the id applied to each tooltip as a reference for the toggle
-		tooltipIdPrefix: 'tooltip',
-	
-		// String - Class name that will be added to the selector when the component has been initialised
-		readyClass: 'fr-tooltip--is-ready'
-	});
-	
-	/* eslint-disable no-unused-vars */
-	
-	exports['default'] = { tooltip: tooltip, Frtooltip: _frTooltip2['default'] };
-	module.exports = exports['default'];
-
-/***/ },
-/* 39 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	// Polyfill matches as per https://github.com/jonathantneal/closest
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	Element.prototype.matches = Element.prototype.matches || Element.prototype.mozMatchesSelector || Element.prototype.msMatchesSelector || Element.prototype.oMatchesSelector || Element.prototype.webkitMatchesSelector;
-	
-	/**
-	 * @param {object} options Object containing configuration overrides
-	 */
-	var Frtooltip = function Frtooltip() {
-		var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-	
-		var _ref$selector = _ref.selector;
-		var selector = _ref$selector === undefined ? '.js-fr-tooltip' : _ref$selector;
-		var _ref$tooltipSelector = _ref.tooltipSelector;
-		var tooltipSelector = _ref$tooltipSelector === undefined ? '.js-fr-tooltip-tooltip' : _ref$tooltipSelector;
-		var _ref$toggleSelector = _ref.toggleSelector;
-		var toggleSelector = _ref$toggleSelector === undefined ? '.js-fr-tooltip-toggle' : _ref$toggleSelector;
-		var _ref$tooltipIdPrefix = _ref.tooltipIdPrefix;
-		var tooltipIdPrefix = _ref$tooltipIdPrefix === undefined ? 'tooltip' : _ref$tooltipIdPrefix;
-		var _ref$readyClass = _ref.readyClass;
-		var readyClass = _ref$readyClass === undefined ? 'fr-tooltip--is-ready' : _ref$readyClass;
-	
-	
-		// CONSTANTS
-		var doc = document;
-		var docEl = doc.documentElement;
-		var _q = function _q(el) {
-			var ctx = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : doc;
-			return [].slice.call(ctx.querySelectorAll(el));
-		};
-	
-		// SUPPORTS
-		if (!('querySelector' in doc) || !('addEventListener' in window) || !docEl.classList) return;
-	
-		// SETUP
-		var tooltipContainers = _q(selector);
-	
-		//	TEMP
-		var currTooltip = null;
-	
-		//	UTILS
-		function _defer(fn) {
-			//	wrapped in setTimeout to delay binding until previous rendering has completed
-			if (typeof fn === 'function') setTimeout(fn, 0);
-		}
-		function _closest(el, selector) {
-			while (el) {
-				if (el.matches(selector)) break;
-				el = el.parentElement;
-			}
-			return el;
-		}
-	
-		//	A11Y
-		function _addA11y(container, i) {
-			//	get relative elements
-			var toggle = _q(toggleSelector, container)[0];
-			var tooltip = _q(tooltipSelector, container)[0];
-			//	create new button and replace toggle
-			var button = doc.createElement('button');
-			button.setAttribute('class', toggle.getAttribute('class'));
-			button.setAttribute('aria-expanded', 'false');
-			button.setAttribute('aria-describedby', '');
-			button.textContent = toggle.textContent;
-			container.replaceChild(button, toggle);
-			//	add tooltip attributes
-			tooltip.setAttribute('role', 'tooltip');
-			tooltip.setAttribute('id', tooltipIdPrefix + '-' + i);
-			tooltip.setAttribute('aria-hidden', 'true');
-			tooltip.setAttribute('aria-live', 'polite');
-		}
-		function _removeA11y(container) {
-			//	get relative elements
-			var toggle = _q(toggleSelector, container)[0];
-			var tooltip = _q(tooltipSelector, container)[0];
-			//	create new span and replace toggle
-			var span = doc.createElement('span');
-			span.setAttribute('class', toggle.getAttribute('class'));
-			span.textContent = toggle.textContent;
-			container.replaceChild(span, toggle);
-			//	remove tooltip attributes
-			tooltip.removeAttribute('role');
-			tooltip.removeAttribute('id');
-			tooltip.removeAttribute('aria-hidden');
-			tooltip.removeAttribute('aria-live');
-		}
-	
-		// ACTIONS
-		function _showTooltip(toggle, tooltip) {
-			//	assign describedby matching tooltip reference
-			var tooltipId = tooltip.getAttribute('id');
-			toggle.setAttribute('aria-describedby', tooltipId);
-			//	set visible state
-			toggle.setAttribute('aria-expanded', 'true');
-			tooltip.setAttribute('aria-hidden', 'false');
-			//	store temp reference to tooltip
-			currTooltip = tooltip;
-			//	bind doc close events
-			_defer(_bindDocClick);
-			_defer(_bindDocKey);
-		}
-		function _hideTooltip(toggle, tooltip) {
-			//	remove tooltip reference
-			toggle.setAttribute('aria-describedby', '');
-			//	set visible state
-			toggle.setAttribute('aria-expanded', 'false');
-			tooltip.setAttribute('aria-hidden', 'true');
-			//	remove tooltip temp reference
-			currTooltip = null;
-			//	unbind doc close events
-			_unbindDocClick();
-			_unbindDocKey();
-		}
-		function destroy() {
-			tooltipContainers.forEach(function (container, i) {
-				_removeA11y(container, i);
-				_unbindToggleEvents(container);
-				container.classList.remove(readyClass);
-			});
-			//	reset temp references
-			currTooltip = null;
-			//	unbind global events
-			_unbindDocClick();
-			_unbindDocKey();
-		}
-	
-		// EVENTS
-		function _eventTogglePointer(e) {
-			//	close any open tooltips
-			if (currTooltip) _hideTooltip(currTooltip.previousElementSibling, currTooltip);
-			//	get relevant tooltip elements
-			var toggle = e.target;
-			var tooltip = toggle.nextElementSibling;
-			//	show or hide if toggle is 'expanded'
-			if (toggle.getAttribute('aria-expanded') === 'false') {
-				_showTooltip(toggle, tooltip);
-			} else {
-				_hideTooltip(toggle, tooltip);
-			}
-		}
-		function _eventTogglePointerLeave() {
-			if (currTooltip) _hideTooltip(currTooltip.previousElementSibling, currTooltip);
-		}
-		function _eventDocClick(e) {
-			//	check if target is panel or child of
-			var isTooltip = e.target === currTooltip;
-			var isTooltipchild = _closest(e.target, tooltipSelector);
-			if (!isTooltip && !isTooltipchild) _hideTooltip(currTooltip.previousElementSibling, currTooltip);
-		}
-		function _eventDocKey(e) {
-			//	esc key
-			if (e.keyCode === 27) _hideTooltip(currTooltip.previousElementSibling, currTooltip);
-		}
-	
-		// BIND EVENTS
-		function _bindToggleEvents(container) {
-			var toggle = _q(toggleSelector, container)[0];
-			toggle.addEventListener('click', _eventTogglePointer);
-			toggle.addEventListener('mouseenter', _eventTogglePointer);
-			toggle.addEventListener('mouseleave', _eventTogglePointerLeave);
-		}
-		function _bindDocClick() {
-			doc.addEventListener('click', _eventDocClick);
-			doc.addEventListener('touchstart', _eventDocClick);
-		}
-		function _bindDocKey() {
-			doc.addEventListener('keydown', _eventDocKey);
-		}
-	
-		//	UNBIND EVENTS
-		function _unbindToggleEvents(container) {
-			var toggle = _q(toggleSelector, container)[0];
-			toggle.removeEventListener('click', _eventTogglePointer);
-			toggle.removeEventListener('mouseenter', _eventTogglePointer);
-			toggle.removeEventListener('mouseleave', _eventTogglePointerLeave);
-		}
-		function _unbindDocClick() {
-			doc.removeEventListener('click', _eventDocClick);
-			doc.removeEventListener('touchstart', _eventDocClick);
-		}
-		function _unbindDocKey() {
-			doc.removeEventListener('keydown', _eventDocKey);
-		}
-	
-		// INIT
-		function init() {
-			if (!tooltipContainers) return;
-			//	loop through each tooltip element
-			tooltipContainers.forEach(function (container, i) {
-				_addA11y(container, i);
-				_bindToggleEvents(container);
-				container.classList.add(readyClass);
-			});
-		}
-		init();
-	
-		// REVEAL API
-		return {
-			init: init,
-			destroy: destroy
-		};
-	};
-	
-	// module exports
-	exports['default'] = Frtooltip;
-	module.exports = exports['default'];
-
-/***/ },
-/* 40 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
 
 /***/ }
 /******/ ])

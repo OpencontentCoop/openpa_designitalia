@@ -15,7 +15,6 @@
   <script src="{'javascript/IWT.min.js'|ezdesign(no)}"></script>
 {/if}
 
-
 {if openpaini( 'Seo', 'GoogleAnalyticsAccountID', false() )}
 <script type="text/javascript">
   var _gaq = _gaq || [];

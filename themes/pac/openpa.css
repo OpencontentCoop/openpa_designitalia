@@ -265,6 +265,85 @@
     padding: 5px;
 }
 
+.openpa-table-calendar {
+    @extend .Table;
+    @extend .Table--withBorder;
+    @extend .Table--compact;
+    @extend .u-text-r-xxs;
+}
+
+.openpa-table-calendar tr td {
+    vertical-align: top;
+}
+
+.openpa-table-calendar .Entrypoint-item {
+    @extend .u-padding-all-xs;
+    /*padding: 0 !important;*/
+}
+
+.openpa-table-calendar { width: 100%; border-collapse: collapse; border-spacing: 0; }
+
+.openpa-table-calendar th { text-align: left; }
+.openpa-table-calendar th span { display: none; }
+
+.openpa-table-calendar tr { display: block; }
+.openpa-table-calendar td,
+.openpa-table-calendar th { display: none; }
+.openpa-table-calendar .events { display: block; }
+.openpa-table-calendar ul { display: block; list-style: none; margin: 0; padding: 0; }
+.openpa-table-calendar li { display: block; position: relative; margin: 0; padding: 0; }
+.openpa-table-calendar .not-in-current-month { display: none; }
+
+
+@media (--md-viewport), (--lg-viewport) {
+
+    .openpa-table-calendar { font-size: 0.875em; line-height: 1.25em}
+    .openpa-table-calendar tr { display: table-row; }
+    .openpa-table-calendar th, .openpa-table-calendar td { display: table-cell !important; margin: 0; width: 14.2857%; padding: 0.4166em; vertical-align: top; }
+    .openpa-table-calendar td { height: 10em; }
+
+    .openpa-table-calendar .not-in-current-month { background: #eee; }
+    .openpa-table-calendar .not-in-current-month .day { color: #bbb; }
+
+    .openpa-table-calendar td .day { display: block; float: left; margin: 0; font-weight: normal; }
+    .openpa-table-calendar td .day-of-week { display: none; }
+    .openpa-table-calendar td .suffix { display: none; }
+
+    .openpa-table-calendar td {border-bottom: 1px solid #ccc; border-right: 1px solid #ddd }
+    .openpa-table-calendar td.last_col {border-right:none}
+    .openpa-table-calendar tr.last_row td {border-bottom:none}
+
+    .openpa-table-calendar .day { margin: 1em 0 .5em 0; font-weight: bold; font-size: 1em; }
+    .openpa-table-calendar ul { margin: 0 0 0 2em; }
+    .openpa-table-calendar li {height: 1.8em;}
+    .openpa-table-calendar li a { display: block; position: absolute; left: 0; right: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: .75em  }
+}
+
+.openpa-calendar-day-program {
+    @extend .Grid;
+}
+
+.openpa-calendar-day-program .calendar-date{
+    @extend .Grid-cell;
+    @extend .u-sizeFull;
+    @extend .u-md-size3of12;
+    @extend .u-lg-size2of12;
+}
+
+.openpa-calendar-day-program .calendar-events {
+    @extend .Grid-cell;
+    @extend .u-sizeFull;
+    @extend .u-md-size9of12;
+    @extend .u-lg-size10of12;
+}
+
+@media (--md-viewport), (--lg-viewport) {
+    .openpa-calendar-day-program .calendar-events .openpa-panels-container section {
+        @extend .u-margin-left-xs;
+        @extend .u-margin-bottom-xs;
+    }
+}
+
 .withExtra .openpa-masonry [data-columns]::before {
     content: "1 .u-floatLeft.u-sizeFull";
 
