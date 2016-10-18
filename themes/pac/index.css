@@ -18,7 +18,12 @@
     --Color-primary: #06c;
 }
 
-
+/**
+ * Focus color
+ */
+:root  {
+    --Color-focus: #ff8c00
+}
 
 /**
  * 	Fonts
@@ -74,7 +79,8 @@
 }
 
 .Megamenu-subnavGroup  li  a:hover,
-.Megamenu-subnavGroup  li  a.current {
-    background-color: var(--Color-primary);
+.Megamenu-subnavGroup  li  a.current,
+.Megamenu-subnavGroup  li  a.is-focus {
+    background-color: var(--Color-focus);
     color: var(--Color-white);
 }

@@ -5313,7 +5313,7 @@ ol, ul {
 
 .u-padding-all-xs, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Header-socialIcons [class^="Icon-"], .Header-socialIcons [class*=" Icon-"], .openpa-table-calendar .Entrypoint-item { padding: 0.8rem !important; }
 
-.u-padding-all-s, .Accordion-link, .Footer-subBlock, .Header-searchTrigger button, #accordion-classFilters form, .well, .openpa-event-item, .openpa-event-item .calendar-title, .openpa-panel-label { padding: 1.6rem !important; }
+.u-padding-all-s, .Accordion-link, .Footer-subBlock, .Header-searchTrigger button, #accordion-classFilters form, .well, .ui-tooltip, .openpa-event-item, .openpa-event-item .calendar-title, .openpa-panel-label { padding: 1.6rem !important; }
 
 .u-padding-all-m, .openpa-full .content-view-children .openpa-line { padding: 2rem !important; }
 
@@ -7669,6 +7669,7 @@ dd {  margin-left: 0;  }
 }
 
 .ui-tooltip {
+    position: absolute;
     z-index: 9999;
     max-width: 300px;
 }
@@ -7889,6 +7890,14 @@ ul.org-chart ul li:last-child {
   }
     }
 
+.Header-socialIcons  .openpa-icon {
+    font-size: 1.1em;
+}
+
+.Footer-socialIcons .openpa-icon {
+    font-size: 1.6em;
+}
+
 /* bc */
 
 .global-view-full{
@@ -7901,6 +7910,10 @@ ul.org-chart ul li:last-child {
 
 /**
  * 	Brand color
+ */
+
+/**
+ * Focus color
  */
 
 /**
@@ -7925,8 +7938,8 @@ ul.org-chart ul li:last-child {
     max-width: 25%;
 }
 
-.Megamenu-subnavGroup  li  a:hover, .Megamenu-subnavGroup  li  a.current {
-    background-color: #06c;
+.Megamenu-subnavGroup  li  a:hover, .Megamenu-subnavGroup  li  a.current, .Megamenu-subnavGroup  li  a.is-focus {
+    background-color: #ff8c00;
     color: #fff;
 }
 

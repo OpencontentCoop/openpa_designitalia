@@ -360,6 +360,14 @@
     }
 }
 
+.Header-socialIcons  .openpa-icon {
+    font-size: 1.1em;
+}
+
+.Footer-socialIcons .openpa-icon {
+    font-size: 1.6em;
+}
+
 
 /* bc */
 .global-view-full{

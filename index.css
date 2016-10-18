@@ -90,13 +90,13 @@ body {
 }
 
 :focus {
-  outline: #ff8c00 solid 3px;
+  outline: var(--Color-focus) solid 3px;
   text-decoration: none;
 }
 
 a:focus {
-  background: #ff8c00;
-  outline: #ff8c00 solid 3px;
+  background: var(--Color-focus);
+  outline: var(--Color-focus) solid 3px;
   text-decoration: underline;
 }
 
