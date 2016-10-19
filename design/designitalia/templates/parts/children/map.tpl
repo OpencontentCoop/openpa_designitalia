@@ -18,7 +18,7 @@
 {if $markers|count()*}
 
 <div class="Grid">
-  <div class="Grid-cell {if $items_per_row|eq(1)}u-sizeFull{else}u-md-size3of4 u-lg-size3of4{/if}">
+  <div class="Grid-cell {if $items_per_row|eq(1)}u-sizeFull{else} u-md-size3of4 u-lg-size3of4{/if}">
 	<div id="map-{$node.node_id}" style="height: {$height}px; width: 100%"></div>
 
 	<script>	
@@ -67,7 +67,7 @@
 	loadMap('map-{$node.node_id}', 'markers-{$node.node_id}', "{concat('/openpa/data/map_markers'|ezurl(no), '?parentNode=',$node.node_id, '&classIdentifiers=', $class_identifiers|implode(',') )}&contentType=geojson");	
 	</script>
   </div>
-  <div class="Grid-cell{if $items_per_row|eq(1)}u-sizeFull{else}u-md-size1of4 u-lg-size1of4{/if}">
+  <div class="Grid-cell {if $items_per_row|eq(1)}u-sizeFull{else}u-md-size1of4 u-lg-size1of4{/if}">
     <ul id="markers-{$node.node_id}" class="Linklist Linklist--padded"{if $items_per_row|gt(1)} style="height: {$height}px;overflow-y: auto"{/if}></ul>
   </div>
 
