@@ -1,5 +1,5 @@
 {ezscript_require('ezjsc::jquery')}
-<div class="form-group">
+<div class="Form-field">
 {def $stateListUS = ezini( 'States-US', 'StateList', 'mugosurvey.ini' )}
 {def $stateListCA = ezini( 'States-CA', 'StateList', 'mugosurvey.ini' )}
 {def $answer=''}
@@ -19,8 +19,8 @@
     {set $answer = 'other'}
 {/if}
 
-    <label>{$question.question_number}. {$question.text|wash('xhtml')} {if $question.mandatory}<strong class="required">*</strong>{/if}</label>
-    <select class="form-control" name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_{$attribute_id}" onchange="changeState($(this).val())">
+    <label class="Form-label {section show=$question.mandatory}is-required{/section}">{$question.question_number}. {$question.text|wash('xhtml')} {if $question.mandatory}<strong class="required">*</strong>{/if}</label>
+    <select class="Form-input" name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_{$attribute_id}" onchange="changeState($(this).val())">
         <option value="">Select a State</option>
         <option value="other" {if eq( $answer, 'other' )}selected{/if}>** Other State **</option>
         {if $stateListUS}

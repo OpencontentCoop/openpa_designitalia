@@ -66,12 +66,9 @@
 								<div id="question-container-{$question.question_number}">
 							{/if}
 
-							<div class="Form-field">
-								<input type="hidden" name="{$prefixAttribute}_ezsurvey_question_list_{$attribute.id}[]" value="{$question.id}" />
-								<a name="survey_question_{$question.question_number}"></a>
-								{survey_question_view_gui question=$question question_result=0 attribute_id=$attribute.id prefix_attribute=$prefixAttribute}
-							</div>
-
+							<input type="hidden" name="{$prefixAttribute}_ezsurvey_question_list_{$attribute.id}[]" value="{$question.id}" />
+							<a name="survey_question_{$question.question_number}"></a>
+							{survey_question_view_gui question=$question question_result=0 attribute_id=$attribute.id prefix_attribute=$prefixAttribute}
 							{if and( $pagebreak, not( $pagination ), not( $errorList|contains( $question.question_number )), ne( $question.type, 'Receiver' ))}
 								</div>
 								</div>

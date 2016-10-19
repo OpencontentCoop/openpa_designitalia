@@ -1,4 +1,4 @@
-<div class="form-group">
+<div class="Form-field">
 {def $countryFormat = ezini( 'QuestionSettings', 'CountryFormat', 'mugosurvey.ini' )}
 {def $answer=null}
 {if is_set( $question.answer )}
@@ -12,10 +12,10 @@
     {/if}
 {/if}
 
-    <label>{$question.question_number}. {$question.text|wash('xhtml')} {if $question.mandatory}<strong class="required">*</strong>{/if}</label>
+    <label class="Form-label {section show=$question.mandatory}is-required{/section}">{$question.question_number}. {$question.text|wash('xhtml')} {if $question.mandatory}<strong class="required">*</strong>{/if}</label>
 
     {def $countryList = fetch( 'content', 'country_list' )}
-    <select class="form-control" name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_{$attribute_id}">
+    <select class="Form-input" name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_{$attribute_id}">
         <option value="">Select a Country</option>
         {foreach $countryList as $country}
         <option value="{$country[$countryFormat]}" {if eq( $answer, $country[$countryFormat] )}selected{/if}>{$country.Name}</option>
