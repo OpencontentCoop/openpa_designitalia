@@ -4934,91 +4934,91 @@ ol, ul {
 /* Color primary */
 
 .u-color-5 {
-  color: rgb(217, 230, 242) !important;
+  color: rgb(159, 223, 189) !important;
 }
 
 .u-background-5, .Accordion-header:hover, .Linklist a:hover, .Treeview--default ul a, .Treeview--default ul a:hover, .list-group a:hover {
-  background-color: rgb(217, 230, 242) !important;
+  background-color: rgb(159, 223, 189) !important;
 }
 
 .u-color-10 {
-  color: rgb(173, 204, 235) !important;
+  color: rgb(112, 219, 162) !important;
 }
 
 .u-background-10, .Linklist-link.Linklist-link--lev3 {
-  background-color: rgb(173, 204, 235) !important;
+  background-color: rgb(112, 219, 162) !important;
 }
 
 .u-color-20 {
-  color: rgb(125, 178, 232) !important;
+  color: rgb(60, 221, 135) !important;
 }
 
 .u-background-20, .Linklist-link.Linklist-link--lev2, .Linklist-link.Linklist-link--lev2:hover {
-  background-color: rgb(125, 178, 232) !important;
+  background-color: rgb(60, 221, 135) !important;
 }
 
 .u-color-30 {
-  color: rgb(71, 153, 235) !important;
+  color: rgb(23, 207, 109) !important;
 }
 
 .u-background-30 {
-  background-color: rgb(71, 153, 235) !important;
+  background-color: rgb(23, 207, 109) !important;
 }
 
 .u-color-40 {
-  color: rgb(18, 122, 226) !important;
+  color: rgb(13, 156, 79) !important;
 }
 
 .u-background-40, .Header-searchTrigger button, .Header-search.is-active {
-  background-color: rgb(18, 122, 226) !important;
+  background-color: rgb(13, 156, 79) !important;
 }
 
 .u-color-50, .Accordion-link, .Header-language.is-active, .Header-socialIcons [class^="Icon-"], .Header-socialIcons [class*=" Icon-"], .Linklist-link, .Linklist a, .Share-revealIcon.is-open, .Skiplinks > li > a, .list-group a, .media-heading {
-  color: #06c !important;
+  color: #00803c !important;
 }
 
 .u-background-50, .Bullets > li:before, .Header-navbar, .Share > ul > li, .Share-revealIcon {
-  background-color: #06c !important;
+  background-color: #00803c !important;
 }
 
 .u-color-60, .Header-banner {
-  color: rgb(0, 89, 179) !important;
+  color: rgb(0, 102, 48) !important;
 }
 
 .u-background-60 {
-  background-color: rgb(0, 89, 179) !important;
+  background-color: rgb(0, 102, 48) !important;
 }
 
 .u-color-70, .nav-tabs, .nav-tab a, .openpa-widget-layout .openpa-widget-title, .openpa-widget-layout .openpa-widget-title a, .calendar-date .day {
-  color: rgb(0, 76, 153) !important;
+  color: rgb(0, 77, 36) !important;
 }
 
 .u-background-70, .nav-tab.ui-tabs-active, .calendar-date .month, .openpa-panel-label {
-  background-color: rgb(0, 76, 153) !important;
+  background-color: rgb(0, 77, 36) !important;
 }
 
 .u-color-80 {
-  color: rgb(0, 64, 128) !important;
+  color: rgb(0, 51, 24) !important;
 }
 
 .u-background-80, .badge {
-  background-color: rgb(0, 64, 128) !important;
+  background-color: rgb(0, 51, 24) !important;
 }
 
 .u-color-90, .Treeview--default ul a, .Treeview--default ul a:hover {
-  color: rgb(0, 51, 102) !important;
+  color: rgb(0, 26, 12) !important;
 }
 
 .u-background-90, .Linklist-link.Linklist-link--lev1, .Linklist-link.Linklist-link--lev1:hover {
-  background-color: rgb(0, 51, 102) !important;
+  background-color: rgb(0, 26, 12) !important;
 }
 
 .u-color-95, .Linklist-link.Linklist-link--lev2, .Linklist-link.Linklist-link--lev2:hover, .Linklist-link.Linklist-link--lev3 {
-  color: rgb(0, 38, 77) !important;
+  color: rgb(0, 0, 0) !important;
 }
 
 .u-background-95, .Header-banner, .ScrollTop {
-  background-color: rgb(0, 38, 77) !important;
+  background-color: rgb(0, 0, 0) !important;
 }
 
 /** @define utilities; */
@@ -7783,7 +7783,7 @@ ul.org-chart ul li:last-child {
     font-size: 2em;
     line-height: 65px;
     font-weight: bold;
-    border: 1px solid #06c;
+    border: 1px solid #00803c;
 }
 
 .openpa-panels-container{
@@ -8035,7 +8035,7 @@ ul.org-chart ul li:last-child {
 }
 
 .ie8 .Header-navbar {
-  background: #06c !important;
+  background: #00803c !important;
   color: white !important;
 }
 
