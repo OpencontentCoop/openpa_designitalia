@@ -7648,7 +7648,7 @@ dd {  margin-left: 0;  }
 
 .media-left, .media-image, .media-body {  display: table-cell;  vertical-align: top;  }
 
-.media-heading{  line-height: normal;  }
+.media-heading{  line-height: normal; margin-bottom: 0 !important;;  }
 
 .nav-tabs{  border-bottom: 3px solid;  }
 

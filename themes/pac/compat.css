@@ -118,7 +118,7 @@ dd {  margin-left: 0;  }
 .media-body {  width: 10000px; @extend .Prose }
 .media-left, .media-image, .media-body {  display: table-cell;  vertical-align: top;  }
 .media-image, .media > .pull-left{  @extend .u-padding-right-s;  }
-.media-heading{  @extend .u-padding-bottom-s;  @extend .u-textClean;  @extend .u-textWeight-700;  @extend .u-color-50;  @extend .u-text-h4;  line-height: normal;  }
+.media-heading{  @extend .u-padding-bottom-s;  @extend .u-textClean;  @extend .u-textWeight-700;  @extend .u-color-50;  @extend .u-text-h4;  line-height: normal; margin-bottom: 0 !important;  }
 .media-heading a{  @extend .u-textWeight-700;  }
 
 .button{  @extend .Button;  @extend .Button--info; }
