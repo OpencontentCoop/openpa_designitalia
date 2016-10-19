@@ -20,7 +20,7 @@
 
 
 <div class="u-color-grey-80">
-    <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter">
+    <div class="u-layout-wide u-layoutCenter">
         <footer class="Footer u-padding-all-s">
 
             <div class="u-cf">
@@ -136,10 +136,10 @@
             {/if}
 
             <div class="Grid Grid--withGutter">
-                <div class="Footer-block Grid-cell u-md-size1of2 u-lg-size1of2">
+                <div class="Footer-block Grid-cell u-md-size3of5 u-lg-size3of5">
                     {include uri='design:footer/copyright.tpl'}
                 </div>
-                <div class="Footer-block Grid-cell u-md-size1of2 u-lg-size1of2">
+                <div class="Footer-block Grid-cell u-md-size2of5 u-lg-size2of5">
                     {if $pagedata.is_login_page|not()}
                         {include uri='design:footer/user_access.tpl'}
                     {/if}
