@@ -209,75 +209,73 @@
         </div>
     </fieldset>
 
-    <div class="form-group">
-        <fieldset>
-            <legend>{'Active to'|i18n('survey')}</legend>
-            <div class="Grid">
-                <div class="Grid-cell u-sizeFull u-sm-size2of12 u-md-size2of12 u-lg-size2of12">
-                    <fieldset class="Form-field Form-field--choose Grid-cell">
-                        <legend class="Form-legend">{'No limitation'|i18n( 'survey' )}</legend>
-                        <label class="Form-label">
-                            <input id="{$prefixAttribute}_ezsurvey_valid_to_no_limit_{$attributeID}" type="checkbox"
-                                   name="{$prefixAttribute}_ezsurvey_valid_to_no_limit_{$attributeID}"
-                                   value="1"{section show=$survey.valid_to_array.no_limit} checked="checked"{/section}
-                                   onclick="synchFormcol-md-2s( '{$prefixAttribute}_ezsurvey_valid_to_no_limit_{$attributeID}',  '{$prefixAttribute}_ezsurvey_valid_to_year_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_to_month_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_to_day_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_to_hour_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_to_minute_{$attributeID}', false );"/>
-                            <span class="Form-fieldIcon" role="presentation"></span>
-                        </label>
-                    </fieldset>
-                </div>
-                <div class="Grid-cell u-sizeFull u-sm-size2of12 u-md-size2of12 u-lg-size2of12">
-                    <div class="Form-field">
-                        <label class="Form-label">{'Year'|i18n( 'survey' )}:</label>
-                        <input id="{$prefixAttribute}_ezsurvey_valid_to_year_{$attributeID}"
-                               name="{$prefixAttribute}_ezsurvey_valid_to_year_{$attributeID}" class="Form-input"
-                               value="{$survey.valid_to_array.year}"/>
-                        <input type="hidden" name="{$prefixAttribute}_ezsurvey_valid_to_year_hidden_{$attributeID}"
-                               value="{$survey.valid_to_array.year}"/>
-                    </div>
-                </div>
-                <div class="Grid-cell u-sizeFull u-sm-size2of12 u-md-size2of12 u-lg-size2of12">
-                    <div class="Form-field">
-                        <label class="Form-label">{'Month'|i18n( 'survey' )}:</label>
-                        <input id="{$prefixAttribute}_ezsurvey_valid_to_month_{$attributeID}"
-                               name="{$prefixAttribute}_ezsurvey_valid_to_month_{$attributeID}" class="Form-input"
-                               value="{$survey.valid_to_array.month}"/>
-                        <input type="hidden" name="{$prefixAttribute}_ezsurvey_valid_to_month_hidden_{$attributeID}"
-                               value="{$survey.valid_to_array.month}"/>
-                    </div>
-                </div>
-                <div class="Grid-cell u-sizeFull u-sm-size2of12 u-md-size2of12 u-lg-size2of12">
-                    <div class="Form-field">
-                        <label class="Form-label">{'Day'|i18n( 'survey' )}:</label>
-                        <input id="{$prefixAttribute}_ezsurvey_valid_to_day_{$attributeID}"
-                               name="{$prefixAttribute}_ezsurvey_valid_to_day_{$attributeID}" class="Form-input"
-                               value="{$survey.valid_to_array.day}"/>
-                        <input type="hidden" name="{$prefixAttribute}_ezsurvey_valid_to_day_hidden_{$attributeID}"
-                               value="{$survey.valid_to_array.day}"/>
-                    </div>
-                </div>
-                <div class="Grid-cell u-sizeFull u-sm-size2of12 u-md-size2of12 u-lg-size2of12">
-                    <div class="Form-field">
-                        <label class="Form-label">{'Hour'|i18n( 'survey' )}:</label>
-                        <input id="{$prefixAttribute}_ezsurvey_valid_to_hour_{$attributeID}"
-                               name="{$prefixAttribute}_ezsurvey_valid_to_hour_{$attributeID}" class="Form-input"
-                               value="{$survey.valid_to_array.hour}"/>
-                        <input type="hidden" name="{$prefixAttribute}_ezsurvey_valid_to_hour_hidden_{$attributeID}"
-                               value="{$survey.valid_to_array.hour}"/>
-                    </div>
-                </div>
-                <div class="Grid-cell u-sizeFull u-sm-size2of12 u-md-size2of12 u-lg-size2of12">
-                    <div class="Form-field">
-                        <label class="Form-label">{'Minute'|i18n( 'survey' )}:</label>
-                        <input id="{$prefixAttribute}_ezsurvey_valid_to_minute_{$attributeID}"
-                               name="{$prefixAttribute}_ezsurvey_valid_to_minute_{$attributeID}" class="Form-input"
-                               value="{$survey.valid_to_array.minute}"/>
-                        <input type="hidden" name="{$prefixAttribute}_ezsurvey_valid_to_minute_hidden_{$attributeID}"
-                               value="{$survey.valid_to_array.minute}"/>
-                    </div>
+    <fieldset>
+        <legend>{'Active to'|i18n('survey')}</legend>
+        <div class="Grid">
+            <div class="Grid-cell u-sizeFull u-sm-size2of12 u-md-size2of12 u-lg-size2of12">
+                <fieldset class="Form-field Form-field--choose Grid-cell">
+                    <legend class="Form-legend">{'No limitation'|i18n( 'survey' )}</legend>
+                    <label class="Form-label">
+                        <input id="{$prefixAttribute}_ezsurvey_valid_to_no_limit_{$attributeID}" type="checkbox"
+                               name="{$prefixAttribute}_ezsurvey_valid_to_no_limit_{$attributeID}"
+                               value="1"{section show=$survey.valid_to_array.no_limit} checked="checked"{/section}
+                               onclick="synchFormcol-md-2s( '{$prefixAttribute}_ezsurvey_valid_to_no_limit_{$attributeID}',  '{$prefixAttribute}_ezsurvey_valid_to_year_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_to_month_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_to_day_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_to_hour_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_to_minute_{$attributeID}', false );"/>
+                        <span class="Form-fieldIcon" role="presentation"></span>
+                    </label>
+                </fieldset>
+            </div>
+            <div class="Grid-cell u-sizeFull u-sm-size2of12 u-md-size2of12 u-lg-size2of12">
+                <div class="Form-field">
+                    <label class="Form-label">{'Year'|i18n( 'survey' )}:</label>
+                    <input id="{$prefixAttribute}_ezsurvey_valid_to_year_{$attributeID}"
+                           name="{$prefixAttribute}_ezsurvey_valid_to_year_{$attributeID}" class="Form-input"
+                           value="{$survey.valid_to_array.year}"/>
+                    <input type="hidden" name="{$prefixAttribute}_ezsurvey_valid_to_year_hidden_{$attributeID}"
+                           value="{$survey.valid_to_array.year}"/>
                 </div>
             </div>
-        </fieldset>
-    </div>
+            <div class="Grid-cell u-sizeFull u-sm-size2of12 u-md-size2of12 u-lg-size2of12">
+                <div class="Form-field">
+                    <label class="Form-label">{'Month'|i18n( 'survey' )}:</label>
+                    <input id="{$prefixAttribute}_ezsurvey_valid_to_month_{$attributeID}"
+                           name="{$prefixAttribute}_ezsurvey_valid_to_month_{$attributeID}" class="Form-input"
+                           value="{$survey.valid_to_array.month}"/>
+                    <input type="hidden" name="{$prefixAttribute}_ezsurvey_valid_to_month_hidden_{$attributeID}"
+                           value="{$survey.valid_to_array.month}"/>
+                </div>
+            </div>
+            <div class="Grid-cell u-sizeFull u-sm-size2of12 u-md-size2of12 u-lg-size2of12">
+                <div class="Form-field">
+                    <label class="Form-label">{'Day'|i18n( 'survey' )}:</label>
+                    <input id="{$prefixAttribute}_ezsurvey_valid_to_day_{$attributeID}"
+                           name="{$prefixAttribute}_ezsurvey_valid_to_day_{$attributeID}" class="Form-input"
+                           value="{$survey.valid_to_array.day}"/>
+                    <input type="hidden" name="{$prefixAttribute}_ezsurvey_valid_to_day_hidden_{$attributeID}"
+                           value="{$survey.valid_to_array.day}"/>
+                </div>
+            </div>
+            <div class="Grid-cell u-sizeFull u-sm-size2of12 u-md-size2of12 u-lg-size2of12">
+                <div class="Form-field">
+                    <label class="Form-label">{'Hour'|i18n( 'survey' )}:</label>
+                    <input id="{$prefixAttribute}_ezsurvey_valid_to_hour_{$attributeID}"
+                           name="{$prefixAttribute}_ezsurvey_valid_to_hour_{$attributeID}" class="Form-input"
+                           value="{$survey.valid_to_array.hour}"/>
+                    <input type="hidden" name="{$prefixAttribute}_ezsurvey_valid_to_hour_hidden_{$attributeID}"
+                           value="{$survey.valid_to_array.hour}"/>
+                </div>
+            </div>
+            <div class="Grid-cell u-sizeFull u-sm-size2of12 u-md-size2of12 u-lg-size2of12">
+                <div class="Form-field">
+                    <label class="Form-label">{'Minute'|i18n( 'survey' )}:</label>
+                    <input id="{$prefixAttribute}_ezsurvey_valid_to_minute_{$attributeID}"
+                           name="{$prefixAttribute}_ezsurvey_valid_to_minute_{$attributeID}" class="Form-input"
+                           value="{$survey.valid_to_array.minute}"/>
+                    <input type="hidden" name="{$prefixAttribute}_ezsurvey_valid_to_minute_hidden_{$attributeID}"
+                           value="{$survey.valid_to_array.minute}"/>
+                </div>
+            </div>
+        </div>
+    </fieldset>
 
     <input type="hidden" name="{$prefixAttribute}_ezsurvey_redirect_cancel_{$attributeID}" value=""/>
 

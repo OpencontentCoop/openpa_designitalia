@@ -148,7 +148,6 @@ dd {  margin-left: 0;  }
     position: relative;
 }
 
-
 .ui-tooltip {
     @extend .u-padding-all-s;
     position: absolute;
@@ -167,4 +166,7 @@ dd {  margin-left: 0;  }
     color: var(--Color-grey-90);
 }
 
-
+input.disabled,
+input:disabled {
+    @extend .u-background-grey-30;
+}

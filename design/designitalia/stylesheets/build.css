@@ -4861,7 +4861,7 @@ ol, ul {
   color: #ddd !important;
 }
 
-.u-background-grey-30 {
+.u-background-grey-30, input.disabled, input:disabled {
   background-color: #ddd !important;
 }
 

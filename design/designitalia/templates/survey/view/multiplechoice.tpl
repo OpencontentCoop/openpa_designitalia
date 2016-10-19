@@ -33,7 +33,7 @@
             {/section}
         </fieldset>
         {if $question.extra_info.enabled|eq(1)}
-            <div class="Grid u-background-grey-10">
+            <div class="Grid u-background-grey-10 u-padding-all-s">
                 <div class="Grid-cell u-sizeFull u-sm-size1of3 u-md-size1of3 u-lg-size1of3">
                     <fieldset class="Form-field Form-field--choose Grid-cell">
                         <label>
@@ -75,7 +75,7 @@
             {/section}
         </fieldset>
         {if $question.extra_info.enabled|eq(1)}
-            <div class="Grid u-background-grey-10">
+            <div class="Grid u-background-grey-10 u-padding-all-s">
                 <div class="Grid-cell u-sizeFull u-sm-size1of3 u-md-size1of3 u-lg-size1of3">
                     <fieldset class="Form-field Form-field--choose Grid-cell">
                         <label>
@@ -116,7 +116,7 @@
             {/section}
         </fieldset>
         {if $question.extra_info.enabled|eq(1)}
-            <div class="Grid u-background-grey-10">
+            <div class="Grid u-background-grey-10 u-padding-all-s">
                 <div class="Grid-cell u-sizeFull u-sm-size1of3 u-md-size1of3 u-lg-size1of3">
                     <fieldset class="Form-field Form-field--choose Grid-cell">
                         <label>
@@ -155,7 +155,7 @@
             {/section}
         </fieldset>
         {if $question.extra_info.enabled|eq(1)}
-            <div class="Grid u-background-grey-10">
+            <div class="Grid u-background-grey-10 u-padding-all-s">
                 <div class="Grid-cell u-sizeFull u-sm-size1of3 u-md-size1of3 u-lg-size1of3">
                     <fieldset class="Form-field Form-field--choose Grid-cell">
                         <label>
@@ -235,7 +235,7 @@
             {/section}
         </fieldset>
         {if $question.extra_info.enabled|eq(1)}
-            <div class="Grid u-background-grey-10">
+            <div class="Grid u-background-grey-10 u-padding-all-s">
                 <div class="Grid-cell u-sizeFull u-sm-size1of3 u-md-size1of3 u-lg-size1of3">
                     <fieldset class="Form-field Form-field--choose Grid-cell">
                         <label>
@@ -276,7 +276,7 @@
         {/section}
     </fieldset>
     {if $question.extra_info.enabled|eq(1)}
-        <div class="Grid u-background-grey-10">
+        <div class="Grid u-background-grey-10 u-padding-all-s">
             <div class="Grid-cell u-sizeFull u-sm-size1of3 u-md-size1of3 u-lg-size1of3">
                 <fieldset class="Form-field Form-field--choose Grid-cell">
                     <label>
@@ -317,7 +317,7 @@
             {/section}
         </fieldset>
         {if $question.extra_info.enabled|eq(1)}
-            <div class="Grid u-background-grey-10">
+            <div class="Grid u-background-grey-10 u-padding-all-s">
                 <div class="Grid-cell u-sizeFull u-sm-size1of3 u-md-size1of3 u-lg-size1of3">
                     <fieldset class="Form-field Form-field--choose Grid-cell">
                         <label>
@@ -358,7 +358,7 @@
             {/section}
         </fieldset>
         {if $question.extra_info.enabled|eq(1)}
-            <div class="Grid u-background-grey-10">
+            <div class="Grid u-background-grey-10 u-padding-all-s">
                 <div class="Grid-cell u-sizeFull u-sm-size1of3 u-md-size1of3 u-lg-size1of3">
                     <fieldset class="Form-field Form-field--choose Grid-cell">
                         <label>
