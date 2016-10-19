@@ -43,10 +43,6 @@
 
     {include uri='design:menu/offcanvas_menu.tpl'}
 
-    {if and( or($pagedata.is_homepage, is_area_tematica()), array( 'edit', 'browse' )|contains( $ui_context )|not() )}
-        {include uri='design:header/banner.tpl'}
-    {/if}
-
     <div id="main">
         <section>
             {if and(is_set($pagedata.persistent_variable.has_sidemenu), $pagedata.persistent_variable.has_sidemenu)}
