@@ -9,9 +9,6 @@
 		{else}
 			{skip}
 		{/if}
-	  {delimiter}
-			<div class="block-separator"></div>
-	  {/delimiter}
 	{/foreach}
 {/if}
 
