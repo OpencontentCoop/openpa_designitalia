@@ -74,26 +74,4 @@
 .fr-offcanvas--is-ready[aria-hidden="false"] {
 	transform: translateX(-100%);
 }
-/*	Container */
-.fr-tooltip--is-ready {
-	position: relative;
-}
-
-/*	Toolip */
-.fr-tooltip--is-ready .fr-tooltip-tooltip {
-	bottom: 100%;
-	position: absolute;
-	visibility: hidden;
-}
-.fr-tooltip--is-ready .fr-tooltip-tooltip[aria-hidden="false"] {
-	visibility: visible;
-}
-
-/*	No JS */
-.fr-tooltip:not(.fr-tooltip--is-ready) .fr-tooltip-tooltip::before {
-	content: " (";
-}
-.fr-tooltip:not(.fr-tooltip--is-ready) .fr-tooltip-tooltip::after {
-	content: ")";
-}
 /*# sourceMappingURL=vendor.css.map*/
