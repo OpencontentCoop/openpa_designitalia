@@ -216,6 +216,7 @@
     line-height: 65px;
     font-weight: bold;
     border: 1px solid var(--Color-primary);
+    white-space: nowrap;
 }
 
 .openpa-event-item .calendar-title{
