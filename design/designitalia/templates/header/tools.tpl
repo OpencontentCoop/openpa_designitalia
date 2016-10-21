@@ -4,10 +4,10 @@
 {/if}
 
 <div class="Header-searchTrigger Grid-cell">
-    <button aria-controls="#header-search" class="js-Header-search-trigger Icon Icon-search"
+    <button aria-controls="header-search" class="js-Header-search-trigger Icon Icon-search"
             title="attiva il form di ricerca" aria-label="attiva il form di ricerca" aria-hidden="false">
     </button>
-    <button aria-controls="#header-search" class="js-Header-search-trigger Icon Icon-close u-hiddenVisually"
+    <button aria-controls="header-search" class="js-Header-search-trigger Icon Icon-close u-hiddenVisually"
             title="disattiva il form di ricerca" aria-label="disattiva il form di ricerca" aria-hidden="true">
     </button>
 </div>

@@ -6,7 +6,7 @@
 {def $valuations=fetch( 'content', 'class', hash( 'class_id', 'valuation' ) )}
 
 {if and( $valuations|count(), $valuations.object_list|count() )}
-    <div class="valuation u-padding-all-xxl u-color-white text-left" xmlns="http://www.w3.org/1999/html">
+    <div class="valuation u-padding-all-xxl u-color-white text-left" xmlns="http://www.w3.org/1999/xhtml">
 
 
 {def $valutazione=$valuations.object_list[0]
