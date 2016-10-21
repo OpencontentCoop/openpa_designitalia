@@ -788,13 +788,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	
 	var init = function init() {
+	  var _this = this;
+	
 	  var $owl = (0, _jquery2['default'])(opts.jsSelector);
 	
-	  (0, _jquery2['default'])(opts.owlPrev).click(function () {
-	    return $owl.trigger('prev.owl.carousel');
+	  (0, _jquery2['default'])(opts.owlPrev).click(function (event) {
+	    event.preventDefault();(0, _jquery2['default'])(_this).parents(opts.jsSelector).trigger('prev.owl.carousel');
 	  });
-	  (0, _jquery2['default'])(opts.owlNext).click(function () {
-	    return $owl.trigger('next.owl.carousel');
+	  (0, _jquery2['default'])(opts.owlNext).click(function (event) {
+	    event.preventDefault();(0, _jquery2['default'])(_this).parents(opts.jsSelector).trigger('next.owl.carousel');
 	  });
 	
 	  $owl.on('initialized.owl.carousel changed.owl.carousel refreshed.owl.carousel', function (event) {
@@ -4314,9 +4316,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    if (!!stage) {
 	      var offs = stage.offset();
-	      if (!!targ) {
-	        window.scrollTo(offs.left, offs.top - parseInt($('body').css('padding-top'), 10));
-	      }
+	      /* Problemi evidenti di navigazione */
+	      /*if (!!targ) {
+	        window.scrollTo(
+	          offs.left,
+	          offs.top - parseInt($('body').css('padding-top'), 10)
+	        )
+	      }*/
 	
 	      this._core.$stage.children().each(function () {
 	        var item = $(this);
