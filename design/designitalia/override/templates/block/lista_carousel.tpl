@@ -11,9 +11,10 @@
                  items=$openpa.content
                  css_id=$block.id
                  root_node=$openpa.root_node
-                 pagination=true()
+                 pagination=$items_per_row|gt(1)
                  navigation= false()
-                 items_per_row=$items_per_row}
+                 items_per_row=$items_per_row
+                 show_items_preview=$items_per_row|eq(1)}
     </div>
 </div>
 
