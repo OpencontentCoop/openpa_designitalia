@@ -9,9 +9,8 @@ import IwtMasonry from './ita-web-toolkit/src/modules/masonry'
 import IwtSkiplinks from './ita-web-toolkit/src/modules/skiplinks'
 import IwtTreeview from './ita-web-toolkit/src/modules/treeview'
 import IwtOffcanvas from './ita-web-toolkit/src/modules/offcanvas'
-import IwtHeadroom from './ita-web-toolkit/src/modules/header'
+import IwtHeadroom from './themes/modules/header'
 import IwtMegamenu from './ita-web-toolkit/src/modules/megamenu'
-import IwtShare from './ita-web-toolkit/src/modules/share'
 import IwtScrolltop from './ita-web-toolkit/src/modules/scrolltop'
 /*import IwtTooltip from './ita-web-toolkit/src/modules/tooltip'*/
 
@@ -30,7 +29,6 @@ const __exports = {
 	/*IwtTooltip,*/
 	IwtScripts,
 	IwtScrolltop,
-	IwtShare,
 	IwtForm
 }
 
