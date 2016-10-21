@@ -6011,7 +6011,7 @@ option:hover {
 }
 
 .Form-field--choose :focus + span {
-  outline: 3px solid #F9E667;
+  outline: 3px solid #F38A44;
 }
 
 .Form-field--choose .Form-input {
@@ -8254,8 +8254,8 @@ ul.org-chart ul li:last-child {
 
     .openpa-table-calendar .day { margin: 1em 0 .5em 0; font-weight: bold; font-size: 1em; }
     .openpa-table-calendar ul { margin: 0 0 0 2em; }
-    .openpa-table-calendar li {height: 1.8em;}
-    .openpa-table-calendar li a { display: block; position: absolute; left: 0; right: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: .75em  }
+    .openpa-table-calendar li {}
+    .openpa-table-calendar li a {}
 }
 
 @media screen and (min-width: 992px) and (max-width: 1440px), screen and (min-width: 1440px) {
@@ -8460,6 +8460,17 @@ a{
     cursor: pointer;
 }
 
+button, input[type=submit]{
+    cursor: pointer;
+}
+
+a:focus {
+    background: #F38A44;
+    outline: #F38A44 solid 3px;
+    text-decoration: underline;
+    color: #0099d1;
+}
+
 .Megamenu--styled .Megamenu-list > li > a[aria-expanded=false]:after {
     color: #30373d;
 }
@@ -8473,7 +8484,7 @@ a{
 }
 
 .Megamenu-subnavGroup  li  a:hover, .Megamenu-subnavGroup  li  a.current, .Megamenu-subnavGroup  li  a.is-focus {
-    background-color: #F9E667;
+    background-color: #F38A44;
     color: #fff;
 }
 
@@ -8631,13 +8642,13 @@ body {
 }
 
 :focus {
-  outline: #F9E667 solid 3px;
+  outline: #F38A44 solid 3px;
   text-decoration: none;
 }
 
 a:focus {
-  background: #F9E667;
-  outline: #F9E667 solid 3px;
+  background: #F38A44;
+  outline: #F38A44 solid 3px;
   text-decoration: underline;
 }
 

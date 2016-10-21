@@ -23,7 +23,7 @@
  * Focus color
  */
 :root  {
-    --Color-focus: #F9E667
+    --Color-focus: #F38A44;
 }
 
 /**
@@ -36,6 +36,17 @@
 a{
     color: var(--Color-primary);
     cursor: pointer;
+}
+
+button, input[type=submit]{
+    cursor: pointer;
+}
+
+a:focus {
+    background: var(--Color-focus);
+    outline: var(--Color-focus) solid 3px;
+    text-decoration: underline;
+    color: var(--Color-primary);
 }
 
 #toolbar{

@@ -26,7 +26,7 @@ $(function() {
     <input type="hidden" name="SearchDate" value="{$calendarData.parameters.picker_date}" />
 
     <fieldset class="Form-fieldset">
-        <legend class="Form-legend">Lista</legend>
+        {*<legend class="Form-legend">Lista</legend>*}
         <div class="Grid">
             <div class="Form-field Grid-cell u-sizeFull">
                 <input type="submit" name="ViewCalendarButton" class="btn btn-default hidden-xs" value="Visualizza Calendario" />
@@ -44,6 +44,7 @@ $(function() {
                 <input id="calendar_picker" class="calendar_picker Form-input" placeholder="gg-mm-yyyy" type="text" name="SearchDate" title="Seleziona data" value="{$calendarData.parameters.picker_date|wash()}" />
             </div>
 
+            {foreach $calendarData.search_facets as $facetFieldName => $facets}
             {if count($facets)|gt(0)}
                 <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
                     {foreach $calendarData.search_facets as $facetFieldName => $facets}
@@ -59,6 +60,8 @@ $(function() {
                     {/foreach}
                 </div>
             {/if}
+            {/foreach}
+
             {if and( count($calendarData.search_facets)|eq(0), is_set( $view_parameters.Manifestazione ) )}
                 <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
                     <label class="Form-label u-hiddenVisually" for="calendar_facet">Cerca Manifestazione</label>

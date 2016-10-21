@@ -304,8 +304,8 @@
 
     .openpa-table-calendar .day { margin: 1em 0 .5em 0; font-weight: bold; font-size: 1em; }
     .openpa-table-calendar ul { margin: 0 0 0 2em; }
-    .openpa-table-calendar li {height: 1.8em;}
-    .openpa-table-calendar li a { display: block; position: absolute; left: 0; right: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: .75em  }
+    .openpa-table-calendar li {}
+    .openpa-table-calendar li a {}
 }
 
 .openpa-calendar-day-program {
