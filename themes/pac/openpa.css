@@ -163,12 +163,14 @@
     @extend .Prose;
     font-weight: normal !important;
 }
+
 .openpa-widget-title-lev2 a{
     @extend .u-text-h4;
     @extend .u-textClean;
     @extend .u-color-black;
-    font-weight: normal !important;
+    font-weight: bold !important;
 }
+
 .openpa-widget-content{
     @extend .u-cf;
 }

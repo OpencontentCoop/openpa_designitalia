@@ -4772,7 +4772,7 @@ ol, ul {
 
 .u-border-left-xxs { border-left: 0.1rem solid currentColor !important; }
 
-.u-border-all-xxs, .Card--withBorder, .owl-theme .owl-preview li { border: 0.1rem solid currentColor !important; }
+.u-border-all-xxs, .Card--withBorder, .owl-theme .owl-preview li a { border: 0.1rem solid currentColor !important; }
 
 .u-border-top-m { border-top: 1rem solid currentColor !important; }
 
@@ -4869,7 +4869,7 @@ ol, ul {
   color: #a5abb0 !important;
 }
 
-.u-background-grey-40, .openpa-carousel .carousel-caption p, .owl-theme .owl-preview li.active, .owl-theme .owl-preview li.active a, .owl-theme .owl-preview li a:focus {
+.u-background-grey-40, .openpa-carousel .carousel-caption p, .owl-theme .owl-preview li.active a, .owl-theme .owl-preview li a:focus {
   background-color: #a5abb0 !important;
 }
 
@@ -5311,7 +5311,7 @@ ol, ul {
 
 .u-padding-all-xxs, .Header-search, .Header-search.is-active, .calendar-date .month, .Megamenu-subnavGroup  li a { padding: 0.4rem !important; }
 
-.u-padding-all-xs, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Header-socialIcons [class^="Icon-"], .Header-socialIcons [class*=" Icon-"], .openpa-table-calendar .Entrypoint-item, .owl-theme .owl-preview, .owl-theme .owl-preview li a { padding: 0.8rem !important; }
+.u-padding-all-xs, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Header-socialIcons [class^="Icon-"], .Header-socialIcons [class*=" Icon-"], .openpa-table-calendar .Entrypoint-item, .owl-theme .owl-preview li a { padding: 0.8rem !important; }
 
 .u-padding-all-s, .Accordion-link, .Footer-subBlock, .Header-searchTrigger button, #accordion-classFilters form, .well, .ui-tooltip, .openpa-event-item, .openpa-event-item .calendar-title, .openpa-panel-label, .openpa-carousel .carousel-caption p { padding: 1.6rem !important; }
 
@@ -5363,7 +5363,7 @@ ol, ul {
 
 .u-margin-top-xs, .Header-search.is-active, .Megamenu--styled .Megamenu-subnavGroup > li > ul > li > ul { margin-top: 0.8rem !important; }
 
-.u-margin-top-s, .Megamenu--styled .Megamenu-subnavGroup > li > ul { margin-top: 1.6rem !important; }
+.u-margin-top-s, .Megamenu--styled .Megamenu-subnavGroup > li > ul, .owl-theme .owl-preview { margin-top: 1.6rem !important; }
 
 .u-margin-top-m, .openpa-full .content-detail { margin-top: 2rem !important; }
 
@@ -5397,7 +5397,7 @@ ol, ul {
 
 .u-margin-bottom-xs, .Entrypoint-item, .Megamenu--styled .Megamenu-subnavGroup > li > ul > li > ul { margin-bottom: 0.8rem !important; }
 
-.u-margin-bottom-s, .u-text-h1, .u-text-h2, .u-text-h3, .u-text-h4, .u-text-h5, .u-text-h6, .Form--spaced .Form-fieldset, .Form--spaced .Form-legend, .Card-extra, .Card-title, .Leads-title, #accordion-classFilters form .Form-fieldset, #accordion-classFilters form .Form-legend, .media-heading, .openpa-full .title h2, .openpa-full .content-detail-item, .openpa-widget-title, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a, .openpa-event-item .calendar-title a, .openpa-panel-label { margin-bottom: 1.6rem !important; }
+.u-margin-bottom-s, .u-text-h1, .u-text-h2, .u-text-h3, .u-text-h4, .u-text-h5, .u-text-h6, .Form--spaced .Form-fieldset, .Form--spaced .Form-legend, .Card-extra, .Card-title, .Leads-title, #accordion-classFilters form .Form-fieldset, #accordion-classFilters form .Form-legend, .media-heading, .openpa-full .title h2, .openpa-full .content-detail-item, .openpa-widget-title, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a, .openpa-event-item .calendar-title a, .openpa-panel-label, .owl-theme .owl-preview li { margin-bottom: 1.6rem !important; }
 
 .u-margin-bottom-m, .Header-social, .openpa-full .content-detail, .openpa-line, .readmore { margin-bottom: 2rem !important; }
 
@@ -7960,7 +7960,7 @@ ul.org-chart ul li:last-child {
 }
 
 .openpa-widget-title-lev2 a{
-    font-weight: normal !important;
+    font-weight: bold !important;
 }
 
 .calendar-date .month, .calendar-date .day{
@@ -8132,6 +8132,10 @@ ul.org-chart ul li:last-child {
  * 	Default theme - Owl Carousel CSS File
  */
 
+.owl-theme{
+    position: relative;
+}
+
 .owl-theme .owl-nav {
     margin-top: 10px;
     text-align: center;
@@ -8194,6 +8198,11 @@ ul.org-chart ul li:last-child {
     background: #869791;
 }
 
+.owl-theme .owl-preview li a{
+    height: 100%;
+    border-color: #a5abb0 !important;
+}
+
 .owl-theme .owl-preview li.active a, .owl-theme .owl-preview li a:focus {
     outline:none;
     text-decoration: none;
@@ -8211,6 +8220,10 @@ ul.org-chart ul li:last-child {
     font-size: 35px;
     background: none;
     color: #333;
+}
+
+.owl-theme .owl-nav.disabled{
+    display: none !important;
 }
 
 .Pac {

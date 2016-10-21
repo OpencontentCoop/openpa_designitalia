@@ -72,7 +72,7 @@
                 <div class="tab-content widget">
                     {if $day_events_count|ne(0)}
                         <div class="tab-pane active" id="oggi">
-                          <div class="event-carousel">
+                          <div class="event-carousel owl-carousel owl-theme">
                             <div class="events">
                               {foreach $day_events as $i => $child max 10}
                                 {include uri="design:calendar/block_list_item.tpl" item=$child}
@@ -85,7 +85,7 @@
 
                     {if $prossimi_count|gt(0)}
                         <div id="{$block.custom_attributes.tab_title|slugize}" class="tab-pane {if $day_events_count|eq(0)}active{/if} no-js-hide">
-                          <div class="event-carousel">
+                          <div class="event-carousel owl-carousel owl-theme">
                             <div class="events">
                               {foreach $prossimi as $i => $child max 10}
                                 {include uri="design:calendar/block_list_item.tpl" item=$child}
@@ -105,13 +105,9 @@
         $(document).ready(function() {
             $(".event-carousel").owlCarousel({
                 items: 1,
-                itemsDesktop: [1000, 1], // items between 1000px and 901px
-                itemsDesktopSmall: [900, 1], // betweem 900px and 601px
-                itemsTablet: [600, 1], // items between 600 and 0
-                itemsMobile: [400, 1],
                 autoPlay: false,
-                navigation: false,
-                pagination: true
+                nav: false,
+                dots: true
             });
 
             $("#{/literal}{$block.id}{literal}").tabs();

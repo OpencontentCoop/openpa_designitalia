@@ -6,6 +6,10 @@
 /*
  * 	Default theme - Owl Carousel CSS File
  */
+
+.owl-theme{
+    position: relative;
+}
 .owl-theme .owl-nav {
     margin-top: 10px;
     text-align: center;
@@ -76,7 +80,7 @@
     @extend .Grid;
     @extend .Grid--withGutter;
     @extend .Prose;
-    @extend .u-padding-all-xs;
+    @extend .u-margin-top-s;
 }
 
 .owl-theme .owl-preview li{
@@ -85,19 +89,18 @@
     @extend .u-sizeFull;
     @extend .u-md-size1of4;
     @extend .u-lg-size1of4;
-    @extend .u-border-all-xxs;
     @extend .u-color-grey-40;
-}
-
-.owl-theme .owl-preview li.active{
-    @extend .u-background-grey-40;
+    @extend .u-margin-bottom-s;
 }
 
 .owl-theme .owl-preview li a{
-    @extend .u-block;
     @extend .u-padding-all-xs;
+    @extend .u-border-all-xxs;
+    @extend .u-block;
     @extend .u-color-black;
     @extend .u-textClean;
+    height: 100%;
+    border-color: var(--Color-grey-40) !important;
 }
 
 .owl-theme .owl-preview li.active a,
@@ -121,4 +124,8 @@
     font-size: 35px;
     background: none;
     color: #333;
+}
+
+.owl-theme .owl-nav.disabled{
+    display: none !important;
 }
