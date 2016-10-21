@@ -4,6 +4,8 @@
         <div class="Headroom-hideme Header-homebanner u-hidden u-sm-block u-md-block u-lg-block"
              style="background-image: url({$area.data_map.cover.content['agid_topbanner'].url|ezroot(no)});"></div>
         {undef $area}
+    {else}
+        {include uri='design:menu/header_menu.tpl'}
     {/if}
 {elseif and( $pagedata.is_homepage, is_set($pagedata.header.image.url) )}
     {def $home = fetch('openpa','homepage')}
