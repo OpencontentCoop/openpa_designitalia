@@ -8,7 +8,7 @@
 'pagination', false(),
 'auto_height', false(),
 'top_pagination_position', false(),
-'navigation_text', concat( "['", '<i class="fa fa-angle-left"></i>', "','", '<i class="fa fa-angle-right"></i>', "']"),
+'navigation_text', concat( "['", '<i class="fa fa-arrow-circle-left"></i>', "','", '<i class="fa fa-arrow-circle-right"></i>', "']"),
 'css_id', $root_node.node_id
 ))}
 
@@ -27,16 +27,16 @@
         $(document).ready(function() {ldelim}
             $("#carousel_{$css_id}").owlCarousel({ldelim}
                 items : {$items_per_row},
-                itemsDesktop : [1000,{$items_per_row}], // items between 1000px and 901px
-                itemsDesktopSmall : [900,{$items_per_row}], // betweem 900px and 601px
-                itemsTablet: [600,{$items_per_row}], // items between 600 and 0
-                itemsMobile : [400,1],
-                autoPlay: {cond( $autoplay|gt(0), $autoplay, 'false')},
-                navigation: {cond( $navigation|gt(0), 'true', 'false')},
-                pagination: {cond( $pagination|gt(0), 'true', 'false')},
+                autoPlay: false,
+                nav: {cond( $navigation|gt(0), 'true', 'false')},
+                dots: {cond( $pagination|gt(0), 'true', 'false')},
                 {if $auto_height}autoHeight : true,{/if}
                 navigationText: {cond( $navigation_text|ne(false()), $navigation_text, false )}
-                {if $top_pagination_position},afterInit : function(elem){ldelim}var that = this;that.owlControls.prependTo(elem){rdelim}{/if}
+                {if $top_pagination_position}, onInitialized: function(e){ldelim}
+                    var owl = $(e.target);
+                    owl.find('.owl-nav').prependTo(owl);
+                    {rdelim}
+                {/if}
                 {rdelim});
             {rdelim});
     </script>

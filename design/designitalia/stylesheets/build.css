@@ -1304,7 +1304,7 @@ ol, ul {
     margin-left: 12.5% !important;
   }
 
-  .u-md-before1of6, .u-md-before2of12, .openpa-full .extra {
+  .u-md-before1of6, .u-md-before2of12 {
     margin-left: 16.66667% !important;
   }
 
@@ -1413,7 +1413,7 @@ ol, ul {
     margin-left: 12.5% !important;
   }
 
-  .u-lg-before1of6, .u-lg-before2of12, .openpa-full .extra {
+  .u-lg-before1of6, .u-lg-before2of12 {
     margin-left: 16.66667% !important;
   }
 
@@ -2119,7 +2119,7 @@ ol, ul {
     width: 41.66667% !important;
   }
 
-  .u-md-size1of2, .u-md-size2of4, .u-md-size3of6, .u-md-size4of8, .u-md-size5of10, .u-md-size6of12, .u-layout-centerLeft, .u-layout-centerRight, .row .col-md-6, .row .col-sm-6, .row .col-lg-6, .openpa-full .content.withExtra {
+  .u-md-size1of2, .u-md-size2of4, .u-md-size3of6, .u-md-size4of8, .u-md-size5of10, .u-md-size6of12, .u-layout-centerLeft, .u-layout-centerRight, .row .col-md-6, .row .col-sm-6, .row .col-lg-6 {
     -webkit-flex-basis: auto !important;
         -ms-flex-preferred-size: auto !important;
             flex-basis: auto !important;
@@ -2147,7 +2147,7 @@ ol, ul {
     width: 62.5% !important;
   }
 
-  .u-md-size2of3, .u-md-size4of6, .u-md-size8of12, .row .content-main, .row .col-md-8, .row .col-sm-8, .row .col-lg-8 {
+  .u-md-size2of3, .u-md-size4of6, .u-md-size8of12, .row .content-main, .row .col-md-8, .row .col-sm-8, .row .col-lg-8, .openpa-full .content.withExtra {
     -webkit-flex-basis: auto !important;
         -ms-flex-preferred-size: auto !important;
             flex-basis: auto !important;
@@ -2361,7 +2361,7 @@ ol, ul {
     width: 41.66667% !important;
   }
 
-  .u-lg-size1of2, .u-lg-size2of4, .u-lg-size3of6, .u-lg-size4of8, .u-lg-size5of10, .u-lg-size6of12, .u-layout-centerLeft, .u-layout-centerRight, .row .col-md-6, .row .col-sm-6, .row .col-lg-6, .openpa-full .content.withExtra {
+  .u-lg-size1of2, .u-lg-size2of4, .u-lg-size3of6, .u-lg-size4of8, .u-lg-size5of10, .u-lg-size6of12, .u-layout-centerLeft, .u-layout-centerRight, .row .col-md-6, .row .col-sm-6, .row .col-lg-6 {
     -webkit-flex-basis: auto !important;
         -ms-flex-preferred-size: auto !important;
             flex-basis: auto !important;
@@ -2389,7 +2389,7 @@ ol, ul {
     width: 62.5% !important;
   }
 
-  .u-lg-size2of3, .u-lg-size4of6, .u-lg-size8of12, .row .content-main, .row .col-md-8, .row .col-sm-8, .row .col-lg-8 {
+  .u-lg-size2of3, .u-lg-size4of6, .u-lg-size8of12, .row .content-main, .row .col-md-8, .row .col-sm-8, .row .col-lg-8, .openpa-full .content.withExtra {
     -webkit-flex-basis: auto !important;
         -ms-flex-preferred-size: auto !important;
             flex-basis: auto !important;

@@ -19,8 +19,8 @@
     @extend .Grid--withGutter > .Grid-cell;
     @extend .Grid-cell;
     @extend .u-padding-bottom-xl;
-    @extend .u-md-size6of12;
-    @extend .u-lg-size6of12;
+    @extend .u-md-size8of12;
+    @extend .u-lg-size8of12;
 }
 
 .openpa-full .content-main-abstract,
@@ -71,8 +71,6 @@
     @extend .Grid--withGutter > .Grid-cell;
     @extend .u-md-size4of12;
     @extend .u-lg-size4of12;
-    @extend .u-md-before2of12;
-    @extend .u-lg-before2of12;
     @extend .u-padding-bottom-xl;
 }
 
