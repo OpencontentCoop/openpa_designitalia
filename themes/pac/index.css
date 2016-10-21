@@ -9,7 +9,7 @@
 @import "owl.theme.default.css";
 
 .Pac {
-  font-family: var(--Pac-font-family-sans);
+    font-family: var(--Pac-font-family-sans);
 }
 
 /**
@@ -23,14 +23,19 @@
  * Focus color
  */
 :root  {
-    --Color-focus: #ff8c00
+    --Color-focus: #F9E667
 }
 
 /**
  * 	Fonts
  */
 :root {
-  --Pac-font-family-sans: Titillium Web, HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+    --Pac-font-family-sans: Titillium Web, HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+}
+
+a{
+    color: var(--Color-primary);
+    cursor: pointer;
 }
 
 #toolbar{
@@ -55,12 +60,6 @@
     @extend .u-margin-right-m;
     @extend .u-margin-bottom-m;
 }
-
-/*.Megamenu--styled .Megamenu-item > a:hover,
-.Megamenu--styled .Megamenu-item > a.current{
-    @extend .u-background-grey-80;
-    color: var(--Color-white) !important;
-}*/
 
 .Megamenu--styled .Megamenu-list > li > a[aria-expanded=false]::after {
     color: var(--Color-grey-80);
