@@ -1,4 +1,4 @@
-<div class="vcard {$item.class_identifier}" {if $item.id|eq($current_id)} style="background-color: #eee"{/if}>
+<div class="vcard {$item.class_identifier}{if $item.id|eq($current_id)} current{/if}">
     <a href={$item.url_alias|ezurl}>{$item.name|wash}</a>
 </div>
 {if $item.items|count()}

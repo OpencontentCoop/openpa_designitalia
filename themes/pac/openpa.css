@@ -1,3 +1,15 @@
+.Headroom-hideme.Header-homebanner {
+    max-height: 400px;
+    background-position: center center;
+    background-size: cover;
+    height: 400px;
+    overflow: hidden;
+}
+
+.Header-homebanner .Megamenu{
+    position: absolute;
+    bottom: 0;
+}
 
 .openpa-full .title h2 {
     @extend .u-text-h2;

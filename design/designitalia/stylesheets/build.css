@@ -3902,7 +3902,7 @@
   background-color: #fff !important;
 }.u-color-grey-10, .Footer-block address, .Megamenu--styled .Megamenu-item > a, .Megamenu--styled .Megamenu-subnavGroup > li > a, .Megamenu--styled .Megamenu-subnavGroup > li > ul > li a, .Megamenu--styled .Megamenu-subnavGroup > li > ul > li > ul > li > a {
   color: #f5f5f0 !important;
-}.u-background-grey-10, .Treeview--default li[aria-expanded=true] > a, .Treeview--default li[aria-expanded=true] > a:hover, .well, .ui-tabs-panel, .openpa-full .content-view-children .openpa-line:nth-child(2n), .GridStriped .Grid:nth-child(2n), .ContainerStriped .ItemStriped:nth-child(2n) {
+}.u-background-grey-10, .Treeview--default li[aria-expanded=true] > a, .Treeview--default li[aria-expanded=true] > a:hover, .well, .ui-tabs-panel, ul.org-chart li div.vcard, .openpa-full .content-view-children .openpa-line:nth-child(2n), .GridStriped .Grid:nth-child(2n), .ContainerStriped .ItemStriped:nth-child(2n) {
   background-color: #f5f5f0 !important;
 }.u-color-grey-20 {
   color: #eee !important;
@@ -3914,7 +3914,7 @@
   background-color: #ddd !important;
 }.u-color-grey-40, .owl-theme .owl-preview li {
   color: #a5abb0 !important;
-}.u-background-grey-40, .openpa-carousel .carousel-caption p, .owl-theme .owl-preview li.active a, .owl-theme .owl-preview li a:focus {
+}.u-background-grey-40, ul.org-chart li div.vcard.current, .openpa-carousel .carousel-caption p, .owl-theme .owl-preview li.active a, .owl-theme .owl-preview li a:focus {
   background-color: #a5abb0 !important;
 }.u-color-grey-50, .Footer-subBlock, .Footer-block li, .Megamenu--styled .Megamenu-subnavGroup > li {
   color: #5a6772 !important;
@@ -5732,7 +5732,6 @@
     padding: 14px;
     margin: 0;
     min-height: 50px;
-    background: #fff;
     display: inline-block;
     font-size: 18px;
     text-transform: uppercase;
@@ -5741,10 +5740,21 @@
     color: #000;
     text-decoration: none;
     line-height: normal;
+}ul.org-chart li div.vcard.current a{
+    color: #fff;
 }ul.org-chart ul li {
     background: url("themes/pac/images/org-tree-mid.gif") no-repeat left -15px;
 }ul.org-chart ul li:last-child {
     background: url("themes/pac/images/org-tree-last.gif") no-repeat left -15px;
+}.Headroom-hideme.Header-homebanner {
+    max-height: 400px;
+    background-position: center center;
+    background-size: cover;
+    height: 400px;
+    overflow: hidden;
+}.Header-homebanner .Megamenu{
+    position: absolute;
+    bottom: 0;
 }.openpa-line .media-details {
     margin: 0 !important;
 }.openpa-line .media-details > li {
