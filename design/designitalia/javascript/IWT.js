@@ -112,7 +112,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _megamenu2 = _interopRequireDefault(_megamenu);
 	
-	var _share = __webpack_require__(39);
+	var _share = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./ita-web-toolkit/src/modules/share\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	
 	var _share2 = _interopRequireDefault(_share);
 	
@@ -153,6 +153,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 	
 	__webpack_require__(2);
+	__webpack_require__(41);
 	__webpack_require__(3);
 
 /***/ },
@@ -4915,13 +4916,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	
+	var _jquery = __webpack_require__(4);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
 	var Masonry = null;
 	
-	try {
-	  Masonry = __webpack_require__(25);
-	} catch (e) {
-	  /* HEY, I'm IE8 */
-	}
+	(0, _jquery2['default'])(function () {
+	  if ((0, _jquery2['default'])('.js-Masonry-container').length > 0) {
+	    try {
+	      Masonry = __webpack_require__(25);
+	    } catch (e) {
+	      /* HEY, I'm IE8 */
+	    }
+	  }
+	});
 	
 	exports['default'] = {
 	  Masonry: Masonry
@@ -7991,32 +8003,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	})(jQuery, window, document);
 
 /***/ },
-/* 39 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _jquery = __webpack_require__(4);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var hideClass = 'u-jsHiddenVisually';
-	
-	(0, _jquery2['default'])('.js-Share').click(function (e) {
-	  var $el = (0, _jquery2['default'])(e.currentTarget);
-	  var $share = $el.closest('.Share');
-	  var $buttons = $share.find('ul');
-	
-	  $buttons.toggleClass(hideClass);
-	
-	  $share.find('.Share-revealText').toggleClass(hideClass);
-	
-	  $share.find('.Share-revealIcon').toggleClass('is-open');
-	});
-
-/***/ },
+/* 39 */,
 /* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -8049,6 +8036,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	  threshold: threshold
 	};
 	module.exports = exports['default'];
+
+/***/ },
+/* 41 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _jquery = __webpack_require__(4);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	(0, _jquery2['default'])(function () {
+	  (0, _jquery2['default'])(document).bind('enhance', function () {
+	    (0, _jquery2['default'])('body').addClass('enhanced');
+	  });
+	  (0, _jquery2['default'])(document).trigger('enhance');
+	});
 
 /***/ }
 /******/ ])

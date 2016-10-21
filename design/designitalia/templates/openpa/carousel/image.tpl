@@ -1,6 +1,6 @@
 {def $is_single = cond( or( is_set($items_per_row)|not(), and(is_set($items_per_row), $items_per_row|eq(1)) ), true(), false() )}
 
-<div class="openpa-carousel {if $is_single|not} u-padding-all-s{/if}">
+<div class="openpa-carousel {if $is_single|not} u-padding-all-xxs{/if}">
     {include uri='design:openpa/carousel/parts/image.tpl'}
     <div class="carousel-caption">
         <h3>

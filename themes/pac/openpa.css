@@ -357,6 +357,9 @@
     font-size: 1.6em;
 }
 
+.openpa-carousel{
+    position: relative;
+}
 
 .openpa-carousel .carousel-caption {
     bottom: 0;
@@ -370,9 +373,9 @@
 }
 .openpa-carousel .carousel-caption h3 {
     background-color: rgba(0, 0, 0, 0.7);
-    display: inline-block;
+    display: block;
     padding: 12px;
-    line-height: 1em;
+    line-height: normal;
     color: #fff;
     margin-bottom: 0;
     border-radius: none;
