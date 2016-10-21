@@ -6,17 +6,15 @@
         <h3 class="openpa-widget-title">{$block.name|wash()}</h3>
     {/if}
     <div class="openpa-widget-content">
-        <div class="{if and( $show_title, $block.name|ne('') )}widget_content {/if}carousel-both-control">
-            {include name="carousel"
-                    uri='design:atoms/carousel.tpl'
-                    items=$openpa.content
-                    css_id=$block.id
-                    root_node=$openpa.root_node
-                    autoplay=10000
-                    pagination=true()
-                    navigation= false()
-                    items_per_row=$items_per_row}
-        </div>
+        {include name="carousel"
+                 uri='design:atoms/carousel.tpl'
+                 items=$openpa.content
+                 css_id=$block.id
+                 root_node=$openpa.root_node
+                 pagination=$items_per_row|gt(1)
+                 navigation= false()
+                 items_per_row=$items_per_row
+                 show_items_preview=$items_per_row|eq(1)}
     </div>
 </div>
 

@@ -10,10 +10,6 @@
         </h3>
     {/if}
     <div class="openpa-widget-content">
-        <div class="carousel-top-control openpa-panels-container {if or( $show_title|not(), $block.name|eq('') )}title-placeholder{/if} {$block.view}">
-
-
-
         {include uri='design:atoms/carousel.tpl'
                  css_id=$block.id
                  items=$openpa.content
@@ -24,7 +20,6 @@
                  navigation=false()
                  image_class=squaremedium
                  items_per_row=$items_per_row}
-        </div>
     </div>
-{unset_defaults(array('show_title','items_per_row'))}
+    {unset_defaults(array('show_title','items_per_row'))}
 </div>

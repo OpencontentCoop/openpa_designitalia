@@ -19,8 +19,8 @@
     @extend .Grid--withGutter > .Grid-cell;
     @extend .Grid-cell;
     @extend .u-padding-bottom-xl;
-    @extend .u-md-size6of12;
-    @extend .u-lg-size6of12;
+    @extend .u-md-size8of12;
+    @extend .u-lg-size8of12;
 }
 
 .openpa-full .content-main-abstract,
@@ -71,8 +71,6 @@
     @extend .Grid--withGutter > .Grid-cell;
     @extend .u-md-size4of12;
     @extend .u-lg-size4of12;
-    @extend .u-md-before2of12;
-    @extend .u-lg-before2of12;
     @extend .u-padding-bottom-xl;
 }
 
@@ -163,12 +161,14 @@
     @extend .Prose;
     font-weight: normal !important;
 }
+
 .openpa-widget-title-lev2 a{
     @extend .u-text-h4;
     @extend .u-textClean;
     @extend .u-color-black;
-    font-weight: normal !important;
+    font-weight: bold !important;
 }
+
 .openpa-widget-content{
     @extend .u-cf;
 }
@@ -182,10 +182,6 @@
 
 .openpa-accordion_content{
     @extend .Prose;
-}
-
-.openpa-carousel{
-    position: relative;
 }
 
 .openpa-event-item{
@@ -237,10 +233,6 @@
     @extend .u-color-black;
 }
 
-.openpa-panels-container{
-    position: relative;
-}
-
 .openpa-panel-image{
     background-position: center center !important;
     background-repeat: no-repeat !important;
@@ -259,10 +251,6 @@
     margin: 0;
     position: absolute;
     width: 100%;
-}
-
-.openpa-panels-container .owl-carousel .owl-item .item {
-    padding: 5px;
 }
 
 .openpa-table-calendar {
@@ -368,6 +356,39 @@
     font-size: 1.6em;
 }
 
+
+.openpa-carousel .carousel-caption {
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    right: 0;
+    text-align: left;
+    width: 100%;
+    position: absolute;
+}
+.openpa-carousel .carousel-caption h3 {
+    background-color: rgba(0, 0, 0, 0.7);
+    display: inline-block;
+    padding: 12px;
+    line-height: 1em;
+    color: #fff;
+    margin-bottom: 0;
+    border-radius: none;
+}
+.openpa-carousel .carousel-caption h3 a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+.openpa-carousel .carousel-caption p {
+    @extend .Prose;
+    @extend .u-padding-all-s;
+    @extend .u-background-grey-40;
+    color: #fff;
+    display: block;
+    margin: 0;
+}
 
 /* bc */
 .global-view-full{

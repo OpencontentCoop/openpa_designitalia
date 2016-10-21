@@ -36,22 +36,6 @@
 {/if}
 
 {else}
-    {*
-        {ezscript_require( array( 'ezjsc::jquery', 'plugins/owl-carousel/owl.carousel.min.js', "plugins/blueimp/jquery.blueimp-gallery.min.js" ) )}
-        {ezcss_require( array( 'plugins/owl-carousel/owl.carousel.css', 'plugins/owl-carousel/owl.theme.css', "plugins/blueimp/blueimp-gallery.css" ) )}
-
-        <script>
-            $(document).ready(function() {ldelim}
-                $("#first-event-carousel, #second-event-carousel").owlCarousel({ldelim}
-                    items : 1,
-                    autoPlay: false,
-                    navigation: true,
-                    pagination: false,
-                    navigationText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>']
-                {rdelim});
-            {rdelim});
-        </script>
-    *}
 
     <div class="openpa-widget {$block.view} {if is_set($block.custom_attributes.color_style)}color color-{$block.custom_attributes.color_style}{/if}">
 
@@ -88,7 +72,7 @@
                 <div class="tab-content widget">
                     {if $day_events_count|ne(0)}
                         <div class="tab-pane active" id="oggi">
-                          <div class="event-carousel">
+                          <div class="event-carousel owl-carousel owl-theme">
                             <div class="events">
                               {foreach $day_events as $i => $child max 10}
                                 {include uri="design:calendar/block_list_item.tpl" item=$child}
@@ -101,7 +85,7 @@
 
                     {if $prossimi_count|gt(0)}
                         <div id="{$block.custom_attributes.tab_title|slugize}" class="tab-pane {if $day_events_count|eq(0)}active{/if} no-js-hide">
-                          <div class="event-carousel">
+                          <div class="event-carousel owl-carousel owl-theme">
                             <div class="events">
                               {foreach $prossimi as $i => $child max 10}
                                 {include uri="design:calendar/block_list_item.tpl" item=$child}
@@ -116,21 +100,14 @@
         </div>
     </div>
 
-    {ezscript_require( array( 'ezjsc::jquery', 'plugins/owl-carousel/owl.carousel.min.js' ) )}
-    {ezcss_require( array( 'plugins/owl-carousel/owl.carousel.css', 'plugins/owl-carousel/owl.theme.css' ) )}
-
     <script type="text/javascript">
         {literal}
         $(document).ready(function() {
             $(".event-carousel").owlCarousel({
                 items: 1,
-                itemsDesktop: [1000, 1], // items between 1000px and 901px
-                itemsDesktopSmall: [900, 1], // betweem 900px and 601px
-                itemsTablet: [600, 1], // items between 600 and 0
-                itemsMobile: [400, 1],
                 autoPlay: false,
-                navigation: false,
-                pagination: true,
+                nav: false,
+                dots: true
             });
 
             $("#{/literal}{$block.id}{literal}").tabs();

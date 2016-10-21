@@ -7,20 +7,18 @@
         <h3 class="openpa-widget-title">
             {if $openpa.root_node}<a href={$openpa.root_node.url_alias|ezurl()}>{/if}
                 {$block.name|wash()}
-            {if $openpa.root_node}</a>{/if}
+                {if $openpa.root_node}</a>{/if}
         </h3>
     {/if}
     <div class="openpa-widget-content">
-        <div class="carousel-top-control openpa-panels-container {if or( $show_title|not(), $block.name|eq('') )}title-placeholder{/if} {$block.view}">
-            {include uri='design:atoms/carousel.tpl'
-                     css_id=$block.id
-                     items=$openpa.content
-                     root_node=$openpa.root_node
-                     i_view=panel
-                     autoplay=0
-                     image_class=squaremedium
-                     items_per_row=$items_per_row}
-        </div>
+        {include uri='design:atoms/carousel.tpl'
+                 css_id=$block.id
+                 items=$openpa.content
+                 root_node=$openpa.root_node
+                 i_view=panel
+                 autoplay=0
+                 image_class=squaremedium
+                 items_per_row=$items_per_row}
     </div>
 </div>
 
