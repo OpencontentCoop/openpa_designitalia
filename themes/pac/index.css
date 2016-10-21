@@ -6,6 +6,7 @@
 @import "compat";
 @import "organigramma";
 @import "openpa";
+@import "owl.theme.default.css";
 
 .Pac {
   font-family: var(--Pac-font-family-sans);

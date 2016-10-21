@@ -184,10 +184,6 @@
     @extend .Prose;
 }
 
-.openpa-carousel{
-    position: relative;
-}
-
 .openpa-event-item{
     @extend .Grid;
     @extend .u-padding-all-s;
@@ -237,10 +233,6 @@
     @extend .u-color-black;
 }
 
-.openpa-panels-container{
-    position: relative;
-}
-
 .openpa-panel-image{
     background-position: center center !important;
     background-repeat: no-repeat !important;
@@ -259,10 +251,6 @@
     margin: 0;
     position: absolute;
     width: 100%;
-}
-
-.openpa-panels-container .owl-carousel .owl-item .item {
-    padding: 5px;
 }
 
 .openpa-table-calendar {
@@ -368,6 +356,38 @@
     font-size: 1.6em;
 }
 
+
+.openpa-carousel .carousel-caption {
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0 20px 30px;
+    right: 0;
+    text-align: left;
+    width: 100%;
+    position: absolute;
+}
+.openpa-carousel .carousel-caption h3 {
+    background-color: rgba(0, 0, 0, 0.7);
+    display: inline-block;
+    padding: 12px;
+    line-height: 1em;
+    color: #fff;
+    margin-bottom: 0;
+    border-radius: none;
+}
+.openpa-carousel .carousel-caption h3 a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+.openpa-carousel .carousel-caption p {
+    background: #999;
+    color: #fff;
+    display: inline-block;
+    margin: 0;
+    padding: 12px;
+}
 
 /* bc */
 .global-view-full{
