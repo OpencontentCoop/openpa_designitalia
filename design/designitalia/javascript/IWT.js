@@ -112,10 +112,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _megamenu2 = _interopRequireDefault(_megamenu);
 	
-	var _share = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./ita-web-toolkit/src/modules/share\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-	
-	var _share2 = _interopRequireDefault(_share);
-	
 	var _scrolltop = __webpack_require__(40);
 	
 	var _scrolltop2 = _interopRequireDefault(_scrolltop);
@@ -139,7 +135,6 @@ return /******/ (function(modules) { // webpackBootstrap
 		/*IwtTooltip,*/
 		IwtScripts: _scripts2['default'],
 		IwtScrolltop: _scrolltop2['default'],
-		IwtShare: _share2['default'],
 		IwtForm: _form2['default']
 	};
 	
@@ -6627,7 +6622,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      $el.addClass('u-hiddenVisually');
 	    }
 	  });
-	  (0, _jquery2['default'])((0, _jquery2['default'])(e.target).attr('aria-controls')).toggleClass('is-active');
+	  (0, _jquery2['default'])('#' + (0, _jquery2['default'])(e.target).attr('aria-controls')).toggleClass('is-active');
 	});
 	
 	exports['default'] = {
