@@ -5753,6 +5753,8 @@
     margin: 0 !important;
 }.openpa-search-result li{
     list-style: none !important;
+}.openpa-widget{
+    position: relative;
 }.openpa-widget-title a{
     font-size: inherit;
     color: inherit;
@@ -5846,6 +5848,11 @@
     color: #fff;
     margin-bottom: 0;
     border-radius: none;
+}.openpa-carousel.u-padding-all-xxs .carousel-caption{
+    width: auto;
+    left: 0.4rem;
+    right: 0.4rem;
+    bottom: 0.4rem;
 }.openpa-carousel .carousel-caption h3 a {
     color: #fff;
     font-weight: bold;

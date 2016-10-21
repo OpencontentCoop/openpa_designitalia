@@ -132,6 +132,7 @@
 .openpa-widget{
     @extend .u-margin-r-bottom;
     @extend .u-cf;
+    position: relative;
 }
 
 .openpa-widget-title {
@@ -380,6 +381,14 @@
     margin-bottom: 0;
     border-radius: none;
 }
+
+.openpa-carousel.u-padding-all-xxs .carousel-caption{
+    width: auto;
+    left: var(--Spacing-unit-fixed);
+    right:var(--Spacing-unit-fixed);
+    bottom: var(--Spacing-unit-fixed);
+}
+
 .openpa-carousel .carousel-caption h3 a {
     color: #fff;
     font-weight: bold;
