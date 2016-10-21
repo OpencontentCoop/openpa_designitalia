@@ -25,7 +25,7 @@
 
             {if and( is_set($pagedata.header.logo.url), $pagedata.header.logo.url)}
                 <img height="75" class="Footer-logo"
-                     src={$pagedata.header.logo.url|ezroot()} alt="{ezini('SiteSettings','SiteName')}"
+                     src="{$pagedata.header.logo.url|ezroot(no)}"
                      alt="{ezini('SiteSettings','SiteName')}"/>
             {else}
                 <img class="Footer-logo" src="//placehold.it/75x80?text=placeholder" alt="">
