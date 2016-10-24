@@ -5,7 +5,7 @@
 
 {if and( $ui_context|ne( 'edit' ), $ui_context|ne( 'browse' ) )}
     {if $pagedata.class_identifier|ne('')}
-        <section class="survey u-background-95 u-textCenter u-padding-all-s">
+        <div class="survey u-background-95 u-textCenter u-padding-all-s">
             <a href="#"
                onClick="getElementById('openpa-valuation').style.display='block';return false;"
                class="u-linkClean u-color-white">
@@ -14,7 +14,7 @@
             <div style="display: none" id="openpa-valuation">
                 {include name=valuation node_id=$current_node_id uri='design:openpa/valuation.tpl'}
             </div>
-        </section>
+        </div>
     {/if}
 {/if}
 
