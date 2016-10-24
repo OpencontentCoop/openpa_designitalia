@@ -11,13 +11,12 @@
     </div>
     <div class="content-container">
         <div class="content">
-
             {def $show_content = true()}
             {if $top_menu_node_ids|contains($node.node_id)}
                 {def $tree_menu = tree_menu( hash( 'root_node_id', $node.node_id, 'scope', 'top_menu'))}
                 {if $tree_menu.has_children}
                     {set $show_content = false()}
-                    <section class="Leads">
+                    <section class="Leads u-margin-bottom-l">
                         <ul class="Grid Grid--withGutter">
                             {foreach $tree_menu.children as $menu_item}
 
@@ -27,7 +26,7 @@
                                     {set $count = 4}
                                 {/if}
                                 <li class="Leads-item Grid-cell u-md-size1of{$count} u-lg-size1of{$count}">
-                                    <a class="Leads-link u-color-black"
+                                    <a class="Leads-link u-border-top-l"
                                        href="{if $menu_item.item.internal}{$menu_item.item.url|ezurl(no)}{else}{$menu_item.item.url}{/if}"
                                        {if $menu_item.item.target}target="{$menu_item.item.target}"{/if}
                                        title="Vai a {$menu_item.item.name|wash()}">
@@ -55,12 +54,10 @@
                 {/if}
             {/if}
 
-            {if $show_content}
-                {if $node.data_map.page.has_content}
-                    {attribute_view_gui attribute=$node.data_map.page}
-                {else}
-                    {include uri=$openpa.control_children.template}
-                {/if}
+            {if $node.data_map.page.has_content}
+                {attribute_view_gui attribute=$node.data_map.page}
+            {elseif $show_content}
+                {include uri=$openpa.control_children.template}
             {/if}
         </div>
     </div>
