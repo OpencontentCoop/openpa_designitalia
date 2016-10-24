@@ -1,4 +1,4 @@
-<div class="openpa-panel {$node|access_style} Card Card--withBorder u-color-grey-30">
+<article class="openpa-panel {$node|access_style} Card Card--withBorder u-color-grey-30">
 
     {include uri='design:openpa/panel/parts/image.tpl'}
 
@@ -18,4 +18,4 @@
 
     <a class="readmore" href="{object_handler($node).content_link.full_link}" title="{$node.name|wash()}">Leggi</a>
 
-</div>
+</article>
