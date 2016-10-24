@@ -9,7 +9,7 @@
             <a href="{$openpa.content_link.full_link}">{$node.name|wash()}</a>
         </h3>
         {if and( $is_single, $node|has_abstract())}
-            <p class="u-hidden u-md-block u-lg-block">{$node|abstract()|oc_shorten(400)}</p>
+            <p class="u-hidden u-md-block u-lg-block">{$node|abstract()|openpa_shorten(300)}</p>
         {/if}
     </div>
 </div>

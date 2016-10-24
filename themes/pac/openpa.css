@@ -378,20 +378,20 @@
     bottom: 0;
     left: 0;
     margin: 0;
-    padding: 0;
     right: 0;
     text-align: left;
     width: 100%;
     position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    @extend .u-padding-all-s;
 }
 .openpa-carousel .carousel-caption h3 {
-    background-color: rgba(0, 0, 0, 0.7);
     display: block;
-    padding: 12px;
     line-height: normal;
     color: #fff;
     margin-bottom: 0;
     border-radius: none;
+    @extend .u-text-h4;
 }
 
 .openpa-carousel.u-padding-all-xxs .carousel-caption{
@@ -407,9 +407,6 @@
     text-decoration: none;
 }
 .openpa-carousel .carousel-caption p {
-    @extend .Prose;
-    @extend .u-padding-all-s;
-    @extend .u-background-grey-40;
     color: #fff;
     display: block;
     margin: 0;
