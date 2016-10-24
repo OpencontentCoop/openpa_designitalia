@@ -1,4 +1,13 @@
 <ul>
+    {if is_set($pagedata.contacts.indirizzo)}
+        <li>
+            <i class="fa fa-building u-textClean"></i>
+            <a href="http://maps.google.com/maps?q={$pagedata.contacts.indirizzo|urlencode}">
+                {$pagedata.contacts.indirizzo}
+            </a>
+        </li>
+    {/if}
+
     {if is_set($pagedata.contacts.telefono)}
         <li>
             {def $tel = strReplace($pagedata.contacts.telefono,array(" ",""))}

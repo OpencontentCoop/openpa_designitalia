@@ -1,6 +1,6 @@
-{def $footerBlocksClass = 'u-md-size1of3 u-lg-size1of3'}
+{def $footerBlocksClass = 'u-md-size1of2 u-lg-size1of2'}
 {if or(is_set($pagedata.contacts.facebook), is_set($pagedata.contacts.twitter), is_set($pagedata.contacts.linkedin), is_set($pagedata.contacts.instagram))}
-    {set $footerBlocksClass = 'u-md-size1of4 u-lg-size1of4'}
+    {set $footerBlocksClass = 'u-md-size1of3 u-lg-size1of3'}
 {/if}
 
 {if and( $ui_context|ne( 'edit' ), $ui_context|ne( 'browse' ) )}
@@ -46,13 +46,6 @@
                     </div>
                 </div>
             {/if}
-
-            <div class="Footer-block Grid-cell {$footerBlocksClass}">
-                <h2 class="Footer-blockTitle">Recapiti</h2>
-                <div class="Footer-subBlock">
-                    {include uri='design:footer/address.tpl'}
-                </div>
-            </div>
 
             <div class="Footer-block Grid-cell {$footerBlocksClass}">
                 <h2 class="Footer-blockTitle">Contatti</h2>
