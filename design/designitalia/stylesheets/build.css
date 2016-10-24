@@ -8123,6 +8123,7 @@ ul.org-chart ul li:last-child {
     background-size: cover;
     height: 400px;
     overflow: hidden;
+    position: relative;
 }
 
 .Header-homebanner .Megamenu{

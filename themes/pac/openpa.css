@@ -4,6 +4,7 @@
     background-size: cover;
     height: 400px;
     overflow: hidden;
+    position: relative;
 }
 
 .Header-homebanner .Megamenu{
