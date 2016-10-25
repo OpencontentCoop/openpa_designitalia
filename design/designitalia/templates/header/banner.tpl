@@ -1,21 +1,27 @@
 {if is_area_tematica()}
     {def $area = is_area_tematica()}
     {if and( is_set( $area.data_map.cover ), $area.data_map.cover.has_content, $area.data_map.cover.content['original'].height|ge(200))}
-        <div class="Headroom-hideme Header-homebanner u-hidden u-sm-block u-md-block u-lg-block"
-             style="background-image: url({$area.data_map.cover.content['agid_topbanner'].url|ezroot(no)});"></div>
+        <div class="Headroom-hideme Header-homebanner u-block u-sm-block u-md-block u-lg-block">
+            <div id="Imageheader" style="background-image: url({$area.data_map.image.content['agid_topbanner'].url|ezroot(no)});" role="img" aria-label="Coffee and croissant.">
+                <div class="inner"></div>
+            </div>
+        </div>
         {undef $area}
     {else}
         {include uri='design:menu/header_menu.tpl'}
     {/if}
 {elseif and( $pagedata.is_homepage, is_set($pagedata.header.image.url) )}
     {def $home = fetch('openpa','homepage')}
-    <div class="Headroom-hideme Header-homebanner u-hidden u-sm-block u-md-block u-lg-block u-textCenter"
-         style="background-image: url({$home.data_map.image.content['agid_topbanner'].url|ezroot(no)});">
+    <div class="Headroom-hideme Header-homebanner u-block u-sm-block u-md-block u-lg-block u-textCenter">
+
+        <div id="Imageheader" style="background-image: url({$home.data_map.image.content['agid_topbanner'].url|ezroot(no)});" role="img" aria-label="Coffee and croissant.">
+            <div class="inner"></div>
+        </div>
 
         {if $home|has_attribute('menu_button')}
 
             {def $banner = $home|attribute('menu_button').content}
-            <div class="u-layout-wide u-layoutCenter u-layout-withGutter u-padding-r-top">
+            <div class="u-hidden u-sm-block u-md-block u-lg-block u-layout-wide u-layoutCenter u-layout-withGutter u-padding-r-top">
                 <div class="Entrypoint-item u-md-size1of2 u-lg-size1of3 u-background-teal-70 u-textCenter">
                     <p class="u-padding-bottom-m u-textLeft">
                         <a class="u-textClean u-text-h4 u-color-white"
@@ -38,7 +44,7 @@
             {def $top_menu_node_ids = openpaini( 'TopMenu', 'NodiCustomMenu', array() )}
             {def $top_menu_node_ids_count = $top_menu_node_ids|count()}
             {if $top_menu_node_ids_count}
-                <nav class="Megamenu Megamenu--styled">
+                <nav class="Megamenu Megamenu--styled u-hidden u-sm-block u-md-block u-lg-block">
                     <ul class="Megamenu-list">
                         {foreach $top_menu_node_ids as $id}
                             {def $tree_menu = tree_menu( hash( 'root_node_id', $id, 'scope', 'top_menu'))}

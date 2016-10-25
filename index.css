@@ -29,7 +29,7 @@
 @import "ita-web-toolkit/src/modules/entrypoint";
 @import "ita-web-toolkit/src/modules/footer";
 @import "ita-web-toolkit/src/modules/hamburger";
-@import "ita-web-toolkit/src/modules/header";
+@import "themes/modules/header";
 @import "ita-web-toolkit/src/modules/leads";
 @import "ita-web-toolkit/src/modules/linklist";
 @import "ita-web-toolkit/src/modules/megamenu";

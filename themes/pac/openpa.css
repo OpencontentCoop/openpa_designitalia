@@ -1,16 +1,34 @@
-.Headroom-hideme.Header-homebanner {
+/*.Headroom-hideme.Header-homebanner {
     max-height: 400px;
     background-position: center center;
     background-size: cover;
     height: 400px;
     overflow: hidden;
     position: relative;
+}*/
+
+.Headroom-hideme.Header-homebanner #Imageheader {
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    font: 0/0 serif;
+    text-shadow: none;
+    color: transparent;
+    background-size: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
 }
 
-.Header-homebanner .Megamenu{
+.Headroom-hideme.Header-homebanner #Imageheader .inner {
+    padding-top: 20%; /* height/width of image */
+    display: block;
+    height: 0;
+}
+
+/*.Header-homebanner .Megamenu{
     position: absolute;
     bottom: 0;
-}
+}*/
 
 .openpa-full .title h2 {
     @extend .u-text-h2;

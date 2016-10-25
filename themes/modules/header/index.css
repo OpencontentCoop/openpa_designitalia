@@ -357,7 +357,7 @@
  *	1. Allow transition on element heights
  */
 .Headroom-hideme {
-  max-height: 5em; /* 1 */
+  /*max-height: 5em;*/ /* 1 */
   transition: all 250ms ease;
   will-change: all;
 }
