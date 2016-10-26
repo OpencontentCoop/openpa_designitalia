@@ -6543,7 +6543,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var headroom = null;
 	
+	var _adjustOffset = function _adjustOffset() {
+	  opts.offset = (0, _jquery2['default'])('header').height();
+	  if ((0, _jquery2['default'])('#Imageheader').length) {
+	    opts.offset = opts.offset + (0, _jquery2['default'])('header').height();
+	  }
+	};
+	
 	if (myElement) {
+	  _adjustOffset();
 	  headroom = new _headroom2['default'](myElement, opts);
 	  headroom.init();
 	}
@@ -6593,6 +6601,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        windowWidth = newWindowWidth;
 	        headerHeight = height;
 	        setTimeout(_adjustPadding, INTERVAL);
+	        _adjustOffset();
+	        headroom.offset = opts.offset;
 	      }
 	    }));
 	

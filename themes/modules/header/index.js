@@ -49,7 +49,16 @@ const opts = {
 
 let headroom = null
 
+const _adjustOffset = function() {
+  opts.offset = $('header').height()
+  if ($('#Imageheader').length)
+  {
+    opts.offset = opts.offset + $('header').height()
+  }
+}
+
 if (myElement) {
+  _adjustOffset()
   headroom = new Headroom(myElement, opts)
   headroom.init()
 }
@@ -98,6 +107,8 @@ if ($('.' + opts.classes.initial).is(headroomFixed)) {
       windowWidth = newWindowWidth
       headerHeight = height
       setTimeout(_adjustPadding, INTERVAL)
+      _adjustOffset()
+      headroom.offset = opts.offset
     }
   }))
 
