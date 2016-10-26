@@ -1,8 +1,10 @@
+{def $image = false()}
 {if is_area_tematica()}
     {def $area = is_area_tematica()}
     {if and( is_set( $area.data_map.cover ), $area.data_map.cover.has_content, $area.data_map.cover.content['original'].height|ge(200))}
+        {set $image = $area.data_map.image}
         <div class="Headroom-hideme Header-homebanner u-block u-sm-block u-md-block u-lg-block">
-            <div id="Imageheader" style="background-image: url({$area.data_map.image.content['agid_topbanner'].url|ezroot(no)});" role="img" aria-label="Coffee and croissant.">
+            <div id="Imageheader" role="presentation">
                 <div class="inner"></div>
             </div>
         </div>
@@ -12,14 +14,14 @@
     {/if}
 {elseif and( $pagedata.is_homepage, is_set($pagedata.header.image.url) )}
     {def $home = fetch('openpa','homepage')}
+    {set $image = $home.data_map.image}
     <div class="Headroom-hideme Header-homebanner u-block u-sm-block u-md-block u-lg-block u-textCenter">
 
-        <div id="Imageheader" style="background-image: url({$home.data_map.image.content['agid_topbanner'].url|ezroot(no)});" role="img" aria-label="Coffee and croissant.">
+        <div id="Imageheader" role="presentation">
             <div class="inner"></div>
         </div>
 
         {if $home|has_attribute('menu_button')}
-
             {def $banner = $home|attribute('menu_button').content}
             <div class="u-hidden u-sm-block u-md-block u-lg-block u-layout-wide u-layoutCenter u-layout-withGutter u-padding-r-top">
                 <div class="Entrypoint-item u-md-size1of2 u-lg-size1of3 u-background-teal-70 u-textCenter">
@@ -38,9 +40,7 @@
                 </div>
             </div>
             {undef $banner}
-
         {else}
-
             {def $top_menu_node_ids = openpaini( 'TopMenu', 'NodiCustomMenu', array() )}
             {def $top_menu_node_ids_count = $top_menu_node_ids|count()}
             {if $top_menu_node_ids_count}
@@ -65,3 +65,31 @@
     </div>
     {undef $home}
 {/if}
+{if $image}
+    {literal}
+        <style>
+            .Headroom-hideme.Header-homebanner #Imageheader {
+                background-image: url({/literal}{$image.content['agid_topbanner'].url|ezroot(no)}{literal});
+            }
+
+            @media only screen and (min-width: 768px) and (max-width: 992px){
+                .Headroom-hideme.Header-homebanner #Imageheader {
+                    background-image: url({/literal}{$image.content['agid_topbanner_sm'].url|ezroot(no)}{literal});
+                }
+            }
+
+            @media only screen and (min-width: 992px) and (max-width: 1440px){
+                .Headroom-hideme.Header-homebanner #Imageheader {
+                    background-image: url({/literal}{$image.content['agid_topbanner_md'].url|ezroot(no)}{literal});
+                }
+            }
+
+            @media only screen and (min-width: 1440px){
+                .Headroom-hideme.Header-homebanner #Imageheader {
+                    background-image: url({/literal}{$image.content['agid_topbanner_lg'].url|ezroot(no)}{literal});
+                }
+            }
+        </style>
+    {/literal}
+{/if}
+{undef $image}
