@@ -96,7 +96,7 @@ if ($('.' + opts.classes.initial).is(headroomFixed)) {
     }
 
     // Set up padding on page load
-    $(document).ready(() = > {
+    $(document).ready(() => {
         $(headroomFixed).css({
         position: 'fixed',
         top: 0
