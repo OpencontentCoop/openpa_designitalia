@@ -352,3 +352,36 @@ input:disabled {
     left: .5em;
     top: .3em;
 }
+
+.Accordion-link,
+.Card-titleLink {
+    @extend .u-color-50;
+}
+
+.Card-titleLink:hover {
+    text-decoration: underline !important;
+}
+
+.Card-extra {
+    font-weight: normal !important;
+}
+
+.Card-text > p {
+    @extend .u-color-black;
+}
+
+.readmore{
+    display: none;
+    @extend .Button;
+    @extend .Button--info;
+    @extend .u-text-xxs;
+    @extend .u-floatRight;
+    @extend .u-margin-right-m;
+    @extend .u-margin-bottom-m;
+}
+
+@media (--md-viewport), (--lg-viewport) {
+    .readmore{
+        display: block;
+    }
+}

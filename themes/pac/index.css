@@ -17,12 +17,12 @@
  */
 :root {
     --Color-primary: #0099d1;
-}
-
-/**
- * Focus color
- */
-:root  {
+    --Prose-color-text-primary: #1c2024;
+    --Prose-color-text-secondary: #5a6772;
+    --Prose-color-text-highlighted: #b2ebed;
+    --Prose-color-link: var(--Color-primary);
+    --Prose-color-link-hover: var(--Color-primary);
+    --Prose-color-link-visited: var(--Color-primary);
     --Color-focus: #F38A44;
 }
 
@@ -34,7 +34,9 @@
 }
 
 a{
+    /*color: var(--Color-primary);*/
     color: var(--Color-primary);
+    text-decoration: none !important;
     cursor: pointer;
 }
 
@@ -45,7 +47,6 @@ button, input[type=submit]{
 a:focus {
     background: var(--Color-focus);
     outline: var(--Color-focus) solid 3px;
-    text-decoration: underline;
     color: var(--Color-primary);
 }
 
@@ -61,15 +62,6 @@ a:focus {
 
 .ContainerStriped .ItemStriped:nth-child(2n) {
     @extend .u-background-grey-10;
-}
-
-.readmore{
-    @extend .Button;
-    @extend .Button--info;
-    @extend .u-text-xxs;
-    @extend .u-floatRight;
-    @extend .u-margin-right-m;
-    @extend .u-margin-bottom-m;
 }
 
 .Megamenu--styled .Megamenu-list > li > a[aria-expanded=false]::after {

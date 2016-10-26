@@ -178,12 +178,11 @@
 .openpa-widget-layout .openpa-widget-title{
     @extend .u-border-top-l;
     @extend .u-padding-top-m;
-    @extend .u-color-70;
+    border-color: color(var(--Color-primary) l(-10%)) !important;
 }
 
 .openpa-widget-layout .openpa-widget-title a{
     font-size: inherit;
-    @extend .u-color-70;
 }
 
 .openpa-widget-title-lev2{
@@ -195,10 +194,7 @@
 }
 
 .openpa-widget-title-lev2 a{
-    @extend .u-text-h4;
-    @extend .u-textClean;
-    @extend .u-color-black;
-    font-weight: bold !important;
+    @extend .Card-titleLink;
 }
 
 .openpa-widget-content{
@@ -260,10 +256,7 @@
 }
 
 .openpa-event-item .calendar-title a{
-    @extend .u-alignMiddle;
-    @extend .u-text-h4;
-    @extend .u-textClean;
-    @extend .u-color-black;
+    @extend .Card-titleLink;
 }
 
 .openpa-panel-image{
@@ -277,7 +270,7 @@
 }
 
 .openpa-panel-label{
-    @extend .u-background-70;
+    @extend .u-background-50;
     @extend .u-color-white;
     @extend .u-text-h4;
     @extend .u-padding-all-s;

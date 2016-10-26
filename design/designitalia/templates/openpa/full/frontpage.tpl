@@ -36,8 +36,7 @@
                                         <ul class="Prose u-padding-bottom-xl">
                                             {foreach $menu_item.children as $sub_menu_item}
                                                 <li>
-                                                    <a class="u-color-black"
-                                                       href="{if $sub_menu_item.item.internal}{$sub_menu_item.item.url|ezurl(no)}{else}{$sub_menu_item.item.url}{/if}"
+                                                    <a href="{if $sub_menu_item.item.internal}{$sub_menu_item.item.url|ezurl(no)}{else}{$sub_menu_item.item.url}{/if}"
                                                        {if $sub_menu_item.item.target}target="{$sub_menu_item.item.target}"{/if}
                                                        title="Vai a {$sub_menu_item.item.name|wash()}">
                                                         {$sub_menu_item.item.name|wash()}
