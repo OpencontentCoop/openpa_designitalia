@@ -9,8 +9,6 @@
             </div>
         </div>
         {undef $area}
-    {else}
-        {include uri='design:menu/header_menu.tpl'}
     {/if}
 {elseif and( $pagedata.is_homepage, is_set($pagedata.header.image.url) )}
     {def $home = fetch('openpa','homepage')}
@@ -40,27 +38,6 @@
                 </div>
             </div>
             {undef $banner}
-        {else}
-            {def $top_menu_node_ids = openpaini( 'TopMenu', 'NodiCustomMenu', array() )}
-            {def $top_menu_node_ids_count = $top_menu_node_ids|count()}
-            {if $top_menu_node_ids_count}
-                <nav class="Megamenu Megamenu--styled u-hidden u-sm-block u-md-block u-lg-block">
-                    <ul class="Megamenu-list">
-                        {foreach $top_menu_node_ids as $id}
-                            {def $tree_menu = tree_menu( hash( 'root_node_id', $id, 'scope', 'top_menu'))}
-                            <li class="Megamenu-item">
-                                {include recursion=0
-                                name=top_menu
-                                uri='design:menu/header_menu_item.tpl'
-                                menu_item=$tree_menu
-                                current=false()}
-                            </li>
-                        {/foreach}
-                    </ul>
-                </nav>
-            {/if}
-            {undef $top_menu_node_ids $top_menu_node_ids_count}
-
         {/if}
     </div>
     {undef $home}
