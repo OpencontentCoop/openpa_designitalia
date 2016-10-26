@@ -8,5 +8,8 @@ ExternalScripts[jqueryUI]=://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquer
 LocalScripts[jquery]=vendor/jquery.min.js
 LocalScripts[jqueryUI]=vendor/jquery-ui.min.js
 
+[Packer]
+AppendLastModifiedTime=enabled
+
 
 */ ?>
