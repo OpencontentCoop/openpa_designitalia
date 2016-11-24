@@ -1,6 +1,9 @@
 {
   "name": "openpa_designitalia",
-  "version": "0.1.1",
+  "config": {
+    "theme": "pac"
+  },
+  "version": "0.1.2",
   "description": "Implementazione del design di OpenPA per le linee guida di design della PA",
   "main": "index.js",
   "dependencies": {
@@ -67,6 +70,10 @@
     "build:resources": "shx cp -r ita-web-toolkit/src/vendor design/designitalia/javascript/ && shx mkdir -p design/designitalia/src/icons && shx cp -r ita-web-toolkit/src/icons design/designitalia/src/icons",
     "build:css": "suitcss -m -c .postcss.js index.css design/designitalia/stylesheets/build.css",
     "watch:css": "suitcss -w -c .postcss.js index.css design/designitalia/stylesheets/build.css",
+    "prepublish": "npm run build",
+    "build:resources": "shx cp -r ita-web-toolkit/src/vendor design/designitalia/javascript/ && shx cp -r ita-web-toolkit/src/icons design/designitalia/stylesheets/src",
+    "build:css": "shx cp themes/$npm_package_config_theme/index.css ./index.css && suitcss -m -c .postcss.js index.css design/designitalia/stylesheets/build_$npm_package_config_theme.css",
+    "watch:css": "shx cp themes/$npm_package_config_theme/index.css ./index.css && suitcss -w -c .postcss.js index.css design/designitalia/stylesheets/build_$npm_package_config_theme.css",
     "build:js": "cross-env WEBPACK_ENV=build webpack",
     "watch:js": "cross-env WEBPACK_ENV=dev webpack --display-modules --progress --colors --watch",
     "move:vendor": "shx mv design/designitalia/javascript/vendor.css design/designitalia/stylesheets/vendor.css && shx mv design/designitalia/javascript/vendor.css.map design/designitalia/stylesheets/vendor.css.map",
@@ -77,7 +84,8 @@
     "clean:resources": "shx rm -rf design/designitalia/stylesheets/src design/designitalia/stylesheets/ita-web-toolkit design/designitalia/javascript/vendor design/designitalia/javascript/node_modules",
     "clean:css": "shx rm silent design/designitalia/stylesheets/vendor.css design/designitalia/stylesheets/build.css design/designitalia/stylesheets/vendor.css.map",
     "clean:js": "shx rm design/designitalia/javascript/IWT.js design/designitalia/javascript/IWT.js.map design/designitalia/javascript/IWT.min.js design/designitalia/javascript/IWT.min.js.map",
-    "clean": "npm-run-all clean:resources clean:css clean:js"
+    "clean": "npm-run-all clean:resources clean:css clean:js",
+    "echo": "echo $npm_package_config_theme"
   },
   "author": "Opencontent",
   "license": "CC0-1.0",

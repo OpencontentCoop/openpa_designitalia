@@ -19,14 +19,15 @@
 {cache-block keys=array( $module_result.uri, $user_hash_cache_key, $access_type.name, $extra_cache_key )}
     {def $pagedata = openpapagedata()
          $locales = fetch( 'content', 'translation_list' )
-         $current_node_id = $pagedata.node_id}
+         $current_node_id = $pagedata.node_id
+         $theme = openpaini('GeneralSettings','theme', 'pac')}
 
     {include uri='design:page_head.tpl'}
     {include uri='design:page_head_style.tpl'}
     {include uri='design:page_head_script.tpl'}
 
 </head>
-<body class="Pac">
+<body class="{$theme}">
 
     <ul class="Skiplinks js-fr-bypasslinks">
         <li><a accesskey="2" href="#main">Vai al Contenuto</a></li>

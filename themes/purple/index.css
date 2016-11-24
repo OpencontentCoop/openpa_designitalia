@@ -122,9 +122,9 @@ a:hover {
 
 /* Start theme */
 /*
- *	Only apply to body class="Pac"
+ *	Only apply to body class="purple"
  */
-.Pac {
+.purple {
     font-family: var(--Theme-font-family-sans);
 }
 
@@ -132,14 +132,14 @@ a:hover {
  * 	Brand color
  */
 :root {
-    --Color-primary: #333;
+    --Color-primary: #7D26CD;
     --Prose-color-text-primary: #1c2024;
     --Prose-color-text-secondary: #5a6772;
     --Prose-color-text-highlighted: #b2ebed;
     --Prose-color-link: var(--Color-primary);
     --Prose-color-link-hover: var(--Color-primary);
     --Prose-color-link-visited: var(--Color-primary);
-    --Color-focus: rgba(255,255,255, 0);
+    --Color-focus: #F38A44;
 }
 
 /**
@@ -167,17 +167,17 @@ a:focus {
 }
 
 #toolbar{
-    @extend .u-hidden;
-    @extend .u-md-block;
-    @extend .u-lg-block;
+@extend .u-hidden;
+@extend .u-md-block;
+@extend .u-lg-block;
 }
 
 .GridStriped .Grid:nth-child(2n) {
-    @extend .u-background-grey-10;
+@extend .u-background-grey-10;
 }
 
 .ContainerStriped .ItemStriped:nth-child(2n) {
-    @extend .u-background-grey-10;
+@extend .u-background-grey-10;
 }
 
 .Megamenu--styled .Megamenu-list > li > a[aria-expanded=false]::after {
@@ -194,7 +194,7 @@ a:focus {
 
 
 .Megamenu-subnavGroup  li a {
-    @extend .u-padding-all-xxs;
+@extend .u-padding-all-xxs;
 }
 
 .Megamenu-subnavGroup  li  a:hover,
@@ -203,3 +203,6 @@ a:focus {
     background-color: var(--Color-focus);
     color: var(--Color-white);
 }
+
+/* End Theme */
+
