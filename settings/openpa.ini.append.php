@@ -1,5 +1,8 @@
 <?php /*
 
+[GeneralSettings]
+theme=purple
+
 [SemanticClassGroup_classificazione]
 Classes[]=tipo_commissione
 Classes[]=tipo_competenza_ordinanze
