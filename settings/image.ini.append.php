@@ -20,8 +20,23 @@ Filters[]=geometry/scaleheight=267
 Filters[]=forcecenter=#dddddd;400;220
 
 [agid_topbanner]
+Reference=original
+Filters[]=geometry/scalewidthdownonly=768
+Filters[]=centerimg=768;308
+
+[agid_topbanner_sm]
 Reference=reference
-Filters[]=geometry/scalewidthd=1000
-Filters[]=centerimg=1000;400
+Filters[]=geometry/scalewidthdownonly=992
+Filters[]=centerimg=992;398
+
+[agid_topbanner_md]
+Reference=reference
+Filters[]=geometry/scalewidthdownonly=1440
+Filters[]=centerimg=1440;576
+
+[agid_topbanner_lg]
+Reference=reference
+Filters[]=geometry/scalewidthdownonly=1920
+Filters[]=centerimg=1920;768
 
 */ ?>
