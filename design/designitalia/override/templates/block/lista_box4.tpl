@@ -11,7 +11,7 @@ $fetch_params = hash(  'class_filter_type', 'exclude',
 
 <div class="openpa-widget {$block.view} {if is_set($block.custom_attributes.color_style)}color color-{$block.custom_attributes.color_style}{/if}">
     {if and( $show_title, $block.name|ne('') )}
-        <h3 class="openpa-widget-title">{$block.name|wash()}</h3>
+        <h3 class="openpa-widget-title"><span>{$block.name|wash()}</span></h3>
     {/if}
 
     {if $valid_nodes_count|eq(1)}

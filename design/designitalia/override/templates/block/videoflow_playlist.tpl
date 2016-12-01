@@ -131,7 +131,7 @@ $(function(){ldelim}
 {rdelim});
 </script>
 <div class="openpa-widget {$block.view} {if is_set($block.custom_attributes.color_style)}color color-{$block.custom_attributes.color_style}{/if}">
-    <h3 class="openpa-widget-title">{$block.name|wash()}</h3>
+    <h3 class="openpa-widget-title"><span>{$block.name|wash()}</span></h3>
     <div class="openpa-widget-content">
 
         <div class="well video-description float-break no-js-hide">

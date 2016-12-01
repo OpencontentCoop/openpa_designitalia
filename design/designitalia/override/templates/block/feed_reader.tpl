@@ -9,7 +9,7 @@
 
 <div class="openpa-widget {$block.view} {if is_set($block.custom_attributes.color_style)}color color-{$block.custom_attributes.color_style}{/if}">
     {if and( $show_title, $block.name|ne('') )}
-        <h3 class="openpa-widget-title">{$block.name|wash()}</h3>
+        <h3 class="openpa-widget-title"><span>{$block.name|wash()}</span></h3>
     {/if}
     <div class="openpa-widget-content">
         <h4 class="openpa-widget-title-lev2"><a href="{$res.links[0]}" title="{$res.title|wash()}">{$res.title|wash()}</a></h4>

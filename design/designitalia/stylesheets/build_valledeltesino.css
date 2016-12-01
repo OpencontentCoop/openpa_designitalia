@@ -4789,7 +4789,7 @@ ol, ul {
 
 .u-border-all-m { border: 1rem solid currentColor !important; }
 
-.u-border-top-l, .openpa-widget-layout .openpa-widget-title { border-top: 1.5rem solid currentColor !important; }
+.u-border-top-l { border-top: 1.5rem solid currentColor !important; }
 
 .u-border-right-l { border-right: 1.5rem solid currentColor !important; }
 
@@ -4838,7 +4838,7 @@ ol, ul {
   background-color: #000 !important;
 }
 
-.u-color-white, .Form-input.Form-input:focus + [role="tooltip"], .Bullets > li:before, .Footer, .Footer-blockTitle, .Footer-subTitle, .Header-serviceLink a, .Header-owner a, .Header-toggleText, .Header-titleLink a, .Header-titleLink small, .Header-searchTrigger button, .Header-language, .Header-social, .Linklist-link.Linklist-link--lev1, .Linklist-link.Linklist-link--lev1:hover, .Megamenu--styled .Megamenu-list, .ScrollTop, .ScrollTop-icon, .badge, .form-control.Form-input:focus + [role="tooltip"], .nav-tab.ui-tabs-active a, .openpa-panel-label, .owl-theme .owl-preview li.active a, .owl-theme .owl-preview li a:focus {
+.u-color-white, .Form-input.Form-input:focus + [role="tooltip"], .Bullets > li:before, .Footer, .Footer-blockTitle, .Footer-subTitle, .Header-serviceLink a, .Header-owner a, .Header-toggleText, .Header-titleLink a, .Header-titleLink small, .Header-searchTrigger button, .Header-language, .Header-social, .Linklist-link.Linklist-link--lev1, .Linklist-link.Linklist-link--lev1:hover, .Megamenu--styled .Megamenu-list, .ScrollTop, .ScrollTop-icon, .badge, .form-control.Form-input:focus + [role="tooltip"], .nav-tab.ui-tabs-active a, .owl-theme .owl-preview li.active a, .owl-theme .owl-preview li a:focus {
   color: #fff !important;
 }
 
@@ -4939,91 +4939,91 @@ ol, ul {
 /* Color primary */
 
 .u-color-5 {
-  color: rgb(250, 249, 251) !important;
+  color: rgb(184, 184, 184) !important;
 }
 
 .u-background-5, .Accordion-header:hover, .Linklist a:hover, .Treeview--default ul a, .Treeview--default ul a:hover, .list-group a:hover {
-  background-color: rgb(250, 249, 251) !important;
+  background-color: rgb(184, 184, 184) !important;
 }
 
 .u-color-10 {
-  color: rgb(225, 216, 233) !important;
+  color: rgb(158, 158, 158) !important;
 }
 
 .u-background-10, .Linklist-link.Linklist-link--lev3 {
-  background-color: rgb(225, 216, 233) !important;
+  background-color: rgb(158, 158, 158) !important;
 }
 
 .u-color-20 {
-  color: rgb(200, 177, 221) !important;
+  color: rgb(133, 133, 133) !important;
 }
 
 .u-background-20, .Linklist-link.Linklist-link--lev2, .Linklist-link.Linklist-link--lev2:hover {
-  background-color: rgb(200, 177, 221) !important;
+  background-color: rgb(133, 133, 133) !important;
 }
 
 .u-color-30 {
-  color: rgb(175, 133, 213) !important;
+  color: rgb(107, 107, 107) !important;
 }
 
 .u-background-30 {
-  background-color: rgb(175, 133, 213) !important;
+  background-color: rgb(107, 107, 107) !important;
 }
 
 .u-color-40 {
-  color: rgb(145, 82, 203) !important;
+  color: rgb(77, 77, 77) !important;
 }
 
 .u-background-40, .Header-searchTrigger button, .Header-search.is-active {
-  background-color: rgb(145, 82, 203) !important;
+  background-color: rgb(77, 77, 77) !important;
 }
 
-.u-color-50, .Accordion-link, .Header-language.is-active, .Header-socialIcons [class^="Icon-"], .Header-socialIcons [class*=" Icon-"], .Linklist-link, .Linklist a, .Skiplinks > li > a, .list-group a, .media-heading, .Card-titleLink, .openpa-widget-title-lev2 a, .openpa-event-item .calendar-title a {
-  color: #7D26CD !important;
+.u-color-50, .Accordion-link, .Header-language.is-active, .Header-socialIcons [class^="Icon-"], .Header-socialIcons [class*=" Icon-"], .Linklist-link, .Linklist a, .Skiplinks > li > a, .list-group a, .media-heading, .Card-titleLink, .openpa-widget-title a, .openpa-widget-title span, .openpa-panel-label span, .openpa-widget-title-lev2 a, .openpa-event-item .calendar-title a {
+  color: #373737 !important;
 }
 
-.u-background-50, .Bullets > li:before, .Header-navbar, .openpa-panel-label {
-  background-color: #7D26CD !important;
+.u-background-50, .Bullets > li:before, .Header-navbar {
+  background-color: #373737 !important;
 }
 
 .u-color-60, .Header-banner {
-  color: rgb(112, 34, 185) !important;
+  color: rgb(43, 43, 43) !important;
 }
 
 .u-background-60 {
-  background-color: rgb(112, 34, 185) !important;
+  background-color: rgb(43, 43, 43) !important;
 }
 
 .u-color-70, .nav-tabs, .nav-tab a, .calendar-date .day {
-  color: rgb(99, 30, 164) !important;
+  color: rgb(31, 31, 31) !important;
 }
 
 .u-background-70, .nav-tab.ui-tabs-active, .calendar-date .month {
-  background-color: rgb(99, 30, 164) !important;
+  background-color: rgb(31, 31, 31) !important;
 }
 
 .u-color-80 {
-  color: rgb(86, 26, 142) !important;
+  color: rgb(18, 18, 18) !important;
 }
 
 .u-background-80, .badge {
-  background-color: rgb(86, 26, 142) !important;
+  background-color: rgb(18, 18, 18) !important;
 }
 
 .u-color-90 {
-  color: rgb(73, 22, 121) !important;
+  color: rgb(5, 5, 5) !important;
 }
 
 .u-background-90, .Linklist-link.Linklist-link--lev1, .Linklist-link.Linklist-link--lev1:hover {
-  background-color: rgb(73, 22, 121) !important;
+  background-color: rgb(5, 5, 5) !important;
 }
 
 .u-color-95, .Linklist a:hover, .Linklist-link.Linklist-link--lev2, .Linklist-link.Linklist-link--lev2:hover, .Linklist-link.Linklist-link--lev3, .Treeview--default ul a, .Treeview--default ul a:hover, .list-group a:hover {
-  color: rgb(60, 18, 99) !important;
+  color: rgb(0, 0, 0) !important;
 }
 
 .u-background-95, .Header-banner, .ScrollTop {
-  background-color: rgb(60, 18, 99) !important;
+  background-color: rgb(0, 0, 0) !important;
 }
 
 /** @define utilities; */
@@ -5318,7 +5318,7 @@ ol, ul {
 
 .u-padding-all-xs, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Header-socialIcons [class^="Icon-"], .Header-socialIcons [class*=" Icon-"], .openpa-table-calendar .Entrypoint-item { padding: 0.8rem !important; }
 
-.u-padding-all-s, .Accordion-link, .Footer-subBlock, .Header-searchTrigger button, #accordion-classFilters form, .well, .ui-tooltip, .openpa-event-item, .openpa-event-item .calendar-title, .openpa-panel-label, .openpa-carousel .carousel-caption, .owl-theme .owl-preview li a { padding: 1.6rem !important; }
+.u-padding-all-s, .Accordion-link, .Footer-subBlock, .Header-searchTrigger button, #accordion-classFilters form, .well, .ui-tooltip, .openpa-event-item, .openpa-event-item .calendar-title, .openpa-carousel .carousel-caption, .owl-theme .owl-preview li a { padding: 1.6rem !important; }
 
 .u-padding-all-m, .openpa-full .content-view-children .openpa-line { padding: 2rem !important; }
 
@@ -5352,9 +5352,9 @@ ol, ul {
 
 .u-padding-top-xs, .Footer-links, .Header-banner, .Megamenu--styled .Megamenu-subnavGroup > li > ul, .Skiplinks > li > a, .nav-tab a { padding-top: 0.8rem !important; }
 
-.u-padding-top-s, .Footer-block li, .Header-navbar, .Megamenu-item > a, .Megamenu--styled .Megamenu-subnavGroup > li, .tab-pane > .openpa-accordion_content, .Accordion-panel > .openpa-accordion_content { padding-top: 1.6rem !important; }
+.u-padding-top-s, .Footer-block li, .Header-navbar, .Megamenu-item > a, .Megamenu--styled .Megamenu-subnavGroup > li, .Card-content .Card-title .Card-titleLink, .tab-pane > .openpa-accordion_content, .Accordion-panel > .openpa-accordion_content { padding-top: 1.6rem !important; }
 
-.u-padding-top-m, .openpa-widget-layout .openpa-widget-title { padding-top: 2rem !important; }
+.u-padding-top-m { padding-top: 2rem !important; }
 
 .u-padding-top-l { padding-top: 2.4rem !important; }
 
@@ -5400,9 +5400,9 @@ ol, ul {
 
 .u-margin-bottom-xxs, .Headroom--fixed.Headroom--not-top .Header-search, .Headroom--pinned.Headroom--not-top .Header-search { margin-bottom: 0.4rem !important; }
 
-.u-margin-bottom-xs, .Entrypoint-item, .Megamenu--styled .Megamenu-subnavGroup > li > ul > li > ul { margin-bottom: 0.8rem !important; }
+.u-margin-bottom-xs, .Entrypoint-item, .Megamenu--styled .Megamenu-subnavGroup > li > ul > li > ul, .openpa-widget-title, .openpa-panel-label { margin-bottom: 0.8rem !important; }
 
-.u-margin-bottom-s, .u-text-h1, .u-text-h2, .u-text-h3, .u-text-h4, .u-text-h5, .u-text-h6, .Form--spaced .Form-fieldset, .Form--spaced .Form-legend, .Card-extra, .Card-title, .Leads-title, #accordion-classFilters form .Form-fieldset, #accordion-classFilters form .Form-legend, .media-heading, .openpa-full .title h2, .openpa-full .content-detail-item, .openpa-widget-title, .openpa-widget-title-lev2, .openpa-panel-label, .openpa-carousel .carousel-caption h3, .owl-theme .owl-preview li { margin-bottom: 1.6rem !important; }
+.u-margin-bottom-s, .u-text-h1, .u-text-h2, .u-text-h3, .u-text-h4, .u-text-h5, .u-text-h6, .Form--spaced .Form-fieldset, .Form--spaced .Form-legend, .Card-extra, .Card-title, .Leads-title, #accordion-classFilters form .Form-fieldset, #accordion-classFilters form .Form-legend, .media-heading, .openpa-full .title h2, .openpa-full .content-detail-item, .openpa-widget-title, .openpa-panel-label, .openpa-widget-title-lev2, .openpa-carousel .carousel-caption h3, .owl-theme .owl-preview li { margin-bottom: 1.6rem !important; }
 
 .u-margin-bottom-m, .Header-social, .readmore, .openpa-full .content-detail, .openpa-line { margin-bottom: 2rem !important; }
 
@@ -5418,7 +5418,7 @@ ol, ul {
 
 .u-padding-left-xxs, .Header-titleLink a, .Header-socialIcons { padding-left: 0.4rem !important; }
 
-.u-padding-left-xs, .Header-navbar, .Masonry-item { padding-left: 0.8rem !important; }
+.u-padding-left-xs, .Header-navbar, .Masonry-item, .openpa-widget-title a, .openpa-widget-title span, .openpa-panel-label span { padding-left: 0.8rem !important; }
 
 .u-padding-left-s, .Header-banner, .Header-language, .Linklist--padded > li > .Linklist-link, .Linklist--padded > li > a, .list-group > li > .Linklist-link, .list-group > li > a, .nav-tab a, .tab-pane > .openpa-accordion_content, .Accordion-panel > .openpa-accordion_content { padding-left: 1.6rem !important; }
 
@@ -5452,7 +5452,7 @@ ol, ul {
 
 .u-padding-right-xxs, .Header-titleLink a { padding-right: 0.4rem !important; }
 
-.u-padding-right-xs, .Breadcrumb-link, .Header-navbar, .Masonry-item { padding-right: 0.8rem !important; }
+.u-padding-right-xs, .Breadcrumb-link, .Header-navbar, .Masonry-item, .openpa-widget-title a, .openpa-widget-title span, .openpa-panel-label span { padding-right: 0.8rem !important; }
 
 .u-padding-right-s, .Header-language, .media-image, .media > .pull-left, .nav-tab a, .tab-pane > .openpa-accordion_content, .Accordion-panel > .openpa-accordion_content { padding-right: 1.6rem !important; }
 
@@ -5498,7 +5498,7 @@ ol, ul {
 
 .u-padding-r-bottom, .Leads, .Leads-link, .Linklist-link, .Linklist a, .list-group a { padding-bottom: 1em !important; }
 
-.u-margin-r-bottom, .Card-title, .Footer-block, .Leads-title, .openpa-widget, .openpa-widget-title { margin-bottom: 1em !important; }
+.u-margin-r-bottom, .Card-title, .Footer-block, .Leads-title, .openpa-widget { margin-bottom: 1em !important; }
 
 /* Left */
 
@@ -5516,7 +5516,7 @@ ol, ul {
 
 /* postcss-bem-linter: ignore */
 
-.u-padding-r-all > *, .u-margin-r-all > *, .u-padding-r-top > *, .u-margin-r-top > *, .u-padding-r-bottom > *, .u-margin-r-bottom > *, .u-padding-r-left > *, .u-margin-r-left > *, .u-padding-r-right > *, .u-margin-r-right > *, .Form-input.Form-input:focus + [role="tooltip"] > *, .Card-content > *, .Card-title > *, .Entrypoint-item > *, .Footer-block > *, .Leads > *, .Leads-title > *, .Leads-link > *, .Linklist-link > *, .Linklist a > *, .list-group a > *, .form-control.Form-input:focus + [role="tooltip"] > *, .openpa-widget > *, .openpa-widget-title > * {
+.u-padding-r-all > *, .u-margin-r-all > *, .u-padding-r-top > *, .u-margin-r-top > *, .u-padding-r-bottom > *, .u-margin-r-bottom > *, .u-padding-r-left > *, .u-margin-r-left > *, .u-padding-r-right > *, .u-margin-r-right > *, .Form-input.Form-input:focus + [role="tooltip"] > *, .Card-content > *, .Card-title > *, .Entrypoint-item > *, .Footer-block > *, .Leads > *, .Leads-title > *, .Leads-link > *, .Linklist-link > *, .Linklist a > *, .list-group a > *, .form-control.Form-input:focus + [role="tooltip"] > *, .openpa-widget > * {
   font-size: medium;
 }
 
@@ -5532,11 +5532,11 @@ ol, ul {
   font-size: 2.8rem !important;
 }
 
-.u-text-l, .u-text-r-l, .u-text-h3, .Card-content, .Entrypoint-item, .Footer-siteName, .Leads-title, .ScrollTop-icon, .openpa-widget-title {
+.u-text-l, .u-text-r-l, .u-text-h3, .Card-content, .Entrypoint-item, .Footer-siteName, .Leads-title, .ScrollTop-icon {
   font-size: 2.2rem !important;
 }
 
-.u-text-m, .u-text-r-m, .u-text-h4, .Form-fieldset > legend, .Prose-blockquote > p, .Accordion-header, .Card-title, .Card-titleLink, .Footer-blockTitle, .Footer-subTitle, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Leads-link, .media-heading, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a, .openpa-event-item .calendar-title a, .openpa-panel-label, .openpa-carousel .carousel-caption h3 {
+.u-text-m, .u-text-r-m, .u-text-h4, .Form-fieldset > legend, .Prose-blockquote > p, .Accordion-header, .Card-title, .Card-titleLink, .Footer-blockTitle, .Footer-subTitle, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Leads-link, .media-heading, .openpa-widget-title, .openpa-panel-label, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a, .openpa-event-item .calendar-title a, .openpa-carousel .carousel-caption h3 {
   font-size: 2rem !important;
   letter-spacing: 0.007em !important;
 }
@@ -5566,11 +5566,11 @@ ol, ul {
     font-size: 3rem !important;
   }
 
-  .u-text-sm-l, .u-text-r-l, .u-text-h3, .Card-content, .Entrypoint-item, .Footer-siteName, .Leads-title, .openpa-widget-title {
+  .u-text-sm-l, .u-text-r-l, .u-text-h3, .Card-content, .Entrypoint-item, .Footer-siteName, .Leads-title {
     font-size: 2.4rem !important;
   }
 
-  .u-text-sm-m, .u-text-r-m, .u-text-h4, .Form-fieldset > legend, .Prose-blockquote > p, .Accordion-header, .Card-title, .Footer-blockTitle, .Footer-subTitle, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Header-titleLink a, .Leads-link, .media-heading, .openpa-widget-title-lev2, .openpa-panel-label, .openpa-carousel .carousel-caption h3 {
+  .u-text-sm-m, .u-text-r-m, .u-text-h4, .Form-fieldset > legend, .Prose-blockquote > p, .Accordion-header, .Card-title, .Footer-blockTitle, .Footer-subTitle, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Header-titleLink a, .Leads-link, .media-heading, .openpa-widget-title, .openpa-panel-label, .openpa-widget-title-lev2, .openpa-carousel .carousel-caption h3 {
     font-size: 2.1rem !important;
     letter-spacing: 0.007em !important;
   }
@@ -5602,11 +5602,11 @@ ol, ul {
     font-size: 3.6rem !important;
   }
 
-  .u-text-md-l, .u-text-r-l, .u-text-h3, .Card-content, .Entrypoint-item, .Footer-siteName, .Header-titleLink a, .Leads-title, .openpa-widget-title {
+  .u-text-md-l, .u-text-r-l, .u-text-h3, .Card-content, .Entrypoint-item, .Footer-siteName, .Header-titleLink a, .Leads-title {
     font-size: 2.8rem !important;
   }
 
-  .u-text-md-m, .u-text-r-m, .u-text-h4, .Form-fieldset > legend, .Prose-blockquote > p, .Accordion-header, .Card-title, .Footer-blockTitle, .Footer-subTitle, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Header-titleLink small, .Leads-link, .media-heading, .openpa-widget-title-lev2, .openpa-panel-label, .openpa-carousel .carousel-caption h3 {
+  .u-text-md-m, .u-text-r-m, .u-text-h4, .Form-fieldset > legend, .Prose-blockquote > p, .Accordion-header, .Card-title, .Footer-blockTitle, .Footer-subTitle, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Header-titleLink small, .Leads-link, .media-heading, .openpa-widget-title, .openpa-panel-label, .openpa-widget-title-lev2, .openpa-carousel .carousel-caption h3 {
     font-size: 2.1rem !important;
     letter-spacing: 0.007em !important;
   }
@@ -5637,11 +5637,11 @@ ol, ul {
     font-size: 4rem !important;
   }
 
-  .u-text-lg-l, .u-text-r-l, .u-text-h3, .Card-content, .Entrypoint-item, .Footer-siteName, .Header-titleLink a, .Leads-title, .openpa-widget-title {
+  .u-text-lg-l, .u-text-r-l, .u-text-h3, .Card-content, .Entrypoint-item, .Footer-siteName, .Header-titleLink a, .Leads-title {
     font-size: 3.2rem !important;
   }
 
-  .u-text-lg-m, .u-text-r-m, .u-text-h4, .Form-fieldset > legend, .Prose-blockquote > p, .Accordion-header, .Card-title, .Footer-blockTitle, .Footer-subTitle, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Header-titleLink small, .Headroom--fixed.Headroom--not-top .Header-titleLink a, .Headroom--pinned.Headroom--not-top .Header-titleLink a, .Leads-link, .media-heading, .openpa-widget-title-lev2, .openpa-panel-label, .openpa-carousel .carousel-caption h3 {
+  .u-text-lg-m, .u-text-r-m, .u-text-h4, .Form-fieldset > legend, .Prose-blockquote > p, .Accordion-header, .Card-title, .Footer-blockTitle, .Footer-subTitle, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Header-titleLink small, .Headroom--fixed.Headroom--not-top .Header-titleLink a, .Headroom--pinned.Headroom--not-top .Header-titleLink a, .Leads-link, .media-heading, .openpa-widget-title, .openpa-panel-label, .openpa-widget-title-lev2, .openpa-carousel .carousel-caption h3 {
     font-size: 2.3rem !important;
     letter-spacing: 0.007em !important;
   }
@@ -5699,7 +5699,7 @@ ol, ul {
   -webkit-font-smoothing: antialiased !important; /* 2 */
 }
 
-.u-textClean, .Accordion-link, .Breadcrumb-link, .Card-extra, .Card-extraLink, .Card-titleLink, .Header-serviceLink a, .Header-owner a, .Header-toggleText, .Header-titleLink a, .Header-titleLink small, .Header-language, .Leads-link, .Linklist-link, .Linklist a, .Megamenu--styled .Megamenu-item > a, .Megamenu--styled .Megamenu-subnavGroup > li > a, .Skiplinks > li > a, .list-group a, .media-heading, .nav-tab a, .openpa-widget-title a, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a, .openpa-event-item .calendar-title a, .owl-theme .owl-preview li a {
+.u-textClean, .Accordion-link, .Breadcrumb-link, .Card-extra, .Card-extraLink, .Card-titleLink, .Header-serviceLink a, .Header-owner a, .Header-toggleText, .Header-titleLink a, .Header-titleLink small, .Header-language, .Leads-link, .Linklist-link, .Linklist a, .Megamenu--styled .Megamenu-item > a, .Megamenu--styled .Megamenu-subnavGroup > li > a, .Skiplinks > li > a, .list-group a, .media-heading, .nav-tab a, .openpa-widget-title a, .openpa-widget-title span, .openpa-panel-label span, .openpa-widget-title-lev2, .openpa-widget-title-lev2 a, .openpa-event-item .calendar-title a, .owl-theme .owl-preview li a {
   text-decoration: none !important;
 }
 
@@ -5719,7 +5719,7 @@ ol, ul {
   font-weight: 600 !important;
 }
 
-.u-textWeight-700, .u-text-h1, .u-text-h2, .u-text-h3, .u-text-h4, .u-text-h6, .Form-field > legend, .Breadcrumb-link, .Bullets > li:before, .Card-extra, .Card-title, .Footer-block a, .Header-serviceLink a, .Header-toggleText, .Header-titleLink a, .Header-language, .Leads-title, .ScrollTop-icon, .form-group > legend, .media-heading, .media-heading a, .openpa-full .title h2, .openpa-widget-title, .openpa-widget-title-lev2, .openpa-panel-label, .openpa-carousel .carousel-caption h3 {
+.u-textWeight-700, .u-text-h1, .u-text-h2, .u-text-h3, .u-text-h4, .u-text-h6, .Form-field > legend, .Breadcrumb-link, .Bullets > li:before, .Card-extra, .Card-title, .Footer-block a, .Header-serviceLink a, .Header-toggleText, .Header-titleLink a, .Header-language, .Leads-title, .ScrollTop-icon, .form-group > legend, .media-heading, .media-heading a, .openpa-full .title h2, .openpa-widget-title, .openpa-panel-label, .openpa-widget-title-lev2, .openpa-carousel .carousel-caption h3 {
   font-weight: 700 !important;
 }
 
@@ -6016,7 +6016,7 @@ option:hover {
 }
 
 .Form-field--choose :focus + span {
-  outline: 3px solid #F38A44;
+  outline: 3px solid #E5B200;
 }
 
 .Form-field--choose .Form-input {
@@ -6142,7 +6142,7 @@ option:hover {
 }
 
 .Prose p > a, .message-confirmation p > a, .message-feedback p > a, .feedback p > a, .alert.alert-success p > a, .message-warning p > a, .warning p > a, .alert.alert-warning p > a, .message-error p > a, .alert.alert-danger p > a, .media-body p > a, .openpa-full .content-main-abstract p > a, .openpa-full .content-main-body p > a, .openpa-full .content-detail-item p > a, .openpa-line .media-details p > a, .openpa-widget-title-lev2 p > a, .openpa-accordion_content p > a {
-  color: #7D26CD;
+  color: #373737;
 }
 
 .Prose, .message-confirmation, .message-feedback, .feedback, .alert.alert-success, .message-warning, .warning, .alert.alert-warning, .message-error, .alert.alert-danger, .media-body, .openpa-full .content-main-abstract, .openpa-full .content-main-body, .openpa-full .content-detail-item, .openpa-line .media-details, .openpa-widget-title-lev2, .openpa-accordion_content {
@@ -6154,11 +6154,11 @@ option:hover {
 }
 
 .Prose > p > a:hover, .message-confirmation > p > a:hover, .message-feedback > p > a:hover, .feedback > p > a:hover, .alert.alert-success > p > a:hover, .message-warning > p > a:hover, .warning > p > a:hover, .alert.alert-warning > p > a:hover, .message-error > p > a:hover, .alert.alert-danger > p > a:hover, .media-body > p > a:hover, .openpa-full .content-main-abstract > p > a:hover, .openpa-full .content-main-body > p > a:hover, .openpa-full .content-detail-item > p > a:hover, .openpa-line .media-details > p > a:hover, .openpa-widget-title-lev2 > p > a:hover, .openpa-accordion_content > p > a:hover {
-  color: #7D26CD;
+  color: #373737;
 }
 
 .Prose > p > a:visited, .message-confirmation > p > a:visited, .message-feedback > p > a:visited, .feedback > p > a:visited, .alert.alert-success > p > a:visited, .message-warning > p > a:visited, .warning > p > a:visited, .alert.alert-warning > p > a:visited, .message-error > p > a:visited, .alert.alert-danger > p > a:visited, .media-body > p > a:visited, .openpa-full .content-main-abstract > p > a:visited, .openpa-full .content-main-body > p > a:visited, .openpa-full .content-detail-item > p > a:visited, .openpa-line .media-details > p > a:visited, .openpa-widget-title-lev2 > p > a:visited, .openpa-accordion_content > p > a:visited {
-  color: #7D26CD;
+  color: #373737;
 }
 
 .Prose > ul, .Prose > ol, .message-confirmation > ul, .message-feedback > ul, .feedback > ul, .alert.alert-success > ul, .message-confirmation > ol, .message-feedback > ol, .feedback > ol, .alert.alert-success > ol, .message-warning > ul, .warning > ul, .alert.alert-warning > ul, .message-warning > ol, .warning > ol, .alert.alert-warning > ol, .message-error > ul, .alert.alert-danger > ul, .message-error > ol, .alert.alert-danger > ol, .media-body > ul, .media-body > ol, .openpa-full .content-main-abstract > ul, .openpa-full .content-main-body > ul, .openpa-full .content-main-abstract > ol, .openpa-full .content-main-body > ol, .openpa-full .content-detail-item > ul, .openpa-full .content-detail-item > ol, .openpa-line .media-details > ul, .openpa-line .media-details > ol, .openpa-widget-title-lev2 > ul, .openpa-widget-title-lev2 > ol, .openpa-accordion_content > ul, .openpa-accordion_content > ol {
@@ -7844,7 +7844,7 @@ option:hover {
 }
 
 .ie8 .Header-navbar {
-  background: #7D26CD !important;
+  background: #373737 !important;
   color: white !important;
 }
 
@@ -8309,24 +8309,53 @@ ul.org-chart ul li:last-child {
 }
 
 .openpa-widget{
-    position: relative;
+    /*position: relative;*/
 }
 
-.openpa-widget-title a{
+.openpa-widget-title, .openpa-panel-label {
+    font-weight: 400 !important;
     font-size: inherit;
-    color: inherit;
+    line-height: 1.2;
+    border-bottom: 4px solid #E5B200;
 }
 
-.openpa-widget-layout .openpa-widget-title{
-    border-color: rgb(99, 30, 164) !important;
+.openpa-widget-title a, .openpa-widget-title span, .openpa-panel-label span {
+    background-color: #E5B200;
+    position: relative !important;
 }
 
-.openpa-widget-layout .openpa-widget-title a{
-    font-size: inherit;
+.openpa-widget-title a:after, .openpa-widget-title span:after, .openpa-panel-label span:after{
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 0;
+    height: 0;
+    border-bottom: 1em solid #E5B200;
+    border-right: 1em solid transparent;
+    border-bottom-width: 28px;
+}
+
+@media screen and (min-width: 992px) and (max-width: 1440px), screen and (min-width: 1440px) {
+    .openpa-widget-title a:after, .openpa-widget-title span:after, .openpa-panel-label span:after {
+        border-bottom-width: 32px;
+    }
 }
 
 .openpa-widget-title-lev2{
     font-weight: normal !important;
+}
+
+.openpa-widget-content .openpa-panel{
+    border: none !important;
+}
+
+.Card-content {
+    padding: 0 !important;
+}
+
+.Card-content .Card-title .Card-titleLink {
+    font-weight: 700 !important;
 }
 
 .calendar-date .month, .calendar-date .day{
@@ -8342,7 +8371,7 @@ ul.org-chart ul li:last-child {
     font-size: 2em;
     line-height: 65px;
     font-weight: bold;
-    border: 1px solid #7D26CD;
+    border: 1px solid #373737;
     white-space: nowrap;
 }
 
@@ -8354,12 +8383,6 @@ ul.org-chart ul li:last-child {
 
 .openpa-panel-image.bg-contain{
     background-size: contain !important;
-}
-
-.openpa-panel-label{
-    margin: 0;
-    position: absolute;
-    width: 100%;
 }
 
 .openpa-table-calendar tr td {
@@ -8473,7 +8496,7 @@ ul.org-chart ul li:last-child {
     border-radius: none;
 }
 
-.openpa-carousel.u-padding-all-xxs .carousel-caption{
+s.openpa-carousel.u-padding-all-xx .carousel-caption{
     width: auto;
     left: 0.4rem;
     right: 0.4rem;
@@ -8497,6 +8520,41 @@ ul.org-chart ul li:last-child {
 .global-view-full{
     @extends .u-padding-all-s;
 }
+
+.readmore {
+    display: none !important;
+}
+
+/* custom */
+
+.openpa-carousel.u-padding-all-xx {
+    padding: 0 !important;
+}
+
+.u-layout-wide.u-layoutCenter.u-layout-withGutter {
+    padding-top: 0 !important;
+}
+
+.frontpage:first-child {
+    width: 100vw;
+    margin-left: -webkit-calc(-1 * ((100vw - 100%) / 2));
+    margin-left: calc(-1 * ((100vw - 100%) / 2));
+}
+
+.Linklist a:hover, .Megamenu--styled .Megamenu-list > li > a:hover, .list-group a:hover {
+    background-color: #E5B200 !important;
+}
+
+.Header-search button, .Header-searchTrigger button {
+    background-color: #E5B200 !important;
+    color: #373737 !important;
+}
+
+.Footer a {
+    color: #373737 !important;
+}
+
+/* end custom */
 
 /**
  * Owl Carousel v2.1.6
@@ -8654,13 +8712,13 @@ body {
 }
 
 :focus {
-    outline: #F38A44 solid 3px;
+    outline: #E5B200 solid 3px;
     text-decoration: none;
 }
 
 a:focus {
-    background: #F38A44;
-    outline: #F38A44 solid 3px;
+    background: #E5B200;
+    outline: #E5B200 solid 3px;
     text-decoration: underline;
 }
 
@@ -8681,7 +8739,7 @@ a:hover {
  *	Only apply to body class="purple"
  */
 
-.purple {
+.valledeltesino {
     font-family: Titillium Web, HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
 }
 
@@ -8694,8 +8752,7 @@ a:hover {
  */
 
 a{
-    /*color: var(--Color-primary);*/
-    color: #7D26CD;
+    color: #373737;
     text-decoration: none !important;
     cursor: pointer;
 }
@@ -8705,9 +8762,9 @@ button, input[type=submit]{
 }
 
 a:focus {
-    background: #F38A44;
-    outline: #F38A44 solid 3px;
-    color: #7D26CD;
+    background: #E5B200;
+    outline: #E5B200 solid 3px;
+    color: #373737;
 }
 
 .Megamenu--styled .Megamenu-list > li > a[aria-expanded=false]:after {
@@ -8723,7 +8780,7 @@ a:focus {
 }
 
 .Megamenu-subnavGroup  li  a:hover, .Megamenu-subnavGroup  li  a.current, .Megamenu-subnavGroup  li  a.is-focus {
-    background-color: #F38A44;
+    background-color: #E5B200;
     color: #fff;
 }
 

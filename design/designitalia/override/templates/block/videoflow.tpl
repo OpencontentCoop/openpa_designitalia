@@ -14,7 +14,7 @@
 <div class="openpa-widget {$block.view} {if is_set($block.custom_attributes.color_style)}color color-{$block.custom_attributes.color_style}{/if}">
 
   {if $block.name|ne('')}
-      <h3 class="openpa-widget-title">{$block.name|wash()}</h3>
+      <h3 class="openpa-widget-title"><span>{$block.name|wash()}</span></h3>
   {else}
       <h3 class="openpa-widget-title"><a title="{$flash_node.name|wash()}" href={$flash_node.url_alias|ezurl}>{$flash_node.name|shorten(73)|wash()}</a></h3>
   {/if}

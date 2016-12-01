@@ -56,7 +56,7 @@
 
 @import "themes/base/compat";
 @import "themes/base/organigramma";
-@import "themes/base/openpa";
+@import "themes/valledeltesino/openpa";
 @import "themes/base/owl.theme.default";
 
 
@@ -124,7 +124,7 @@ a:hover {
 /*
  *	Only apply to body class="purple"
  */
-.purple {
+.valledeltesino {
     font-family: var(--Theme-font-family-sans);
 }
 
@@ -132,14 +132,15 @@ a:hover {
  * 	Brand color
  */
 :root {
-    --Color-primary: #7D26CD;
+    --Color-primary: #373737;
+    --Color-secondary: #E5B200;
     --Prose-color-text-primary: #1c2024;
     --Prose-color-text-secondary: #5a6772;
     --Prose-color-text-highlighted: #b2ebed;
     --Prose-color-link: var(--Color-primary);
     --Prose-color-link-hover: var(--Color-primary);
     --Prose-color-link-visited: var(--Color-primary);
-    --Color-focus: #F38A44;
+    --Color-focus: var(--Color-secondary);
 }
 
 /**
@@ -150,7 +151,6 @@ a:hover {
 }
 
 a{
-    /*color: var(--Color-primary);*/
     color: var(--Color-primary);
     text-decoration: none !important;
     cursor: pointer;
@@ -167,17 +167,17 @@ a:focus {
 }
 
 #toolbar{
-@extend .u-hidden;
-@extend .u-md-block;
-@extend .u-lg-block;
+    @extend .u-hidden;
+    @extend .u-md-block;
+    @extend .u-lg-block;
 }
 
 .GridStriped .Grid:nth-child(2n) {
-@extend .u-background-grey-10;
+    @extend .u-background-grey-10;
 }
 
 .ContainerStriped .ItemStriped:nth-child(2n) {
-@extend .u-background-grey-10;
+    @extend .u-background-grey-10;
 }
 
 .Megamenu--styled .Megamenu-list > li > a[aria-expanded=false]::after {
@@ -194,7 +194,7 @@ a:focus {
 
 
 .Megamenu-subnavGroup  li a {
-@extend .u-padding-all-xxs;
+    @extend .u-padding-all-xxs;
 }
 
 .Megamenu-subnavGroup  li  a:hover,
