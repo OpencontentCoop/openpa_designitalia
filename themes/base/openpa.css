@@ -197,6 +197,12 @@
     @extend .u-text-h3;
     @extend .u-border-bottom-m;
 }
+
+.openpa-widget-title span {
+    font-size: inherit;
+    @extend .u-textClean;
+}
+
 .openpa-widget-title a{
     font-size: inherit;
     color: color(var(--Color-primary) l(-10%)) !important;
