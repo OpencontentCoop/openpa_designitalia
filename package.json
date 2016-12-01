@@ -64,7 +64,7 @@
   "scripts": {
     "build:resources": "shx cp -r ita-web-toolkit/src/vendor design/designitalia/javascript/ && shx cp -r ita-web-toolkit/src/icons design/designitalia/stylesheets/src",
     "build:css": "shx cp themes/$npm_package_config_theme/index.css ./index.css && suitcss -m -c .postcss.js index.css design/designitalia/stylesheets/build_$npm_package_config_theme.css",
-    "watch:css": "shx cp themes/$npm_package_config_theme/index.css ./index.css && suitcss -w -c .postcss.js index.css design/designitalia/stylesheets/build_$npm_package_config_theme.css",
+    "watch:css": "suitcss -w -c .postcss.js themes/$npm_package_config_theme/index.css design/designitalia/stylesheets/build_$npm_package_config_theme.css",
     "build:js": "cross-env WEBPACK_ENV=build webpack",
     "watch:js": "cross-env WEBPACK_ENV=dev webpack --display-modules --progress --colors --watch",
     "move:vendor": "shx mv design/designitalia/javascript/vendor.css design/designitalia/stylesheets/vendor.css && shx mv design/designitalia/javascript/vendor.css.map design/designitalia/stylesheets/vendor.css.map",

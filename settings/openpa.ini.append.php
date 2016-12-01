@@ -1,7 +1,7 @@
 <?php /*
 
 [GeneralSettings]
-theme=purple
+theme=pac
 
 [SemanticClassGroup_classificazione]
 Classes[]=tipo_commissione
