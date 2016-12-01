@@ -3,6 +3,7 @@
 [General]
 #Design Italia
 AllowedTypes[]=desItaDefault
+AllowedTypes[]=5ZonesWide1
 
 [desItaDefault]
 Zones[]
@@ -34,3 +35,30 @@ AvailableForClasses[]=progetto
 AvailableForClasses[]=homepage
 AvailableForClasses[]=homepage_interna
 AvailableForClasses[]=subsite
+AvailableForClasses[]=albotelematicotrentino
+
+[5ZonesWide1]
+Zones[]
+ZoneName[]
+ZoneTypeName=5 zone (wide 1 - Design Italia)
+Zones[]=top
+Zones[]=center_left
+Zones[]=center_right
+Zones[]=center
+Zones[]=bottom
+ZoneName[top]=Zona superiore
+ZoneName[center_left]=Zona centrale a sinistra
+ZoneName[center_right]=Zona centrale a destra
+ZoneName[center]=Zona centrale intera
+ZoneName[bottom]=Zona inferiore
+ZoneThumbnail=5zoneswide1.jpg
+Template=5zoneswide1.tpl
+AvailableForClasses[]=frontpage
+AvailableForClasses[]=area_tematica
+AvailableForClasses[]=progetto
+AvailableForClasses[]=homepage
+AvailableForClasses[]=homepage_interna
+AvailableForClasses[]=subsite
+AvailableForClasses[]=albotelematicotrentino
+
+ */ ?>

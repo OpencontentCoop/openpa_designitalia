@@ -124,7 +124,7 @@ a:hover {
 /*
  *	Only apply to body class="Pac"
  */
-.Pac {
+.pac {
     font-family: var(--Theme-font-family-sans);
 }
 
