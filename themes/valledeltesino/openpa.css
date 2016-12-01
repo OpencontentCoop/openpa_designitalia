@@ -417,7 +417,7 @@
 
 .openpa-carousel .carousel-caption {
     @extend .u-padding-all-s;
-    @extend .u-margin-all-s;
+    @extend .u-margin-all-m;
     bottom: 0;
     left: 12%;
     display: inline-block;
@@ -448,10 +448,16 @@ s.openpa-carousel.u-padding-all-xx .carousel-caption{
     text-decoration: none;
 }
 .openpa-carousel .carousel-caption p {
-    @extend .u-padding-all-xs;
+    @extend .u-padding-all-xxs;
     color: #fff;
     display: inline-block;
     background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media (--sm-viewport) {
+    .openpa-carousel .carousel-caption p {
+        display: none;
+    }
 }
 
 /* bc */
@@ -460,35 +466,38 @@ s.openpa-carousel.u-padding-all-xx .carousel-caption{
     @extend .u-padding-all-s;
 }
 
-.readmore {
-    display: none !important;
-}
-
 
 /* custom */
 
+.Breadcrumb {
+    @extend .u-margin-top-s;
+}
+
+.Leads-link {
+    border-top: 4px solid var(--Color-secondary) !important;
+}
 
 .u-layout-wide.u-layoutCenter.u-layout-withGutter {
     padding-top: 0 !important;
 }
 
 .frontpage {
-    margin-top: 20px;
+    @extend .u-margin-top-s;
 }
 
-.frontpage:first-child {
+.frontpage.first {
     margin-top: 0 !important;
     width: 100vw;
     margin-left: calc(-1 * ((100vw - 100%) / 2));
 }
 
-.frontpage:first-child .owl-theme .owl-dots {
+.frontpage.first .owl-theme .owl-dots {
     position: absolute;
     bottom: 0;
     width: 100%;
 }
 
-.frontpage:first-child .owl-theme .owl-dots .owl-dot span {
+.frontpage.first .owl-theme .owl-dots .owl-dot span {
     width: 18px;
     height: 18px;
     margin: 10px 7px;
@@ -496,8 +505,8 @@ s.openpa-carousel.u-padding-all-xx .carousel-caption{
     border: 1px solid var(--Color-white);
 }
 
-.frontpage:first-child .owl-theme .owl-dots .owl-dot:hover span,
-.frontpage:first-child .owl-theme .owl-dots .owl-dot.active span{
+.frontpage.first .owl-theme .owl-dots .owl-dot:hover span,
+.frontpage.first .owl-theme .owl-dots .owl-dot.active span{
     background: var(--Color-secondary);
     border: 1px solid var(--Color-primary);
 }
@@ -523,6 +532,10 @@ s.openpa-carousel.u-padding-all-xx .carousel-caption{
 
 .Footer a {
     color: var(--Color-primary) !important;
+}
+
+.readmore {
+    display: none !important;
 }
 
 /* end custom */

@@ -1,4 +1,4 @@
-<div class="Grid Grid--withGutter frontpage">
+<div class="Grid Grid--withGutter frontpage first">
     <div class="Grid-cell u-sizeFull">
         {if and( is_set( $zones[0].blocks ), $zones[0].blocks|count() )}
             {foreach $zones[0].blocks as $block}
