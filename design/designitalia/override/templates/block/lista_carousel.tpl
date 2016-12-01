@@ -11,7 +11,7 @@
                  items=$openpa.content
                  css_id=$block.id
                  root_node=$openpa.root_node
-                 pagination=$items_per_row|gt(1)
+                 pagination=1
                  navigation= and( $show_title, $block.name|ne(''), $items_per_row|gt(1) )
                  items_per_row=$items_per_row
                  show_items_preview=0

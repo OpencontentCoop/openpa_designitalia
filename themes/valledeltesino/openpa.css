@@ -416,23 +416,23 @@
 }
 
 .openpa-carousel .carousel-caption {
-    bottom: 0;
-    left: 0;
-    margin: 0;
-    right: 0;
-    text-align: left;
-    width: 100%;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.7);
     @extend .u-padding-all-s;
+    @extend .u-margin-all-s;
+    bottom: 0;
+    left: 12%;
+    display: inline-block;
+    text-align: left;
+    position: absolute;
 }
 .openpa-carousel .carousel-caption h3 {
-    display: block;
+    @extend .u-padding-all-s;
+    display: inline-block;
     line-height: normal;
     color: #fff;
     margin-bottom: 0;
     border-radius: none;
     @extend .u-text-h4;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 s.openpa-carousel.u-padding-all-xx .carousel-caption{
@@ -448,15 +448,16 @@ s.openpa-carousel.u-padding-all-xx .carousel-caption{
     text-decoration: none;
 }
 .openpa-carousel .carousel-caption p {
+    @extend .u-padding-all-xs;
     color: #fff;
-    display: block;
-    margin: 0;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 /* bc */
 .global-view-full{
     @extend .u-cf;
-    @extends .u-padding-all-s;
+    @extend .u-padding-all-s;
 }
 
 .readmore {
@@ -471,9 +472,38 @@ s.openpa-carousel.u-padding-all-xx .carousel-caption{
     padding-top: 0 !important;
 }
 
+.frontpage {
+    margin-top: 20px;
+}
+
 .frontpage:first-child {
+    margin-top: 0 !important;
     width: 100vw;
     margin-left: calc(-1 * ((100vw - 100%) / 2));
+}
+
+.frontpage:first-child .owl-theme .owl-dots {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.frontpage:first-child .owl-theme .owl-dots .owl-dot span {
+    width: 18px;
+    height: 18px;
+    margin: 10px 7px;
+    background: var(--Color-primary);
+    border: 1px solid var(--Color-white);
+}
+
+.frontpage:first-child .owl-theme .owl-dots .owl-dot:hover span,
+.frontpage:first-child .owl-theme .owl-dots .owl-dot.active span{
+    background: var(--Color-secondary);
+    border: 1px solid var(--Color-primary);
+}
+
+.bg-color {
+    background-color: var(--Color-grey-10);
 }
 
 .Linklist a:hover,

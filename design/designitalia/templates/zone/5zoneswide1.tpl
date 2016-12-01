@@ -48,8 +48,8 @@
     </div>
 </div>
 
-<div class="Grid Grid--withGutter frontpage">
-    <div class="Grid-cell u-sizeFull"  style="background-color: #efefef">
+<div class="Grid Grid--withGutter frontpage bg-color u-padding-top-s u-padding-bottom-s">
+    <div class="Grid-cell u-sizeFull">
         {if and( is_set( $zones[3].blocks ), $zones[3].blocks|count() )}
         {foreach $zones[3].blocks as $block}
         {if or( $block.valid_nodes|count(), 

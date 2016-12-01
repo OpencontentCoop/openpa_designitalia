@@ -132,7 +132,7 @@ a:hover {
  * 	Brand color
  */
 :root {
-    --Color-primary: #333;
+    --Color-primary: #0099d1;
     --Prose-color-text-primary: #1c2024;
     --Prose-color-text-secondary: #5a6772;
     --Prose-color-text-highlighted: #b2ebed;

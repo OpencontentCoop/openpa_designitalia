@@ -5316,9 +5316,9 @@ ol, ul {
 
 .u-padding-all-xxs, .Header-search, .Header-search.is-active, .calendar-date .month, .Megamenu-subnavGroup  li a { padding: 0.4rem !important; }
 
-.u-padding-all-xs, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Header-socialIcons [class^="Icon-"], .Header-socialIcons [class*=" Icon-"], .openpa-table-calendar .Entrypoint-item { padding: 0.8rem !important; }
+.u-padding-all-xs, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Header-socialIcons [class^="Icon-"], .Header-socialIcons [class*=" Icon-"], .openpa-table-calendar .Entrypoint-item, .openpa-carousel .carousel-caption p { padding: 0.8rem !important; }
 
-.u-padding-all-s, .Accordion-link, .Footer-subBlock, .Header-searchTrigger button, #accordion-classFilters form, .well, .ui-tooltip, .openpa-event-item, .openpa-event-item .calendar-title, .openpa-carousel .carousel-caption, .owl-theme .owl-preview li a { padding: 1.6rem !important; }
+.u-padding-all-s, .Accordion-link, .Footer-subBlock, .Header-searchTrigger button, #accordion-classFilters form, .well, .ui-tooltip, .openpa-event-item, .openpa-event-item .calendar-title, .openpa-carousel .carousel-caption, .openpa-carousel .carousel-caption h3, .global-view-full, .owl-theme .owl-preview li a { padding: 1.6rem !important; }
 
 .u-padding-all-m, .openpa-full .content-view-children .openpa-line { padding: 2rem !important; }
 
@@ -5334,7 +5334,7 @@ ol, ul {
 
 .u-margin-all-xs { margin: 0.8rem !important; }
 
-.u-margin-all-s { margin: 1.6rem !important; }
+.u-margin-all-s, .openpa-carousel .carousel-caption { margin: 1.6rem !important; }
 
 .u-margin-all-m { margin: 2rem !important; }
 
@@ -8479,21 +8479,19 @@ ul.org-chart ul li:last-child {
 
 .openpa-carousel .carousel-caption {
     bottom: 0;
-    left: 0;
-    margin: 0;
-    right: 0;
+    left: 12%;
+    display: inline-block;
     text-align: left;
-    width: 100%;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .openpa-carousel .carousel-caption h3 {
-    display: block;
+    display: inline-block;
     line-height: normal;
     color: #fff;
     margin-bottom: 0;
     border-radius: none;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 s.openpa-carousel.u-padding-all-xx .carousel-caption{
@@ -8511,15 +8509,11 @@ s.openpa-carousel.u-padding-all-xx .carousel-caption{
 
 .openpa-carousel .carousel-caption p {
     color: #fff;
-    display: block;
-    margin: 0;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 /* bc */
-
-.global-view-full{
-    @extends .u-padding-all-s;
-}
 
 .readmore {
     display: none !important;
@@ -8527,18 +8521,42 @@ s.openpa-carousel.u-padding-all-xx .carousel-caption{
 
 /* custom */
 
-.openpa-carousel.u-padding-all-xx {
-    padding: 0 !important;
-}
-
 .u-layout-wide.u-layoutCenter.u-layout-withGutter {
     padding-top: 0 !important;
 }
 
+.frontpage {
+    margin-top: 20px;
+}
+
 .frontpage:first-child {
+    margin-top: 0 !important;
     width: 100vw;
     margin-left: -webkit-calc(-1 * ((100vw - 100%) / 2));
     margin-left: calc(-1 * ((100vw - 100%) / 2));
+}
+
+.frontpage:first-child .owl-theme .owl-dots {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.frontpage:first-child .owl-theme .owl-dots .owl-dot span {
+    width: 18px;
+    height: 18px;
+    margin: 10px 7px;
+    background: #373737;
+    border: 1px solid #fff;
+}
+
+.frontpage:first-child .owl-theme .owl-dots .owl-dot:hover span, .frontpage:first-child .owl-theme .owl-dots .owl-dot.active span{
+    background: #E5B200;
+    border: 1px solid #373737;
+}
+
+.bg-color {
+    background-color: #f5f5f0;
 }
 
 .Linklist a:hover, .Megamenu--styled .Megamenu-list > li > a:hover, .list-group a:hover {
@@ -8548,6 +8566,10 @@ s.openpa-carousel.u-padding-all-xx .carousel-caption{
 .Header-search button, .Header-searchTrigger button {
     background-color: #E5B200 !important;
     color: #373737 !important;
+}
+
+.openpa-carousel.u-padding-all-xx {
+    padding: 0 !important;
 }
 
 .Footer a {
