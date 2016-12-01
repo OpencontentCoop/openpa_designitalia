@@ -50,7 +50,7 @@
 
     <div class="Form-field">
         <label class="Form-label u-text-xxs" for="block-view-{$block_id}">{'Visualizzazione'|i18n( 'design/standard/block/edit' )}</label>
-        <select id="block-view-{$block_id}" class="Form-input u-text-xxs" name="ContentObjectAttribute_ezpage_block_view_{$attribute.id}[{$zone_id}][{$block_id}]">
+        <select id="block-view-{$block_id}" class="Form-input u-text-xxs trigger view-select" name="ContentObjectAttribute_ezpage_block_view_{$attribute.id}[{$zone_id}][{$block_id}]">
         {def $view_name = ezini( $block.type, 'ViewName', 'block.ini' )}
         {foreach ezini( $block.type, 'ViewList', 'block.ini' ) as $view}
             <option value="{$view}" {if eq( $block.view, $view )}selected="selected"{/if}>{$view_name[$view]}</option>
@@ -99,7 +99,8 @@
                  $custom_attribute_types = array()
                  $custom_attribute_names = array()
                  $custom_attribute_selections = array()
-                 $loop_count = 0}
+                 $loop_count = 0
+                 $view_attribute_mapping = array())}
             {if ezini_hasvariable( $block.type, 'CustomAttributes', 'block.ini' )}
                 {set $custom_attributes = ezini( $block.type, 'CustomAttributes', 'block.ini' )}
             {/if}
@@ -109,13 +110,23 @@
             {if ezini_hasvariable( $block.type, 'CustomAttributeNames', 'block.ini' )}
                 {set $custom_attribute_names = ezini( $block.type, 'CustomAttributeNames', 'block.ini' )}
             {/if}
+            {if ezini_hasvariable( $block.type, 'ViewAttributeMapping', 'block.ini' )}
+                {set $view_attribute_mapping = ezini( $block.type, 'ViewAttributeMapping', 'block.ini' )}
+            {/if}
+
+            {$view_attribute_mapping|attribute(show))}
             {foreach $custom_attributes as $custom_attrib}
+                {$custom_attrib}
                 {def $use_browse_mode = array()}
                 {if ezini_hasvariable( $block.type, 'UseBrowseMode', 'block.ini' )}
                     {set $use_browse_mode = ezini( $block.type, 'UseBrowseMode', 'block.ini' )}
                 {/if}
+                {def $view_mapping = '')}
+                {if $view_attribute_mapping[$custom_attrib]}
+                    {set $view_attribute_mapping = concat('view_attribute ', $view_attribute_mapping[$custom_attrib]|explode('|')|implode(' '))}
+                {/if}
                 {if eq( $use_browse_mode[$custom_attrib], 'true' )}
-                    <div class="Form-field">
+                    <div class="Form-field {$view_attribute_mapping}">
                         <label class="Form-label u-text-xxs">
                         {if is_set($custom_attribute_names[$custom_attrib])}
                             {$custom_attribute_names[$custom_attrib]}:
@@ -135,7 +146,7 @@
                         {/if}
                     </div>
                 {else}
-                    <div class="Form-field">
+                    <div class="Form-field {$view_attribute_mapping}">
                         <label class="Form-label u-text-xxs" for="">
                             {if is_set( $custom_attribute_names[$custom_attrib] )}{$custom_attribute_names[$custom_attrib]}{else}{$custom_attrib}{/if}:
                         </label>
