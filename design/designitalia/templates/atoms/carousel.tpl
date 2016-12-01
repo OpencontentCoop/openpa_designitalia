@@ -3,7 +3,7 @@
     'items', array(),
     'autoplay', 0,
     'items_per_row', 1,
-    'image_class', 'carousel',
+    'image_class', 'agid_carousel',
     'navigation', true(),
     'pagination', false(),
     'auto_height', true(),

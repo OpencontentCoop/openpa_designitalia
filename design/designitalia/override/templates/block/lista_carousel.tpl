@@ -1,5 +1,5 @@
 {def $openpa= object_handler($block)}
-{set_defaults(hash('show_title', true(), 'items_per_row', 1, 'image_class', 'carousel'))}
+{set_defaults(hash('show_title', true(), 'items_per_row', 1, 'image_class', 'agid_carousel'))}
 
 <div class="openpa-widget {$block.view} {if is_set($block.custom_attributes.color_style)}color color-{$block.custom_attributes.color_style}{/if}">
     {if and( $show_title, $block.name|ne('') )}

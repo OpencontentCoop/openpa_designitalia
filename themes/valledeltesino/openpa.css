@@ -530,10 +530,6 @@ s.openpa-carousel.u-padding-all-xx .carousel-caption{
     padding: 0 !important;
 }
 
-.Footer a {
-    color: var(--Color-primary) !important;
-}
-
 .readmore {
     display: none !important;
 }
