@@ -69,7 +69,10 @@ dd {  margin-left: 0;  }
 }
 
 /* bootstrap */
-.list-group{  @extend .Linklist;  @extend .Linklist--padded;  }
+.list-group{
+    @extend .Linklist;
+    @extend .Linklist--padded;
+}
 
 .row{  @extend .Grid;  @extend .Grid--withGutter;  }
 .row .col-md-1 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size1of12;  @extend .u-lg-size1of12;  }

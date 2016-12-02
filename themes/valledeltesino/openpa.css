@@ -232,7 +232,7 @@
 }
 
 .Card-content {
-    padding: 0 !important;
+    @extend .u-padding-all-s;
 }
 
 .Card-content .Card-title .Card-titleLink {
@@ -530,8 +530,39 @@ s.openpa-carousel.u-padding-all-xx .carousel-caption{
     padding: 0 !important;
 }
 
+.openpa-carousel_image {
+    @extend .u-posRelative;
+}
+
+.openpa-carousel_image .overlay {
+    @extend .u-posAbsolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border-radius: 0;
+    background: var(--Color-secondary);
+    color: var(--Text-color-text-primary);
+    vertical-align: middle;
+    -webkit-transition: opacity 500ms;
+    -moz-transition: opacity 500ms;
+    -o-transition: opacity 500ms;
+    transition: opacity 500ms;
+    padding: 30px;
+}
+
+.openpa-carousel_image .overlay h3{
+    @extend .u-textCenter;
+    @extend .u-alignMiddle;
+}
+
+.openpa-carousel_image:hover .overlay {
+    opacity: .8;
+}
+
 .readmore {
-    display: none !important;
+    @extend .u-hidden;
 }
 
 /* end custom */

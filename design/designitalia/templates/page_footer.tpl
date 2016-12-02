@@ -1,6 +1,20 @@
-{def $footerBlocksClass = 'u-md-size1of2 u-lg-size1of2'}
+{def $footerBlocksClass = 'u-sizeFull'
+     $has_contacts = false()
+     $has_social  = false}
+
+{if or(is_set($pagedata.contacts.indirizzo), is_set($pagedata.contacts.telefono), is_set($pagedata.contacts.fax),
+       is_set($pagedata.contacts.email), is_set($pagedata.contacts.pec), is_set($pagedata.contacts.web))}
+    {set $has_contacts = true()
+         $footerBlocksClass = 'u-md-size1of2 u-lg-size1of2'}
+{/if}
+
 {if or(is_set($pagedata.contacts.facebook), is_set($pagedata.contacts.twitter), is_set($pagedata.contacts.linkedin), is_set($pagedata.contacts.instagram))}
-    {set $footerBlocksClass = 'u-md-size1of3 u-lg-size1of3'}
+    {set $has_social = true()}
+    {if $has_contacts}
+        {set $footerBlocksClass = 'u-md-size1of3 u-lg-size1of3'}
+    {else}
+        {set $footerBlocksClass = 'u-md-size1of2 u-lg-size1of2'}
+    {/if}
 {/if}
 
 {if and( $ui_context|ne( 'edit' ), $ui_context|ne( 'browse' ) )}
@@ -47,65 +61,17 @@
                 </div>
             {/if}
 
-            <div class="Footer-block Grid-cell {$footerBlocksClass}">
-                <h2 class="Footer-blockTitle">Contatti</h2>
-                {include uri='design:footer/contacts_list.tpl'}
-            </div>
+            {if $has_contacts}
+                <div class="Footer-block Grid-cell {$footerBlocksClass}">
+                    <h2 class="Footer-blockTitle">Contatti</h2>
+                    {include uri='design:footer/contacts_list.tpl'}
+                </div>
+            {/if}
 
-            {if or(is_set($pagedata.contacts.facebook), is_set($pagedata.contacts.twitter), is_set($pagedata.contacts.linkedin), is_set($pagedata.contacts.instagram))}
+            {if $has_social}
                 <div class="Footer-block Grid-cell {$footerBlocksClass}">
                     <h2 class="Footer-blockTitle">Seguici su</h2>
-                    <div class="Footer-subBlock">
-                        <ul class="Footer-socialIcons">
-                            {if is_set($pagedata.contacts.facebook)}
-                                <li>
-                                    <a href="{$pagedata.contacts.facebook}">
-                                        <span class="openpa-icon fa-stack">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-facebook fa-stack-1x u-color-grey-80"
-                                               aria-hidden="true"></i>
-                                        </span>
-                                        <span class="u-hiddenVisually">Facebook</span>
-                                    </a>
-                                </li>
-                            {/if}
-                            {if is_set($pagedata.contacts.twitter)}
-                                <li>
-                                    <a href="{$pagedata.contacts.twitter}">
-                                        <span class="openpa-icon fa-stack">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-twitter fa-stack-1x u-color-grey-80" aria-hidden="true"></i>
-                                        </span>
-                                        <span class="u-hiddenVisually">Twitter</span>
-                                    </a>
-                                </li>
-                            {/if}
-                            {if is_set($pagedata.contacts.linkedin)}
-                                <li>
-                                    <a href="{$pagedata.contacts.linkedin}">
-                                        <span class="openpa-icon fa-stack">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-linkedin fa-stack-1x u-color-grey-80"
-                                               aria-hidden="true"></i>
-                                        </span>
-                                        <span class="u-hiddenVisually">Linkedin</span>
-                                    </a>
-                                </li>
-                            {/if}
-                            {if is_set($pagedata.contacts.instagram)}
-                                <li>
-                                    <a href="{$pagedata.contacts.instagram}">
-                                        <span class="openpa-icon fa-stack">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-instagram fa-stack-1x u-color-grey-80"
-                                               aria-hidden="true"></i>
-                                        </span>
-                                        <span class="u-hiddenVisually">Instagram</span>
-                                    </a>
-                                </li>
-                            {/if}
-                        </ul>
-                    </div>
+                    {include uri='design:footer/social.tpl'}
                 </div>
             {/if}
 

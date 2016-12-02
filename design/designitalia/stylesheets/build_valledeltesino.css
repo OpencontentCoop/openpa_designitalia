@@ -474,7 +474,7 @@ ol, ul {
   vertical-align: bottom !important;
 }
 
-.u-alignMiddle, .Header-logo img, .Skiplinks > li {
+.u-alignMiddle, .Header-logo img, .Skiplinks > li, .openpa-carousel_image .overlay h3 {
   vertical-align: middle !important;
 }
 
@@ -491,7 +491,7 @@ ol, ul {
   display: block !important;
 }
 
-.u-hidden, .Form-input + [role="tooltip"], .Header-serviceLink span, .Header-toggleText, .Header-utils > *, .Header-social > *, .Headroom--fixed.Headroom--not-top .Header-toggleText, .Headroom--fixed.Headroom--not-top .Header-titleLink small, .Headroom--pinned.Headroom--not-top .Header-titleLink small, .Megamenu.is-ready .Megamenu-subnav, .form-control + [role="tooltip"], .openpa-line .media-image, .owl-theme .owl-preview-container, #toolbar {
+.u-hidden, .Form-input + [role="tooltip"], .Header-serviceLink span, .Header-toggleText, .Header-utils > *, .Header-social > *, .Headroom--fixed.Headroom--not-top .Header-toggleText, .Headroom--fixed.Headroom--not-top .Header-titleLink small, .Headroom--pinned.Headroom--not-top .Header-titleLink small, .Megamenu.is-ready .Megamenu-subnav, .form-control + [role="tooltip"], .openpa-line .media-image, .readmore, .owl-theme .owl-preview-container, #toolbar {
   display: none !important;
 }
 
@@ -1502,7 +1502,7 @@ ol, ul {
 
 /** @define utilities */
 
-.u-posFit, .u-posAbsoluteCenter, .u-posAbsolute, .Form-field--withPlaceholder .Form-label, .Form-input.Form-input:focus + [role="tooltip"], .Header-serviceLink, .Megamenu.is-ready .Megamenu-subnav, .form-control.Form-input:focus + [role="tooltip"] {
+.u-posFit, .u-posAbsoluteCenter, .u-posAbsolute, .Form-field--withPlaceholder .Form-label, .Form-input.Form-input:focus + [role="tooltip"], .Header-serviceLink, .Megamenu.is-ready .Megamenu-subnav, .form-control.Form-input:focus + [role="tooltip"], .openpa-carousel_image .overlay {
   position: absolute !important;
 }
 
@@ -1538,7 +1538,7 @@ ol, ul {
   position: fixed !important;
 }
 
-.u-posRelative, .Form-field--withPlaceholder, .Header-banner, .Megamenu-list, .Megamenu--styled .Megamenu-item > a, .Megamenu--styled .Megamenu-subnavGroup > li > a, .ScrollTop-icon {
+.u-posRelative, .Form-field--withPlaceholder, .Header-banner, .Megamenu-list, .Megamenu--styled .Megamenu-item > a, .Megamenu--styled .Megamenu-subnavGroup > li > a, .ScrollTop-icon, .openpa-carousel_image {
   position: relative !important;
 }
 
@@ -2526,7 +2526,7 @@ ol, ul {
  * Horizontal text alignment
  */
 
-.u-textCenter, .Bullets > li:before, .Header-toggle, .Header-logo, .ScrollTop, .ScrollTop-icon, .calendar-date .month, .calendar-date .day {
+.u-textCenter, .Bullets > li:before, .Header-toggle, .Header-logo, .ScrollTop, .ScrollTop-icon, .calendar-date .month, .calendar-date .day, .openpa-carousel_image .overlay h3 {
   text-align: center !important;
 }
 
@@ -5318,7 +5318,7 @@ ol, ul {
 
 .u-padding-all-xs, .Footer-socialIcons [class^="Icon-"], .Footer-socialIcons [class*=" Icon-"], .Header-socialIcons [class^="Icon-"], .Header-socialIcons [class*=" Icon-"], .openpa-table-calendar .Entrypoint-item { padding: 0.8rem !important; }
 
-.u-padding-all-s, .Accordion-link, .Footer-subBlock, .Header-searchTrigger button, #accordion-classFilters form, .well, .ui-tooltip, .openpa-event-item, .openpa-event-item .calendar-title, .openpa-carousel .carousel-caption, .openpa-carousel .carousel-caption h3, .global-view-full, .owl-theme .owl-preview li a { padding: 1.6rem !important; }
+.u-padding-all-s, .Accordion-link, .Footer-subBlock, .Header-searchTrigger button, #accordion-classFilters form, .well, .ui-tooltip, .Card-content, .openpa-event-item, .openpa-event-item .calendar-title, .openpa-carousel .carousel-caption, .openpa-carousel .carousel-caption h3, .global-view-full, .owl-theme .owl-preview li a { padding: 1.6rem !important; }
 
 .u-padding-all-m, .openpa-full .content-view-children .openpa-line { padding: 2rem !important; }
 
@@ -8350,10 +8350,6 @@ ul.org-chart ul li:last-child {
     border: none !important;
 }
 
-.Card-content {
-    padding: 0 !important;
-}
-
 .Card-content .Card-title .Card-titleLink {
     font-weight: 700 !important;
 }
@@ -8574,8 +8570,23 @@ s.openpa-carousel.u-padding-all-xx .carousel-caption{
     padding: 0 !important;
 }
 
-.readmore {
-    display: none !important;
+.openpa-carousel_image .overlay {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border-radius: 0;
+    background: #E5B200;
+    color: #333;
+    vertical-align: middle;
+    -webkit-transition: opacity 500ms;
+    transition: opacity 500ms;
+    padding: 30px;
+}
+
+.openpa-carousel_image:hover .overlay {
+    opacity: .8;
 }
 
 /* end custom */

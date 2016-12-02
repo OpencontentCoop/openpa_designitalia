@@ -363,6 +363,13 @@ Subdir=templates
 Match[type]=Lista
 Match[view]=lista_carousel
 
+[block_lista_immagini]
+Source=block/view/view.tpl
+MatchFile=block/lista_immagini.tpl
+Subdir=templates
+Match[type]=Lista
+Match[view]=lista_immagini
+
 [block_lista_carousel_rassegna]
 Source=block/view/view.tpl
 MatchFile=block/lista_num.tpl

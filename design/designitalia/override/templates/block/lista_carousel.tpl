@@ -1,5 +1,5 @@
 {def $openpa= object_handler($block)}
-{set_defaults(hash('show_title', true(), 'items_per_row', 1, 'image_class', 'agid_carousel'))}
+{set_defaults(hash('show_title', true(), 'items_per_row', 1, 'image_class', 'agid_carousel', 'enable_pagination', false(), 'enable_preview', true()))}
 
 <div class="openpa-widget {$block.view} {if is_set($block.custom_attributes.color_style)}color color-{$block.custom_attributes.color_style}{/if}">
     {if and( $show_title, $block.name|ne('') )}
@@ -11,10 +11,10 @@
                  items=$openpa.content
                  css_id=$block.id
                  root_node=$openpa.root_node
-                 pagination=1
+                 pagination= or( $items_per_row|gt(1), $enable_pagination )
                  navigation= and( $show_title, $block.name|ne(''), $items_per_row|gt(1) )
                  items_per_row=$items_per_row
-                 show_items_preview=0
+                 show_items_preview= and( $items_per_row|eq(1), $enable_preview)
                  image_class=$image_class}
     </div>
 </div>
