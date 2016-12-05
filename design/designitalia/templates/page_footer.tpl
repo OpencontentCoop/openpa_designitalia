@@ -17,18 +17,20 @@
     {/if}
 {/if}
 
-{if and( $ui_context|ne( 'edit' ), $ui_context|ne( 'browse' ) )}
-    {if $pagedata.class_identifier|ne('')}
-        <div class="survey u-background-95 u-textCenter u-padding-all-s">
-            <a href="#"
-               onClick="getElementById('openpa-valuation').style.display='block';return false;"
-               class="u-linkClean u-color-white">
-                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Valuta questo sito
-            </a>
-            <div style="display: none" id="openpa-valuation">
-                {include name=valuation node_id=$current_node_id uri='design:openpa/valuation.tpl'}
+{if openpaini('GeneralSettings','valutation', 1)}
+    {if and( $ui_context|ne( 'edit' ), $ui_context|ne( 'browse' ) )}
+        {if $pagedata.class_identifier|ne('')}
+            <div class="survey u-background-95 u-textCenter u-padding-all-s">
+                <a href="#"
+                   onClick="getElementById('openpa-valuation').style.display='block';return false;"
+                   class="u-linkClean u-color-white">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Valuta questo sito
+                </a>
+                <div style="display: none" id="openpa-valuation">
+                    {include name=valuation node_id=$current_node_id uri='design:openpa/valuation.tpl'}
+                </div>
             </div>
-        </div>
+        {/if}
     {/if}
 {/if}
 
