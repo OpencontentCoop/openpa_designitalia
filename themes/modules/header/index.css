@@ -152,11 +152,11 @@
   @extend .u-alignMiddle;
 
   height: 4.5rem;
-  width: 4.5rem;
+  /*width: 4.5rem;*/
 
   @media (--sm-viewport), (--md-viewport), (--lg-viewport) {
     height: 7.5rem;
-    width: 7.5rem;
+    /*width: 7.5rem;*/
   }
 }
 
@@ -414,7 +414,7 @@
 .Headroom--fixed.Headroom--not-top .Header-logo img,
 .Headroom--pinned.Headroom--not-top .Header-logo img {
   max-height: 3em;
-  max-width: 3em;
+  /*max-width: 3em;*/
 }
 
 .Headroom--fixed.Headroom--not-top .Header-search,

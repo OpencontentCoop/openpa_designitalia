@@ -46,7 +46,9 @@
             {else}
                 <img class="Footer-logo" src="//placehold.it/75x80?text=placeholder" alt="">
             {/if}
-            <p class="Footer-siteName">{ezini('SiteSettings','SiteName')}</p>
+            {if and( $pagedata.homepage|has_attribute('only_logo'), $pagedata.homepage|attribute('only_logo').data_int|eq(0) )}
+                <p class="Footer-siteName">{ezini('SiteSettings','SiteName')}</p>
+            {/if}
         </div>
 
         <div class="Grid Grid--withGutter">
