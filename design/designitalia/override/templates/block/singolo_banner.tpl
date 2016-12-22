@@ -1,5 +1,5 @@
 {def $valid_node = $block.valid_nodes[0]
-$link = '#'}
+     $link = '#'}
 
 {if object_handler($valid_node).content_link.full_link|ne('')}
     {set $link = object_handler($valid_node).content_link.full_link}
