@@ -265,6 +265,13 @@ Subdir=templates
 Match[type]=Singolo
 Match[view]=singolo_in_evidenza
 
+[block_singolo_gallery]
+Source=block/view/view.tpl
+MatchFile=block/singolo_gallery.tpl
+Subdir=templates
+Match[type]=Singolo
+Match[view]=singolo_gallery
+
 [block_lista_num]
 Source=block/view/view.tpl
 MatchFile=block/lista_num.tpl

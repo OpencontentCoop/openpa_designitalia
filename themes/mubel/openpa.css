@@ -570,4 +570,11 @@ s.openpa-carousel.u-padding-all-xx .carousel-caption{
     @extend .u-hidden;
 }
 
+.singolo_gallery .owl-item h2 {
+    @extend .u-hidden;
+}
+
+.nav-tab.ui-tabs-active{ background-color: var(--Color-secondary) !important;}
+.nav-tabs { border-color: var(--Color-secondary) !important;}
+
 /* end custom */
