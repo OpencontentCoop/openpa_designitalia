@@ -2,6 +2,12 @@
 
 [GeneralSettings]
 theme=pac
+# Abilita / Disabilita il blocco di valutazione nel footer, valori permessi : 0,1
+# Se non dichiarato prende come default 1
+valutation=1
+# Abilita / Disabilita l'header service (Accedi ai servizi), valori permessi : 0,1
+# Se non dichiarato prende come default 1
+valutation=1
 
 [SemanticClassGroup_classificazione]
 Classes[]=tipo_commissione
