@@ -64,8 +64,8 @@
                                                         uri='design:menu/offcanvas_menu_item.tpl'
                                                         menu_item=$child
                                                         current=or($tree_menu.item.node_id|eq($current_node_id), $pagedata.path_id_array|contains($tree_menu.item.node_id))}
-                                                <ul>
-                                                    {if $child.has_children}
+                                                {if $child.has_children}
+                                                    <ul>
                                                         {foreach $child.children as $sub_child}
                                                             <li>{include
                                                                     recursion=3
@@ -75,8 +75,8 @@
                                                                     current=or($tree_menu.item.node_id|eq($current_node_id), $pagedata.path_id_array|contains($tree_menu.item.node_id))}
                                                             </li>
                                                         {/foreach}
-                                                    {/if}
-                                                </ul>
+                                                    </ul>
+                                                {/if}
                                             </li>
                                         {/foreach}
                                     </ul>
