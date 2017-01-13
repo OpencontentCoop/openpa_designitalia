@@ -1,35 +1,43 @@
-import IwtScripts from './ita-web-toolkit/src/scripts'
-import IwtForm from './ita-web-toolkit/src/components/form'
-import IwtTable from './ita-web-toolkit/src/components/table'
-import IwtAccordion from './ita-web-toolkit/src/modules/accordion'
-import IwtCarousel from './themes/modules/carousel'
-import IwtCookiebar from './ita-web-toolkit/src/modules/cookiebar'
-import IwtDialog from './ita-web-toolkit/src/modules/dialog'
-import IwtMasonry from './ita-web-toolkit/src/modules/masonry'
-import IwtSkiplinks from './ita-web-toolkit/src/modules/skiplinks'
-import IwtTreeview from './ita-web-toolkit/src/modules/treeview'
-import IwtOffcanvas from './ita-web-toolkit/src/modules/offcanvas'
-import IwtHeadroom from './themes/modules/header'
-import IwtMegamenu from './ita-web-toolkit/src/modules/megamenu'
-import IwtScrolltop from './ita-web-toolkit/src/modules/scrolltop'
-/*import IwtTooltip from './ita-web-toolkit/src/modules/tooltip'*/
+const Config = require('./config')
 
-const __exports = {
-	IwtTable,
-	IwtAccordion,
-	IwtCarousel,
-	IwtCookiebar,
-	IwtDialog,
-	IwtMasonry,
-	IwtTreeview,
-	IwtSkiplinks,
-	IwtOffcanvas,
-	IwtHeadroom,
-	IwtMegamenu,
-	/*IwtTooltip,*/
-	IwtScripts,
-	IwtScrolltop,
-	IwtForm
+function _findIndex(ar, predicate) {
+  for (let index = 0; index < ar.length; index++) {
+    if (predicate(ar[index])) {
+      return index
+    }
+  }
+  return -1
+}
+/*
+ *	Every index.js found in src/** directory will be required.
+ *
+ * 	Too exclude components or modules
+ * 	@see config.js
+ */
+function requireAll(requireContext) {
+  let keys = []
+
+  requireContext.keys().forEach((filename) => {
+    const dirname = filename.replace(/\\/g, '/').replace(/\/[^\/]*$/, '')
+
+    const exclude = -1 !== _findIndex(Config.excludes, function(v) {
+      return dirname.match(new RegExp(v)) !== null
+    })
+
+    const include = !exclude &&
+      (Config.includes.length === 0 ||
+        (-1 !== _findIndex(Config.includes, function(v) {
+          return dirname.match(new RegExp(v)) !== null
+        })))
+
+    if (include) {
+      // console.log('including: %s', dirname)
+      keys.push(filename)
+    } else {
+      // console.log('excluding: %s', dirname)
+    }
+  })
+  return keys.map(requireContext)
 }
 
-export default __exports
+export default requireAll(require.context('./ita-web-toolkit/src', true, /(.*)index\.js$/))
