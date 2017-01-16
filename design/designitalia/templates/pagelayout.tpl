@@ -56,14 +56,18 @@
                 {include uri='design:breadcrumb.tpl'}
             {/if}
 
+            {if is_set($pagedata.persistent_variable.has_container)|not()}
+                <div class="u-layout-wide u-layoutCenter u-text-r-xl u-layout-r-withGutter u-padding-r-top">
+            {/if}
 
 {/cache-block}
 
-            <div class="u-layout-wide u-layoutCenter u-layout-withGutter u-padding-r-top">
                 {include uri='design:page_mainarea.tpl'}
-            </div>
-
 {cache-block expiry=86400 keys=array( $module_result.uri, $user_hash_cache_key, $access_type.name, $extra_cache_key )}
+
+            {if is_set($pagedata.persistent_variable.has_container)|not()}
+                </div>
+            {/if}
 
             {if is_unset($pagedata)}{def $pagedata = openpapagedata()}{/if}
             {if and( $pagedata.is_login_page|not(), $pagedata.show_path, array( 'edit', 'browse' )|contains( $ui_context )|not() )}

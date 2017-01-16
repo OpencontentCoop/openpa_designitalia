@@ -87,11 +87,5 @@
         </form>
 
     </div>
-
-    {* Todo: Non utilizzato per il momento *}
-    {*<div class="Header-languages Headroom-hideme">
-        <a class="Header-language is-active" href="" title="sito in italiano">ITA</a>
-        <a class="Header-language" href="" title="sito in inglese">ENG</a>
-    </div>*}
 </div>
 

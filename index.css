@@ -62,7 +62,7 @@
  * WebFontLoaded: _import "src/fonts/titillium"
  * see src/_preview.html
  */
-@import "ita-web-toolkit/src/themes/pac";
+@import "themes/pac";
 
 @import "ita-web-toolkit/src/legacy";
 
