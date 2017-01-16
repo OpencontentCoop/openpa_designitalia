@@ -34,6 +34,7 @@ ViewName[singolo_imgtit_interne_piccolo]=Immagine e Titolo (con titolo blocco)
 ViewName[singolo_box_piccolo]=Line (immagine piccola con blocco titolo)
 ViewName[singolo_box]=Line
 ViewName[singolo_banner]=Line (con blocco titolo, sfondo grigio)
+ViewName[singolo_in_evidenza]=In evidenza
 
 [Lista]
 Name=Lista di oggetti (assegnare un contenitore)
@@ -71,6 +72,7 @@ ViewName[lista_box]=Elenco
 ViewName[lista_carousel]=Banner (carousel) [Mostra solo elementi con immagine]
 ViewName[lista_carousel_rassegna]=Pannelli (carousel)
 ViewName[lista_carousel_rassegna_oggi]=Schede (carousel rassegna oggi)
+ViewName[lista_in_evidenza]=In evidenza
 
 [Lista3]
 Name=Lista di oggetti (assegnati singolarmente) - MAX 5

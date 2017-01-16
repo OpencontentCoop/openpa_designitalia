@@ -167,17 +167,15 @@
 }
 
 .openpa-widget-title {
-    @extend .Leads-title;
+    @extend .u-border-bottom-m;
 }
 .openpa-widget-title a{
-    font-size: inherit;
-    color: inherit;
+    @extend .u-block;
+    @extend .u-text-h3;
     @extend .u-textClean;
 }
 
 .openpa-widget-layout .openpa-widget-title{
-    @extend .u-border-top-l;
-    @extend .u-padding-top-m;
     border-color: color(var(--Color-primary) l(-10%)) !important;
 }
 

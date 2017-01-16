@@ -251,6 +251,13 @@ Subdir=templates
 Match[type]=Singolo
 Match[view]=singolo_banner
 
+[block_singolo_in_evidenza]
+Source=block/view/view.tpl
+MatchFile=block/singolo_evidenza.tpl
+Subdir=templates
+Match[type]=Singolo
+Match[view]=singolo_in_evidenza
+
 [block_lista_num]
 Source=block/view/view.tpl
 MatchFile=block/lista_num.tpl
@@ -362,6 +369,13 @@ MatchFile=block/lista_num.tpl
 Subdir=templates
 Match[type]=Lista
 Match[view]=lista_carousel_rassegna_oggi
+
+[block_lista_in_evidenza]
+Source=block/view/view.tpl
+MatchFile=block/lista_evidenza.tpl
+Subdir=templates
+Match[type]=Lista
+Match[view]=lista_in_evidenza
 
 [block_lista_carousel3]
 Source=block/view/view.tpl
