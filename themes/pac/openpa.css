@@ -195,7 +195,7 @@
 }
 .openpa-widget-title a{
     font-size: inherit;
-    color: inherit;
+    color: color(var(--Color-primary) l(-10%)) !important;
     @extend .u-textClean;
     @extend .u-color-50;
 }
@@ -469,52 +469,49 @@
     margin: 0;
 }
 
-.eventi_wide {
-
-    .events_wide_wrapper {
-        background: #eeeeee none repeat scroll 0 0;
-        height: 100px;
-        line-height: 100px;
-        margin-bottom: 8px;
-        position: relative;
-        z-index: 1;
-    }
-
-    .ui-tabs-panel {
-        background: #fff !important;
-    }
-
-    .events_wide_wrapper h3 {
-        display: block;
-        float: left;
-        line-height: 95px;
-        margin: 0;
-        padding-top: 0;
-        padding-left: 10px;
-    }
-
-    .events_wide_wrapper .events_toolbar {
-        float: right;
-    }
-
-    .events_wide_wrapper .events_toolbar ul {
-        border-right: 1px solid #cccccc;
-        font-size: 1.4em;
-        text-transform: uppercase;
-    }
-
-    .events_wide_wrapper .events_toolbar ul li {
-        border-left: 1px solid #cccccc;
-        float: left;
-    }
-
-    .events_wide_wrapper .events_toolbar ul li a {
-        color: #333333;
-        display: block;
-        padding: 0 20px;
-    }
-
+.events_wide_wrapper {
+    background: #eeeeee none repeat scroll 0 0;
+    height: 100px;
+    line-height: 100px;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
 }
+
+.eventi_wide .ui-tabs-panel {
+    background: #fff !important;
+}
+
+.events_wide_wrapper h3 {
+    display: block;
+    float: left;
+    line-height: 95px;
+    margin: 0;
+    padding-top: 0;
+    padding-left: 10px;
+}
+
+.events_wide_wrapper .events_toolbar {
+    float: right;
+}
+
+.events_wide_wrapper .events_toolbar ul {
+    border-right: 1px solid #cccccc;
+    font-size: 1.4em;
+    text-transform: uppercase;
+}
+
+.events_wide_wrapper .events_toolbar ul li {
+    border-left: 1px solid #cccccc;
+    float: left;
+}
+
+.events_wide_wrapper .events_toolbar ul li a {
+    color: #333333;
+    display: block;
+    padding: 0 20px;
+}
+
 
 /* bc */
 .global-view-full{
