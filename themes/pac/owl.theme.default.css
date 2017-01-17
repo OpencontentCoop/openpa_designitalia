@@ -77,10 +77,10 @@
     @extend .u-lg-block;
     background-color: #eee;
     border-color: color(var(--Color-primary) l(-10%)) !important;
+    @extend .u-border-bottom-m;
 }
 .owl-theme .owl-preview{
     @extend .Grid;
-    @extend .u-border-bottom-m;
 }
 
 .owl-theme .owl-preview li{
