@@ -4302,42 +4302,39 @@ return /******/ (function(modules) { // webpackBootstrap
 	        adjustFocus = this.adjustFocus;
 	
 	    if (!!stage) {
-			// Todo: risovrascrivere modulo
-			/*Evidenti problemi di navigazione*/
-	      /*var offs = stage.offset();
-	      if (!!targ) {
+	      var offs = stage.offset();
+	      // Todo: risovrascrivere modulo
+	      /*Evidenti problemi di navigazione*/
+	      /*if (!!targ) {
 	        window.scrollTo(
 	          offs.left,
 	          offs.top - parseInt($('body').css('padding-top'), 10)
 	        )
 	      }
-	
-	      this._core.$stage.children().each(function () {
-	        var item = $(this);
-	        var focusable = focusableElems(this);
-	
-	        // Use the active class to determine if we can see it or not.
+	       this._core.$stage.children().each(function() {
+	        var item = $(this)
+	        var focusable = focusableElems(this)
+	         // Use the active class to determine if we can see it or not.
 	        // Pretty lazy, but the Owl API doesn't make it easy to tell
 	        // from indices alone.
 	        if (item.hasClass('active')) {
-	          item.attr('aria-hidden', 'false');
-	          adjustFocus(focusable, true);
+	          item.attr('aria-hidden', 'false')
+	          adjustFocus(focusable, true)
 	        } else {
-	          item.attr('aria-hidden', 'true');
-	          adjustFocus(focusable, false);
+	          item.attr('aria-hidden', 'true')
+	          adjustFocus(focusable, false)
 	        }
-	      });
-	
-	      if (!!targ) {
+	      })
+	       if (!!targ) {
 	        // Focus on the root element after we're done moving,
 	        // but only if we're not using the controls.
-	        setTimeout(function () {
-	          var newFocus = element;
+	        setTimeout(function() {
+	          var newFocus = element
 	          if ($(':focus').closest('.owl-controls').length) {
-	            newFocus = $(':focus');
+	            newFocus = $(':focus')
 	          }
-	          newFocus.focus();
-	        }, 250);
+	          newFocus.focus()
+	        }, 250)
 	      }*/
 	    }
 	  };
