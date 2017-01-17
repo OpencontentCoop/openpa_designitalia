@@ -140,6 +140,7 @@ ViewName[]
 ViewName[eventi]=Eventi
 ViewName[eventi_manual]=Eventi singoli
 ViewName[eventi_carousel]=Panelli (carousel)
+ViewName[eventi_wide]=Wide
 
 [Iosono]
 Name=Schede Homepage (Io sono, eventi della vita, ecc...)

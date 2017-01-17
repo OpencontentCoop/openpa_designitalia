@@ -419,6 +419,13 @@ Subdir=templates
 Match[type]=Eventi
 Match[view]=eventi_carousel
 
+[block_eventi_wide]
+Source=block/view/view.tpl
+MatchFile=block/eventi_wide.tpl
+Subdir=templates
+Match[type]=Eventi
+Match[view]=eventi_wide
+
 [block_lista_num_auto_scroll]
 Source=block/view/view.tpl
 MatchFile=block/lista_num_auto_scroll.tpl
