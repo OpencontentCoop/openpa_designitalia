@@ -14,6 +14,7 @@
                  pagination=$items_per_row|gt(1)
                  navigation= and( $show_title, $block.name|ne(''), $items_per_row|gt(1) )
                  items_per_row=$items_per_row
+                 i_view=carousel_evidence
                  show_items_preview=$items_per_row|eq(1)}
     </div>
 </div>

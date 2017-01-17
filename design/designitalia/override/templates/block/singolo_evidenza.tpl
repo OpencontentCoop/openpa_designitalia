@@ -9,13 +9,7 @@ $image = false()}
         <p class="u-padding-r-bottom u-padding-r-top u-text-r-xs">
             <a href="{$valid_node.parent.url_alias|ezurl(no)}" class="u-textClean u-color-60 u-text-h4"><span class="Dot u-background-60"></span>{$valid_node.parent.name|wash()}</a>
         </p>
-        <h2 class="u-text-h2"><a href="#" class="u-color-95 u-textClean">{$valid_node.name|wash()}</a></h2>
-        <p class="u-padding-r-bottom u-padding-r-top u-text-p u-margin-r-bottom">{$valid_node|abstract()}</p>
-        {*<a href="#news" class="js-scrollTo u-linkClean Button Button--info u-text-r-xs">notizie ed eventi
-            <span class="u-padding-r-left Icon Icon-expand"></span>
-        </a>*}
+        <h2 class="u-text-h2"><a href="{$valid_node.url_alias|ezurl(no)}" class="u-color-95 u-textClean">{$valid_node.name|wash()}</a></h2>
+        <p class="u-padding-r-bottom u-padding-r-top u-text-p u-margin-r-bottom">{$valid_node|abstract()|oc_shorten(150)}</p>
     </div>
-    {*<a href="#servizi" class="Forward Forward--absolute js-scrollTo" aria-hidden="true">
-        <span class="Icon Icon-expand"></span>
-    </a>*}
 </div>

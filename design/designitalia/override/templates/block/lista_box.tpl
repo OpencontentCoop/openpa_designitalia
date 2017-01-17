@@ -12,10 +12,12 @@
     <div class="openpa-widget-content">
         <ul class="Linklist Prose u-text-r-xs">
             {foreach $openpa.content as $item}
-                {node_view_gui content_node=$item view=text_linked}
+                <li>
+                    {node_view_gui content_node=$item view=text_linked}
+                </li>
             {/foreach}
             <li>
-                <a href="{$openpa.root_node.url_alias|ezurl(no)}" class="u-textClean">tutt su “{$block.name|wash()}” <span class="Icon Icon-chevron-right"></span></a>
+                <a href="{$openpa.root_node.url_alias|ezurl(no)}" class="u-textClean">tutto su “{$block.name|wash()}” <span class="Icon Icon-chevron-right"></span></a>
             </li>
         </ul>
     </div>

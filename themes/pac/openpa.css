@@ -161,7 +161,6 @@
 }
 
 .openpa-widget{
-    @extend .u-margin-r-bottom;
     @extend .u-cf;
     position: relative;
 }
@@ -384,7 +383,7 @@
     position: relative;
 }
 
-.openpa-carousel .carousel-caption {
+.lista_carousel .openpa-carousel .carousel-caption {
     bottom: 0;
     left: 0;
     margin: 0;
@@ -395,7 +394,7 @@
     background-color: rgba(0, 0, 0, 0.7);
     @extend .u-padding-all-s;
 }
-.openpa-carousel .carousel-caption h3 {
+.lista_carousel .openpa-carousel .carousel-caption h3 {
     display: block;
     line-height: normal;
     color: #fff;
@@ -404,19 +403,19 @@
     @extend .u-text-h4;
 }
 
-.openpa-carousel.u-padding-all-xxs .carousel-caption{
+.lista_carousel .openpa-carousel.u-padding-all-xxs .carousel-caption{
     width: auto;
     left: var(--Spacing-unit-fixed);
     right:var(--Spacing-unit-fixed);
     bottom: var(--Spacing-unit-fixed);
 }
 
-.openpa-carousel .carousel-caption h3 a {
+.lista_carousel .openpa-carousel .carousel-caption h3 a {
     color: #fff;
     font-weight: bold;
     text-decoration: none;
 }
-.openpa-carousel .carousel-caption p {
+.lista_carousel .openpa-carousel .carousel-caption p {
     color: #fff;
     display: block;
     margin: 0;

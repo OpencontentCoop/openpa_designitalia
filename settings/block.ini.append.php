@@ -24,6 +24,20 @@ ViewName[gmap]=Google Map
 
 [Singolo]
 Name=Oggetto singolo
+NumberOfValidItems=1
+NumberOfArchivedItems=0
+ManualAddingOfItems=enabled
+ViewList[]
+ViewList[]=singolo_img
+ViewList[]=singolo_imgtit
+#ViewList[]=singolo_img_interne #rimosso perché duplicato
+ViewList[]=singolo_imgtit_interne
+ViewList[]=singolo_img_interne_piccolo
+ViewList[]=singolo_imgtit_interne_piccolo
+ViewList[]=singolo_box_piccolo
+ViewList[]=singolo_box
+ViewList[]=singolo_banner
+ViewList[]=singolo_in_evidenza
 ViewName[]
 ViewName[singolo_img]=Solo immagine
 ViewName[singolo_imgtit]=Banner
@@ -65,6 +79,14 @@ CustomAttributeSelection_ordinamento[modificato]=Data di ultima modifica
 CustomAttributeSelection_ordinamento[priority]=Priorità del nodo
 CustomAttributeTypes[state_id]=state_select
 ManualAddingOfItems=disabled
+ViewList[]
+ViewList[]=lista_num
+ViewList[]=lista_accordion
+ViewList[]=lista_box
+ViewList[]=lista_carousel
+#ViewList[]=lista_carousel_rassegna
+#ViewList[]=lista_carousel_rassegna_oggi
+ViewList[]=lista_in_evidenza
 ViewName[]
 ViewName[lista_num]=Panelli (carousel) [Mostra solo elementi con immagine]
 ViewName[lista_accordion]=Accordion
