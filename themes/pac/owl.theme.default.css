@@ -78,6 +78,8 @@
 }
 .owl-theme .owl-preview{
     @extend .Grid;
+    @extend .u-border-bottom-m;
+    border-color: color(var(--Color-primary) l(-10%)) !important;
 }
 
 .owl-theme .owl-preview li{
@@ -85,7 +87,6 @@
     @extend .u-sizeFull;
     @extend .u-md-size1of4;
     @extend .u-lg-size1of4;
-    @extend .u-margin-bottom-s;
     position: relative;
     background-color: #eee;
 }
