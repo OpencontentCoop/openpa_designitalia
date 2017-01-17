@@ -65,8 +65,6 @@
 .openpa-full .title {
     @extend .u-md-size11of12;
     @extend .u-lg-size11of12;
-    @extend .u-md-before1of12;
-    @extend .u-lg-before1of12;
 }
 
 .openpa-full .content.withExtra {
@@ -75,8 +73,6 @@
     @extend .u-padding-bottom-xl;
     @extend .u-md-size6of12;
     @extend .u-lg-size6of12;
-    @extend .u-md-before1of12;
-    @extend .u-lg-before1of12;
 }
 
 .openpa-full .content-main-abstract,
