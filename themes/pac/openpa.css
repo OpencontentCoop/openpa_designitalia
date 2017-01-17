@@ -190,6 +190,7 @@
     @extend .u-margin-r-bottom;
     @extend .u-padding-top-m;
     @extend .u-text-h3;
+    @extend .u-border-bottom-m;
 }
 .openpa-widget-title a{
     font-size: inherit;
