@@ -40,7 +40,7 @@
     <div id="{$block.id}" class="openpa-widget {$block.view} {if is_set($block.custom_attributes.color_style)}color color-{$block.custom_attributes.color_style}{/if}">
 
         <div class="events_wide_wrapper">
-            <div class="u-layout-wide u-layoutCenter">
+            <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter">
 
                 {if $block.name|ne('')}
                     <h3 class="u-text-h3">
@@ -83,10 +83,12 @@
             </div>
 
         </div>
+        
+        <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter">
 
             {if $day_events_count|ne(0)}
                 <div class="u-layout-leftContent" id="oggi" style="display: none;">
-                    <section class="js-Masonry-container" data-columns="3">
+                    <section class="js-Masonry-container" data-columns>
                         {foreach $day_events as $i => $child max 10}
                         <div class="Masonry-item js-Masonry-item">
                             {node_view_gui content_node=$child.node view=panel image_class=carousel event=$child}
@@ -98,7 +100,7 @@
 
             {if $prossimi_count|gt(0)}
                 <div id="{$block.custom_attributes.tab_title|slugize}" class="u-layout-centerContent " style="display: none;">
-                    <section class="js-Masonry-container" data-columns="3">
+                    <section class="js-Masonry-container" data-columns>
                         {foreach $prossimi as $i => $child max 10}
                         <div class="Masonry-item js-Masonry-item">
                             {node_view_gui content_node=$child.node view=panel image_class=carousel event=$child}
@@ -107,6 +109,8 @@
                     </section>
                 </div>
             {/if}
+            
+        </div>
 
     </div>
 

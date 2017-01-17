@@ -1,11 +1,11 @@
 {if is_set( $event.from )}
     {def $from = $event.from|datetime( 'custom', '%M' )
          $to = $event.from|datetime( 'custom', '%j' )
-         $sameDay = cond($item.to|sub($item.from)|le(86400), true(), false())}
+         $sameDay = cond($event.to|sub($event.from)|le(86400), true(), false())}
 {else}
     {def $from = $node.data_map.from_time.content.timestamp|datetime( 'custom', '%M' )
          $to = $node.data_map.from_time.content.timestamp|datetime( 'custom', '%j' )
-         $sameDay = cond($item.data_map.to_time.content.timestamp|sub($item.data_map.from_time.content.timestamp)|le(86400), true(), false())}
+         $sameDay = cond($node.data_map.to_time.content.timestamp|sub($node.data_map.from_time.content.timestamp)|le(86400), true(), false())}
 {/if}
 
 <div class="openpa-panel {$node|access_style}">
