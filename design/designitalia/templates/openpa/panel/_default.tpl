@@ -1,4 +1,6 @@
-<div class="openpa-panel {$node|access_style} Card Card--withBorder u-color-grey-30">
+<div class="openpa-panel {$node|access_style}">
+
+
 
     {include uri='design:openpa/panel/parts/image.tpl'}
 

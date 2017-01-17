@@ -256,6 +256,16 @@
     @extend .Card-titleLink;
 }
 
+.openpa-panel {
+    @extend .Card;
+    @extend .Card--shadow;
+    @extend .Card--round;
+    @extend .u-text-r-xxs;
+    @extend .u-background-white;
+    @extend .u-flexAlignSelfStretch;
+    @extend .u-margin-r-all;
+}
+
 .openpa-panel-image{
     background-position: center center !important;
     background-repeat: no-repeat !important;
