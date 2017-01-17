@@ -135,7 +135,7 @@
             <div class="Footer-block Grid-cell u-md-size3of5 u-lg-size3of5">
                 {include uri='design:footer/copyright.tpl'}
             </div>
-            <div class="Footer-block Grid-cell u-md-size2of5 u-lg-size2of5">
+            <div class="Footer-block Grid-cell u-md-size2of5 u-lg-size2of5 text-right">
                 {if $pagedata.is_login_page|not()}
                     {include uri='design:footer/user_access.tpl'}
                 {/if}

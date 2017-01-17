@@ -1,5 +1,5 @@
 {let class_content=$attribute.class_content
-     class_list=fetch( class, list, hash( class_filter, $class_content.class_constraint_list ) )     
+     class_list=fetch( class, list, hash( class_filter, $class_content.class_constraint_list ) )
      new_object_initial_node_placement=false()
      browse_object_start_node=false()
 }
