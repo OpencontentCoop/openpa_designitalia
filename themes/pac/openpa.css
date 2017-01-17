@@ -389,6 +389,10 @@
     font-size: 1.6em;
 }
 
+.Hero {
+    background-position-y: 50%;
+}
+
 .openpa-carousel{
     position: relative;
 }

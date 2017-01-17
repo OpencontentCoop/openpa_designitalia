@@ -49,7 +49,7 @@
       'initialized.owl.carousel': $.proxy(function(e) {
         this.setupRoot()
         if (e.namespace && !this._initialized) {
-          this.setupFocus()
+          /*this.setupFocus()*/
           this.setupKeyboard()
         }
         this.setCurrent(e)
@@ -116,11 +116,11 @@
    * Assign attributes to the root element.
    */
   Owl2A11y.prototype.setupRoot = function() {
-    // @FIXME
-    // this.$element.attr({
-    //   role: 'listbox',
-    //   tabindex: '0'
-    // })
+     this.$element.attr({
+       // @FIXME
+       //   role: 'listbox',
+       tabindex: '0'
+    })
   }
 
   /**
@@ -273,13 +273,12 @@
 
     if (!!stage) {
       var offs = stage.offset()
-      /* Problemi evidenti di navigazione */
-      /*if (!!targ) {
+      if (!!targ) {
         window.scrollTo(
           offs.left,
           offs.top - parseInt($('body').css('padding-top'), 10)
         )
-      }*/
+      }
 
       this._core.$stage.children().each(function() {
         var item = $(this)

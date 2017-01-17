@@ -39,8 +39,8 @@ const opts = {
 const init = function() {
   const $owl = $(opts.jsSelector)
 
-  $(opts.owlPrev).click((event) => { event.preventDefault(); $(this).parents(opts.jsSelector).trigger('prev.owl.carousel')})
-  $(opts.owlNext).click((event) => { event.preventDefault(); $(this).parents(opts.jsSelector).trigger('next.owl.carousel')})
+  $(opts.owlPrev).click(() => $owl.trigger('prev.owl.carousel'))
+  $(opts.owlNext).click(() => $owl.trigger('next.owl.carousel'))
 
   $owl.on('initialized.owl.carousel changed.owl.carousel refreshed.owl.carousel', (event) => {
     if (!event.namespace) return
