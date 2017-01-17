@@ -1,4 +1,4 @@
-<div class="u-layout-wide u-layoutCenter u-layout-withGutter u-padding-r-bottom u-padding-top-s">
+<div class="Breadcrumb-container">
     <nav aria-label="sei qui:" role="navigation">
         <ul class="Breadcrumb">
             {foreach $pagedata.default_path_array as $path}

@@ -4302,15 +4302,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	        adjustFocus = this.adjustFocus;
 	
 	    if (!!stage) {
-	      var offs = stage.offset();
-	      // Todo: risovrascrivere modulo
-	      /*Evidenti problemi di navigazione*/
-	      /*if (!!targ) {
+			// Todo: risovrascrivere modulo
+			/*Evidenti problemi di navigazione*/
+	      /*var offs = stage.offset();
+	      if (!!targ) {
 	        window.scrollTo(
 	          offs.left,
 	          offs.top - parseInt($('body').css('padding-top'), 10)
 	        )
-	      }*/
+	      }
 	
 	      this._core.$stage.children().each(function () {
 	        var item = $(this);
@@ -4338,7 +4338,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          }
 	          newFocus.focus();
 	        }, 250);
-	      }
+	      }*/
 	    }
 	  };
 	

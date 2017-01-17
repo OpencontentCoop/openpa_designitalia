@@ -41,7 +41,7 @@ ViewList[]=singolo_pulsante
 ViewList[]=singolo_in_evidenza
 ViewName[]
 ViewName[singolo_img]=Solo immagine
-ViewName[singolo_imgtit]=Banner
+ViewName[singolo_banner]=Banner
 ViewName[singolo_img_interne]=Titolo e immagine
 ViewName[singolo_imgtit_interne]=Immagine e Titolo (media)
 ViewName[singolo_img_interne_piccolo]=Full
@@ -49,7 +49,7 @@ ViewName[singolo_imgtit_interne_piccolo]=Immagine e Titolo (con titolo blocco)
 ViewName[singolo_box_piccolo]=Line (immagine piccola con blocco titolo)
 ViewName[singolo_box]=Line
 ViewName[singolo_pulsante]=Pulsante
-ViewName[singolo_banner]=Line (con blocco titolo, sfondo grigio)
+ViewName[singolo_imgtit]=Line (con blocco titolo, sfondo grigio)
 ViewName[singolo_in_evidenza]=In evidenza
 
 [Lista]

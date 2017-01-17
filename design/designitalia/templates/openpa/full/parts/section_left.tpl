@@ -1,5 +1,14 @@
 {if or($openpa.control_menu.show_extra_menu, $show_left, is_set($extra_template))}
     <div class="extra">
+        {if or(is_set($extra_template), $openpa.control_menu.show_extra_menu)}
+            {if and(is_set($extra_template), $extra_template|not(false()))}
+                {include uri=$extra_template}
+            {else}
+                {include uri='design:openpa/full/parts/section_left_extra.tpl'}
+            {/if}
+        {/if}
+
+
         {if $show_left}
             <div class="nav-section" id="subnav">
                 {if count($tree_menu.children)|gt(0)}
@@ -19,14 +28,6 @@
                     </ul>
                 {/if}
             </div>
-        {/if}
-
-        {if or(is_set($extra_template), $openpa.control_menu.show_extra_menu)}
-            {if and(is_set($extra_template), $extra_template|not(false()))}
-                {include uri=$extra_template}
-            {else}
-                {include uri='design:openpa/full/parts/section_left_extra.tpl'}
-            {/if}
         {/if}
 
         {include uri='design:openpa/full/parts/back_to_main_content.tpl'}

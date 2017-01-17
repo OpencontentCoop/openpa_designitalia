@@ -23,7 +23,7 @@
     --Prose-color-link: var(--Color-primary);
     --Prose-color-link-hover: var(--Color-primary);
     --Prose-color-link-visited: var(--Color-primary);
-    --Color-focus: #F38A44;
+    --Color-focus: rgba(255,255,255, 0);
 }
 
 /**
