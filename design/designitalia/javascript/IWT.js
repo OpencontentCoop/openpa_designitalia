@@ -57,174 +57,140 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
+	var Config = __webpack_require__(1);
 	
-	var _scripts = __webpack_require__(1);
+	function _findIndex(ar, predicate) {
+	  for (var index = 0; index < ar.length; index++) {
+	    if (predicate(ar[index])) {
+	      return index;
+	    }
+	  }
+	  return -1;
+	}
+	/*
+	 *	Every index.js found in src/** directory will be required.
+	 *
+	 * 	Too exclude components or modules
+	 * 	@see config.js
+	 */
+	function requireAll(requireContext) {
+	  var keys = [];
 	
-	var _scripts2 = _interopRequireDefault(_scripts);
+	  requireContext.keys().forEach(function (filename) {
+	    var dirname = filename.replace(/\\/g, '/').replace(/\/[^\/]*$/, '');
 	
-	var _form = __webpack_require__(6);
+	    var exclude = -1 !== _findIndex(Config.excludes, function (v) {
+	      return dirname.match(new RegExp(v)) !== null;
+	    });
 	
-	var _form2 = _interopRequireDefault(_form);
+	    var include = !exclude && (Config.includes.length === 0 || -1 !== _findIndex(Config.includes, function (v) {
+	      return dirname.match(new RegExp(v)) !== null;
+	    }));
 	
-	var _table = __webpack_require__(7);
+	    if (include) {
+	      // console.log('including: %s', dirname)
+	      keys.push(filename);
+	    } else {
+	      // console.log('excluding: %s', dirname)
+	    }
+	  });
+	  return keys.map(requireContext);
+	}
 	
-	var _table2 = _interopRequireDefault(_table);
-	
-	var _accordion = __webpack_require__(9);
-	
-	var _accordion2 = _interopRequireDefault(_accordion);
-	
-	var _carousel = __webpack_require__(15);
-	
-	var _carousel2 = _interopRequireDefault(_carousel);
-	
-	var _cookiebar = __webpack_require__(18);
-	
-	var _cookiebar2 = _interopRequireDefault(_cookiebar);
-	
-	var _dialog = __webpack_require__(21);
-	
-	var _dialog2 = _interopRequireDefault(_dialog);
-	
-	var _masonry = __webpack_require__(25);
-	
-	var _masonry2 = _interopRequireDefault(_masonry);
-	
-	var _skiplinks = __webpack_require__(27);
-	
-	var _skiplinks2 = _interopRequireDefault(_skiplinks);
-	
-	var _treeview = __webpack_require__(31);
-	
-	var _treeview2 = _interopRequireDefault(_treeview);
-	
-	var _offcanvas = __webpack_require__(32);
-	
-	var _offcanvas2 = _interopRequireDefault(_offcanvas);
-	
-	var _header = __webpack_require__(36);
-	
-	var _header2 = _interopRequireDefault(_header);
-	
-	var _megamenu = __webpack_require__(37);
-	
-	var _megamenu2 = _interopRequireDefault(_megamenu);
-	
-	var _scrolltop = __webpack_require__(39);
-	
-	var _scrolltop2 = _interopRequireDefault(_scrolltop);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	/*import IwtTooltip from './ita-web-toolkit/src/modules/tooltip'*/
-	
-	var __exports = {
-		IwtTable: _table2['default'],
-		IwtAccordion: _accordion2['default'],
-		IwtCarousel: _carousel2['default'],
-		IwtCookiebar: _cookiebar2['default'],
-		IwtDialog: _dialog2['default'],
-		IwtMasonry: _masonry2['default'],
-		IwtTreeview: _treeview2['default'],
-		IwtSkiplinks: _skiplinks2['default'],
-		IwtOffcanvas: _offcanvas2['default'],
-		IwtHeadroom: _header2['default'],
-		IwtMegamenu: _megamenu2['default'],
-		/*IwtTooltip,*/
-		IwtScripts: _scripts2['default'],
-		IwtScrolltop: _scrolltop2['default'],
-		IwtForm: _form2['default']
-	};
-	
-	exports['default'] = __exports;
+	exports['default'] = requireAll(__webpack_require__(2));
 	module.exports = exports['default'];
 
 /***/ },
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	'use strict';
+	"use strict";
 	
-	__webpack_require__(2);
-	__webpack_require__(3);
-	__webpack_require__(5);
+	var CONFIG = {};
+	
+	/*
+	 *  Whitelist: use this array of RegEx to include ONLY specific components
+	 *  or modules into the final build.
+	 *
+	 *  __Example, to include just header + search form + offcanvas:
+	 *
+	 *   CONFIG.includes = [
+	 *          '(.*)base(.*)',
+	 *          '(.*)button(.*)',
+	 *          '(.*)components(.*)',
+	 *          '(.*)theme(.*)',
+	 *          '(.*)utils(.*)',
+	 *          '(.*)icons(.*)',
+	 *          '(.*)hamburger(.*)',
+	 *          '(.*)offcanvas(.*)',
+	 *          '(.*)linklist(.*)',
+	 *          '(.*)treeview(.*)',
+	 *          '(.*)skiplinks(.*)',
+	 *          '(.*)form(.*)',
+	 *          '(.*)header(.*)'
+	 *         ]
+	 *
+	 * @see index.css for possible values
+	 *
+	 */
+	CONFIG.includes = [];
+	
+	/*
+	 *  Blacklist: use this array of RegEx to exclude specific omponents
+	 *  or modules from the final build.
+	 *
+	 *    ie. to exclude all global CSS:
+	 *
+	 *      CONFIG.excludes = [ '(.*)base(.*)', '(.*)normalize(.*)' ]
+	 *
+	 * @see index.css for possible values
+	 *
+	 */
+	CONFIG.excludes = [];
+	
+	module.exports = CONFIG;
 
 /***/ },
 /* 2 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-	
-	// Avoid `console` errors in browsers that lack a console.
-	(function () {
-	  var method;
-	  var noop = function noop() {};
-	  var methods = ['assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error', 'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log', 'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd', 'timeStamp', 'trace', 'warn'];
-	  var length = methods.length;
-	  var console = window.console = window.console || {};
-	
-	  while (length--) {
-	    method = methods[length];
-	
-	    // Only stub undefined methods.
-	    if (!console[method]) {
-	      console[method] = noop;
-	    }
-	  }
-	})();
+	var map = {
+		"./components/form/index.js": 3,
+		"./components/table/index.js": 5,
+		"./modules/accordion/index.js": 7,
+		"./modules/carousel/index.js": 13,
+		"./modules/cookiebar/index.js": 16,
+		"./modules/dialog/index.js": 19,
+		"./modules/dropdown/index.js": 23,
+		"./modules/header/index.js": 25,
+		"./modules/masonry/index.js": 27,
+		"./modules/megamenu/index.js": 29,
+		"./modules/offcanvas/index.js": 31,
+		"./modules/random/index.js": 35,
+		"./modules/scrolltop/index.js": 36,
+		"./modules/skiplinks/index.js": 37,
+		"./modules/tooltip/index.js": 41,
+		"./modules/treeview/index.js": 45,
+		"./scripts/index.js": 46
+	};
+	function webpackContext(req) {
+		return __webpack_require__(webpackContextResolve(req));
+	};
+	function webpackContextResolve(req) {
+		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
+	};
+	webpackContext.keys = function webpackContextKeys() {
+		return Object.keys(map);
+	};
+	webpackContext.resolve = webpackContextResolve;
+	module.exports = webpackContext;
+	webpackContext.id = 2;
+
 
 /***/ },
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _jquery = __webpack_require__(4);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	(0, _jquery2['default'])(function () {
-	  (0, _jquery2['default'])(document).bind('enhance', function () {
-	    (0, _jquery2['default'])('body').addClass('enhanced');
-	  });
-	  (0, _jquery2['default'])(document).trigger('enhance');
-	});
-
-/***/ },
-/* 4 */
-/***/ function(module, exports) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_4__;
-
-/***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _jquery = __webpack_require__(4);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	(0, _jquery2['default'])(document).ready(function () {
-	  var $header = (0, _jquery2['default'])('header');
-	  (0, _jquery2['default'])('.js-scrollTo').on('click', function (event) {
-	    var offset = (0, _jquery2['default'])(_jquery2['default'].attr(this, 'href')).offset();
-	    (0, _jquery2['default'])('html, body').animate({
-	      scrollTop: (offset ? offset.top : 0) - ($header.length ? $header.height() : 0)
-	    }, 250);
-	    event.preventDefault();
-	  });
-	});
-
-/***/ },
-/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -249,7 +215,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 
 /***/ },
-/* 7 */
+/* 4 */
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_4__;
+
+/***/ },
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -262,7 +234,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	var _throttle = __webpack_require__(8);
+	var _throttle = __webpack_require__(6);
 	
 	var _throttle2 = _interopRequireDefault(_throttle);
 	
@@ -294,7 +266,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 8 */
+/* 6 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -389,7 +361,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 9 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -398,11 +370,11 @@ return /******/ (function(modules) { // webpackBootstrap
 		value: true
 	});
 	
-	var _frAccordion = __webpack_require__(10);
+	var _frAccordion = __webpack_require__(8);
 	
 	var _frAccordion2 = _interopRequireDefault(_frAccordion);
 	
-	var _accordion = __webpack_require__(11);
+	var _accordion = __webpack_require__(9);
 	
 	var _accordion2 = _interopRequireDefault(_accordion);
 	
@@ -418,7 +390,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		// Boolean - If set to false, all accordion panels will be closed on init()
 		firstPanelsOpenByDefault: false,
 		// Boolean - If set to false, each accordion instance will only allow a single panel to be open at a time
-		multiselectable: false,
+		multiselectable: true,
 		// String - Class name that will be added to the selector when the component has been initialised
 		readyClass: 'fr-accordion--is-ready'
 	});
@@ -429,7 +401,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 10 */
+/* 8 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -737,16 +709,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 11 */
+/* 9 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
+/* 10 */,
+/* 11 */,
 /* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -759,11 +731,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	var _owl = __webpack_require__(16);
+	var _owl = __webpack_require__(14);
 	
 	var _owl2 = _interopRequireDefault(_owl);
 	
-	var _a11y = __webpack_require__(17);
+	var _a11y = __webpack_require__(15);
 	
 	var _a11y2 = _interopRequireDefault(_a11y);
 	
@@ -839,7 +811,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 16 */
+/* 14 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4070,7 +4042,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	})(window.Zepto || window.jQuery, window, document);
 
 /***/ },
-/* 17 */
+/* 15 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4186,18 +4158,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	  /**
 	   * Assign attributes to the root element.
 	   */
-	  Owl2A11y.prototype.setupRoot = function () {}
-	  // @FIXME
-	  // this.$element.attr({
-	  //   role: 'listbox',
-	  //   tabindex: '0'
-	  // })
-	
+	  Owl2A11y.prototype.setupRoot = function () {
+	    this.$element.attr({
+	      // @FIXME
+	      //   role: 'listbox',
+	      tabindex: '0'
+	    });
+	  };
 	
 	  /**
 	   * Setup keyboard events for this carousel.
 	   */
-	  ;Owl2A11y.prototype.setupKeyboard = function () {
+	  Owl2A11y.prototype.setupKeyboard = function () {
 	    // Only needed to initialise once for the entire document
 	    if (!this.$element.attr('data-owl-access-keyup')) {
 	      this.$element.bind('keyup', this.getDocumentKeyUp()).attr('data-owl-access-keyup', '1');
@@ -4331,7 +4303,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    if (!!stage) {
 	      var offs = stage.offset();
-	      /* Problemi evidenti di navigazione */
+	      // Todo: risovrascrivere modulo
+	      /*Evidenti problemi di navigazione*/
 	      /*if (!!targ) {
 	        window.scrollTo(
 	          offs.left,
@@ -4373,7 +4346,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	})(window.Zepto || window.jQuery, window);
 
 /***/ },
-/* 18 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4386,11 +4359,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	var _jquery3 = __webpack_require__(19);
+	var _jquery3 = __webpack_require__(17);
 	
 	var _jquery4 = _interopRequireDefault(_jquery3);
 	
-	var _cookiebar = __webpack_require__(20);
+	var _cookiebar = __webpack_require__(18);
 	
 	var _cookiebar2 = _interopRequireDefault(_cookiebar);
 	
@@ -4417,7 +4390,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 19 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
@@ -4538,89 +4511,78 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 
 /***/ },
-/* 20 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
+	'use strict';
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	var _jquery = __webpack_require__(4);
 	
-	/* global jQuery, define */
+	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	/*
-	 *	Fork of
-	 *
-	 *	https://github.com/carlwoodhouse/jquery.cookieBar
-	 *	The MIT License (MIT)
-	 *	Copyright (c) 2016 Carl Woodhouse
-	 *
-	 *
-	 */
-	(function (factory) {
-	  if (true) {
-	    // AMD
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(4)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	  } else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') {
-	    // CommonJS
-	    factory(require('jquery'));
-	  } else {
-	    // Browser globals
-	    factory(jQuery);
-	  }
-	})(function ($) {
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	  $.fn.cookieBar = function (options) {
-	    var settings = $.extend({
-	      'acceptButton': '.js-cookieBarAccept',
-	      'secure': false,
-	      'path': '/',
-	      'domain': '',
-	      'threshold': 500
-	    }, options);
+	_jquery2['default'].fn.cookieBar = function (options) {
+	  var settings = _jquery2['default'].extend({
+	    'acceptButton': '.js-cookieBarAccept',
+	    'secure': false,
+	    'path': '/',
+	    'domain': '',
+	    'threshold': 500
+	  }, options);
 	
-	    var _accept = function _accept() {
-	      $.cookie('cookiebar', 'hide', {
-	        path: settings.path,
-	        secure: settings.secure,
-	        domain: settings.domain,
-	        expires: 30
-	      });
-	      $(document).trigger('accept.cookiebar');
-	    };
-	
-	    $.cookieBar = $.cookieBar || {};
-	
-	    $.cookieBar.isAccepted = function () {
-	      return $.cookie('cookiebar') === 'hide';
-	    };
-	
-	    return this.each(function () {
-	      var $cookiebar = $(this);
-	
-	      if (!$.cookieBar.isAccepted()) {
-	        if (settings.threshold > 0) {
-	          $(window).on('scroll.cookiebar', function () {
-	            if ($(window).scrollTop() > settings.threshold) {
-	              $(window).unbind('scroll.cookiebar');
-	              _accept();
-	              $cookiebar.hide();
-	            }
-	          });
-	        }
-	        $cookiebar.show();
-	      }
-	
-	      $cookiebar.find(settings.acceptButton).click(function () {
-	        $cookiebar.hide();
-	        _accept();
-	        return false;
-	      });
-	    });
+	  var _hide = function _hide($cookiebar) {
+	    $cookiebar.attr('aria-hidden', 'true').attr('aria-live', 'off').hide();
 	  };
-	});
+	
+	  var _show = function _show($cookiebar) {
+	    $cookiebar.attr('aria-hidden', 'false').attr('aria-live', 'polite').show();
+	  };
+	
+	  var _accept = function _accept($cookiebar) {
+	    _jquery2['default'].cookie('cookiebar', 'hide', {
+	      path: settings.path,
+	      secure: settings.secure,
+	      domain: settings.domain,
+	      expires: 30
+	    });
+	    (0, _jquery2['default'])(document).trigger('accept.cookiebar', [$cookiebar]);
+	  };
+	
+	  (0, _jquery2['default'])(document).on('accept.cookiebar', function (e, $cookiebar) {
+	    _hide($cookiebar);
+	  });
+	
+	  _jquery2['default'].cookieBar = _jquery2['default'].cookieBar || {};
+	
+	  _jquery2['default'].cookieBar.isAccepted = function () {
+	    return _jquery2['default'].cookie('cookiebar') === 'hide';
+	  };
+	
+	  return this.each(function () {
+	    var $cookiebar = (0, _jquery2['default'])(this);
+	
+	    if (!_jquery2['default'].cookieBar.isAccepted()) {
+	      if (settings.threshold > 0) {
+	        (0, _jquery2['default'])(window).on('scroll.cookiebar', function () {
+	          if ((0, _jquery2['default'])(window).scrollTop() > settings.threshold) {
+	            (0, _jquery2['default'])(window).unbind('scroll.cookiebar');
+	            _accept($cookiebar);
+	          }
+	        });
+	      }
+	      _show($cookiebar);
+	    }
+	
+	    $cookiebar.find(settings.acceptButton).click(function () {
+	      _accept($cookiebar);
+	      return false;
+	    });
+	  });
+	};
 
 /***/ },
-/* 21 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4629,19 +4591,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _frDialogmodal = __webpack_require__(22);
-	
-	var _frDialogmodal2 = _interopRequireDefault(_frDialogmodal);
-	
-	var _dialogmodal = __webpack_require__(23);
+	var _dialogmodal = __webpack_require__(20);
 	
 	var _dialogmodal2 = _interopRequireDefault(_dialogmodal);
+	
+	var _dialogmodal3 = __webpack_require__(21);
+	
+	var _dialogmodal4 = _interopRequireDefault(_dialogmodal3);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
 	/* eslint-enable */
 	
-	var dialog = (0, _frDialogmodal2['default'])({
+	var dialog = (0, _dialogmodal2['default'])({
 	  // String - Outer container selector, hook for JS init() method
 	  selector: '.js-fr-dialogmodal',
 	
@@ -4666,11 +4628,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* eslint-disable no-unused-vars */
 	
-	exports['default'] = { dialog: dialog, Frdialogmodal: _frDialogmodal2['default'] };
+	exports['default'] = { dialog: dialog, Frdialogmodal: _dialogmodal2['default'] };
 	module.exports = exports['default'];
 
 /***/ },
-/* 22 */
+/* 20 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4915,14 +4877,959 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 23 */
+/* 21 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 24 */,
+/* 22 */,
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _jquery = __webpack_require__(4);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	var _dropdown = __webpack_require__(24);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	// auto-init on enhance (which is called on domready)
+	
+	_jquery2['default'].fn['menu'] = function () {
+	  return this.each(function () {
+	    new _dropdown.Menu(this).init();
+	  });
+	};
+	
+	(0, _jquery2['default'])(document).bind('enhance', function (e) {
+	  (0, _jquery2['default'])('[data-menu]', e.target)['menu']();
+	});
+	
+	_jquery2['default'].fn['menu-trigger'] = function () {
+	  return this.each(function () {
+	    new _dropdown.Menutrigger(this).init();
+	  });
+	};
+	
+	(0, _jquery2['default'])(document).bind('enhance', function (e) {
+	  (0, _jquery2['default'])('[data-menu-trigger]', e.target)['menu-trigger']();
+	});
+	
+	exports['default'] = {
+	  Menu: _dropdown.Menu,
+	  Menutrigger: _dropdown.Menutrigger
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 24 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _jquery = __webpack_require__(4);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	/*
+	 * Fork of
+	 *
+	 * ! Menu - v0.1.3 - 2016-02-17
+	 * https://github.com/filamentgroup/menu
+	 * Copyright (c) 2016 Scott Jehl Licensed MIT
+	 */
+	var at = {
+	  ariaHidden: 'aria-hidden'
+	};
+	var selectClass = 'is-selected';
+	var focusables = 'a,input,[tabindex]';
+	
+	var Menu = function () {
+	  function Menu(element) {
+	    _classCallCheck(this, Menu);
+	
+	    if (!element) {
+	      throw new Error('Element required to initialize object');
+	    }
+	    this.element = element;
+	    this.$element = (0, _jquery2['default'])(element);
+	    this.opened = true;
+	    this.componentName = 'Menu';
+	
+	    this.keycodes = {
+	      38: function _(e) {
+	        this.moveSelected('prev');
+	        e.preventDefault();
+	      },
+	
+	      40: function _(e) {
+	        this.moveSelected('next');
+	        e.preventDefault();
+	      },
+	
+	      // add right / left key navigation
+	      37: function _(e) {
+	        this.moveSelected('prev');
+	        e.preventDefault();
+	      },
+	
+	      39: function _(e) {
+	        this.moveSelected('next');
+	        e.preventDefault();
+	      },
+	
+	      13: function _() {
+	        // return the selected value
+	        return this.selectActive();
+	      },
+	
+	      9: function _(e) {
+	        this.moveSelected(e.shiftKey ? 'prev' : 'next');
+	        e.preventDefault();
+	      },
+	
+	      27: function _() {
+	        this.close();
+	      }
+	    };
+	  }
+	
+	  _createClass(Menu, [{
+	    key: 'moveSelected',
+	    value: function moveSelected(placement, focus) {
+	      var $items = this.$element.find('li'),
+	          $selected = $items.filter('.' + selectClass),
+	          $nextSelected;
+	
+	      if (!$selected.length || placement === 'start') {
+	        $nextSelected = $items.eq(0);
+	      } else if (placement === 'next') {
+	        $nextSelected = $selected.next();
+	        if (!$nextSelected.length) {
+	          $nextSelected = $items.eq(0);
+	        }
+	      } else {
+	        $nextSelected = $selected.prev();
+	        if (!$nextSelected.length) {
+	          $nextSelected = $items.eq($items.length - 1);
+	        }
+	      }
+	      $selected.removeClass(selectClass);
+	      $nextSelected.addClass(selectClass);
+	
+	      if (focus || (0, _jquery2['default'])(window.document.activeElement).closest($selected).length) {
+	        if ($nextSelected.is(focusables)) {
+	          $nextSelected[0].focus();
+	        } else {
+	          var $focusChild = $nextSelected.find(focusables);
+	          if ($focusChild.length) {
+	            $focusChild[0].focus();
+	          }
+	        }
+	      }
+	    }
+	  }, {
+	    key: 'getSelectedElement',
+	    value: function getSelectedElement() {
+	      return this.$element.find('li.' + selectClass);
+	    }
+	  }, {
+	    key: 'selectActive',
+	    value: function selectActive() {
+	      var trigger = this.$element.data(this.componentName + '-trigger');
+	      var $selected = this.getSelectedElement();
+	
+	      if (trigger && (0, _jquery2['default'])(trigger).is('input')) {
+	        trigger.value = $selected.text();
+	      }
+	      $selected.trigger(this.componentName + ':select');
+	      this.close();
+	      return $selected.text();
+	    }
+	  }, {
+	    key: 'keyDown',
+	    value: function keyDown(e) {
+	      var fn = this.keycodes[e.keyCode] || function () {};
+	      return fn.call(this, e);
+	    }
+	  }, {
+	    key: '_bindKeyHandling',
+	    value: function _bindKeyHandling() {
+	      var self = this;
+	      this.$element.bind('keydown', function (e) {
+	        self.keyDown(e);
+	      }).bind('mouseover', function (e) {
+	        self.$element.find('.' + selectClass).removeClass(selectClass);
+	        (0, _jquery2['default'])(e.target).closest('li').addClass(selectClass);
+	      }).bind('mouseleave', function (e) {
+	        (0, _jquery2['default'])(e.target).closest('li').removeClass(selectClass);
+	      }).bind('click', function () {
+	        self.selectActive();
+	      });
+	    }
+	  }, {
+	    key: 'open',
+	    value: function open(trigger, sendFocus) {
+	      if (this.opened) {
+	        return;
+	      }
+	      this.$element.attr(at.ariaHidden, false);
+	      this.$element.data(this.componentName + '-trigger', trigger);
+	      this.opened = true;
+	      this.moveSelected('start', sendFocus);
+	      this.$element.trigger(this.componentName + ':open');
+	    }
+	  }, {
+	    key: 'close',
+	    value: function close() {
+	      if (!this.opened) {
+	        return;
+	      }
+	      this.$element.attr(at.ariaHidden, true);
+	      this.opened = false;
+	      var $trigger = this.$element.data(this.componentName + '-trigger');
+	      if ($trigger) {
+	        $trigger.focus();
+	      }
+	      this.$element.trigger(this.componentName + ':close');
+	    }
+	  }, {
+	    key: 'toggle',
+	    value: function toggle(trigger, sendFocus) {
+	      this[this.opened ? 'close' : 'open'](trigger, sendFocus);
+	    }
+	  }, {
+	    key: 'init',
+	    value: function init() {
+	      // prevent re-init
+	      if (this.$element.data(this.componentName)) {
+	        return;
+	      }
+	      this.$element.data(this.componentName, this);
+	
+	      this.$element.attr('role', 'menu')
+	      // @FIXME
+	      // ita-web-toolkit mod:
+	      // be careful with the following as menuitem(s)
+	      // get a special treatment by screen readers
+	      .find('li').attr('role', 'menuitem');
+	
+	      this.close();
+	      var self = this;
+	
+	      // close on any click, even on the menu
+	      (0, _jquery2['default'])(document).bind('mouseup', function () {
+	        self.close();
+	      });
+	
+	      this._bindKeyHandling();
+	
+	      this.$element.trigger(this.componentName + ':init');
+	    }
+	  }]);
+	
+	  return Menu;
+	}();
+	
+	var Menutrigger = function () {
+	  function Menutrigger(element) {
+	    _classCallCheck(this, Menutrigger);
+	
+	    if (!element) {
+	      throw new Error('Element required to initialize object');
+	    }
+	    this.element = element;
+	    this.$element = (0, _jquery2['default'])(element);
+	    this.$menu = (0, _jquery2['default'])('#' + this.$element.attr('data-menu-trigger'));
+	    this.menu = this.$menu.data('Menu');
+	    this.componentName = 'Menutrigger';
+	  }
+	
+	  _createClass(Menutrigger, [{
+	    key: '_bindbehavior',
+	    value: function _bindbehavior() {
+	      var self = this;
+	
+	      if (this.$element.is('a')) {
+	        this.$element.attr('role', 'button').bind('click', function (e) {
+	          e.preventDefault();
+	          self.menu.toggle(this, true);
+	        });
+	      } else if (this.$element.is('button')) {
+	        this.$element.bind('click', function (e) {
+	          e.preventDefault();
+	          self.menu.toggle(this, true);
+	        });
+	      } else if (this.$element.is('input')) {
+	        this.$element.bind('input keyup', function () {
+	          if (this.value === '') {
+	            self.menu.close();
+	          } else {
+	            self.menu.open(this, false);
+	          }
+	        }).bind('input keydown', function (e) {
+	          self.menu.keyDown(e);
+	        }).bind('focus click', function () {
+	          if (this.value !== '') {
+	            self.menu.open();
+	          }
+	        }).bind('blur', function () {
+	          self.menu.close();
+	        });
+	      }
+	    }
+	  }, {
+	    key: 'init',
+	    value: function init() {
+	      // prevent re-init
+	      if (this.$element.data(this.componentName)) {
+	        return;
+	      }
+	      this.$element.data(this.componentName, this);
+	
+	      // add attrs
+	      this.$element.attr('aria-controls', this.$menu.attr('id'));
+	      this.$element.attr('aria-haspopup', 'true');
+	
+	      this._bindbehavior();
+	
+	      this.$element.trigger(this.componentName + ':init');
+	    }
+	  }]);
+	
+	  return Menutrigger;
+	}();
+	
+	exports['default'] = {
+	  Menu: Menu,
+	  Menutrigger: Menutrigger
+	};
+	module.exports = exports['default'];
+
+/***/ },
 /* 25 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _jquery = __webpack_require__(4);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	var _headroom = __webpack_require__(26);
+	
+	var _headroom2 = _interopRequireDefault(_headroom);
+	
+	var _throttle = __webpack_require__(6);
+	
+	var _throttle2 = _interopRequireDefault(_throttle);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	// Headroom for fixed sticky header
+	
+	var myElement = document.querySelector('.js-Headroom');
+	
+	var opts = {
+	  // vertical offset in px before element is first unpinned
+	  offset: 0,
+	  // you can specify tolerance individually for up/down scroll
+	  tolerance: {
+	    up: 20,
+	    down: 10
+	  },
+	  // css classes to apply
+	  classes: {
+	    // when element is initialised
+	    initial: 'Headroom',
+	    // when scrolling up
+	    pinned: 'Headroom--pinned',
+	    // when scrolling down
+	    unpinned: 'Headroom--unpinned',
+	    // when above offset
+	    top: 'Headroom--top',
+	    // when below offset
+	    notTop: 'Headroom--not-top',
+	    // when at bottom of scoll area
+	    bottom: 'Headroom--bottom',
+	    // when not at bottom of scroll area
+	    notBottom: 'Headroom--not-bottom'
+	  },
+	  // element to listen to scroll events on, defaults to `window`
+	  scroller: window,
+	  // callback when pinned, `this` is headroom object
+	  onPin: function onPin() {},
+	  // callback when unpinned, `this` is headroom object
+	  onUnpin: function onUnpin() {},
+	  // callback when above offset, `this` is headroom object
+	  onTop: function onTop() {},
+	  // callback when below offset, `this` is headroom object
+	  onNotTop: function onNotTop() {},
+	  // callback when at bottom of page, `this` is headroom object
+	  onBottom: function onBottom() {},
+	  // callback when moving away from bottom of page, `this` is headroom object
+	  onNotBottom: function onNotBottom() {}
+	};
+	
+	var headroom = null;
+	
+	if (myElement) {
+	  headroom = new _headroom2['default'](myElement, opts);
+	  headroom.init();
+	}
+	
+	/*
+	 *	Make space when using fixed header.
+	 *
+	 *		The no-js alternative is to set up body padding inside CSS
+	 *	 	assuming you know the exact header height in pixel
+	 *	 	(expanded and minimized for all viewport width)
+	 */
+	var headroomFixed = '.Headroom--fixed';
+	
+	if ((0, _jquery2['default'])('.' + opts.classes.initial).is(headroomFixed)) {
+	  (function () {
+	    var INTERVAL = 250;
+	
+	    var windowWidth = (0, _jquery2['default'])(window).width();
+	
+	    // Needs to be here due to CSS transition (see on Safari)
+	    var headerHeight = (0, _jquery2['default'])(headroomFixed).height();
+	
+	    var _adjustPadding = function _adjustPadding() {
+	      var paddingTop = headerHeight;
+	
+	      (0, _jquery2['default'])('body').css({
+	        paddingTop: paddingTop + 'px'
+	      });
+	    };
+	
+	    // Set up padding on page load
+	    (0, _jquery2['default'])(document).ready(function () {
+	      (0, _jquery2['default'])(headroomFixed).css({
+	        position: 'fixed',
+	        top: 0
+	      });
+	      _adjustPadding();
+	    });
+	
+	    // Make padding respond to window resize
+	    (0, _jquery2['default'])(window).resize((0, _throttle2['default'])(INTERVAL, function () {
+	      var newWindowWidth = (0, _jquery2['default'])(window).width();
+	      var height = (0, _jquery2['default'])(headroomFixed).height();
+	      // Android browser triggers a resize event on scroll to top
+	      // so we check for changes in window width
+	      if (newWindowWidth !== windowWidth) {
+	        windowWidth = newWindowWidth;
+	        headerHeight = height;
+	        setTimeout(_adjustPadding, INTERVAL);
+	      }
+	    }));
+	
+	    (0, _jquery2['default'])(headroomFixed).on('transitionend', (0, _throttle2['default'])(INTERVAL, function () {
+	      var height = (0, _jquery2['default'])(this).height();
+	      if (headerHeight < height) {
+	        // This happens *only* after a resize
+	        // _and_ when scrolling to top
+	        headerHeight = height;
+	        _adjustPadding();
+	      }
+	    }));
+	  })();
+	}
+	
+	/*
+	 *  Toggle search-form visibility for mobile
+	 */
+	(0, _jquery2['default'])('.js-Header-search-trigger').click(function (e) {
+	  (0, _jquery2['default'])('.js-Header-search-trigger').each(function (i, el) {
+	    var $el = (0, _jquery2['default'])(el);
+	    if ('true' === $el.attr('aria-hidden')) {
+	      $el.attr('aria-hidden', 'false');
+	      $el.removeClass('u-hidden');
+	    } else {
+	      $el.attr('aria-hidden', 'true');
+	      $el.addClass('u-hidden');
+	    }
+	  });
+	  (0, _jquery2['default'])('#' + (0, _jquery2['default'])(e.target).attr('aria-controls')).toggleClass('is-active');
+	});
+	
+	exports['default'] = {
+	  Headroom: _headroom2['default'],
+	  headroom: headroom
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 26 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
+	/*!
+	 * headroom.js v0.9.3 - Give your page some headroom. Hide your header until you need it
+	 * Copyright (c) 2016 Nick Williams - http://wicky.nillia.ms/headroom.js
+	 * License: MIT
+	 */
+	
+	(function (root, factory) {
+	  'use strict';
+	
+	  if (true) {
+	    // AMD. Register as an anonymous module.
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') {
+	    // COMMONJS
+	    module.exports = factory();
+	  } else {
+	    // BROWSER
+	    root.Headroom = factory();
+	  }
+	})(undefined, function () {
+	  'use strict';
+	
+	  /* exported features */
+	
+	  var features = {
+	    bind: !!function () {}.bind,
+	    classList: 'classList' in document.documentElement,
+	    rAF: !!(window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame)
+	  };
+	  window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
+	
+	  /**
+	   * Handles debouncing of events via requestAnimationFrame
+	   * @see http://www.html5rocks.com/en/tutorials/speed/animations/
+	   * @param {Function} callback The callback to handle whichever event
+	   */
+	  function Debouncer(callback) {
+	    this.callback = callback;
+	    this.ticking = false;
+	  }
+	  Debouncer.prototype = {
+	    constructor: Debouncer,
+	
+	    /**
+	     * dispatches the event to the supplied callback
+	     * @private
+	     */
+	    update: function update() {
+	      this.callback && this.callback();
+	      this.ticking = false;
+	    },
+	
+	    /**
+	     * ensures events don't get stacked
+	     * @private
+	     */
+	    requestTick: function requestTick() {
+	      if (!this.ticking) {
+	        requestAnimationFrame(this.rafCallback || (this.rafCallback = this.update.bind(this)));
+	        this.ticking = true;
+	      }
+	    },
+	
+	    /**
+	     * Attach this as the event listeners
+	     */
+	    handleEvent: function handleEvent() {
+	      this.requestTick();
+	    }
+	  };
+	  /**
+	   * Check if object is part of the DOM
+	   * @constructor
+	   * @param {Object} obj element to check
+	   */
+	  function isDOMElement(obj) {
+	    return obj && typeof window !== 'undefined' && (obj === window || obj.nodeType);
+	  }
+	
+	  /**
+	   * Helper function for extending objects
+	   */
+	  function extend(object /*, objectN ... */) {
+	    if (arguments.length <= 0) {
+	      throw new Error('Missing arguments in extend function');
+	    }
+	
+	    var result = object || {},
+	        key,
+	        i;
+	
+	    for (i = 1; i < arguments.length; i++) {
+	      var replacement = arguments[i] || {};
+	
+	      for (key in replacement) {
+	        // Recurse into object except if the object is a DOM element
+	        if (_typeof(result[key]) === 'object' && !isDOMElement(result[key])) {
+	          result[key] = extend(result[key], replacement[key]);
+	        } else {
+	          result[key] = result[key] || replacement[key];
+	        }
+	      }
+	    }
+	
+	    return result;
+	  }
+	
+	  /**
+	   * Helper function for normalizing tolerance option to object format
+	   */
+	  function normalizeTolerance(t) {
+	    return t === Object(t) ? t : { down: t, up: t };
+	  }
+	
+	  /**
+	   * UI enhancement for fixed headers.
+	   * Hides header when scrolling down
+	   * Shows header when scrolling up
+	   * @constructor
+	   * @param {DOMElement} elem the header element
+	   * @param {Object} options options for the widget
+	   */
+	  function Headroom(elem, options) {
+	    options = extend(options, Headroom.options);
+	
+	    this.lastKnownScrollY = 0;
+	    this.elem = elem;
+	    this.tolerance = normalizeTolerance(options.tolerance);
+	    this.classes = options.classes;
+	    this.offset = options.offset;
+	    this.scroller = options.scroller;
+	    this.initialised = false;
+	    this.onPin = options.onPin;
+	    this.onUnpin = options.onUnpin;
+	    this.onTop = options.onTop;
+	    this.onNotTop = options.onNotTop;
+	    this.onBottom = options.onBottom;
+	    this.onNotBottom = options.onNotBottom;
+	  }
+	  Headroom.prototype = {
+	    constructor: Headroom,
+	
+	    /**
+	     * Initialises the widget
+	     */
+	    init: function init() {
+	      if (!Headroom.cutsTheMustard) {
+	        return;
+	      }
+	
+	      this.debouncer = new Debouncer(this.update.bind(this));
+	      this.elem.classList.add(this.classes.initial);
+	
+	      // defer event registration to handle browser 
+	      // potentially restoring previous scroll position
+	      setTimeout(this.attachEvent.bind(this), 100);
+	
+	      return this;
+	    },
+	
+	    /**
+	     * Unattaches events and removes any classes that were added
+	     */
+	    destroy: function destroy() {
+	      var classes = this.classes;
+	
+	      this.initialised = false;
+	      this.elem.classList.remove(classes.unpinned, classes.pinned, classes.top, classes.notTop, classes.initial);
+	      this.scroller.removeEventListener('scroll', this.debouncer, false);
+	    },
+	
+	    /**
+	     * Attaches the scroll event
+	     * @private
+	     */
+	    attachEvent: function attachEvent() {
+	      if (!this.initialised) {
+	        this.lastKnownScrollY = this.getScrollY();
+	        this.initialised = true;
+	        this.scroller.addEventListener('scroll', this.debouncer, false);
+	
+	        this.debouncer.handleEvent();
+	      }
+	    },
+	
+	    /**
+	     * Unpins the header if it's currently pinned
+	     */
+	    unpin: function unpin() {
+	      var classList = this.elem.classList,
+	          classes = this.classes;
+	
+	      if (classList.contains(classes.pinned) || !classList.contains(classes.unpinned)) {
+	        classList.add(classes.unpinned);
+	        classList.remove(classes.pinned);
+	        this.onUnpin && this.onUnpin.call(this);
+	      }
+	    },
+	
+	    /**
+	     * Pins the header if it's currently unpinned
+	     */
+	    pin: function pin() {
+	      var classList = this.elem.classList,
+	          classes = this.classes;
+	
+	      if (classList.contains(classes.unpinned)) {
+	        classList.remove(classes.unpinned);
+	        classList.add(classes.pinned);
+	        this.onPin && this.onPin.call(this);
+	      }
+	    },
+	
+	    /**
+	     * Handles the top states
+	     */
+	    top: function top() {
+	      var classList = this.elem.classList,
+	          classes = this.classes;
+	
+	      if (!classList.contains(classes.top)) {
+	        classList.add(classes.top);
+	        classList.remove(classes.notTop);
+	        this.onTop && this.onTop.call(this);
+	      }
+	    },
+	
+	    /**
+	     * Handles the not top state
+	     */
+	    notTop: function notTop() {
+	      var classList = this.elem.classList,
+	          classes = this.classes;
+	
+	      if (!classList.contains(classes.notTop)) {
+	        classList.add(classes.notTop);
+	        classList.remove(classes.top);
+	        this.onNotTop && this.onNotTop.call(this);
+	      }
+	    },
+	
+	    bottom: function bottom() {
+	      var classList = this.elem.classList,
+	          classes = this.classes;
+	
+	      if (!classList.contains(classes.bottom)) {
+	        classList.add(classes.bottom);
+	        classList.remove(classes.notBottom);
+	        this.onBottom && this.onBottom.call(this);
+	      }
+	    },
+	
+	    /**
+	     * Handles the not top state
+	     */
+	    notBottom: function notBottom() {
+	      var classList = this.elem.classList,
+	          classes = this.classes;
+	
+	      if (!classList.contains(classes.notBottom)) {
+	        classList.add(classes.notBottom);
+	        classList.remove(classes.bottom);
+	        this.onNotBottom && this.onNotBottom.call(this);
+	      }
+	    },
+	
+	    /**
+	     * Gets the Y scroll position
+	     * @see https://developer.mozilla.org/en-US/docs/Web/API/Window.scrollY
+	     * @return {Number} pixels the page has scrolled along the Y-axis
+	     */
+	    getScrollY: function getScrollY() {
+	      return this.scroller.pageYOffset !== undefined ? this.scroller.pageYOffset : this.scroller.scrollTop !== undefined ? this.scroller.scrollTop : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+	    },
+	
+	    /**
+	     * Gets the height of the viewport
+	     * @see http://andylangton.co.uk/blog/development/get-viewport-size-width-and-height-javascript
+	     * @return {int} the height of the viewport in pixels
+	     */
+	    getViewportHeight: function getViewportHeight() {
+	      return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+	    },
+	
+	    /**
+	     * Gets the physical height of the DOM element
+	     * @param  {Object}  elm the element to calculate the physical height of which
+	     * @return {int}     the physical height of the element in pixels
+	     */
+	    getElementPhysicalHeight: function getElementPhysicalHeight(elm) {
+	      return Math.max(elm.offsetHeight, elm.clientHeight);
+	    },
+	
+	    /**
+	     * Gets the physical height of the scroller element
+	     * @return {int} the physical height of the scroller element in pixels
+	     */
+	    getScrollerPhysicalHeight: function getScrollerPhysicalHeight() {
+	      return this.scroller === window || this.scroller === document.body ? this.getViewportHeight() : this.getElementPhysicalHeight(this.scroller);
+	    },
+	
+	    /**
+	     * Gets the height of the document
+	     * @see http://james.padolsey.com/javascript/get-document-height-cross-browser/
+	     * @return {int} the height of the document in pixels
+	     */
+	    getDocumentHeight: function getDocumentHeight() {
+	      var body = document.body,
+	          documentElement = document.documentElement;
+	
+	      return Math.max(body.scrollHeight, documentElement.scrollHeight, body.offsetHeight, documentElement.offsetHeight, body.clientHeight, documentElement.clientHeight);
+	    },
+	
+	    /**
+	     * Gets the height of the DOM element
+	     * @param  {Object}  elm the element to calculate the height of which
+	     * @return {int}     the height of the element in pixels
+	     */
+	    getElementHeight: function getElementHeight(elm) {
+	      return Math.max(elm.scrollHeight, elm.offsetHeight, elm.clientHeight);
+	    },
+	
+	    /**
+	     * Gets the height of the scroller element
+	     * @return {int} the height of the scroller element in pixels
+	     */
+	    getScrollerHeight: function getScrollerHeight() {
+	      return this.scroller === window || this.scroller === document.body ? this.getDocumentHeight() : this.getElementHeight(this.scroller);
+	    },
+	
+	    /**
+	     * determines if the scroll position is outside of document boundaries
+	     * @param  {int}  currentScrollY the current y scroll position
+	     * @return {bool} true if out of bounds, false otherwise
+	     */
+	    isOutOfBounds: function isOutOfBounds(currentScrollY) {
+	      var pastTop = currentScrollY < 0,
+	          pastBottom = currentScrollY + this.getScrollerPhysicalHeight() > this.getScrollerHeight();
+	
+	      return pastTop || pastBottom;
+	    },
+	
+	    /**
+	     * determines if the tolerance has been exceeded
+	     * @param  {int} currentScrollY the current scroll y position
+	     * @return {bool} true if tolerance exceeded, false otherwise
+	     */
+	    toleranceExceeded: function toleranceExceeded(currentScrollY, direction) {
+	      return Math.abs(currentScrollY - this.lastKnownScrollY) >= this.tolerance[direction];
+	    },
+	
+	    /**
+	     * determine if it is appropriate to unpin
+	     * @param  {int} currentScrollY the current y scroll position
+	     * @param  {bool} toleranceExceeded has the tolerance been exceeded?
+	     * @return {bool} true if should unpin, false otherwise
+	     */
+	    shouldUnpin: function shouldUnpin(currentScrollY, toleranceExceeded) {
+	      var scrollingDown = currentScrollY > this.lastKnownScrollY,
+	          pastOffset = currentScrollY >= this.offset;
+	
+	      return scrollingDown && pastOffset && toleranceExceeded;
+	    },
+	
+	    /**
+	     * determine if it is appropriate to pin
+	     * @param  {int} currentScrollY the current y scroll position
+	     * @param  {bool} toleranceExceeded has the tolerance been exceeded?
+	     * @return {bool} true if should pin, false otherwise
+	     */
+	    shouldPin: function shouldPin(currentScrollY, toleranceExceeded) {
+	      var scrollingUp = currentScrollY < this.lastKnownScrollY,
+	          pastOffset = currentScrollY <= this.offset;
+	
+	      return scrollingUp && toleranceExceeded || pastOffset;
+	    },
+	
+	    /**
+	     * Handles updating the state of the widget
+	     */
+	    update: function update() {
+	      var currentScrollY = this.getScrollY(),
+	          scrollDirection = currentScrollY > this.lastKnownScrollY ? 'down' : 'up',
+	          toleranceExceeded = this.toleranceExceeded(currentScrollY, scrollDirection);
+	
+	      if (this.isOutOfBounds(currentScrollY)) {
+	        // Ignore bouncy scrolling in OSX
+	        return;
+	      }
+	
+	      if (currentScrollY <= this.offset) {
+	        this.top();
+	      } else {
+	        this.notTop();
+	      }
+	
+	      if (currentScrollY + this.getViewportHeight() >= this.getScrollerHeight()) {
+	        this.bottom();
+	      } else {
+	        this.notBottom();
+	      }
+	
+	      if (this.shouldUnpin(currentScrollY, toleranceExceeded)) {
+	        this.unpin();
+	      } else if (this.shouldPin(currentScrollY, toleranceExceeded)) {
+	        this.pin();
+	      }
+	
+	      this.lastKnownScrollY = currentScrollY;
+	    }
+	  };
+	  /**
+	   * Default options
+	   * @type {Object}
+	   */
+	  Headroom.options = {
+	    tolerance: {
+	      up: 0,
+	      down: 0
+	    },
+	    offset: 0,
+	    scroller: window,
+	    classes: {
+	      pinned: 'headroom--pinned',
+	      unpinned: 'headroom--unpinned',
+	      top: 'headroom--top',
+	      notTop: 'headroom--not-top',
+	      bottom: 'headroom--bottom',
+	      notBottom: 'headroom--not-bottom',
+	      initial: 'headroom'
+	    }
+	  };
+	  Headroom.cutsTheMustard = typeof features !== 'undefined' && features.rAF && features.bind && features.classList;
+	
+	  return Headroom;
+	});
+
+/***/ },
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4942,7 +5849,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	(0, _jquery2['default'])(function () {
 	  if ((0, _jquery2['default'])('.js-Masonry-container').length > 0) {
 	    try {
-	      Masonry = __webpack_require__(26);
+	      Masonry = __webpack_require__(28);
 	    } catch (e) {
 	      /* HEY, I'm IE8 */
 	    }
@@ -4955,7 +5862,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 26 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
@@ -5540,174 +6447,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 
 /***/ },
-/* 27 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _frBypasslinks = __webpack_require__(28);
-	
-	var _frBypasslinks2 = _interopRequireDefault(_frBypasslinks);
-	
-	var _bypasslinks = __webpack_require__(29);
-	
-	var _bypasslinks2 = _interopRequireDefault(_bypasslinks);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	/* eslint-enable */
-	
-	var bypassLinks = (0, _frBypasslinks2['default'])({
-	  selector: '.js-fr-bypasslinks'
-	});
-	
-	/* eslint-disable no-unused-vars */
-	
-	exports['default'] = { bypassLinks: bypassLinks, Frbypasslinks: _frBypasslinks2['default'] };
-	module.exports = exports['default'];
-
-/***/ },
-/* 28 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	/**
-	 * @param {object} options Object containing configuration overrides
-	 */
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	var Frbypasslinks = function Frbypasslinks() {
-		var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-	
-		var _ref$selector = _ref.selector;
-		var selector = _ref$selector === undefined ? '.js-fr-bypasslinks' : _ref$selector;
-	
-	
-		//	CONSTANTS
-		var doc = document;
-		var _q = function _q(el) {
-			var ctx = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : doc;
-			return [].slice.call(ctx.querySelectorAll(el));
-		};
-	
-		//	SUPPORTS
-		if (!('querySelector' in doc) || !('addEventListener' in window)) return;
-	
-		//	SETUP
-		// get bypass links NodeList
-		var container = _q(selector)[0];
-	
-		//	TEMP
-		var currTarget = null;
-	
-		//	ACTIONS
-		function _addFocusability(link) {
-			//	get target element
-			var id = link.getAttribute('href').slice(1);
-			var target = doc.getElementById(id);
-			//	set tabindex to allow focus
-			if (target) target.setAttribute('tabindex', -1);
-		}
-		function _removeFocusability(link) {
-			//	get target element
-			var id = link.getAttribute('href').slice(1);
-			var target = doc.getElementById(id);
-			//	remove ability to focus (stops user highlighting element on click)
-			if (target) target.removeAttribute('tabindex');
-		}
-		function destroy() {
-			//	loop through each bypass link and remove event bindings
-			_q('a', container).forEach(function (link) {
-				_unbindPointerClick(link);
-				_addFocusability(link);
-			});
-			if (currTarget) _unbindTargetBlur(currTarget);
-		}
-	
-		//	EVENTS
-		function _eventPointerClick(e) {
-			//	get target element
-			var id = e.target.getAttribute('href').slice(1);
-			var target = doc.getElementById(id);
-	
-			// don't try to apply relevant atts/focus if target isn't present
-			if (!target) return;
-			//	set tabindex to allow focus
-			target.setAttribute('tabindex', -1);
-			target.focus();
-			//	save target reference
-			currTarget = target;
-			//	bind blur event on target
-			_bindTargetBlur(target);
-		}
-		function _eventTargetBlur(e) {
-			//	remove ability to focus (stops user highlighting element on click)
-			e.target.removeAttribute('tabindex');
-			//	remove target reference
-			currTarget = null;
-			//	unbind blur event
-			_unbindTargetBlur(e.target);
-		}
-	
-		//	BIND EVENTS
-		function _bindPointerClick(link) {
-			//	bind interaction event
-			link.addEventListener('click', _eventPointerClick);
-		}
-		function _bindTargetBlur(target) {
-			//	bind blur event on target element
-			target.addEventListener('blur', _eventTargetBlur);
-		}
-	
-		//	UNBIND EVENTS
-		function _unbindPointerClick(link) {
-			//	unbind interaction event
-			link.removeEventListener('click', _eventPointerClick);
-		}
-		function _unbindTargetBlur(target) {
-			//	unbind blur event on target element
-			target.removeEventListener('blur', _eventTargetBlur);
-		}
-	
-		//	INIT
-		function init() {
-			//	detect if bypass links exist in the document
-			if (!container) return;
-			//	loop through each bypass link
-			_q('a', container).forEach(function (link) {
-				_bindPointerClick(link);
-				_removeFocusability(link);
-			});
-		}
-		init();
-	
-		// REVEAL API
-		return {
-			init: init,
-			destroy: destroy
-		};
-	};
-	
-	// module exports
-	exports['default'] = Frbypasslinks;
-	module.exports = exports['default'];
-
-/***/ },
 /* 29 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 30 */,
-/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5720,943 +6460,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	/*
-	 *	TODO:
-	 *		- arrow up
-	 *		- repack as a frend _component and CSS
-	 *		- refactor without jQuery
-	 */
-	
-	/*
-	 * Porting of http://www.oaa-accessibility.org/examplep/treeview1/
-	 */
-	var Frtreeview = function Frtreeview() {
-	  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-	
-	  var _ref$selector = _ref.selector;
-	  var selector = _ref$selector === undefined ? '.js-fr-treeview' : _ref$selector;
-	  var _ref$openOnClick = _ref.openOnClick;
-	  var openOnClick = _ref$openOnClick === undefined ? true : _ref$openOnClick;
-	  var _ref$classFocused = _ref.classFocused;
-	  var classFocused = _ref$classFocused === undefined ? 'fr-tree-focus' : _ref$classFocused;
-	  var _ref$classParent = _ref.classParent;
-	  var classParent = _ref$classParent === undefined ? 'fr-tree-parent' : _ref$classParent;
-	  var _ref$multiselectable = _ref.multiselectable;
-	  var multiselectable = _ref$multiselectable === undefined ? false : _ref$multiselectable;
-	
-	
-	  var keys = {
-	    tab: 9,
-	    enter: 13,
-	    space: 32,
-	    pageup: 33,
-	    pagedown: 34,
-	    end: 35,
-	    home: 36,
-	    left: 37,
-	    up: 38,
-	    right: 39,
-	    down: 40,
-	    asterisk: 106
-	  };
-	
-	  function _collapseAll(treeview) {
-	    treeview.$parents.each(function () {
-	      if ((0, _jquery2['default'])(this).attr('aria-expanded') == 'false') {
-	        (0, _jquery2['default'])(this).children('ul').attr('aria-hidden', 'true');
-	      }
-	    });
-	    treeview.$visibleItems = treeview.$el.find('li:visible');
-	  }
-	
-	  function _expandGroup(treeview, $item) {
-	    var $group = $item.children('ul');
-	    $group.slideDown(250, function () {
-	      $group.attr('aria-hidden', 'false');
-	      $item.attr('aria-expanded', 'true');
-	      treeview.$visibleItems = treeview.$el.find('li:visible');
-	    });
-	  }
-	
-	  function _collapseGroup(treeview, $item) {
-	    var $group = $item.children('ul');
-	    $group.slideUp(250, function () {
-	      $group.attr('aria-hidden', 'true');
-	      $item.attr('aria-expanded', 'false');
-	      treeview.$visibleItems = treeview.$el.find('li:visible');
-	    });
-	  }
-	
-	  function _collapseSiblings(treeview, $item) {
-	    $item.closest('ul').find('> .' + classParent).not($item).each(function (i, el) {
-	      _collapseGroup(treeview, (0, _jquery2['default'])(el));
-	    });
-	  }
-	
-	  function _toggleGroup(treeview, $item) {
-	    if (!multiselectable) {
-	      _collapseSiblings(treeview, $item);
-	    }
-	    if ($item.attr('aria-expanded') == 'true') {
-	      _collapseGroup(treeview, $item);
-	    } else {
-	      _expandGroup(treeview, $item);
-	    }
-	  }
-	
-	  function _updateStyling(treeview, $item) {
-	    treeview.$items.removeClass(classFocused).attr('tabindex', '-1');
-	    $item.addClass(classFocused).attr('tabindex', '0');
-	  }
-	
-	  function _handleKeyDown(treeview, $item, e) {
-	    var curNdx = treeview.$visibleItems.index($item);
-	
-	    if (e.altKey || e.ctrlKey || e.shiftKey && e.keyCode != keys.tab) {
-	      return true;
-	    }
-	
-	    if (!(0, _jquery2['default'])(e.target).is('[role=treeitem]')) {
-	      return true;
-	    }
-	
-	    switch (e.keyCode) {
-	      case keys.tab:
-	        {
-	          treeview.$activeItem = null;
-	          $item.removeClass(classFocused);
-	          return true;
-	        }
-	
-	      case keys.home:
-	        {
-	          treeview.$activeItem = treeview.$parents.first();
-	          treeview.$activeItem.focus();
-	          e.stopPropagation();
-	          return false;
-	        }
-	
-	      case keys.end:
-	        {
-	          treeview.$activeItem = treeview.$visibleItems.last();
-	          treeview.$activeItem.focus();
-	          e.stopPropagation();
-	          return false;
-	        }
-	
-	      case keys.enter:
-	      case keys.space:
-	        {
-	          if (!$item.is('.' + classParent)) {
-	            // do nothing
-	          } else {
-	            _toggleGroup(treeview, $item);
-	          }
-	          e.stopPropagation();
-	          return false;
-	        }
-	
-	      case keys.left:
-	        {
-	          if ($item.is('.' + classParent) && $item.attr('aria-expanded') == 'true') {
-	            _collapseGroup(treeview, $item);
-	          } else {
-	            var $itemUL = $item.parent();
-	            var $itemParent = $itemUL.parent();
-	            treeview.$activeItem = $itemParent;
-	            treeview.$activeItem.focus();
-	          }
-	          e.stopPropagation();
-	          return false;
-	        }
-	
-	      case keys.right:
-	        {
-	          if (!$item.is('.' + classParent)) {
-	            // do nothing
-	          } else if ($item.attr('aria-expanded') == 'false') {
-	            _expandGroup(treeview, $item);
-	          } else {
-	            treeview.$activeItem = $item.children('ul').children('li').first();
-	            treeview.$activeItem.focus();
-	          }
-	          e.stopPropagation();
-	          return false;
-	        }
-	
-	      case keys.up:
-	        {
-	          if (curNdx > 0) {
-	            var $prev = treeview.$visibleItems.eq(curNdx - 1);
-	            treeview.$activeItem = $prev;
-	            $prev.focus();
-	          }
-	          e.stopPropagation();
-	          return false;
-	        }
-	
-	      case keys.down:
-	        {
-	          if (curNdx < treeview.$visibleItems.length - 1) {
-	            var $next = treeview.$visibleItems.eq(curNdx + 1);
-	            treeview.$activeItem = $next;
-	            $next.focus();
-	          }
-	          e.stopPropagation();
-	          return false;
-	        }
-	
-	      case keys.asterisk:
-	        {
-	          treeview.$parents.each(function () {
-	            _expandGroup(treeview, (0, _jquery2['default'])(this));
-	          });
-	          e.stopPropagation();
-	          return false;
-	        }
-	
-	    }
-	    return true;
-	  }
-	
-	  function _handleKeyPress(treeview, $item, e) {
-	    if (e.altKey || e.ctrlKey || e.shiftKey) {
-	      // do nothing
-	      return true;
-	    }
-	
-	    switch (e.keyCode) {
-	      case keys.tab:
-	        {
-	          return true;
-	        }
-	      case keys.enter:
-	      case keys.home:
-	      case keys.end:
-	      case keys.left:
-	      case keys.right:
-	      case keys.up:
-	      case keys.down:
-	        {
-	          e.stopPropagation();
-	          return false;
-	        }
-	      default:
-	        {
-	          var chr = String.fromCharCode(e.which);
-	          var bMatch = false;
-	          var itemNdx = treeview.$visibleItems.index($item);
-	          var itemCnt = treeview.$visibleItems.length;
-	          var curNdx = itemNdx + 1;
-	
-	          // check if the active item was the last one on the list
-	          if (curNdx == itemCnt) {
-	            curNdx = 0;
-	          }
-	
-	          // Iterate through the menu items (starting from the current item and wrapping) until a match is found
-	          // or the loop returns to the current menu item
-	          while (curNdx != itemNdx) {
-	
-	            var $curItem = treeview.$visibleItems.eq(curNdx);
-	            var titleChr = $curItem.text().charAt(0);
-	
-	            if ($curItem.is('.' + classParent)) {
-	              titleChr = $curItem.find('span').text().charAt(0);
-	            }
-	
-	            if (titleChr.toLowerCase() == chr) {
-	              bMatch = true;
-	              break;
-	            }
-	
-	            curNdx = curNdx + 1;
-	
-	            if (curNdx == itemCnt) {
-	              // reached the end of the list, start again at the beginning
-	              curNdx = 0;
-	            }
-	          }
-	
-	          if (bMatch == true) {
-	            treeview.$activeItem = treeview.$visibleItems.eq(curNdx);
-	            treeview.$activeItem.focus();
-	          }
-	
-	          e.stopPropagation();
-	          return false;
-	        }
-	    }
-	
-	    return true;
-	  }
-	
-	  function _handleDblClick(treeview, $item, e) {
-	    if (e.altKey || e.ctrlKey || e.shiftKey) {
-	      // do nothing
-	      return true;
-	    }
-	
-	    if (!(0, _jquery2['default'])(e.target).parent().is('[aria-expanded]')) {
-	      return true;
-	    }
-	
-	    treeview.$activeItem = $item;
-	    _updateStyling(treeview, $item);
-	    _toggleGroup(treeview, $item);
-	    e.stopPropagation();
-	    return false;
-	  }
-	
-	  function _handleClick(treeview, $item, e) {
-	    if (e.altKey || e.ctrlKey || e.shiftKey) {
-	      // do nothing
-	      return true;
-	    }
-	
-	    if (!(0, _jquery2['default'])(e.target).parent().is('[aria-expanded]')) {
-	      return true;
-	    }
-	
-	    treeview.$activeItem = treeview.$el;
-	    _updateStyling(treeview, $item);
-	    e.stopPropagation();
-	    return false;
-	  }
-	
-	  function _bindEvents(treeview) {
-	    if (openOnClick) {
-	      treeview.$parents.click(function (e) {
-	        return _handleDblClick(treeview, (0, _jquery2['default'])(this), e);
-	      });
-	    } else {
-	      treeview.$parents.click(function (e) {
-	        return _handleDblClick(treeview, (0, _jquery2['default'])(this), e);
-	      });
-	      treeview.$items.click(function (e) {
-	        return _handleClick(treeview, (0, _jquery2['default'])(this), e);
-	      });
-	    }
-	
-	    treeview.$items.keydown(function (e) {
-	      return _handleKeyDown(treeview, (0, _jquery2['default'])(this), e);
-	    });
-	
-	    treeview.$items.keypress(function (e) {
-	      return _handleKeyPress(treeview, (0, _jquery2['default'])(this), e);
-	    });
-	
-	    (0, _jquery2['default'])(document).click(function () {
-	      if (treeview.$activeItem != null) {
-	        treeview.$activeItem.removeClass(classFocused);
-	        treeview.$activeItem = null;
-	      }
-	      return true;
-	    });
-	  }
-	
-	  function destroy() {
-	    /* TODO */
-	  }
-	
-	  function _addA11y($el) {
-	    $el.attr('role', 'tree');
-	
-	    // Put role="treeitem" on every LI
-	    // Put aria-expanded="false" on every LI (if it has no aria-expanded attr)
-	    // Put tabindex="-1" on every LI (if it's not the first one)
-	    // Put class=<classParent> on every LI that contains an UL
-	    $el.find('li').each(function (i, li) {
-	      var $li = (0, _jquery2['default'])(li);
-	      $li.attr('role', 'treeitem').attr('tabindex', 0 === i ? '0' : '-1');
-	      //  .find('a[href]').not('[href^=#]').attr('tabindex', 0)
-	      //  .parent().attr('aria-label', function() { return $(this).text() })
-	      if ($li.find('ul').length !== 0) {
-	        if (!li.hasAttribute('aria-expanded')) {
-	          $li.attr('aria-expanded', 'false');
-	        }
-	        $li.addClass(classParent);
-	      }
-	    });
-	    // Put role="group" on every contained UL
-	    $el.find('ul').attr('role', 'group');
-	  }
-	
-	  function init() {
-	    (0, _jquery2['default'])(selector).each(function (_, treeviewContainer) {
-	      var $el = (0, _jquery2['default'])(treeviewContainer);
-	      _addA11y($el);
-	      var treeview = {
-	        $el: $el,
-	        $items: $el.find('li'),
-	        $parents: $el.find('.' + classParent),
-	        $visibleItems: null,
-	        $activeItem: null
-	      };
-	      _collapseAll(treeview);
-	      _bindEvents(treeview);
-	    });
-	  }
-	
-	  init();
-	
-	  // REVEAL API
-	  return {
-	    init: init,
-	    destroy: destroy
-	  };
-	};
-	
-	new Frtreeview();
-	
-	exports['default'] = {
-	  Frtreeview: Frtreeview
-	};
-	module.exports = exports['default'];
-
-/***/ },
-/* 32 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _jquery = __webpack_require__(4);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
-	var _offcanvas = __webpack_require__(33);
-	
-	var _offcanvas2 = _interopRequireDefault(_offcanvas);
-	
-	var _offcanvas3 = __webpack_require__(34);
-	
-	var _offcanvas4 = _interopRequireDefault(_offcanvas3);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	/* eslint-enable */
-	
-	var opts = {
-	  // String - panel
-	  panelSelector: '.Offcanvas',
-	
-	  // String - content
-	  contentSelector: '.Offcanvas-content',
-	
-	  // String - content
-	  modalSelector: '.Offcanvas--modal',
-	
-	  // String - trigger
-	  jsSelector: '.js-fr-offcanvas-open',
-	
-	  // String - Selector for the open button(s)
-	  openSelector: '.js-fr-offcanvas-open',
-	
-	  // String - Selector for the close button
-	  closeSelector: '.js-fr-offcanvas-close',
-	
-	  // String - Class name that will be added to the selector when the component has been initialised
-	  readyClass: 'is-ready',
-	
-	  // String - Class name that will be added to the selector when the panel is visible
-	  activeClass: 'is-active'
-	};
-	
-	/*
-	 *  Prevent scroll on body when offcanvas is visible
-	 *  (the touchmove handler targets iOS devices)
-	 */
-	
-	
-	/* eslint-disable no-unused-vars */
-	
-	var _handleModalScroll = function _handleModalScroll() {
-	  (0, _jquery2['default'])(opts.contentSelector).on('transitionend', function () {
-	    if (!(0, _jquery2['default'])(opts.panelSelector).hasClass(opts.activeClass)) {
-	      (0, _jquery2['default'])(window).off('scroll.offcanvas');
-	      (0, _jquery2['default'])(document).off('touchmove.offcanvas');
-	    } else {
-	      (function () {
-	        var _scrollTop = (0, _jquery2['default'])(window).scrollTop();
-	        (0, _jquery2['default'])(window).on('scroll.offcanvas', function () {
-	          return (0, _jquery2['default'])(window).scrollTop(_scrollTop);
-	        });
-	        (0, _jquery2['default'])(document).on('touchmove.offcanvas', function () {
-	          return (0, _jquery2['default'])(window).scrollTop(_scrollTop);
-	        });
-	      })();
-	    }
-	  });
-	};
-	
-	/*
-	 *	FIXME: hack to show / hide the background panel
-	 */
-	var _handleModal = function _handleModal(e) {
-	  if (e && (0, _jquery2['default'])(opts.panelSelector).hasClass(opts.activeClass) && !(0, _jquery2['default'])(e.target).is(opts.contentSelector)) {
-	    // for some odd reason plain jquery click() does not work here
-	    // // so we add that get(0) call
-	    (0, _jquery2['default'])(opts.closeSelector).get(0).click();
-	  }
-	  // we're using "one" here instead of "bind" because
-	  // otherwise $(opts.closeSelector).click() would trigger
-	  // a click on modal again looping forever
-	  (0, _jquery2['default'])(opts.modalSelector).one('click', _handleModal);
-	};
-	
-	var _exports = {
-	  Froffcanvas: _offcanvas2['default'],
-	  opts: opts
-	};
-	
-	(0, _jquery2['default'])(document).ready(function () {
-	  var _scrollTop = (0, _jquery2['default'])(window).scrollTop();
-	
-	  (0, _jquery2['default'])(opts.openSelector).add((0, _jquery2['default'])(opts.closeSelector)).click(function (e) {
-	    _scrollTop = (0, _jquery2['default'])(window).scrollTop();
-	    e.preventDefault();
-	  });
-	
-	  (0, _jquery2['default'])(opts.panelSelector).on('focus', function () {
-	    (0, _jquery2['default'])(window).scrollTop(_scrollTop);
-	  });
-	
-	  _handleModal();
-	  _handleModalScroll();
-	
-	  _exports.offcanvas = (0, _offcanvas2['default'])(opts);
-	});
-	
-	exports['default'] = _exports;
-	module.exports = exports['default'];
-
-/***/ },
-/* 33 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	// Polyfill matches as per https://github.com/jonathantneal/closest
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	Element.prototype.matches = Element.prototype.matches || Element.prototype.mozMatchesSelector || Element.prototype.msMatchesSelector || Element.prototype.oMatchesSelector || Element.prototype.webkitMatchesSelector;
-	
-	/**
-	 * @param {object} options Object containing configuration overrides
-	 */
-	var Froffcanvas = function Froffcanvas() {
-	  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-	
-	  var _ref$selector = _ref.selector;
-	  var selector = _ref$selector === undefined ? '.js-fr-offcanvas' : _ref$selector;
-	  var _ref$openSelector = _ref.openSelector;
-	  var openSelector = _ref$openSelector === undefined ? '.js-fr-offcanvas-open' : _ref$openSelector;
-	  var _ref$closeSelector = _ref.closeSelector;
-	  var closeSelector = _ref$closeSelector === undefined ? '.js-fr-offcanvas-close' : _ref$closeSelector;
-	  var _ref$readyClass = _ref.readyClass;
-	  var readyClass = _ref$readyClass === undefined ? 'fr-offcanvas--is-ready' : _ref$readyClass;
-	  var _ref$activeClass = _ref.activeClass;
-	  var activeClass = _ref$activeClass === undefined ? 'fr-offcanvas--is-active' : _ref$activeClass;
-	
-	
-	  //  CONSTANTS
-	  var doc = document;
-	  var docEl = doc.documentElement;
-	  var _q = function _q(el) {
-	    var ctx = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : doc;
-	    return [].slice.call(ctx.querySelectorAll(el));
-	  };
-	
-	  //  SUPPORTS
-	  if (!('querySelector' in doc) || !('addEventListener' in window) || !docEl.classList) return;
-	
-	  //  SETUP
-	  // set offcanvas element NodeLists
-	  var panels = _q(selector);
-	
-	  //  TEMP
-	  var currButtonOpen = null;
-	  var currPanel = null;
-	
-	  //  UTILS
-	  function _defer(fn) {
-	    //  wrapped in setTimeout to delay binding until previous rendering has completed
-	    if (typeof fn === 'function') setTimeout(fn, 0);
-	  }
-	  function _closest(el, selector) {
-	    while (el) {
-	      if (el.matches(selector)) break;
-	      el = el.parentElement;
-	    }
-	    return el;
-	  }
-	  function _getPanelId(panel) {
-	    return panel.getAttribute('id');
-	  }
-	
-	  //  A11Y
-	  function _addA11y(panel) {
-	    //  add aria-hidden attribute
-	    panel.setAttribute('aria-hidden', true);
-	  }
-	  function _removeA11y(panel) {
-	    //  remove aria-hidden attribute
-	    panel.removeAttribute('aria-hidden');
-	  }
-	
-	  //  ACTIONS
-	  function _showPanel(panel) {
-	    //  set visibility to override any previous set style
-	    panel.style.visibility = 'visible';
-	    //  remove aria-hidden, add focus
-	    panel.setAttribute('aria-hidden', false);
-	    panel.setAttribute('tabindex', -1);
-	    panel.focus();
-	    //  sort out events
-	    _defer(_unbindOpenPointer);
-	    _defer(_bindDocKey);
-	    _defer(_bindDocClick);
-	    _defer(_bindClosePointer);
-	    //  reset scroll position
-	    panel.scrollTop = 0;
-	    //  add active class
-	    panel.classList.add(activeClass);
-	  }
-	  function _hidePanel() {
-	    var panel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : currPanel;
-	    var returnfocus = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-	
-	    //  add aria-hidden, remove focus
-	    panel.setAttribute('aria-hidden', true);
-	    panel.removeAttribute('tabindex');
-	    panel.blur();
-	    //  set visibility to override any previous set style
-	    panel.style.visibility = 'hidden';
-	    //  sort out events
-	    _unbindClosePointer(panel);
-	    _unbindDocKey();
-	    _unbindDocClick();
-	    _bindOpenPointer(panel);
-	    //  remove active class
-	    panel.classList.remove(activeClass);
-	    //  return focus to button that opened the panel and reset the reference
-	    if (returnfocus) {
-	      currButtonOpen.focus();
-	      currButtonOpen = null;
-	    }
-	  }
-	  function destroy() {
-	    panels.forEach(function (panel) {
-	      //  remove attributes
-	      _removeA11y(panel);
-	      //  unbind local events
-	      _unbindOpenPointer(panel);
-	      _unbindClosePointer(panel);
-	      //  remove class
-	      panel.classList.remove(readyClass);
-	      panel.classList.remove(activeClass);
-	      panel.style.visibility = '';
-	    });
-	    //  unbind global events
-	    _unbindDocClick();
-	    _unbindDocKey();
-	    //  reset temp references
-	    currButtonOpen = null;
-	    currPanel = null;
-	  }
-	
-	  //  EVENTS
-	  function _eventOpenPointer(e) {
-	    //  get panel
-	    var panelId = e.currentTarget.getAttribute('aria-controls');
-	    var panel = doc.getElementById(panelId);
-	    //  hide any open panels
-	    if (currPanel) _hidePanel(currPanel, false);
-	    //  save temp panel/button
-	    currButtonOpen = e.currentTarget;
-	    currPanel = panel;
-	    //  show
-	    _showPanel(panel);
-	  }
-	  function _eventClosePointer() {
-	    _hidePanel();
-	  }
-	  function _eventDocClick(e) {
-	    //  check if target is panel or child of
-	    var isPanel = e.target === currPanel;
-	    var isPanelChild = _closest(e.target, selector);
-	    if (!isPanel && !isPanelChild) _hidePanel();
-	  }
-	  function _eventDocKey(e) {
-	    //  esc key
-	    if (e.keyCode === 27) _hidePanel();
-	  }
-	
-	  //  BIND EVENTS
-	  function _bindOpenPointer(panel) {
-	    var openButtons = _q(openSelector + '[aria-controls="' + _getPanelId(panel) + '"]'); // is this selector totally crazy?
-	    openButtons.forEach(function (button) {
-	      return button.addEventListener('click', _eventOpenPointer);
-	    });
-	  }
-	  function _bindClosePointer() {
-	    var panel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : currPanel;
-	
-	    var closeButton = _q(closeSelector, panel)[0];
-	    closeButton.addEventListener('click', _eventClosePointer);
-	  }
-	  function _bindDocClick() {
-	    doc.addEventListener('click', _eventDocClick);
-	  }
-	  function _bindDocKey() {
-	    doc.addEventListener('keydown', _eventDocKey);
-	  }
-	
-	  //  UNBIND EVENTS
-	  function _unbindOpenPointer() {
-	    var panel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : currPanel;
-	
-	    var openButtons = _q(openSelector + '[aria-controls="' + _getPanelId(panel) + '"]'); // yep its totally crazy
-	    openButtons.forEach(function (button) {
-	      return button.removeEventListener('click', _eventOpenPointer);
-	    });
-	  }
-	  function _unbindClosePointer() {
-	    var panel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : currPanel;
-	
-	    var closeButton = _q(closeSelector, panel)[0];
-	    closeButton.removeEventListener('click', _eventClosePointer);
-	  }
-	  function _unbindDocClick() {
-	    doc.removeEventListener('click', _eventDocClick);
-	  }
-	  function _unbindDocKey() {
-	    doc.removeEventListener('keydown', _eventDocKey);
-	  }
-	
-	  //  INIT
-	  function init() {
-	    if (!panels) return;
-	    //  loop through each offcanvas element
-	    panels.forEach(function (panel) {
-	      _addA11y(panel);
-	      _bindOpenPointer(panel);
-	      panel.classList.add(readyClass);
-	    });
-	  }
-	  init();
-	
-	  // REVEAL API
-	  return {
-	    init: init,
-	    destroy: destroy
-	  };
-	};
-	
-	// module exports
-	exports['default'] = Froffcanvas;
-	module.exports = exports['default'];
-
-/***/ },
-/* 34 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 35 */,
-/* 36 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _jquery = __webpack_require__(4);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
-	var _headroom = __webpack_require__(40);
-	
-	var _headroom2 = _interopRequireDefault(_headroom);
-	
-	var _throttle = __webpack_require__(8);
-	
-	var _throttle2 = _interopRequireDefault(_throttle);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	// Headroom for fixed sticky header
-	
-	var myElement = document.querySelector('header');
-	
-	var opts = {
-	    // vertical offset in px before element is first unpinned
-	    offset: 0,
-	    // you can specify tolerance individually for up/down scroll
-	    tolerance: {
-	        up: 20,
-	        down: 10
-	    },
-	    // css classes to apply
-	    classes: {
-	        // when element is initialised
-	        initial: 'Headroom',
-	        // when scrolling up
-	        pinned: 'Headroom--pinned',
-	        // when scrolling down
-	        unpinned: 'Headroom--unpinned',
-	        // when above offset
-	        top: 'Headroom--top',
-	        // when below offset
-	        notTop: 'Headroom--not-top',
-	        // when at bottom of scoll area
-	        bottom: 'Headroom--bottom',
-	        // when not at bottom of scroll area
-	        notBottom: 'Headroom--not-bottom'
-	    },
-	    // element to listen to scroll events on, defaults to `window`
-	    scroller: window,
-	    // callback when pinned, `this` is headroom object
-	    onPin: function onPin() {},
-	    // callback when unpinned, `this` is headroom object
-	    onUnpin: function onUnpin() {},
-	    // callback when above offset, `this` is headroom object
-	    onTop: function onTop() {},
-	    // callback when below offset, `this` is headroom object
-	    onNotTop: function onNotTop() {},
-	    // callback when at bottom of page, `this` is headroom object
-	    onBottom: function onBottom() {},
-	    // callback when moving away from bottom of page, `this` is headroom object
-	    onNotBottom: function onNotBottom() {}
-	};
-	
-	var headroom = null;
-	
-	var _adjustOffset = function _adjustOffset() {
-	    if ((0, _jquery2['default'])('#Imageheader').length) {
-	        opts.offset = (0, _jquery2['default'])('#Imageheader').height();
-	    } else {
-	        opts.offset = (0, _jquery2['default'])(myElement).height() / 2;
-	    }
-	};
-	
-	if (myElement) {
-	    _adjustOffset();
-	    headroom = new _headroom2['default'](myElement, opts);
-	    headroom.init();
-	}
-	
-	/*
-	 *	Make space when using fixed header.
-	 *
-	 *		The no-js alternative is to set up body padding inside CSS
-	 *	 	assuming you know the exact header height in pixel
-	 *	 	(expanded and minimized for all viewport width)
-	 */
-	var headroomFixed = '.Headroom--fixed';
-	
-	if ((0, _jquery2['default'])('.' + opts.classes.initial).is(headroomFixed)) {
-	    (function () {
-	        var INTERVAL = 250;
-	
-	        var windowWidth = (0, _jquery2['default'])(window).width();
-	
-	        // Needs to be here due to CSS transition (see on Safari)
-	        var headerHeight = (0, _jquery2['default'])(headroomFixed).height();
-	
-	        var _adjustPadding = function _adjustPadding() {
-	            var paddingTop = headerHeight;
-	
-	            (0, _jquery2['default'])('body').css({
-	                paddingTop: paddingTop + 'px'
-	            });
-	        };
-	
-	        // Set up padding on page load
-	        (0, _jquery2['default'])(document).ready(function () {
-	            (0, _jquery2['default'])(headroomFixed).css({
-	                position: 'fixed',
-	                top: 0
-	            });
-	            _adjustPadding();
-	        });
-	
-	        // Make padding respond to window resize
-	        (0, _jquery2['default'])(window).resize((0, _throttle2['default'])(INTERVAL, function () {
-	            var newWindowWidth = (0, _jquery2['default'])(window).width();
-	            var height = (0, _jquery2['default'])(headroomFixed).height();
-	            // Android browser triggers a resize event on scroll to top
-	            // so we check for changes in window width
-	            if (newWindowWidth !== windowWidth) {
-	                windowWidth = newWindowWidth;
-	                headerHeight = height;
-	                setTimeout(_adjustPadding, INTERVAL);
-	                _adjustOffset();
-	                headroom.offset = opts.offset;
-	            }
-	        }));
-	
-	        (0, _jquery2['default'])(headroomFixed).on('transitionend', (0, _throttle2['default'])(INTERVAL, function () {
-	            var height = (0, _jquery2['default'])(this).height();
-	            if (headerHeight < height) {
-	                // This happens *only* after a resize
-	                // _and_ when scrolling to top
-	                headerHeight = height;
-	                _adjustPadding();
-	            }
-	        }));
-	    })();
-	}
-	
-	/*
-	 *  Toggle search-form visibility for mobile
-	 */
-	(0, _jquery2['default'])('.js-Header-search-trigger').click(function (e) {
-	    (0, _jquery2['default'])('.js-Header-search-trigger').each(function (i, el) {
-	        var $el = (0, _jquery2['default'])(el);
-	        if ('true' === $el.attr('aria-hidden')) {
-	            $el.attr('aria-hidden', 'false');
-	            $el.removeClass('u-hiddenVisually');
-	        } else {
-	            $el.attr('aria-hidden', 'true');
-	            $el.addClass('u-hiddenVisually');
-	        }
-	    });
-	    (0, _jquery2['default'])('#' + (0, _jquery2['default'])(e.target).attr('aria-controls')).toggleClass('is-active');
-	});
-	
-	exports['default'] = {
-	    Headroom: _headroom2['default'],
-	    headroom: headroom
-	};
-	module.exports = exports['default'];
-
-/***/ },
-/* 37 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _jquery = __webpack_require__(4);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
-	var _megamenu = __webpack_require__(38);
+	var _megamenu = __webpack_require__(30);
 	
 	var _megamenu2 = _interopRequireDefault(_megamenu);
 	
@@ -6666,6 +6470,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	(0, _jquery2['default'])('.js-megamenu').addClass('is-ready');
 	
 	var opts = {
+	  /* add a close button to every subnav */
+	  addCloseButton: false,
+	
+	  closeButtonClass: 'js-Megamenu-close',
+	
+	  closeButtonTemplate: '<button title="chiudi il menu" class="Megamenu-close js-Megamenu-close">\n    <span class="Icon Icon-close"></span><span class="u-hiddenVisually">chiudi</span></button>',
+	
 	  /* if false open menu on hover */
 	  openOnClick: true,
 	
@@ -6703,9 +6514,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	var listToMegaMenu = function listToMegaMenu($ul, _opts) {
 	  var attrs = 'class aria-expanded aria-hidden role tabindex';
 	  return $ul.clone().removeAttr(attrs).addClass(_opts.menuListClass).find('*').removeAttr(attrs).end().find('> li').each(function (i, li) {
-	    (0, _jquery2['default'])(li).addClass(_opts.topNavItemClass).find('a')
+	    (0, _jquery2['default'])(li).addClass(function () {
+	      var className = (0, _jquery2['default'])(this).data('megamenu-class');
+	      return className ? className : _opts.topNavItemClass;
+	    }).find('[data-megamenu-class]').addClass(function () {
+	      return (0, _jquery2['default'])(this).data('megamenu-class');
+	    }).end().find('a')
 	    // make item tabbable, this is required !
-	    .attr('href', '#').end().find('> ul > li').unwrap().wrap('<ul class="' + _opts.panelGroupClass + '" />').end().find('> ul').wrapAll('<div class="' + _opts.panelClass + '" />');
+	    // .attr('href', '#')
+	    .end().find('> ul > li').unwrap().wrap('<ul class="' + _opts.panelGroupClass + '" />').end().find('> ul').wrapAll('<div class="' + _opts.panelClass + '" />');
 	  }).end();
 	};
 	
@@ -6713,6 +6530,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  (0, _jquery2['default'])('.js-megamenu').each(function (i, el) {
 	    var $el = (0, _jquery2['default'])(el);
 	    var rel = (0, _jquery2['default'])(el).data('rel');
+	
 	    if ($el.find('ul').length === 0 && rel && (0, _jquery2['default'])(rel).length > 0) {
 	      var $menu = listToMegaMenu((0, _jquery2['default'])(rel), opts);
 	      $el.append($menu);
@@ -6723,7 +6541,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	      }
 	    }
+	
 	    $el.accessibleMegaMenu(opts);
+	
+	    if (opts.addCloseButton) {
+	      (0, _jquery2['default'])(opts.closeButtonTemplate).appendTo((0, _jquery2['default'])('.' + opts.panelClass));
+	    }
+	
+	    (0, _jquery2['default'])('.' + opts.closeButtonClass).on('click', function () {
+	      var e = _jquery2['default'].Event('keydown');
+	      e.which = 27;
+	      (0, _jquery2['default'])('.' + opts.menuClass).trigger(e);
+	      return false;
+	    });
 	  });
 	});
 	
@@ -6735,7 +6565,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 38 */
+/* 30 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -7412,7 +7242,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        topnavitems.each(function (i, topnavitem) {
 	          var topnavitemlink, topnavitempanel;
 	          topnavitem = $(topnavitem);
-	          topnavitem.addClass(settings.topNavItemClass);
+	          // @FIXME: Add classed manually !!!
+	          // topnavitem.addClass(settings.topNavItemClass)
 	          topnavitemlink = topnavitem.find(':tabbable:first');
 	          topnavitempanel = topnavitem.children(':not(:tabbable):last');
 	          _addUniqueId.call(that, topnavitemlink);
@@ -7583,7 +7414,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	})(jQuery, window, document);
 
 /***/ },
-/* 39 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7596,7 +7427,393 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	var _throttle = __webpack_require__(8);
+	var _offcanvas = __webpack_require__(32);
+	
+	var _offcanvas2 = _interopRequireDefault(_offcanvas);
+	
+	var _offcanvas3 = __webpack_require__(33);
+	
+	var _offcanvas4 = _interopRequireDefault(_offcanvas3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	/* eslint-enable */
+	
+	var opts = {
+	  // String - panel
+	  panelSelector: '.Offcanvas',
+	
+	  // String - content
+	  contentSelector: '.Offcanvas-content',
+	
+	  // String - content
+	  modalSelector: '.Offcanvas--modal',
+	
+	  // String - trigger
+	  jsSelector: '.js-fr-offcanvas-open',
+	
+	  // String - Selector for the open button(s)
+	  openSelector: '.js-fr-offcanvas-open',
+	
+	  // String - Selector for the close button
+	  closeSelector: '.js-fr-offcanvas-close',
+	
+	  // String - Class name that will be added to the selector when the component has been initialised
+	  readyClass: 'is-ready',
+	
+	  // String - Class name that will be added to the selector when the panel is visible
+	  activeClass: 'is-active'
+	};
+	
+	/*
+	 *  Prevent scroll on body when offcanvas is visible
+	 *  (the touchmove handler targets iOS devices)
+	 */
+	
+	
+	/* eslint-disable no-unused-vars */
+	
+	var _handleModalScroll = function _handleModalScroll() {
+	  (0, _jquery2['default'])(opts.contentSelector).on('transitionend', function () {
+	    if (!(0, _jquery2['default'])(opts.panelSelector).hasClass(opts.activeClass)) {
+	      (0, _jquery2['default'])(window).off('scroll.offcanvas');
+	      (0, _jquery2['default'])(document).off('touchmove.offcanvas');
+	    } else {
+	      (function () {
+	        var _scrollTop = (0, _jquery2['default'])(window).scrollTop();
+	        (0, _jquery2['default'])(window).on('scroll.offcanvas', function () {
+	          return (0, _jquery2['default'])(window).scrollTop(_scrollTop);
+	        });
+	        (0, _jquery2['default'])(document).on('touchmove.offcanvas', function () {
+	          return (0, _jquery2['default'])(window).scrollTop(_scrollTop);
+	        });
+	      })();
+	    }
+	  });
+	};
+	
+	/*
+	 *	FIXME: hack to show / hide the background panel
+	 */
+	var _handleModal = function _handleModal(e) {
+	  if (e && (0, _jquery2['default'])(opts.panelSelector).hasClass(opts.activeClass) && !(0, _jquery2['default'])(e.target).is(opts.contentSelector)) {
+	    // for some odd reason plain jquery click() does not work here
+	    // // so we add that get(0) call
+	    (0, _jquery2['default'])(opts.closeSelector).get(0).click();
+	  }
+	  // we're using "one" here instead of "bind" because
+	  // otherwise $(opts.closeSelector).click() would trigger
+	  // a click on modal again looping forever
+	  (0, _jquery2['default'])(opts.modalSelector).one('click', _handleModal);
+	};
+	
+	var _exports = {
+	  Froffcanvas: _offcanvas2['default'],
+	  opts: opts
+	};
+	
+	(0, _jquery2['default'])(document).ready(function () {
+	  var _scrollTop = (0, _jquery2['default'])(window).scrollTop();
+	
+	  (0, _jquery2['default'])(opts.openSelector).add((0, _jquery2['default'])(opts.closeSelector)).click(function (e) {
+	    _scrollTop = (0, _jquery2['default'])(window).scrollTop();
+	    e.preventDefault();
+	  });
+	
+	  (0, _jquery2['default'])(opts.panelSelector).on('focus', function () {
+	    (0, _jquery2['default'])(window).scrollTop(_scrollTop);
+	  });
+	
+	  _handleModal();
+	  _handleModalScroll();
+	
+	  _exports.offcanvas = (0, _offcanvas2['default'])(opts);
+	});
+	
+	exports['default'] = _exports;
+	module.exports = exports['default'];
+
+/***/ },
+/* 32 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	// Polyfill matches as per https://github.com/jonathantneal/closest
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	Element.prototype.matches = Element.prototype.matches || Element.prototype.mozMatchesSelector || Element.prototype.msMatchesSelector || Element.prototype.oMatchesSelector || Element.prototype.webkitMatchesSelector;
+	
+	/**
+	 * @param {object} options Object containing configuration overrides
+	 */
+	var Froffcanvas = function Froffcanvas() {
+	  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	
+	  var _ref$selector = _ref.selector;
+	  var selector = _ref$selector === undefined ? '.js-fr-offcanvas' : _ref$selector;
+	  var _ref$openSelector = _ref.openSelector;
+	  var openSelector = _ref$openSelector === undefined ? '.js-fr-offcanvas-open' : _ref$openSelector;
+	  var _ref$closeSelector = _ref.closeSelector;
+	  var closeSelector = _ref$closeSelector === undefined ? '.js-fr-offcanvas-close' : _ref$closeSelector;
+	  var _ref$readyClass = _ref.readyClass;
+	  var readyClass = _ref$readyClass === undefined ? 'fr-offcanvas--is-ready' : _ref$readyClass;
+	  var _ref$activeClass = _ref.activeClass;
+	  var activeClass = _ref$activeClass === undefined ? 'fr-offcanvas--is-active' : _ref$activeClass;
+	
+	
+	  //  CONSTANTS
+	  var doc = document;
+	  var docEl = doc.documentElement;
+	  var _q = function _q(el) {
+	    var ctx = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : doc;
+	    return [].slice.call(ctx.querySelectorAll(el));
+	  };
+	
+	  //  SUPPORTS
+	  if (!('querySelector' in doc) || !('addEventListener' in window) || !docEl.classList) return;
+	
+	  //  SETUP
+	  // set offcanvas element NodeLists
+	  var panels = _q(selector);
+	
+	  //  TEMP
+	  var currButtonOpen = null;
+	  var currPanel = null;
+	
+	  //  UTILS
+	  function _defer(fn) {
+	    //  wrapped in setTimeout to delay binding until previous rendering has completed
+	    if (typeof fn === 'function') setTimeout(fn, 0);
+	  }
+	  function _closest(el, selector) {
+	    while (el) {
+	      if (el.matches(selector)) break;
+	      el = el.parentElement;
+	    }
+	    return el;
+	  }
+	  function _getPanelId(panel) {
+	    return panel.getAttribute('id');
+	  }
+	
+	  //  A11Y
+	  function _addA11y(panel) {
+	    //  add aria-hidden attribute
+	    panel.setAttribute('aria-hidden', true);
+	  }
+	  function _removeA11y(panel) {
+	    //  remove aria-hidden attribute
+	    panel.removeAttribute('aria-hidden');
+	  }
+	
+	  //  ACTIONS
+	  function _showPanel(panel) {
+	    //  set visibility to override any previous set style
+	    panel.style.visibility = 'visible';
+	    //  remove aria-hidden, add focus
+	    panel.setAttribute('aria-hidden', false);
+	    panel.setAttribute('tabindex', -1);
+	    panel.focus();
+	    //  sort out events
+	    _defer(_unbindOpenPointer);
+	    _defer(_bindDocKey);
+	    _defer(_bindDocClick);
+	    _defer(_bindClosePointer);
+	    //  reset scroll position
+	    panel.scrollTop = 0;
+	    //  add active class
+	    panel.classList.add(activeClass);
+	  }
+	  function _hidePanel() {
+	    var panel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : currPanel;
+	    var returnfocus = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+	
+	    //  add aria-hidden, remove focus
+	    panel.setAttribute('aria-hidden', true);
+	    panel.removeAttribute('tabindex');
+	    panel.blur();
+	    //  set visibility to override any previous set style
+	    panel.style.visibility = 'hidden';
+	    //  sort out events
+	    _unbindClosePointer(panel);
+	    _unbindDocKey();
+	    _unbindDocClick();
+	    _bindOpenPointer(panel);
+	    //  remove active class
+	    panel.classList.remove(activeClass);
+	    //  return focus to button that opened the panel and reset the reference
+	    if (returnfocus) {
+	      currButtonOpen.focus();
+	      currButtonOpen = null;
+	    }
+	  }
+	  function destroy() {
+	    panels.forEach(function (panel) {
+	      //  remove attributes
+	      _removeA11y(panel);
+	      //  unbind local events
+	      _unbindOpenPointer(panel);
+	      _unbindClosePointer(panel);
+	      //  remove class
+	      panel.classList.remove(readyClass);
+	      panel.classList.remove(activeClass);
+	      panel.style.visibility = '';
+	    });
+	    //  unbind global events
+	    _unbindDocClick();
+	    _unbindDocKey();
+	    //  reset temp references
+	    currButtonOpen = null;
+	    currPanel = null;
+	  }
+	
+	  //  EVENTS
+	  function _eventOpenPointer(e) {
+	    //  get panel
+	    var panelId = e.currentTarget.getAttribute('aria-controls');
+	    var panel = doc.getElementById(panelId);
+	    //  hide any open panels
+	    if (currPanel) _hidePanel(currPanel, false);
+	    //  save temp panel/button
+	    currButtonOpen = e.currentTarget;
+	    currPanel = panel;
+	    //  show
+	    _showPanel(panel);
+	  }
+	  function _eventClosePointer() {
+	    _hidePanel();
+	  }
+	  function _eventDocClick(e) {
+	    //  check if target is panel or child of
+	    var isPanel = e.target === currPanel;
+	    var isPanelChild = _closest(e.target, selector);
+	    if (!isPanel && !isPanelChild) _hidePanel();
+	  }
+	  function _eventDocKey(e) {
+	    //  esc key
+	    if (e.keyCode === 27) _hidePanel();
+	  }
+	
+	  //  BIND EVENTS
+	  function _bindOpenPointer(panel) {
+	    var openButtons = _q(openSelector + '[aria-controls="' + _getPanelId(panel) + '"]'); // is this selector totally crazy?
+	    openButtons.forEach(function (button) {
+	      return button.addEventListener('click', _eventOpenPointer);
+	    });
+	  }
+	  function _bindClosePointer() {
+	    var panel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : currPanel;
+	
+	    var closeButton = _q(closeSelector, panel)[0];
+	    closeButton.addEventListener('click', _eventClosePointer);
+	  }
+	  function _bindDocClick() {
+	    doc.addEventListener('click', _eventDocClick);
+	  }
+	  function _bindDocKey() {
+	    doc.addEventListener('keydown', _eventDocKey);
+	  }
+	
+	  //  UNBIND EVENTS
+	  function _unbindOpenPointer() {
+	    var panel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : currPanel;
+	
+	    var openButtons = _q(openSelector + '[aria-controls="' + _getPanelId(panel) + '"]'); // yep its totally crazy
+	    openButtons.forEach(function (button) {
+	      return button.removeEventListener('click', _eventOpenPointer);
+	    });
+	  }
+	  function _unbindClosePointer() {
+	    var panel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : currPanel;
+	
+	    var closeButton = _q(closeSelector, panel)[0];
+	    closeButton.removeEventListener('click', _eventClosePointer);
+	  }
+	  function _unbindDocClick() {
+	    doc.removeEventListener('click', _eventDocClick);
+	  }
+	  function _unbindDocKey() {
+	    doc.removeEventListener('keydown', _eventDocKey);
+	  }
+	
+	  //  INIT
+	  function init() {
+	    if (!panels) return;
+	    //  loop through each offcanvas element
+	    panels.forEach(function (panel) {
+	      _addA11y(panel);
+	      _bindOpenPointer(panel);
+	      panel.classList.add(readyClass);
+	    });
+	  }
+	  init();
+	
+	  // REVEAL API
+	  return {
+	    init: init,
+	    destroy: destroy
+	  };
+	};
+	
+	// module exports
+	exports['default'] = Froffcanvas;
+	module.exports = exports['default'];
+
+/***/ },
+/* 33 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 34 */,
+/* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _jquery = __webpack_require__(4);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	/*
+	 *  Randomize order of children in container (.js-randomize)
+	 */
+	(0, _jquery2['default'])(function () {
+	  var CONTAINER_SELECTOR = '.js-randomize';
+	  var EXCLUDE_SELECTOR = '.js-randomize-exclude';
+	
+	  function shuffle(o) {
+	    for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x) {}
+	    return o;
+	  }
+	
+	  (0, _jquery2['default'])(CONTAINER_SELECTOR).each(function (i, container) {
+	    var $container = (0, _jquery2['default'])(container);
+	    $container.html(shuffle($container.children().not(EXCLUDE_SELECTOR).get()));
+	  });
+	});
+
+/***/ },
+/* 36 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _jquery = __webpack_require__(4);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	var _throttle = __webpack_require__(6);
 	
 	var _throttle2 = _interopRequireDefault(_throttle);
 	
@@ -7617,448 +7834,927 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 40 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
+	'use strict';
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 	
-	/*!
-	 * headroom.js v0.9.3 - Give your page some headroom. Hide your header until you need it
-	 * Copyright (c) 2016 Nick Williams - http://wicky.nillia.ms/headroom.js
-	 * License: MIT
+	var _frBypasslinks = __webpack_require__(38);
+	
+	var _frBypasslinks2 = _interopRequireDefault(_frBypasslinks);
+	
+	var _bypasslinks = __webpack_require__(39);
+	
+	var _bypasslinks2 = _interopRequireDefault(_bypasslinks);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	/* eslint-enable */
+	
+	var bypassLinks = (0, _frBypasslinks2['default'])({
+	  selector: '.js-fr-bypasslinks'
+	});
+	
+	/* eslint-disable no-unused-vars */
+	
+	exports['default'] = { bypassLinks: bypassLinks, Frbypasslinks: _frBypasslinks2['default'] };
+	module.exports = exports['default'];
+
+/***/ },
+/* 38 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	/**
+	 * @param {object} options Object containing configuration overrides
 	 */
 	
-	(function (root, factory) {
-	  'use strict';
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	var Frbypasslinks = function Frbypasslinks() {
+		var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	
-	  if (true) {
-	    // AMD. Register as an anonymous module.
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	  } else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') {
-	    // COMMONJS
-	    module.exports = factory();
-	  } else {
-	    // BROWSER
-	    root.Headroom = factory();
-	  }
-	})(undefined, function () {
-	  'use strict';
+		var _ref$selector = _ref.selector;
+		var selector = _ref$selector === undefined ? '.js-fr-bypasslinks' : _ref$selector;
 	
-	  /* exported features */
 	
-	  var features = {
-	    bind: !!function () {}.bind,
-	    classList: 'classList' in document.documentElement,
-	    rAF: !!(window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame)
+		//	CONSTANTS
+		var doc = document;
+		var _q = function _q(el) {
+			var ctx = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : doc;
+			return [].slice.call(ctx.querySelectorAll(el));
+		};
+	
+		//	SUPPORTS
+		if (!('querySelector' in doc) || !('addEventListener' in window)) return;
+	
+		//	SETUP
+		// get bypass links NodeList
+		var container = _q(selector)[0];
+	
+		//	TEMP
+		var currTarget = null;
+	
+		//	ACTIONS
+		function _addFocusability(link) {
+			//	get target element
+			var id = link.getAttribute('href').slice(1);
+			var target = doc.getElementById(id);
+			//	set tabindex to allow focus
+			if (target) target.setAttribute('tabindex', -1);
+		}
+		function _removeFocusability(link) {
+			//	get target element
+			var id = link.getAttribute('href').slice(1);
+			var target = doc.getElementById(id);
+			//	remove ability to focus (stops user highlighting element on click)
+			if (target) target.removeAttribute('tabindex');
+		}
+		function destroy() {
+			//	loop through each bypass link and remove event bindings
+			_q('a', container).forEach(function (link) {
+				_unbindPointerClick(link);
+				_addFocusability(link);
+			});
+			if (currTarget) _unbindTargetBlur(currTarget);
+		}
+	
+		//	EVENTS
+		function _eventPointerClick(e) {
+			//	get target element
+			var id = e.target.getAttribute('href').slice(1);
+			var target = doc.getElementById(id);
+	
+			// don't try to apply relevant atts/focus if target isn't present
+			if (!target) return;
+			//	set tabindex to allow focus
+			target.setAttribute('tabindex', -1);
+			target.focus();
+			//	save target reference
+			currTarget = target;
+			//	bind blur event on target
+			_bindTargetBlur(target);
+		}
+		function _eventTargetBlur(e) {
+			//	remove ability to focus (stops user highlighting element on click)
+			e.target.removeAttribute('tabindex');
+			//	remove target reference
+			currTarget = null;
+			//	unbind blur event
+			_unbindTargetBlur(e.target);
+		}
+	
+		//	BIND EVENTS
+		function _bindPointerClick(link) {
+			//	bind interaction event
+			link.addEventListener('click', _eventPointerClick);
+		}
+		function _bindTargetBlur(target) {
+			//	bind blur event on target element
+			target.addEventListener('blur', _eventTargetBlur);
+		}
+	
+		//	UNBIND EVENTS
+		function _unbindPointerClick(link) {
+			//	unbind interaction event
+			link.removeEventListener('click', _eventPointerClick);
+		}
+		function _unbindTargetBlur(target) {
+			//	unbind blur event on target element
+			target.removeEventListener('blur', _eventTargetBlur);
+		}
+	
+		//	INIT
+		function init() {
+			//	detect if bypass links exist in the document
+			if (!container) return;
+			//	loop through each bypass link
+			_q('a', container).forEach(function (link) {
+				_bindPointerClick(link);
+				_removeFocusability(link);
+			});
+		}
+		init();
+	
+		// REVEAL API
+		return {
+			init: init,
+			destroy: destroy
+		};
+	};
+	
+	// module exports
+	exports['default'] = Frbypasslinks;
+	module.exports = exports['default'];
+
+/***/ },
+/* 39 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 40 */,
+/* 41 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _frTooltip = __webpack_require__(42);
+	
+	var _frTooltip2 = _interopRequireDefault(_frTooltip);
+	
+	var _tooltip = __webpack_require__(43);
+	
+	var _tooltip2 = _interopRequireDefault(_tooltip);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	/* eslint-enable */
+	
+	var opts = {
+	  // String - Container selector, hook for JS init() method
+	  selector: '.js-fr-tooltip',
+	
+	  // String - Selector to define the tooltip element
+	  tooltipSelector: '.js-fr-tooltip-tooltip',
+	
+	  // String - Selector to define the toggle element controlling the tooltip
+	  toggleSelector: '.js-fr-tooltip-toggle',
+	
+	  // String - Prefix for the id applied to each tooltip as a reference for the toggle
+	  tooltipIdPrefix: 'tooltip',
+	
+	  // String - Class name that will be added to the selector when the component has been initialised
+	  readyClass: 'fr-tooltip--is-ready'
+	};
+	
+	/* eslint-disable no-unused-vars */
+	
+	var tooltip = (0, _frTooltip2['default'])(opts);
+	
+	exports['default'] = {
+	  tooltip: tooltip,
+	  Frtooltip: _frTooltip2['default'],
+	  opts: opts
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 42 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	// Polyfill matches as per https://github.com/jonathantneal/closest
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	Element.prototype.matches = Element.prototype.matches || Element.prototype.mozMatchesSelector || Element.prototype.msMatchesSelector || Element.prototype.oMatchesSelector || Element.prototype.webkitMatchesSelector;
+	
+	/**
+	 * @param {object} options Object containing configuration overrides
+	 */
+	var Frtooltip = function Frtooltip() {
+		var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	
+		var _ref$selector = _ref.selector;
+		var selector = _ref$selector === undefined ? '.js-fr-tooltip' : _ref$selector;
+		var _ref$tooltipSelector = _ref.tooltipSelector;
+		var tooltipSelector = _ref$tooltipSelector === undefined ? '.js-fr-tooltip-tooltip' : _ref$tooltipSelector;
+		var _ref$toggleSelector = _ref.toggleSelector;
+		var toggleSelector = _ref$toggleSelector === undefined ? '.js-fr-tooltip-toggle' : _ref$toggleSelector;
+		var _ref$tooltipIdPrefix = _ref.tooltipIdPrefix;
+		var tooltipIdPrefix = _ref$tooltipIdPrefix === undefined ? 'tooltip' : _ref$tooltipIdPrefix;
+		var _ref$readyClass = _ref.readyClass;
+		var readyClass = _ref$readyClass === undefined ? 'fr-tooltip--is-ready' : _ref$readyClass;
+	
+	
+		// CONSTANTS
+		var doc = document;
+		var docEl = doc.documentElement;
+		var _q = function _q(el) {
+			var ctx = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : doc;
+			return [].slice.call(ctx.querySelectorAll(el));
+		};
+	
+		// SUPPORTS
+		if (!('querySelector' in doc) || !('addEventListener' in window) || !docEl.classList) return;
+	
+		// SETUP
+		var tooltipContainers = _q(selector);
+	
+		//	TEMP
+		var currTooltip = null;
+	
+		//	UTILS
+		function _defer(fn) {
+			//	wrapped in setTimeout to delay binding until previous rendering has completed
+			if (typeof fn === 'function') setTimeout(fn, 0);
+		}
+		function _closest(el, selector) {
+			while (el) {
+				if (el.matches(selector)) break;
+				el = el.parentElement;
+			}
+			return el;
+		}
+	
+		//	A11Y
+		function _addA11y(container, i) {
+			//	get relative elements
+			var toggle = _q(toggleSelector, container)[0];
+			var tooltip = _q(tooltipSelector, container)[0];
+			//	create new button and replace toggle
+			var button = doc.createElement('button');
+			button.setAttribute('class', toggle.getAttribute('class'));
+			button.setAttribute('aria-expanded', 'false');
+			button.setAttribute('aria-describedby', '');
+			button.textContent = toggle.textContent;
+			container.replaceChild(button, toggle);
+			//	add tooltip attributes
+			tooltip.setAttribute('role', 'tooltip');
+			tooltip.setAttribute('id', tooltipIdPrefix + '-' + i);
+			tooltip.setAttribute('aria-hidden', 'true');
+			tooltip.setAttribute('aria-live', 'polite');
+		}
+		function _removeA11y(container) {
+			//	get relative elements
+			var toggle = _q(toggleSelector, container)[0];
+			var tooltip = _q(tooltipSelector, container)[0];
+			//	create new span and replace toggle
+			var span = doc.createElement('span');
+			span.setAttribute('class', toggle.getAttribute('class'));
+			span.textContent = toggle.textContent;
+			container.replaceChild(span, toggle);
+			//	remove tooltip attributes
+			tooltip.removeAttribute('role');
+			tooltip.removeAttribute('id');
+			tooltip.removeAttribute('aria-hidden');
+			tooltip.removeAttribute('aria-live');
+		}
+	
+		// ACTIONS
+		function _showTooltip(toggle, tooltip) {
+			//	assign describedby matching tooltip reference
+			var tooltipId = tooltip.getAttribute('id');
+			toggle.setAttribute('aria-describedby', tooltipId);
+			//	set visible state
+			toggle.setAttribute('aria-expanded', 'true');
+			tooltip.setAttribute('aria-hidden', 'false');
+			//	store temp reference to tooltip
+			currTooltip = tooltip;
+			//	bind doc close events
+			_defer(_bindDocClick);
+			_defer(_bindDocKey);
+		}
+		function _hideTooltip(toggle, tooltip) {
+			//	remove tooltip reference
+			toggle.setAttribute('aria-describedby', '');
+			//	set visible state
+			toggle.setAttribute('aria-expanded', 'false');
+			tooltip.setAttribute('aria-hidden', 'true');
+			//	remove tooltip temp reference
+			currTooltip = null;
+			//	unbind doc close events
+			_unbindDocClick();
+			_unbindDocKey();
+		}
+		function destroy() {
+			tooltipContainers.forEach(function (container, i) {
+				_removeA11y(container, i);
+				_unbindToggleEvents(container);
+				container.classList.remove(readyClass);
+			});
+			//	reset temp references
+			currTooltip = null;
+			//	unbind global events
+			_unbindDocClick();
+			_unbindDocKey();
+		}
+	
+		// EVENTS
+		function _eventTogglePointer(e) {
+			//	close any open tooltips
+			if (currTooltip) _hideTooltip(currTooltip.previousElementSibling, currTooltip);
+			//	get relevant tooltip elements
+			var toggle = e.target;
+			var tooltip = toggle.nextElementSibling;
+			//	show or hide if toggle is 'expanded'
+			if (toggle.getAttribute('aria-expanded') === 'false') {
+				_showTooltip(toggle, tooltip);
+			} else {
+				_hideTooltip(toggle, tooltip);
+			}
+		}
+		function _eventTogglePointerLeave() {
+			if (currTooltip) _hideTooltip(currTooltip.previousElementSibling, currTooltip);
+		}
+		function _eventDocClick(e) {
+			//	check if target is panel or child of
+			var isTooltip = e.target === currTooltip;
+			var isTooltipchild = _closest(e.target, tooltipSelector);
+			if (!isTooltip && !isTooltipchild) _hideTooltip(currTooltip.previousElementSibling, currTooltip);
+		}
+		function _eventDocKey(e) {
+			//	esc key
+			if (e.keyCode === 27) _hideTooltip(currTooltip.previousElementSibling, currTooltip);
+		}
+	
+		// BIND EVENTS
+		function _bindToggleEvents(container) {
+			var toggle = _q(toggleSelector, container)[0];
+			toggle.addEventListener('click', _eventTogglePointer);
+			toggle.addEventListener('mouseenter', _eventTogglePointer);
+			toggle.addEventListener('mouseleave', _eventTogglePointerLeave);
+		}
+		function _bindDocClick() {
+			doc.addEventListener('click', _eventDocClick);
+			doc.addEventListener('touchstart', _eventDocClick);
+		}
+		function _bindDocKey() {
+			doc.addEventListener('keydown', _eventDocKey);
+		}
+	
+		//	UNBIND EVENTS
+		function _unbindToggleEvents(container) {
+			var toggle = _q(toggleSelector, container)[0];
+			toggle.removeEventListener('click', _eventTogglePointer);
+			toggle.removeEventListener('mouseenter', _eventTogglePointer);
+			toggle.removeEventListener('mouseleave', _eventTogglePointerLeave);
+		}
+		function _unbindDocClick() {
+			doc.removeEventListener('click', _eventDocClick);
+			doc.removeEventListener('touchstart', _eventDocClick);
+		}
+		function _unbindDocKey() {
+			doc.removeEventListener('keydown', _eventDocKey);
+		}
+	
+		// INIT
+		function init() {
+			if (!tooltipContainers) return;
+			//	loop through each tooltip element
+			tooltipContainers.forEach(function (container, i) {
+				_addA11y(container, i);
+				_bindToggleEvents(container);
+				container.classList.add(readyClass);
+			});
+		}
+		init();
+	
+		// REVEAL API
+		return {
+			init: init,
+			destroy: destroy
+		};
+	};
+	
+	// module exports
+	exports['default'] = Frtooltip;
+	module.exports = exports['default'];
+
+/***/ },
+/* 43 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 44 */,
+/* 45 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _jquery = __webpack_require__(4);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	/*
+	 *	TODO:
+	 *		- arrow up
+	 *		- repack as a frend _component and CSS
+	 *		- refactor without jQuery
+	 */
+	
+	/*
+	 * Porting of http://www.oaa-accessibility.org/examplep/treeview1/
+	 */
+	var Frtreeview = function Frtreeview() {
+	  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	
+	  var _ref$selector = _ref.selector;
+	  var selector = _ref$selector === undefined ? '.js-fr-treeview' : _ref$selector;
+	  var _ref$openOnClick = _ref.openOnClick;
+	  var openOnClick = _ref$openOnClick === undefined ? true : _ref$openOnClick;
+	  var _ref$classFocused = _ref.classFocused;
+	  var classFocused = _ref$classFocused === undefined ? 'fr-tree-focus' : _ref$classFocused;
+	  var _ref$classParent = _ref.classParent;
+	  var classParent = _ref$classParent === undefined ? 'fr-tree-parent' : _ref$classParent;
+	  var _ref$multiselectable = _ref.multiselectable;
+	  var multiselectable = _ref$multiselectable === undefined ? true : _ref$multiselectable;
+	
+	
+	  var keys = {
+	    tab: 9,
+	    enter: 13,
+	    space: 32,
+	    pageup: 33,
+	    pagedown: 34,
+	    end: 35,
+	    home: 36,
+	    left: 37,
+	    up: 38,
+	    right: 39,
+	    down: 40,
+	    asterisk: 106
 	  };
-	  window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
 	
-	  /**
-	   * Handles debouncing of events via requestAnimationFrame
-	   * @see http://www.html5rocks.com/en/tutorials/speed/animations/
-	   * @param {Function} callback The callback to handle whichever event
-	   */
-	  function Debouncer(callback) {
-	    this.callback = callback;
-	    this.ticking = false;
-	  }
-	  Debouncer.prototype = {
-	    constructor: Debouncer,
-	
-	    /**
-	     * dispatches the event to the supplied callback
-	     * @private
-	     */
-	    update: function update() {
-	      this.callback && this.callback();
-	      this.ticking = false;
-	    },
-	
-	    /**
-	     * ensures events don't get stacked
-	     * @private
-	     */
-	    requestTick: function requestTick() {
-	      if (!this.ticking) {
-	        requestAnimationFrame(this.rafCallback || (this.rafCallback = this.update.bind(this)));
-	        this.ticking = true;
+	  function _collapseAll(treeview) {
+	    treeview.$parents.each(function () {
+	      if ((0, _jquery2['default'])(this).attr('aria-expanded') == 'false') {
+	        (0, _jquery2['default'])(this).children('ul').attr('aria-hidden', 'true');
 	      }
-	    },
-	
-	    /**
-	     * Attach this as the event listeners
-	     */
-	    handleEvent: function handleEvent() {
-	      this.requestTick();
-	    }
-	  };
-	  /**
-	   * Check if object is part of the DOM
-	   * @constructor
-	   * @param {Object} obj element to check
-	   */
-	  function isDOMElement(obj) {
-	    return obj && typeof window !== 'undefined' && (obj === window || obj.nodeType);
+	    });
+	    treeview.$visibleItems = treeview.$el.find('li:visible');
 	  }
 	
-	  /**
-	   * Helper function for extending objects
-	   */
-	  function extend(object /*, objectN ... */) {
-	    if (arguments.length <= 0) {
-	      throw new Error('Missing arguments in extend function');
+	  function _expandGroup(treeview, $item) {
+	    var $group = $item.children('ul');
+	    $group.slideDown(250, function () {
+	      $group.attr('aria-hidden', 'false');
+	      $item.attr('aria-expanded', 'true');
+	      treeview.$visibleItems = treeview.$el.find('li:visible');
+	    });
+	  }
+	
+	  function _collapseGroup(treeview, $item) {
+	    var $group = $item.children('ul');
+	    $group.slideUp(250, function () {
+	      $group.attr('aria-hidden', 'true');
+	      $item.attr('aria-expanded', 'false');
+	      treeview.$visibleItems = treeview.$el.find('li:visible');
+	    });
+	  }
+	
+	  function _collapseSiblings(treeview, $item) {
+	    $item.closest('ul').find('> .' + classParent).not($item).each(function (i, el) {
+	      _collapseGroup(treeview, (0, _jquery2['default'])(el));
+	    });
+	  }
+	
+	  function _toggleGroup(treeview, $item) {
+	    if (!multiselectable) {
+	      _collapseSiblings(treeview, $item);
+	    }
+	    if ($item.attr('aria-expanded') == 'true') {
+	      _collapseGroup(treeview, $item);
+	    } else {
+	      _expandGroup(treeview, $item);
+	    }
+	  }
+	
+	  function _updateStyling(treeview, $item) {
+	    treeview.$items.removeClass(classFocused).attr('tabindex', '-1');
+	    $item.addClass(classFocused).attr('tabindex', '0');
+	  }
+	
+	  function _handleKeyDown(treeview, $item, e) {
+	    var curNdx = treeview.$visibleItems.index($item);
+	
+	    if (e.altKey || e.ctrlKey || e.shiftKey && e.keyCode != keys.tab) {
+	      return true;
 	    }
 	
-	    var result = object || {},
-	        key,
-	        i;
+	    if (!(0, _jquery2['default'])(e.target).is('[role=treeitem]')) {
+	      return true;
+	    }
 	
-	    for (i = 1; i < arguments.length; i++) {
-	      var replacement = arguments[i] || {};
-	
-	      for (key in replacement) {
-	        // Recurse into object except if the object is a DOM element
-	        if (_typeof(result[key]) === 'object' && !isDOMElement(result[key])) {
-	          result[key] = extend(result[key], replacement[key]);
-	        } else {
-	          result[key] = result[key] || replacement[key];
+	    switch (e.keyCode) {
+	      case keys.tab:
+	        {
+	          treeview.$activeItem = null;
+	          $item.removeClass(classFocused);
+	          return true;
 	        }
-	      }
+	
+	      case keys.home:
+	        {
+	          treeview.$activeItem = treeview.$parents.first();
+	          treeview.$activeItem.focus();
+	          e.stopPropagation();
+	          return false;
+	        }
+	
+	      case keys.end:
+	        {
+	          treeview.$activeItem = treeview.$visibleItems.last();
+	          treeview.$activeItem.focus();
+	          e.stopPropagation();
+	          return false;
+	        }
+	
+	      case keys.enter:
+	      case keys.space:
+	        {
+	          if (!$item.is('.' + classParent)) {
+	            // do nothing
+	          } else {
+	            _toggleGroup(treeview, $item);
+	          }
+	          e.stopPropagation();
+	          return false;
+	        }
+	
+	      case keys.left:
+	        {
+	          if ($item.is('.' + classParent) && $item.attr('aria-expanded') == 'true') {
+	            _collapseGroup(treeview, $item);
+	          } else {
+	            var $itemUL = $item.parent();
+	            var $itemParent = $itemUL.parent();
+	            treeview.$activeItem = $itemParent;
+	            treeview.$activeItem.focus();
+	          }
+	          e.stopPropagation();
+	          return false;
+	        }
+	
+	      case keys.right:
+	        {
+	          if (!$item.is('.' + classParent)) {
+	            // do nothing
+	          } else if ($item.attr('aria-expanded') == 'false') {
+	            _expandGroup(treeview, $item);
+	          } else {
+	            treeview.$activeItem = $item.children('ul').children('li').first();
+	            treeview.$activeItem.focus();
+	          }
+	          e.stopPropagation();
+	          return false;
+	        }
+	
+	      case keys.up:
+	        {
+	          if (curNdx > 0) {
+	            var $prev = treeview.$visibleItems.eq(curNdx - 1);
+	            treeview.$activeItem = $prev;
+	            $prev.focus();
+	          }
+	          e.stopPropagation();
+	          return false;
+	        }
+	
+	      case keys.down:
+	        {
+	          if (curNdx < treeview.$visibleItems.length - 1) {
+	            var $next = treeview.$visibleItems.eq(curNdx + 1);
+	            treeview.$activeItem = $next;
+	            $next.focus();
+	          }
+	          e.stopPropagation();
+	          return false;
+	        }
+	
+	      case keys.asterisk:
+	        {
+	          treeview.$parents.each(function () {
+	            _expandGroup(treeview, (0, _jquery2['default'])(this));
+	          });
+	          e.stopPropagation();
+	          return false;
+	        }
+	
+	    }
+	    return true;
+	  }
+	
+	  function _handleKeyPress(treeview, $item, e) {
+	    if (e.altKey || e.ctrlKey || e.shiftKey) {
+	      // do nothing
+	      return true;
 	    }
 	
-	    return result;
-	  }
+	    switch (e.keyCode) {
+	      case keys.tab:
+	        {
+	          return true;
+	        }
+	      case keys.enter:
+	      case keys.home:
+	      case keys.end:
+	      case keys.left:
+	      case keys.right:
+	      case keys.up:
+	      case keys.down:
+	        {
+	          e.stopPropagation();
+	          return false;
+	        }
+	      default:
+	        {
+	          var chr = String.fromCharCode(e.which);
+	          var bMatch = false;
+	          var itemNdx = treeview.$visibleItems.index($item);
+	          var itemCnt = treeview.$visibleItems.length;
+	          var curNdx = itemNdx + 1;
 	
-	  /**
-	   * Helper function for normalizing tolerance option to object format
-	   */
-	  function normalizeTolerance(t) {
-	    return t === Object(t) ? t : { down: t, up: t };
-	  }
+	          // check if the active item was the last one on the list
+	          if (curNdx == itemCnt) {
+	            curNdx = 0;
+	          }
 	
-	  /**
-	   * UI enhancement for fixed headers.
-	   * Hides header when scrolling down
-	   * Shows header when scrolling up
-	   * @constructor
-	   * @param {DOMElement} elem the header element
-	   * @param {Object} options options for the widget
-	   */
-	  function Headroom(elem, options) {
-	    options = extend(options, Headroom.options);
+	          // Iterate through the menu items (starting from the current item and wrapping) until a match is found
+	          // or the loop returns to the current menu item
+	          while (curNdx != itemNdx) {
 	
-	    this.lastKnownScrollY = 0;
-	    this.elem = elem;
-	    this.tolerance = normalizeTolerance(options.tolerance);
-	    this.classes = options.classes;
-	    this.offset = options.offset;
-	    this.scroller = options.scroller;
-	    this.initialised = false;
-	    this.onPin = options.onPin;
-	    this.onUnpin = options.onUnpin;
-	    this.onTop = options.onTop;
-	    this.onNotTop = options.onNotTop;
-	    this.onBottom = options.onBottom;
-	    this.onNotBottom = options.onNotBottom;
-	  }
-	  Headroom.prototype = {
-	    constructor: Headroom,
+	            var $curItem = treeview.$visibleItems.eq(curNdx);
+	            var titleChr = $curItem.text().charAt(0);
 	
-	    /**
-	     * Initialises the widget
-	     */
-	    init: function init() {
-	      if (!Headroom.cutsTheMustard) {
-	        return;
-	      }
+	            if ($curItem.is('.' + classParent)) {
+	              titleChr = $curItem.find('span').text().charAt(0);
+	            }
 	
-	      this.debouncer = new Debouncer(this.update.bind(this));
-	      this.elem.classList.add(this.classes.initial);
+	            if (titleChr.toLowerCase() == chr) {
+	              bMatch = true;
+	              break;
+	            }
 	
-	      // defer event registration to handle browser 
-	      // potentially restoring previous scroll position
-	      setTimeout(this.attachEvent.bind(this), 100);
+	            curNdx = curNdx + 1;
 	
-	      return this;
-	    },
+	            if (curNdx == itemCnt) {
+	              // reached the end of the list, start again at the beginning
+	              curNdx = 0;
+	            }
+	          }
 	
-	    /**
-	     * Unattaches events and removes any classes that were added
-	     */
-	    destroy: function destroy() {
-	      var classes = this.classes;
+	          if (bMatch == true) {
+	            treeview.$activeItem = treeview.$visibleItems.eq(curNdx);
+	            treeview.$activeItem.focus();
+	          }
 	
-	      this.initialised = false;
-	      this.elem.classList.remove(classes.unpinned, classes.pinned, classes.top, classes.notTop, classes.initial);
-	      this.scroller.removeEventListener('scroll', this.debouncer, false);
-	    },
-	
-	    /**
-	     * Attaches the scroll event
-	     * @private
-	     */
-	    attachEvent: function attachEvent() {
-	      if (!this.initialised) {
-	        this.lastKnownScrollY = this.getScrollY();
-	        this.initialised = true;
-	        this.scroller.addEventListener('scroll', this.debouncer, false);
-	
-	        this.debouncer.handleEvent();
-	      }
-	    },
-	
-	    /**
-	     * Unpins the header if it's currently pinned
-	     */
-	    unpin: function unpin() {
-	      var classList = this.elem.classList,
-	          classes = this.classes;
-	
-	      if (classList.contains(classes.pinned) || !classList.contains(classes.unpinned)) {
-	        classList.add(classes.unpinned);
-	        classList.remove(classes.pinned);
-	        this.onUnpin && this.onUnpin.call(this);
-	      }
-	    },
-	
-	    /**
-	     * Pins the header if it's currently unpinned
-	     */
-	    pin: function pin() {
-	      var classList = this.elem.classList,
-	          classes = this.classes;
-	
-	      if (classList.contains(classes.unpinned)) {
-	        classList.remove(classes.unpinned);
-	        classList.add(classes.pinned);
-	        this.onPin && this.onPin.call(this);
-	      }
-	    },
-	
-	    /**
-	     * Handles the top states
-	     */
-	    top: function top() {
-	      var classList = this.elem.classList,
-	          classes = this.classes;
-	
-	      if (!classList.contains(classes.top)) {
-	        classList.add(classes.top);
-	        classList.remove(classes.notTop);
-	        this.onTop && this.onTop.call(this);
-	      }
-	    },
-	
-	    /**
-	     * Handles the not top state
-	     */
-	    notTop: function notTop() {
-	      var classList = this.elem.classList,
-	          classes = this.classes;
-	
-	      if (!classList.contains(classes.notTop)) {
-	        classList.add(classes.notTop);
-	        classList.remove(classes.top);
-	        this.onNotTop && this.onNotTop.call(this);
-	      }
-	    },
-	
-	    bottom: function bottom() {
-	      var classList = this.elem.classList,
-	          classes = this.classes;
-	
-	      if (!classList.contains(classes.bottom)) {
-	        classList.add(classes.bottom);
-	        classList.remove(classes.notBottom);
-	        this.onBottom && this.onBottom.call(this);
-	      }
-	    },
-	
-	    /**
-	     * Handles the not top state
-	     */
-	    notBottom: function notBottom() {
-	      var classList = this.elem.classList,
-	          classes = this.classes;
-	
-	      if (!classList.contains(classes.notBottom)) {
-	        classList.add(classes.notBottom);
-	        classList.remove(classes.bottom);
-	        this.onNotBottom && this.onNotBottom.call(this);
-	      }
-	    },
-	
-	    /**
-	     * Gets the Y scroll position
-	     * @see https://developer.mozilla.org/en-US/docs/Web/API/Window.scrollY
-	     * @return {Number} pixels the page has scrolled along the Y-axis
-	     */
-	    getScrollY: function getScrollY() {
-	      return this.scroller.pageYOffset !== undefined ? this.scroller.pageYOffset : this.scroller.scrollTop !== undefined ? this.scroller.scrollTop : (document.documentElement || document.body.parentNode || document.body).scrollTop;
-	    },
-	
-	    /**
-	     * Gets the height of the viewport
-	     * @see http://andylangton.co.uk/blog/development/get-viewport-size-width-and-height-javascript
-	     * @return {int} the height of the viewport in pixels
-	     */
-	    getViewportHeight: function getViewportHeight() {
-	      return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-	    },
-	
-	    /**
-	     * Gets the physical height of the DOM element
-	     * @param  {Object}  elm the element to calculate the physical height of which
-	     * @return {int}     the physical height of the element in pixels
-	     */
-	    getElementPhysicalHeight: function getElementPhysicalHeight(elm) {
-	      return Math.max(elm.offsetHeight, elm.clientHeight);
-	    },
-	
-	    /**
-	     * Gets the physical height of the scroller element
-	     * @return {int} the physical height of the scroller element in pixels
-	     */
-	    getScrollerPhysicalHeight: function getScrollerPhysicalHeight() {
-	      return this.scroller === window || this.scroller === document.body ? this.getViewportHeight() : this.getElementPhysicalHeight(this.scroller);
-	    },
-	
-	    /**
-	     * Gets the height of the document
-	     * @see http://james.padolsey.com/javascript/get-document-height-cross-browser/
-	     * @return {int} the height of the document in pixels
-	     */
-	    getDocumentHeight: function getDocumentHeight() {
-	      var body = document.body,
-	          documentElement = document.documentElement;
-	
-	      return Math.max(body.scrollHeight, documentElement.scrollHeight, body.offsetHeight, documentElement.offsetHeight, body.clientHeight, documentElement.clientHeight);
-	    },
-	
-	    /**
-	     * Gets the height of the DOM element
-	     * @param  {Object}  elm the element to calculate the height of which
-	     * @return {int}     the height of the element in pixels
-	     */
-	    getElementHeight: function getElementHeight(elm) {
-	      return Math.max(elm.scrollHeight, elm.offsetHeight, elm.clientHeight);
-	    },
-	
-	    /**
-	     * Gets the height of the scroller element
-	     * @return {int} the height of the scroller element in pixels
-	     */
-	    getScrollerHeight: function getScrollerHeight() {
-	      return this.scroller === window || this.scroller === document.body ? this.getDocumentHeight() : this.getElementHeight(this.scroller);
-	    },
-	
-	    /**
-	     * determines if the scroll position is outside of document boundaries
-	     * @param  {int}  currentScrollY the current y scroll position
-	     * @return {bool} true if out of bounds, false otherwise
-	     */
-	    isOutOfBounds: function isOutOfBounds(currentScrollY) {
-	      var pastTop = currentScrollY < 0,
-	          pastBottom = currentScrollY + this.getScrollerPhysicalHeight() > this.getScrollerHeight();
-	
-	      return pastTop || pastBottom;
-	    },
-	
-	    /**
-	     * determines if the tolerance has been exceeded
-	     * @param  {int} currentScrollY the current scroll y position
-	     * @return {bool} true if tolerance exceeded, false otherwise
-	     */
-	    toleranceExceeded: function toleranceExceeded(currentScrollY, direction) {
-	      return Math.abs(currentScrollY - this.lastKnownScrollY) >= this.tolerance[direction];
-	    },
-	
-	    /**
-	     * determine if it is appropriate to unpin
-	     * @param  {int} currentScrollY the current y scroll position
-	     * @param  {bool} toleranceExceeded has the tolerance been exceeded?
-	     * @return {bool} true if should unpin, false otherwise
-	     */
-	    shouldUnpin: function shouldUnpin(currentScrollY, toleranceExceeded) {
-	      var scrollingDown = currentScrollY > this.lastKnownScrollY,
-	          pastOffset = currentScrollY >= this.offset;
-	
-	      return scrollingDown && pastOffset && toleranceExceeded;
-	    },
-	
-	    /**
-	     * determine if it is appropriate to pin
-	     * @param  {int} currentScrollY the current y scroll position
-	     * @param  {bool} toleranceExceeded has the tolerance been exceeded?
-	     * @return {bool} true if should pin, false otherwise
-	     */
-	    shouldPin: function shouldPin(currentScrollY, toleranceExceeded) {
-	      var scrollingUp = currentScrollY < this.lastKnownScrollY,
-	          pastOffset = currentScrollY <= this.offset;
-	
-	      return scrollingUp && toleranceExceeded || pastOffset;
-	    },
-	
-	    /**
-	     * Handles updating the state of the widget
-	     */
-	    update: function update() {
-	      var currentScrollY = this.getScrollY(),
-	          scrollDirection = currentScrollY > this.lastKnownScrollY ? 'down' : 'up',
-	          toleranceExceeded = this.toleranceExceeded(currentScrollY, scrollDirection);
-	
-	      if (this.isOutOfBounds(currentScrollY)) {
-	        // Ignore bouncy scrolling in OSX
-	        return;
-	      }
-	
-	      if (currentScrollY <= this.offset) {
-	        this.top();
-	      } else {
-	        this.notTop();
-	      }
-	
-	      if (currentScrollY + this.getViewportHeight() >= this.getScrollerHeight()) {
-	        this.bottom();
-	      } else {
-	        this.notBottom();
-	      }
-	
-	      if (this.shouldUnpin(currentScrollY, toleranceExceeded)) {
-	        this.unpin();
-	      } else if (this.shouldPin(currentScrollY, toleranceExceeded)) {
-	        this.pin();
-	      }
-	
-	      this.lastKnownScrollY = currentScrollY;
+	          e.stopPropagation();
+	          return false;
+	        }
 	    }
+	
+	    return true;
+	  }
+	
+	  function _handleDblClick(treeview, $item, e) {
+	    if (e.altKey || e.ctrlKey || e.shiftKey) {
+	      // do nothing
+	      return true;
+	    }
+	
+	    if (!(0, _jquery2['default'])(e.target).parent().is('[aria-expanded]')) {
+	      return true;
+	    }
+	
+	    treeview.$activeItem = $item;
+	    _updateStyling(treeview, $item);
+	    _toggleGroup(treeview, $item);
+	    e.stopPropagation();
+	    return false;
+	  }
+	
+	  function _handleClick(treeview, $item, e) {
+	    if (e.altKey || e.ctrlKey || e.shiftKey) {
+	      // do nothing
+	      return true;
+	    }
+	
+	    if (!(0, _jquery2['default'])(e.target).parent().is('[aria-expanded]')) {
+	      return true;
+	    }
+	
+	    treeview.$activeItem = treeview.$el;
+	    _updateStyling(treeview, $item);
+	    e.stopPropagation();
+	    return false;
+	  }
+	
+	  function _bindEvents(treeview) {
+	    if (openOnClick) {
+	      treeview.$parents.click(function (e) {
+	        return _handleDblClick(treeview, (0, _jquery2['default'])(this), e);
+	      });
+	    } else {
+	      treeview.$parents.click(function (e) {
+	        return _handleDblClick(treeview, (0, _jquery2['default'])(this), e);
+	      });
+	      treeview.$items.click(function (e) {
+	        return _handleClick(treeview, (0, _jquery2['default'])(this), e);
+	      });
+	    }
+	
+	    treeview.$items.keydown(function (e) {
+	      return _handleKeyDown(treeview, (0, _jquery2['default'])(this), e);
+	    });
+	
+	    treeview.$items.keypress(function (e) {
+	      return _handleKeyPress(treeview, (0, _jquery2['default'])(this), e);
+	    });
+	
+	    (0, _jquery2['default'])(document).click(function () {
+	      if (treeview.$activeItem != null) {
+	        treeview.$activeItem.removeClass(classFocused);
+	        treeview.$activeItem = null;
+	      }
+	      return true;
+	    });
+	  }
+	
+	  function destroy() {
+	    /* TODO */
+	  }
+	
+	  function _addA11y($el) {
+	    $el.attr('role', 'tree');
+	
+	    // Put role="treeitem" on every LI
+	    // Put aria-expanded="false" on every LI (if it has no aria-expanded attr)
+	    // Put tabindex="-1" on every LI (if it's not the first one)
+	    // Put class=<classParent> on every LI that contains an UL
+	    $el.find('li').each(function (i, li) {
+	      var $li = (0, _jquery2['default'])(li);
+	      $li.attr('role', 'treeitem').attr('tabindex', 0 === i ? '0' : '-1');
+	      //  .find('a[href]').not('[href^=#]').attr('tabindex', 0)
+	      //  .parent().attr('aria-label', function() { return $(this).text() })
+	      if ($li.find('ul').length !== 0) {
+	        if (!li.hasAttribute('aria-expanded')) {
+	          $li.attr('aria-expanded', 'false');
+	        }
+	        $li.addClass(classParent);
+	      }
+	    });
+	    // Put role="group" on every contained UL
+	    $el.find('ul').attr('role', 'group');
+	  }
+	
+	  function init() {
+	    (0, _jquery2['default'])(selector).each(function (_, treeviewContainer) {
+	      var $el = (0, _jquery2['default'])(treeviewContainer);
+	      _addA11y($el);
+	      var treeview = {
+	        $el: $el,
+	        $items: $el.find('li'),
+	        $parents: $el.find('.' + classParent),
+	        $visibleItems: null,
+	        $activeItem: null
+	      };
+	      _collapseAll(treeview);
+	      _bindEvents(treeview);
+	    });
+	  }
+	
+	  init();
+	
+	  // REVEAL API
+	  return {
+	    init: init,
+	    destroy: destroy
 	  };
-	  /**
-	   * Default options
-	   * @type {Object}
-	   */
-	  Headroom.options = {
-	    tolerance: {
-	      up: 0,
-	      down: 0
-	    },
-	    offset: 0,
-	    scroller: window,
-	    classes: {
-	      pinned: 'headroom--pinned',
-	      unpinned: 'headroom--unpinned',
-	      top: 'headroom--top',
-	      notTop: 'headroom--not-top',
-	      bottom: 'headroom--bottom',
-	      notBottom: 'headroom--not-bottom',
-	      initial: 'headroom'
-	    }
-	  };
-	  Headroom.cutsTheMustard = typeof features !== 'undefined' && features.rAF && features.bind && features.classList;
+	};
 	
-	  return Headroom;
+	new Frtreeview();
+	
+	exports['default'] = {
+	  Frtreeview: Frtreeview
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 46 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	__webpack_require__(47);
+	__webpack_require__(48);
+	__webpack_require__(49);
+
+/***/ },
+/* 47 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	// Avoid `console` errors in browsers that lack a console.
+	(function () {
+	  var method;
+	  var noop = function noop() {};
+	  var methods = ['assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error', 'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log', 'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd', 'timeStamp', 'trace', 'warn'];
+	  var length = methods.length;
+	  var console = window.console = window.console || {};
+	
+	  while (length--) {
+	    method = methods[length];
+	
+	    // Only stub undefined methods.
+	    if (!console[method]) {
+	      console[method] = noop;
+	    }
+	  }
+	})();
+
+/***/ },
+/* 48 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _jquery = __webpack_require__(4);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	(0, _jquery2['default'])(function () {
+	  (0, _jquery2['default'])(document).bind('enhance', function () {
+	    (0, _jquery2['default'])('body').addClass('enhanced');
+	  });
+	  (0, _jquery2['default'])(document).trigger('enhance');
+	});
+
+/***/ },
+/* 49 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _jquery = __webpack_require__(4);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	(0, _jquery2['default'])(document).ready(function () {
+	  var $header = (0, _jquery2['default'])('header');
+	  (0, _jquery2['default'])('.js-scrollTo').on('click', function () {
+	    var offset = (0, _jquery2['default'])(_jquery2['default'].attr(this, 'href')).offset();
+	    (0, _jquery2['default'])('html, body').animate({
+	      scrollTop: (offset ? offset.top : 0) - ($header.length && $header.css('position') === 'fixed' ? $header.height() : 0)
+	    }, 250);
+	  });
 	});
 
 /***/ }

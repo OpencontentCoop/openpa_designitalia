@@ -244,6 +244,13 @@ Subdir=templates
 Match[type]=Singolo
 Match[view]=singolo_box
 
+[block_singolo_pulsante]
+Source=block/view/view.tpl
+MatchFile=block/singolo_pulsante.tpl
+Subdir=templates
+Match[type]=Singolo
+Match[view]=singolo_pulsante
+
 [block_singolo_banner]
 Source=block/view/view.tpl
 MatchFile=block/singolo_banner.tpl

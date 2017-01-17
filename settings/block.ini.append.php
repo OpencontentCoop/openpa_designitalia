@@ -37,6 +37,7 @@ ViewList[]=singolo_imgtit_interne_piccolo
 ViewList[]=singolo_box_piccolo
 ViewList[]=singolo_box
 ViewList[]=singolo_banner
+ViewList[]=singolo_pulsante
 ViewList[]=singolo_in_evidenza
 ViewName[]
 ViewName[singolo_img]=Solo immagine
@@ -47,6 +48,7 @@ ViewName[singolo_img_interne_piccolo]=Full
 ViewName[singolo_imgtit_interne_piccolo]=Immagine e Titolo (con titolo blocco)
 ViewName[singolo_box_piccolo]=Line (immagine piccola con blocco titolo)
 ViewName[singolo_box]=Line
+ViewName[singolo_pulsante]=Pulsante
 ViewName[singolo_banner]=Line (con blocco titolo, sfondo grigio)
 ViewName[singolo_in_evidenza]=In evidenza
 
@@ -98,19 +100,39 @@ ViewName[lista_in_evidenza]=In evidenza
 
 [Lista3]
 Name=Lista di oggetti (assegnati singolarmente) - MAX 5
+NumberOfValidItems=5
+NumberOfArchivedItems=0
+ManualAddingOfItems=enabled
+ViewList[]
+ViewList[]=lista_accordion_manual
+ViewList[]=lista_box2
+ViewList[]=lista_box4
+ViewList[]=lista_tab
+ViewList[]=lista_carousel
+ViewList[]=lista_in_evidenza
 ViewName[]
 ViewName[lista_accordion_manual]=Accordion
 ViewName[lista_box2]=Elenco su due colonne
 ViewName[lista_box4]=Box ultimi figli (3 oggetti)
 ViewName[lista_tab]=Schede (tab)
 ViewName[lista_carousel]=Banner (carousel) [Mostra solo elementi con immagine]
+ViewName[lista_in_evidenza]=In evidenza
 
 [Lista4]
 Name=Lista di oggetti (assegnati singolarmente) - MAX 15
+NumberOfValidItems=15
+NumberOfArchivedItems=0
+ManualAddingOfItems=enabled
+ViewList[]
+ViewList[]=lista_accordion_manual
+ViewList[]=lista_box2
+ViewList[]=lista_tab
+ViewList[]=lista_in_evidenza
 ViewName[]
 ViewName[lista_accordion_manual]=Accordion
 ViewName[lista_box2]=Elenco su due colonne
 ViewName[lista_tab]=Schede (tab)
+ViewName[lista_in_evidenza]=In evidenza
 
 [Eventi]
 Name=Eventi
