@@ -75,11 +75,12 @@
     @extend .u-hidden;
     @extend .u-md-block;
     @extend .u-lg-block;
+    background-color: #eee;
+    border-color: color(var(--Color-primary) l(-10%)) !important;
 }
 .owl-theme .owl-preview{
     @extend .Grid;
     @extend .u-border-bottom-m;
-    border-color: color(var(--Color-primary) l(-10%)) !important;
 }
 
 .owl-theme .owl-preview li{
