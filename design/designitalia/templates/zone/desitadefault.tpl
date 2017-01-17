@@ -23,7 +23,7 @@
             {if or( $block.valid_nodes|count(),
                 and( is_set( $block.custom_attributes), $block.custom_attributes|count() ),
                 and( eq( ezini( $block.type, 'ManualAddingOfItems', 'block.ini' ), 'disabled' ), ezini_hasvariable( $block.type, 'FetchClass', 'block.ini' )|not ) )}
-                {block_view_gui block=$block}
+                {block_view_gui block=$block items_per_row=1}
             {else}
                 {skip}
             {/if}
@@ -36,7 +36,7 @@
                     {if or( $block.valid_nodes|count(),
                     and( is_set( $block.custom_attributes), $block.custom_attributes|count() ),
                     and( eq( ezini( $block.type, 'ManualAddingOfItems', 'block.ini' ), 'disabled' ), ezini_hasvariable( $block.type, 'FetchClass', 'block.ini' )|not ) )}
-                        {block_view_gui block=$block}
+                        {block_view_gui block=$block items_per_row=1}
                     {else}
                         {skip}
                     {/if}
@@ -49,7 +49,7 @@
                     {if or( $block.valid_nodes|count(),
                     and( is_set( $block.custom_attributes), $block.custom_attributes|count() ),
                     and( eq( ezini( $block.type, 'ManualAddingOfItems', 'block.ini' ), 'disabled' ), ezini_hasvariable( $block.type, 'FetchClass', 'block.ini' )|not ) )}
-                        {block_view_gui block=$block}
+                        {block_view_gui block=$block items_per_row=1}
                     {else}
                         {skip}
                     {/if}
@@ -58,25 +58,25 @@
         </div>
     </div>
 
-    <div class="u-background-compl-10 u-layout-centerContent u-padding-r-top">
-        <section class="u-layout-wide u-text-r-s u-padding-r-top u-padding-r-bottom">
-            <div class="Grid Grid--withGutter">
-                <div class="Grid-cell u-sizeFull">
-                    {if and( is_set( $zones[4].blocks ), $zones[4].blocks|count() )}
-                    {foreach $zones[4].blocks as $block}
-                    {if or( $block.valid_nodes|count(),
-                        and( is_set( $block.custom_attributes), $block.custom_attributes|count() ),
-                        and( eq( ezini( $block.type, 'ManualAddingOfItems', 'block.ini' ), 'disabled' ), ezini_hasvariable( $block.type, 'FetchClass', 'block.ini' )|not ) )}
-                        {block_view_gui block=$block}
-                    {else}
-                        {skip}
-                    {/if}
-                    {/foreach}
-                    {/if}
+    {if and( is_set( $zones[4].blocks ), $zones[4].blocks|count() )}
+        <div class="u-background-grey-30 u-layout-centerContent u-padding-r-top">
+            <section class="u-layout-wide u-text-r-s u-padding-r-top u-padding-r-bottom">
+                <div class="Grid Grid--withGutter">
+                    <div class="Grid-cell u-sizeFull">
+                        {foreach $zones[4].blocks as $block}
+                        {if or( $block.valid_nodes|count(),
+                            and( is_set( $block.custom_attributes), $block.custom_attributes|count() ),
+                            and( eq( ezini( $block.type, 'ManualAddingOfItems', 'block.ini' ), 'disabled' ), ezini_hasvariable( $block.type, 'FetchClass', 'block.ini' )|not ) )}
+                            {block_view_gui block=$block items_per_row=3}
+                        {else}
+                            {skip}
+                        {/if}
+                        {/foreach}
+                    </div>
                 </div>
-            </div>
-        </section>
-    </div>
+            </section>
+        </div>
+    {/if}
 
     <div class="u-layout-wide u-layoutCenter u-text-r-xl u-layout-r-withGutter u-padding-r-top">
         <div class="Grid-cell u-sizeFull u-md-size3of12 u-lg-size3of12">
@@ -85,7 +85,7 @@
                     {if or( $block.valid_nodes|count(),
                     and( is_set( $block.custom_attributes), $block.custom_attributes|count() ),
                     and( eq( ezini( $block.type, 'ManualAddingOfItems', 'block.ini' ), 'disabled' ), ezini_hasvariable( $block.type, 'FetchClass', 'block.ini' )|not ) )}
-                        {block_view_gui block=$block}
+                        {block_view_gui block=$block items_per_row=1}
                     {else}
                         {skip}
                     {/if}
@@ -98,7 +98,7 @@
                     {if or( $block.valid_nodes|count(),
                     and( is_set( $block.custom_attributes), $block.custom_attributes|count() ),
                     and( eq( ezini( $block.type, 'ManualAddingOfItems', 'block.ini' ), 'disabled' ), ezini_hasvariable( $block.type, 'FetchClass', 'block.ini' )|not ) )}
-                        {block_view_gui block=$block}
+                        {block_view_gui block=$block items_per_row=1}
                     {else}
                         {skip}
                     {/if}
@@ -111,7 +111,7 @@
                     {if or( $block.valid_nodes|count(),
                     and( is_set( $block.custom_attributes), $block.custom_attributes|count() ),
                     and( eq( ezini( $block.type, 'ManualAddingOfItems', 'block.ini' ), 'disabled' ), ezini_hasvariable( $block.type, 'FetchClass', 'block.ini' )|not ) )}
-                        {block_view_gui block=$block}
+                        {block_view_gui block=$block items_per_row=1}
                     {else}
                         {skip}
                     {/if}
@@ -124,7 +124,7 @@
                     {if or( $block.valid_nodes|count(),
                     and( is_set( $block.custom_attributes), $block.custom_attributes|count() ),
                     and( eq( ezini( $block.type, 'ManualAddingOfItems', 'block.ini' ), 'disabled' ), ezini_hasvariable( $block.type, 'FetchClass', 'block.ini' )|not ) )}
-                        {block_view_gui block=$block}
+                        {block_view_gui block=$block items_per_row=1}
                     {else}
                         {skip}
                     {/if}

@@ -11,7 +11,7 @@
 <div class="Headroom-hideme u-textCenter u-hidden u-sm-block u-md-block u-lg-block">
     {*<nav class="Megamenu Megamenu--styled js-megamenu" data-rel=".Offcanvas .Treeview"></nav>*}
 
-    <nav class="Megamenu Megamenu--default">
+    <nav class="Megamenu Megamenu--default js-megamenu">
         <ul class="Megamenu-list">
             {if $top_menu_node_ids_count}
                 {foreach $top_menu_node_ids as $id}
