@@ -43,12 +43,20 @@
             <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter">
 
                 {if $block.name|ne('')}
-                    <h3 class="u-text-h3">
-                        {$block.name|wash()}
-                    </h3>
+                    {if $show_link}
+                        <h3 class="u-text-h3">
+                            <a href="{$valid_node.url_alias|ezurl(no)}" title="Vai al calendario" class="u-color-black">
+                              {$block.name|wash()}
+                            </a>
+                        </h3>                    
+                    {else}
+                      <h3 class="u-text-h3">
+                          {$block.name|wash()}
+                      </h3>
+                    {/if}
                 {/if}
 
-                <div class="events_toolbar">
+                <div class="events_toolbar u-hidden u-sm-block u-md-block u-lg-block">
 
 
                     {if and( $day_events_count|gt(0), $prossimi_count|gt(0) )}

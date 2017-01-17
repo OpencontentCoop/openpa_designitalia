@@ -2,7 +2,7 @@
     "use strict";
     var pluginName = "initOwlCarousel";
 
-    function InitOwlCarousel(container, options, showPreview) {
+    function InitOwlCarousel(container, options, showPreview, widePreview) {
         var owl = $(container);
         owl.owlCarousel(options);
         if (showPreview) {
@@ -10,7 +10,7 @@
                 $(e.target).find('[data-index]').removeClass('active').find('a').removeClass('focus');
                 $(e.target).find('[data-index="' + e.item.index + '"]').addClass('active').find('a').addClass('focus');
             });
-
+            
             var previewContainer = $('<div class="owl-preview-container" />');
             var preview = $('<ul class="owl-preview" />');
             owl.find('.carousel-caption h3').each(function (index) {
@@ -27,19 +27,24 @@
                 preview.append(item.append(link));
             });
 
-            preview.appendTo(previewContainer);
+            if (widePreview) {
+                var wideContainer = $('<div class="u-layout-wide u-layoutCenter u-layout-r-withGutter" />');
+                preview.appendTo(wideContainer);
+                wideContainer.appendTo(previewContainer);  
+            }else{
+                preview.appendTo(previewContainer);   
+            }            
             previewContainer.appendTo(owl);
         }
 
     }
 
-    $.fn[pluginName] = function (options, showPreview) {
+    $.fn[pluginName] = function (options, showPreview, widePreview) {
         return this.each(function () {
             if (!$.data(this, pluginName)) {
-                $.data(this, pluginName, new InitOwlCarousel(this, options, showPreview));
+                $.data(this, pluginName, new InitOwlCarousel(this, options, showPreview, widePreview));
             }
         });
     };
 
 })(jQuery, window, document);
-

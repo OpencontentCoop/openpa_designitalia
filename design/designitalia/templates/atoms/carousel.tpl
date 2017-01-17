@@ -9,6 +9,7 @@
     'auto_height', true(),
     'top_pagination_position', true(),
     'show_items_preview', false(),
+    'wide_items_preview', false(),
     'navigation_text', concat( "['", '<i class="fa fa-arrow-circle-left"></i>', "','", '<i class="fa fa-arrow-circle-right"></i>', "']"),
     'css_id', $root_node.node_id
 ))}
@@ -56,7 +57,8 @@
                     {rdelim}
                     {/if}
                 {rdelim},
-                {if and($show_items_preview,count($items)|gt(1))}true{else}false{/if}
+                {if and($show_items_preview,count($items)|gt(1))}true{else}false{/if},
+                {if $wide_items_preview}true{else}false{/if}
             );
         {rdelim});
     </script>

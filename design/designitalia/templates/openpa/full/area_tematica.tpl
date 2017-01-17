@@ -13,7 +13,7 @@
     </div>
 
     <div class="content-container">
-        <div class="content{if or( $show_left, $openpa.control_menu.show_extra_menu )} withExtra{/if}">
+        <div class="{if $node.data_map.layout.has_content}contentLayout{else}content{/if}{if or( $show_left, $openpa.control_menu.show_extra_menu )} withExtra{/if}">
 
             {if $node.data_map.layout.has_content}
                 {attribute_view_gui attribute=$node.data_map.layout}

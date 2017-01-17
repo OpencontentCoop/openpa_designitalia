@@ -15,7 +15,8 @@
                  navigation= and( $show_title, $block.name|ne(''), $items_per_row|gt(1) )
                  items_per_row=$items_per_row
                  i_view=carousel_evidence
-                 show_items_preview=$items_per_row|eq(1)}
+                 show_items_preview=$items_per_row|eq(1)
+                 wide_items_preview=true()}
     </div>
 </div>
 
