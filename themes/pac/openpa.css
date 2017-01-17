@@ -38,10 +38,7 @@
     @extend .u-layout-wide;
     @extend .u-layoutCenter;
     @extend .u-layout-withGutter;
-    @extend .u-md-size10of12;
-    @extend .u-lg-size10of12;
-    @extend .u-md-before2of12;
-    @extend .u-lg-before2of12;
+    @extend .u-layout-withGutter;
     @extend .u-padding-r-bottom;
     @extend .u-padding-top-s;
 }
