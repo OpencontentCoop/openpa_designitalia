@@ -482,13 +482,16 @@
     background: #fff !important;
 }
 
+.eventi_wide .js-Masonry-container{
+    float: left;
+}
+
 .events_wide_wrapper h3 {
     display: block;
     float: left;
     line-height: 95px;
     margin: 0;
     padding-top: 0;
-    padding-left: 10px;
 }
 
 .events_wide_wrapper .events_toolbar {
@@ -506,6 +509,13 @@
     float: left;
 }
 
+.events_wide_wrapper .events_toolbar ul li.ui-tabs-active{
+    @extend .u-background-50;
+}
+
+.events_wide_wrapper .events_toolbar ul li.ui-tabs-active a {
+    color: var(--Color-white);
+}
 .events_wide_wrapper .events_toolbar ul li a {
     color: #333333;
     display: block;

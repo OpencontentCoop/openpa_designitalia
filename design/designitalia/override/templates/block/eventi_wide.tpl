@@ -48,6 +48,7 @@
             {/if}
 
             <div class="events_toolbar">
+                <div class="u-layout-wide u-layoutCenter">
 
                 {if and( $day_events_count|gt(0), $prossimi_count|gt(0) )}
                     <ul role="tablist">
@@ -77,6 +78,7 @@
                     </ul>
                 {/if}
 
+                </div>
             </div>
 
         </div>
