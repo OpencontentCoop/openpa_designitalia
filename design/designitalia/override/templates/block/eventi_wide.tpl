@@ -40,43 +40,44 @@
     <div id="{$block.id}" class="openpa-widget {$block.view} {if is_set($block.custom_attributes.color_style)}color color-{$block.custom_attributes.color_style}{/if}">
 
         <div class="events_wide_wrapper">
+            <div class="u-layout-wide u-layoutCenter">
 
-            {if $block.name|ne('')}
-                <h3 class="u-text-h3">
-                    {$block.name|wash()}
-                </h3>
-            {/if}
-
-            <div class="events_toolbar">
-                <div class="u-layout-wide u-layoutCenter">
-
-                {if and( $day_events_count|gt(0), $prossimi_count|gt(0) )}
-                    <ul role="tablist">
-                        {if $day_events_count|ne(0)}
-                            <li class="eventi-oggi">
-                                <a href="#oggi" data-toggle="tab">
-                                    <i class="fa fa-clock-o"></i> Oggi
-                                </a>
-                            </li>
-                        {/if}
-                        {if $prossimi_count|gt(0)}
-                            <li class="eventi-futuri eventi-{$block.custom_attributes.tab_title|slugize}">
-                                <a href="#{$block.custom_attributes.tab_title|slugize}" data-toggle="tab">
-                                    <i class="fa fa-calendar-o"></i> {$block.custom_attributes.tab_title}
-                                </a>
-                            </li>
-                        {/if}
-
-                        {if $show_link}
-                            <li class="jump-to-calendar">
-                                <a href="{$valid_node.url_alias|ezurl(no)}" title="Vai al calendario">
-                                    <i class="fa fa-calendar"></i> Tutti
-                                </a>
-                            </li>
-                        {/if}
-
-                    </ul>
+                {if $block.name|ne('')}
+                    <h3 class="u-text-h3">
+                        {$block.name|wash()}
+                    </h3>
                 {/if}
+
+                <div class="events_toolbar">
+
+
+                    {if and( $day_events_count|gt(0), $prossimi_count|gt(0) )}
+                        <ul role="tablist">
+                            {if $day_events_count|ne(0)}
+                                <li class="eventi-oggi">
+                                    <a href="#oggi" data-toggle="tab">
+                                        <i class="fa fa-clock-o"></i> Oggi
+                                    </a>
+                                </li>
+                            {/if}
+                            {if $prossimi_count|gt(0)}
+                                <li class="eventi-futuri eventi-{$block.custom_attributes.tab_title|slugize}">
+                                    <a href="#{$block.custom_attributes.tab_title|slugize}" data-toggle="tab">
+                                        <i class="fa fa-calendar-o"></i> {$block.custom_attributes.tab_title}
+                                    </a>
+                                </li>
+                            {/if}
+
+                            {if $show_link}
+                                <li class="jump-to-calendar">
+                                    <a href="{$valid_node.url_alias|ezurl(no)}" title="Vai al calendario">
+                                        <i class="fa fa-calendar"></i> Tutti
+                                    </a>
+                                </li>
+                            {/if}
+
+                        </ul>
+                    {/if}
 
                 </div>
             </div>
