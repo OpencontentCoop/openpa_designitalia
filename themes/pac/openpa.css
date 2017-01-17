@@ -37,8 +37,7 @@
 .Breadcrumb-container {
     @extend .u-layout-wide;
     @extend .u-layoutCenter;
-    @extend .u-layout-withGutter;
-    @extend .u-layout-withGutter;
+    @extend .u-layout-r-withGutter;
     @extend .u-padding-r-bottom;
     @extend .u-padding-top-s;
 }
@@ -68,8 +67,8 @@
     @extend .Grid--withGutter > .Grid-cell;
     @extend .Grid-cell;
     @extend .u-padding-bottom-xl;
-    @extend .u-md-size6of12;
-    @extend .u-lg-size6of12;
+    @extend .u-md-size8of12;
+    @extend .u-lg-size8of12;
 }
 
 .openpa-full .content-main-abstract,
