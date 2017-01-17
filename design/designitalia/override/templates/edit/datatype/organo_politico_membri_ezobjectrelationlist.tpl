@@ -1,12 +1,21 @@
 {let class_content=$attribute.class_content
-     class_list=fetch( class, list, hash( class_filter, $class_content.class_constraint_list ) )
-     can_create=true()
-     current_user = fetch( 'user', 'current_user' )
-     servizio_utente = fetch( 'content', 'related_objects',  hash( 'object_id', $current_user.contentobject_id, 'attribute_identifier', openpaini( 'ControlloUtenti', 'user_servizio_attribute_ID', 909 ),'all_relations', false() ))
-     ufficio_utente = fetch( 'content', 'related_objects',  hash( 'object_id', $current_user.contentobject_id, 'attribute_identifier', openpaini( 'ControlloUtenti', 'user_ufficio_attribute_ID', 911 ),'all_relations', false() ))
+     class_list=fetch( class, list, hash( class_filter, $class_content.class_constraint_list ) )     
      new_object_initial_node_placement=false()
      browse_object_start_node=false()
 }
+
+{default html_class='full' placeholder=false()}
+
+<fieldset class="Form-field {if array(2,3)|contains($class_content.selection_type)}Form-field--choose Grid-cell{/if} {if $attribute.has_validation_error} has-error{/if}">
+    <legend class="Form-label {if $attribute.is_required}is-required{/if}">
+        {first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}
+        {if $attribute.is_information_collector} <em class="collector">{'information collector'|i18n( 'design/admin/content/edit_attribute' )}</em>{/if}
+        {if $attribute.is_required} ({'richiesto'|i18n('design/ocbootstrap/designitalia')}){/if}
+    </legend>
+
+    {if $contentclass_attribute.description}
+        <em class="attribute-description">{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</em>
+    {/if}
 
 
     {default attribute_base=ContentObjectAttribute}
@@ -83,6 +92,7 @@
         <p>{'There are no objects of allowed classes'|i18n( 'design/standard/content/datatype' )}.</p>
     {/if}
 
+</fieldset>
 
 {/let}
 
