@@ -271,3 +271,25 @@ a:focus {
 
 /* End Theme */
 
+/*.Card-title {
+    position: absolute;
+    left: 0px;
+    top: 25px;
+    width: 70%;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    background-color: var(--Color-secondary);
+    color: #fff !important;
+    font-size: 20px;
+    !* font-family: 'daxcondensed-lightregular'; *!
+    padding: 0 30px 0 20px;
+    cursor: pointer;
+    border: 0 !important;
+    overflow: hidden;
+}
+
+.Card-title a {
+    color: #fff !important;
+}*/
+
