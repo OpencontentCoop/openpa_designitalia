@@ -1,137 +1,273 @@
-@import "suitcss-base";
-@import "suitcss-components";
-@import "suitcss-utils";
-
-@import "suitcss-components-form";
-
 /*
- *  @FIXME: replace with glob patterns when this gets merged:
- *    https://github.com/TrySound/postcss-easy-import/pull/7
- */
-@import "ita-web-toolkit/src/utils/borders";
-@import "ita-web-toolkit/src/utils/colors";
-@import "ita-web-toolkit/src/utils/corners";
-@import "ita-web-toolkit/src/utils/display";
-@import "ita-web-toolkit/src/utils/layout";
-@import "ita-web-toolkit/src/utils/shadows";
-@import "ita-web-toolkit/src/utils/space";
-@import "ita-web-toolkit/src/utils/text";
-@import "ita-web-toolkit/src/utils/zindex";
+ NB: Gli import sono relativi alla root, l'index.css dell'estensione desiderata
+     viene copiato nella root in fase di compilazione in modo da evitare problemi
+*/
 
-@import "ita-web-toolkit/src/icons/ita";
+@import "themes/base/base";
+@import "themes/base/compat";
+@import "themes/base/organigramma";
+@import "themes/base/openpa";
+@import "themes/base/owl.theme.default";
 
-@import "ita-web-toolkit/src/components/button";
-@import "ita-web-toolkit/src/components/form";
-@import "ita-web-toolkit/src/components/forward";
-@import "ita-web-toolkit/src/components/prose";
-@import "ita-web-toolkit/src/components/table";
 
-@import "ita-web-toolkit/src/modules/accordion";
-@import "ita-web-toolkit/src/modules/alert";
-@import "ita-web-toolkit/src/modules/breadcrumb";
-@import "ita-web-toolkit/src/modules/bullets";
-@import "ita-web-toolkit/src/modules/callout";
-@import "ita-web-toolkit/src/modules/card";
-@import "ita-web-toolkit/src/modules/carousel";
-@import "ita-web-toolkit/src/modules/cookiebar";
-@import "ita-web-toolkit/src/modules/dialog";
-@import "ita-web-toolkit/src/modules/dot";
-@import "ita-web-toolkit/src/modules/dropdown";
-@import "ita-web-toolkit/src/modules/entrypoint";
-@import "ita-web-toolkit/src/modules/footer";
-@import "ita-web-toolkit/src/modules/hamburger";
-@import "ita-web-toolkit/src/modules/header";
-@import "ita-web-toolkit/src/modules/hero";
-@import "ita-web-toolkit/src/modules/leads";
-@import "ita-web-toolkit/src/modules/linklist";
-@import "ita-web-toolkit/src/modules/megamenu";
-@import "ita-web-toolkit/src/modules/masonry";
-@import "ita-web-toolkit/src/modules/navscroll";
-@import "ita-web-toolkit/src/modules/offcanvas";
-@import "ita-web-toolkit/src/modules/scrolltop";
-@import "ita-web-toolkit/src/modules/skiplinks";
-@import "ita-web-toolkit/src/modules/tooltip";
-@import "ita-web-toolkit/src/modules/treeview";
-
-@import "ita-web-toolkit/src/extra/share";
-@import "ita-web-toolkit/src/extra/spid";
-
-@import "ita-web-toolkit/src/print";
-
+/* Start theme */
 /*
- * WebFontLoaded: _import "src/fonts/titillium"
- * see src/_preview.html
+ *	Only apply to body class="purple"
  */
-@import "themes/pac";
-
-@import "ita-web-toolkit/src/legacy";
-
-@custom-media --sm-viewport screen and (min-width: 768px) and (max-width: 991px);
-@custom-media --md-viewport screen and (min-width: 992px) and (max-width: 1365px);
-@custom-media --lg-viewport screen and (min-width: 1366px);
-
-/*
- *  System font stack see https://github.com/twbs/bootstrap/pull/19098/files
- */
-
-:root {
-  --it-Base-font-size-ratio: 1.8;
-  --it-Base-font-size: calc(1rem * var(--it-Base-font-size-ratio));
-  --it-Base-text-color: #1c2024;
-  --it-Base-focus-color: #ff8c00;
-  --it-Base-font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Segoe UI,
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    Fira Sans,
-    Droid Sans,
-    HelveticaNeue-Light,
-    Helvetica Neue Light,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    Lucida Grande,
-    sans-serif;
-}
-
-:root {
-  --Grid-gutter-size: 1.6rem;
-}
-
-/*  stylelint-disable */
-/**
- * 1. 62.5% = 10px on browsers with base size = 16px
- * 		so we got 10px = 1rem
- * 2. See http://stackoverflow.com/questions/7968795/is-it-safe-to-use-the-css-rule-text-rendering-optimizelegibility-on-all-text
- */
- /*  stylelint-enable */
-
-html {
-  font-family: var(--it-Base-font-family);
-  font-size: 62.5%; /* 1 */
-  font-variant-ligatures: common-ligatures; /* 2 */
-
-  /* text-rendering: optimizeLegibility; */
+.mubel {
+    font-family: var(--Theme-font-family-sans);
 }
 
 /**
- * 1. Avoid collapsing content
+ * 	Brand color
  */
-
-body {
-  color: var(--it-Base-text-color);
-  font-size: var(--it-Base-font-size);
-  min-width: 300px; /* 1 */
+:root {
+    --Color-primary: #373737;
+    --Color-secondary: #dc232f;
+    --Prose-color-text-primary: #1c2024;
+    --Prose-color-text-secondary: #5a6772;
+    --Prose-color-text-highlighted: #b2ebed;
+    --Prose-color-link: var(--Color-primary);
+    --Prose-color-link-hover: var(--Color-primary);
+    --Prose-color-link-visited: var(--Color-primary);
+    --Color-focus: var(--Color-secondary);
 }
 
-:focus {
-  outline: 3px solid var(--it-Base-focus-color);
+/**
+ * 	Fonts
+ */
+:root {
+    --Theme-font-family-sans: Titillium Web, HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
 }
 
-a:hover {
-  text-decoration: underline !important;
+a{
+    color: var(--Color-primary);
+    text-decoration: none !important;
+    cursor: pointer;
 }
+
+button, input[type=submit]{
+    cursor: pointer;
+}
+
+a:focus {
+    background: var(--Color-focus);
+    outline: var(--Color-focus) solid 3px;
+    color: var(--Color-primary);
+}
+
+#toolbar{
+    @extend .u-hidden;
+    @extend .u-md-block;
+    @extend .u-lg-block;
+}
+
+.GridStriped .Grid:nth-child(2n) {
+    @extend .u-background-grey-10;
+}
+
+.ContainerStriped .ItemStriped:nth-child(2n) {
+    @extend .u-background-grey-10;
+}
+
+.Header-logo img {
+    width: auto !important;
+}
+
+.Headroom--fixed.Headroom--not-top .Header-logo img,
+.Headroom--pinned.Headroom--not-top .Header-logo img {
+    max-height: 3em;
+    max-width: none !important;
+}
+
+.Megamenu--styled .Megamenu-list > li > a[aria-expanded=false]::after {
+    color: var(--Color-grey-80);
+}
+
+.Megamenu--styled .Megamenu-list > li > a[aria-expanded=true]::after {
+    color: var(--Color-white);
+}
+
+.Megamenu-subnavGroup {
+    max-width: 25%;
+}
+
+
+.Megamenu-subnavGroup  li a {
+    @extend .u-padding-all-xxs;
+}
+
+.Megamenu-subnavGroup  li  a:hover,
+.Megamenu-subnavGroup  li  a.current,
+.Megamenu-subnavGroup  li  a.is-focus {
+    background-color: var(--Color-focus);
+    color: var(--Color-white);
+}
+
+.Breadcrumb {
+    @extend .u-margin-top-s;
+}
+
+.lista_carousel .openpa-carousel .carousel-caption {
+    @extend .u-layout-centerContent;
+    @extend .u-padding-all-xxl;
+}
+
+.lista_carousel .openpa-carousel .carousel-caption h3,
+.lista_carousel .openpa-carousel .carousel-caption p{
+    @extend .u-layout-small;
+}
+
+.owl-theme .owl-nav {
+    top: -85px !important;
+}
+
+.frontpage .first {
+    margin-top: 0 !important;
+}
+
+.frontpage .first .owl-theme .owl-dots {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.frontpage .first .owl-theme .owl-dots .owl-dot span {
+    width: 18px;
+    height: 18px;
+    margin: 10px 7px;
+    background: var(--Color-primary);
+    border: 1px solid var(--Color-white);
+}
+
+.frontpage .first .owl-theme .owl-dots .owl-dot:hover span,
+.frontpage .first .owl-theme .owl-dots .owl-dot.active span{
+    background: var(--Color-secondary);
+    border: 1px solid var(--Color-white);
+}
+
+.openpa-widget-content .openpa-panel{
+    border: none !important;
+}
+
+.openpa-widget{
+    @extend .u-margin-r-bottom;
+    @extend .u-cf;
+    /*position: relative;*/
+}
+
+.openpa-widget-layout .openpa-widget-title,
+.openpa-widget-title,
+.openpa-panel-label {
+    @extend .u-margin-bottom-xs;
+    @extend .u-text-h4;
+    padding-bottom: 0 !important;
+    font-weight: 400 !important;
+    line-height: 1.2;
+    border-bottom:0.5rem solid var(--Color-secondary) !important;
+    background-color: transparent !important;
+}
+.openpa-widget-title a,
+.openpa-widget-title span,
+.openpa-panel-label span {
+    @extend .u-padding-left-xs;
+    @extend .u-padding-right-xs;
+    @extend .u-color-50;
+    @extend .u-textClean;
+    background-color: var(--Color-secondary);
+    color: var(--Color-white) !important;
+    position: relative !important;
+}
+
+.openpa-widget-title a:after,
+.openpa-widget-title span:after,
+.openpa-panel-label span:after{
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 0;
+    height: 0;
+    border-bottom: 1em solid var(--Color-secondary);
+    border-right: 1em solid transparent;
+    border-bottom-width: 30px;
+}
+
+@media (--md-viewport), (--lg-viewport) {
+    .openpa-widget-title a:after,
+    .openpa-widget-title span:after,
+    .openpa-panel-label span:after {
+        border-bottom-width: 32px;
+    }
+}
+
+.Header-navbar {
+    background-color: var(--Color-secondary) !important;
+}
+
+.Linklist a:hover,
+.Linklist li.active a,
+.Linklist li.current a,
+.Linklist li.active a:hover,
+.Linklist li.current a:hover {
+    background-color: var(--Color-secondary) !important;
+    color: var(--Color-white) !important;
+}
+
+.Header-navbar {
+    background-color: var(--Color-secondary) !important;
+}
+/*.Header-search button,
+.Header-searchTrigger button {
+    background-color: var(--Color-secondary) !important;
+    color: var(--Color-primary) !important;
+}*/
+
+.openpa-carousel.u-padding-all-xx {
+    padding: 0 !important;
+}
+
+.openpa-carousel_image {
+@extend .u-posRelative;
+}
+
+.openpa-carousel_image .overlay {
+@extend .u-posAbsolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border-radius: 0;
+    background: var(--Color-secondary);
+    color: var(--Color-white);
+    vertical-align: middle;
+    -webkit-transition: opacity 500ms;
+    -moz-transition: opacity 500ms;
+    -o-transition: opacity 500ms;
+    transition: opacity 500ms;
+    padding: 30px;
+}
+
+.openpa-carousel_image .overlay h3{
+@extend .u-textCenter;
+@extend .u-alignMiddle;
+}
+
+.openpa-carousel_image:hover .overlay {
+    opacity: .8;
+}
+
+.readmore {
+@extend .u-hidden;
+}
+
+.singolo_gallery .owl-item h2 {
+@extend .u-hidden;
+}
+
+.nav-tab.ui-tabs-active{ background-color: var(--Color-secondary) !important;}
+.nav-tabs { border-color: var(--Color-secondary) !important;}
+
+/* End Theme */
+

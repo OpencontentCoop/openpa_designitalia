@@ -1,0 +1,131 @@
+@import "suitcss-base";
+@import "suitcss-components";
+@import "suitcss-utils";
+
+@import "suitcss-components-form";
+
+/*
+ *  @FIXME: replace with glob patterns when this gets merged:
+ *    https://github.com/TrySound/postcss-easy-import/pull/7
+ */
+@import "../../ita-web-toolkit/src/utils/borders";
+@import "../../ita-web-toolkit/src/utils/colors";
+@import "../../ita-web-toolkit/src/utils/corners";
+@import "../../ita-web-toolkit/src/utils/display";
+@import "../../ita-web-toolkit/src/utils/layout";
+@import "../../ita-web-toolkit/src/utils/shadows";
+@import "../../ita-web-toolkit/src/utils/space";
+@import "../../ita-web-toolkit/src/utils/text";
+@import "../../ita-web-toolkit/src/utils/zindex";
+
+@import "../../ita-web-toolkit/src/icons/ita";
+
+@import "../../ita-web-toolkit/src/components/button";
+@import "../../ita-web-toolkit/src/components/form";
+@import "../../ita-web-toolkit/src/components/forward";
+@import "../../ita-web-toolkit/src/components/prose";
+@import "../../ita-web-toolkit/src/components/table";
+
+@import "../../ita-web-toolkit/src/modules/accordion";
+@import "../../ita-web-toolkit/src/modules/alert";
+@import "../../ita-web-toolkit/src/modules/breadcrumb";
+@import "../../ita-web-toolkit/src/modules/bullets";
+@import "../../ita-web-toolkit/src/modules/callout";
+@import "../../ita-web-toolkit/src/modules/card";
+@import "../../ita-web-toolkit/src/modules/carousel";
+@import "../../ita-web-toolkit/src/modules/cookiebar";
+@import "../../ita-web-toolkit/src/modules/dialog";
+@import "../../ita-web-toolkit/src/modules/dot";
+@import "../../ita-web-toolkit/src/modules/dropdown";
+@import "../../ita-web-toolkit/src/modules/entrypoint";
+@import "../../ita-web-toolkit/src/modules/footer";
+@import "../../ita-web-toolkit/src/modules/hamburger";
+@import "../../ita-web-toolkit/src/modules/header";
+@import "../../ita-web-toolkit/src/modules/hero";
+@import "../../ita-web-toolkit/src/modules/leads";
+@import "../../ita-web-toolkit/src/modules/linklist";
+@import "../../ita-web-toolkit/src/modules/megamenu";
+@import "../../ita-web-toolkit/src/modules/masonry";
+@import "../../ita-web-toolkit/src/modules/navscroll";
+@import "../../ita-web-toolkit/src/modules/offcanvas";
+@import "../../ita-web-toolkit/src/modules/scrolltop";
+@import "../../ita-web-toolkit/src/modules/skiplinks";
+@import "../../ita-web-toolkit/src/modules/tooltip";
+@import "../../ita-web-toolkit/src/modules/treeview";
+
+@import "../../ita-web-toolkit/src/extra/share";
+@import "../../ita-web-toolkit/src/extra/spid";
+
+@import "../../ita-web-toolkit/src/print";
+
+@import "../../ita-web-toolkit/src/legacy";
+
+@custom-media --sm-viewport screen and (min-width: 768px) and (max-width: 991px);
+@custom-media --md-viewport screen and (min-width: 992px) and (max-width: 1365px);
+@custom-media --lg-viewport screen and (min-width: 1366px);
+
+/*
+ *  System font stack see https://github.com/twbs/bootstrap/pull/19098/files
+ */
+
+:root {
+    --it-Base-font-size-ratio: 1.8;
+    --it-Base-font-size: calc(1rem * var(--it-Base-font-size-ratio));
+    --it-Base-text-color: #1c2024;
+    --it-Base-focus-color: #ff8c00;
+    --it-Base-font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            Segoe UI,
+            Roboto,
+            Oxygen,
+            Ubuntu,
+            Cantarell,
+            Fira Sans,
+            Droid Sans,
+            HelveticaNeue-Light,
+            Helvetica Neue Light,
+            Helvetica Neue,
+            Helvetica,
+            Arial,
+            Lucida Grande,
+            sans-serif;
+}
+
+:root {
+    --Grid-gutter-size: 1.6rem;
+}
+
+/*  stylelint-disable */
+/**
+ * 1. 62.5% = 10px on browsers with base size = 16px
+ * 		so we got 10px = 1rem
+ * 2. See http://stackoverflow.com/questions/7968795/is-it-safe-to-use-the-css-rule-text-rendering-optimizelegibility-on-all-text
+ */
+/*  stylelint-enable */
+
+html {
+    font-family: var(--it-Base-font-family);
+    font-size: 62.5%; /* 1 */
+    font-variant-ligatures: common-ligatures; /* 2 */
+
+    /* text-rendering: optimizeLegibility; */
+}
+
+/**
+ * 1. Avoid collapsing content
+ */
+
+body {
+    color: var(--it-Base-text-color);
+    font-size: var(--it-Base-font-size);
+    min-width: 300px; /* 1 */
+}
+
+:focus {
+    outline: 3px solid var(--it-Base-focus-color);
+}
+
+a:hover {
+    text-decoration: underline !important;
+}
