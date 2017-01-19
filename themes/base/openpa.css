@@ -299,8 +299,6 @@
 
 .openpa-panel {
     @extend .Card;
-    @extend .Card--shadow;
-    @extend .Card--round;
     @extend .u-text-r-xxs;
     @extend .u-background-white;
     @extend .u-flexAlignSelfStretch;

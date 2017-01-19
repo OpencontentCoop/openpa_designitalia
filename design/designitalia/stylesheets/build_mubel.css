@@ -4823,7 +4823,7 @@ ol, ul {
   padding: 0.1em;
 }
 
-.u-border-none, .Card--shadow, .Footer-socialIcons > li, .openpa-panel {
+.u-border-none, .Card--shadow, .Footer-socialIcons > li {
   border: none !important;
 }
 
@@ -5089,7 +5089,7 @@ ol, ul {
   border-radius: 2px !important;
 }
 
-.u-borderRadius-m, .Form-input.Form-input:focus + [role="tooltip"], .Card--round, .Entrypoint-item, .form-control.Form-input:focus + [role="tooltip"], .openpa-panel {
+.u-borderRadius-m, .Form-input.Form-input:focus + [role="tooltip"], .Card--round, .Entrypoint-item, .form-control.Form-input:focus + [role="tooltip"] {
   border-radius: 4px !important;
 }
 
@@ -5394,7 +5394,7 @@ ol, ul {
 
 /** @define utilities; */
 
-.u-borderShadow-xxs, .Card--shadow, .Entrypoint-item, .openpa-panel {
+.u-borderShadow-xxs, .Card--shadow, .Entrypoint-item {
   -webkit-box-shadow: 0 1px 2px 0 rgba(50, 50, 50, 0.35) !important;
           box-shadow: 0 1px 2px 0 rgba(50, 50, 50, 0.35) !important;
 }
