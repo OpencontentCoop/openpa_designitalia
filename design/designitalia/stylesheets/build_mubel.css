@@ -6440,7 +6440,7 @@ option:hover {
 }
 
 .Form-field--choose :focus + span {
-  outline: 3px solid #dc232f;
+  outline: 3px solid rgba(255,255,255,0);
 }
 
 .Form-field--choose .Form-input {
@@ -9266,8 +9266,8 @@ button, input[type=submit]{
 }
 
 a:focus {
-    background: #dc232f;
-    outline: #dc232f solid 3px;
+    background: rgba(255,255,255,0);
+    outline: rgba(255,255,255,0) solid 3px;
     color: #373737;
 }
 
@@ -9293,7 +9293,7 @@ a:focus {
 }
 
 .Megamenu-subnavGroup  li  a:hover, .Megamenu-subnavGroup  li  a.current, .Megamenu-subnavGroup  li  a.is-focus {
-    background-color: #dc232f;
+    background-color: rgba(255,255,255,0);
     color: #fff;
 }
 
