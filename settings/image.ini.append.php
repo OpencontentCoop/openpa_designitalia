@@ -4,6 +4,7 @@
 AliasList[]=agid_carousel
 AliasList[]=agid_panel
 AliasList[]=agid_topbanner
+AliasList[]=agid_wide_carousel
 
 [agid_carousel]
 Reference=original
@@ -38,5 +39,12 @@ Filters[]=centerimg=1440;576
 Reference=reference
 Filters[]=geometry/scalewidthdownonly=1920
 Filters[]=centerimg=1920;768
+
+[agid_wide_carousel]
+Filters[]
+Filters[]=strip
+Filters[]=geometry/scalewidth=1200
+Filters[]=forcecenter=#ffffff;1200;500
+
 
 */ ?>

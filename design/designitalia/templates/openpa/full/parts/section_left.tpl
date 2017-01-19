@@ -1,7 +1,7 @@
 {if or($openpa.control_menu.show_extra_menu, $show_left, is_set($extra_template))}
     <div class="extra">
-        {if or(is_set($extra_template), $openpa.control_menu.show_extra_menu)}
-            {if and(is_set($extra_template), $extra_template|not(false()))}
+        {if or(is_set($extra_template), $openpa.control_menu.show_extra_menu)}            
+			{if and(is_set($extra_template), $extra_template|ne(false()))}
                 {include uri=$extra_template}
             {else}
                 {include uri='design:openpa/full/parts/section_left_extra.tpl'}

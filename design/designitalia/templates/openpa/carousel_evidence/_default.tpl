@@ -1,7 +1,7 @@
 {def $is_single = cond( or( is_set($items_per_row)|not(), and(is_set($items_per_row), $items_per_row|eq(1)) ), true(), false() )
      $image = false()}
-{if $node.data_map.image.content['agid_carousel']}
-    {set $image = $node.data_map.image.content['agid_carousel'].url|ezroot(no)}
+{if $node.data_map.image.content[$image_class]}
+    {set $image = $node.data_map.image.content[$image_class].url|ezroot(no)}
 {/if}
 
 <div class="openpa-carousel">

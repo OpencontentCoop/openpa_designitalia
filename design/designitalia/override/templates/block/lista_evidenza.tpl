@@ -1,5 +1,5 @@
 {def $openpa= object_handler($block)}
-{set_defaults(hash('show_title', true(), 'items_per_row', 1, 'image_class', 'agid_wide_carousel'))}
+{set_defaults(hash('show_title', true(), 'items_per_row', 1))}
 
 <div class="openpa-widget {$block.view} {if is_set($block.custom_attributes.color_style)}color color-{$block.custom_attributes.color_style}{/if}">
     {if and( $show_title, $block.name|ne('') )}
@@ -16,8 +16,9 @@
                  items_per_row=$items_per_row
                  i_view=carousel_evidence
                  show_items_preview=$items_per_row|eq(1)
+				 image_class='agid_wide_carousel'
                  wide_items_preview=true()}
     </div>
 </div>
 
-{unset_defaults(array('show_title'))}
+{unset_defaults(array('show_title','items_per_row'))}

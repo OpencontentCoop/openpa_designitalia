@@ -6,7 +6,8 @@
         <a href="{openpaini('InstanceSettings','UrlAmministrazioneAfferente', '#')}">
             <span>{openpaini('InstanceSettings','NomeAmministrazioneAfferente', 'Provincia autonoma di Trento')}</span>
         </a>
-        <div class="Header-languages">
+        {*
+		<div class="Header-languages">
             <a class="Header-language is-active u-hidden u-md-inlineBlock u-lg-inlineBlock" href="" title="sito in italiano">
                 <abbr title="Italiano">ITA</abbr>
             </a>
@@ -35,5 +36,6 @@
                 </ul>
             </div>
         </div>
+		*}
     </div>
 </div>

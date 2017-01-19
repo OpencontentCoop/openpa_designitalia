@@ -1,7 +1,7 @@
 {if $openpa.content_detail.has_content}
     <div class="content-detail">
-        {foreach $openpa.content_detail.attributes as $openpa_attribute}
-            <div class="content-detail-item{if and( $openpa_attribute.full.show_label, $openpa_attribute.full.collapse_label|not() )} withLabel{/if}">
+        {foreach $openpa.content_detail.attributes as $openpa_attribute}            
+			<div class="content-detail-item{if and( $openpa_attribute.full.show_label, $openpa_attribute.full.collapse_label|not() )} withLabel{/if}">
                 {if and( $openpa_attribute.full.show_label, $openpa_attribute.full.collapse_label|not() )}
                     <div class="label">
                         <strong>{$openpa_attribute.label}</strong>
