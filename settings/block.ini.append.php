@@ -1,6 +1,28 @@
 <?php /*
 
+[PushToBlock]
+ContentClasses[]
+ContentClasses[]=frontpage
+ContentClasses[]=homepage
+ContentClasses[]=area_tematica
+RootSubtree=1
+
 [General]
+AllowedTypes[]
+AllowedTypes[]=Singolo
+AllowedTypes[]=Lista
+AllowedTypes[]=Lista3
+AllowedTypes[]=Lista4
+AllowedTypes[]=Eventi
+AllowedTypes[]=Iosono
+#AllowedTypes[]=FeedRSS
+AllowedTypes[]=VideoPlayer
+AllowedTypes[]=ContentSearch
+AllowedTypes[]=GMapItems
+#AllowedTypes[]=GMap #rimosso perché duplicato
+AllowedTypes[]=AreaRiservata
+AllowedTypes[]=Cosmos
+AllowedTypes[]=Meteo
 AllowedTypes[]=HTML
 AllowedTypes[]=Banner
 AllowedTypes[]=ImmagineDimensioneOriginale
@@ -42,7 +64,7 @@ ViewList[]=singolo_in_evidenza
 ViewName[]
 ViewName[singolo_img]=Solo immagine
 ViewName[singolo_banner]=Banner
-ViewName[singolo_img_interne]=Titolo e immagine
+#ViewName[singolo_img_interne]=Titolo e immagine #rimosso perché duplicato
 ViewName[singolo_imgtit_interne]=Immagine e Titolo (media)
 ViewName[singolo_img_interne_piccolo]=Full
 ViewName[singolo_imgtit_interne_piccolo]=Immagine e Titolo (con titolo blocco)
@@ -89,6 +111,7 @@ ViewList[]=lista_carousel
 #ViewList[]=lista_carousel_rassegna
 #ViewList[]=lista_carousel_rassegna_oggi
 ViewList[]=lista_in_evidenza
+ViewList[]=lista_masonry
 ViewName[]
 ViewName[lista_num]=Panelli (carousel) [Mostra solo elementi con immagine]
 ViewName[lista_accordion]=Accordion
@@ -97,6 +120,7 @@ ViewName[lista_carousel]=Banner (carousel) [Mostra solo elementi con immagine]
 ViewName[lista_carousel_rassegna]=Pannelli (carousel)
 ViewName[lista_carousel_rassegna_oggi]=Schede (carousel rassegna oggi)
 ViewName[lista_in_evidenza]=In evidenza
+ViewName[lista_masonry]=Masonry
 
 [Lista3]
 Name=Lista di oggetti (assegnati singolarmente) - MAX 5
@@ -166,6 +190,48 @@ Name=Motori di ricerca
 ViewName[]
 ViewName[search_class_and_attributes]=Cerca per classe e attributi
 ViewName[search_free_ajax]=Ricerca libera
+
+[GMapItems]
+Name=Map Items
+ManualAddingOfItems=disabled
+CustomAttributes[]
+CustomAttributes[]=parent_node_id
+CustomAttributes[]=class
+CustomAttributes[]=attribute
+CustomAttributes[]=limit
+CustomAttributes[]=width
+CustomAttributes[]=height
+UseBrowseMode[parent_node_id]=true
+ViewList[]
+ViewList[]=geo_located_content
+ViewList[]=geo_located_content_osm
+ViewName[]
+ViewName[geo_located_content]=Mappa (Google)
+ViewName[geo_located_content_osm]=Mappa (OpenStreetMap)
+
+[GMap]
+ManualAddingOfItems=disabled
+CustomAttributes[]
+CustomAttributes[]=location
+CustomAttributes[]=key
+ViewList[]
+ViewList[]=gmap
+ViewName[]
+ViewName[gmap]=Map
+
+[AreaRiservata]
+ManualAddingOfItems=disabled
+CustomAttributes[]
+CustomAttributes[]=parent_node_id
+CustomAttributes[]=testo
+CustomAttributes[]=signin
+CustomAttributeTypes[testo]=text
+CustomAttributeTypes[signin]=checkbox
+UseBrowseMode[parent_node_id]=true
+ViewList[]
+ViewList[]=accesso_area_riservata
+ViewName[]
+ViewName[accesso_area_riservata]=Accesso area riservata
 
 [HTML]
 Name=Codice HTML

@@ -405,6 +405,13 @@ Subdir=templates
 Match[type]=Lista3
 Match[view]=lista_carousel
 
+[block_lista_masonry]
+Source=block/view/view.tpl
+MatchFile=block/lista_masonry.tpl
+Subdir=templates
+Match[type]=Lista
+Match[view]=lista_masonry
+
 [block_iosono]
 Source=block/view/view.tpl
 MatchFile=block/iosono.tpl

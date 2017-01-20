@@ -2,11 +2,11 @@
 
     {include uri='design:openpa/panel/parts/image.tpl'}
 
-    <div class="openpa-panel-content Card-content u-padding-r-all">
-        <p class="Card-title">
+    <div class="openpa-panel-content">
+        <h3 class="Card-title">
             <a class="Card-titleLink" href="{$openpa.content_link.full_link}"
                title="{$node.name|wash()}">{$node.name|wash()}</a>
-        </p>
+        </h3>
 
         <div class="Card-text">
             {$node|abstract()}

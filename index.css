@@ -1,20 +1,14 @@
-/*
- NB: Gli import sono relativi alla root, l'index.css dell'estensione desiderata
-     viene copiato nella root in fase di compilazione in modo da evitare problemi
-*/
-
 @import "themes/base/base";
 @import "themes/base/compat";
 @import "themes/base/organigramma";
 @import "themes/base/openpa";
 @import "themes/base/owl.theme.default";
 
-
 /* Start theme */
 /*
- *	Only apply to body class="purple"
+ *	Only apply to body class="Pac"
  */
-.mubel {
+.pac {
     font-family: var(--Theme-font-family-sans);
 }
 
@@ -22,15 +16,15 @@
  * 	Brand color
  */
 :root {
-    --Color-primary: #373737;
-    --Color-secondary: #dc232f;
+    --Color-primary: #0099d1;
+    --Color-secondary: var(--Color-primary);
     --Prose-color-text-primary: #1c2024;
     --Prose-color-text-secondary: #5a6772;
     --Prose-color-text-highlighted: #b2ebed;
     --Prose-color-link: var(--Color-primary);
     --Prose-color-link-hover: var(--Color-primary);
     --Prose-color-link-visited: var(--Color-primary);
-    --Color-focus: var(--Color-secondary);
+    --Color-focus: rgba(255,255,255, 0);
 }
 
 /**
@@ -70,16 +64,6 @@ a:focus {
     @extend .u-background-grey-10;
 }
 
-.Header-logo img {
-    width: auto !important;
-}
-
-.Headroom--fixed.Headroom--not-top .Header-logo img,
-.Headroom--pinned.Headroom--not-top .Header-logo img {
-    max-height: 3em;
-    max-width: none !important;
-}
-
 .Megamenu--styled .Megamenu-list > li > a[aria-expanded=false]::after {
     color: var(--Color-grey-80);
 }
@@ -103,171 +87,3 @@ a:focus {
     background-color: var(--Color-focus);
     color: var(--Color-white);
 }
-
-.Breadcrumb {
-    @extend .u-margin-top-s;
-}
-
-.lista_carousel .openpa-carousel .carousel-caption {
-    @extend .u-layout-centerContent;
-    @extend .u-padding-all-xxl;
-}
-
-.lista_carousel .openpa-carousel .carousel-caption h3,
-.lista_carousel .openpa-carousel .carousel-caption p{
-    @extend .u-layout-small;
-}
-
-.owl-theme .owl-nav {
-    top: -85px !important;
-}
-
-.frontpage .first {
-    margin-top: 0 !important;
-}
-
-.frontpage .first .owl-theme .owl-dots {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-.frontpage .first .owl-theme .owl-dots .owl-dot span {
-    width: 18px;
-    height: 18px;
-    margin: 10px 7px;
-    background: var(--Color-primary);
-    border: 1px solid var(--Color-white);
-}
-
-.frontpage .first .owl-theme .owl-dots .owl-dot:hover span,
-.frontpage .first .owl-theme .owl-dots .owl-dot.active span{
-    background: var(--Color-secondary);
-    border: 1px solid var(--Color-white);
-}
-
-.openpa-widget-content .openpa-panel{
-    border: none !important;
-}
-
-.openpa-widget{
-    @extend .u-margin-r-bottom;
-    @extend .u-cf;
-    /*position: relative;*/
-}
-
-.openpa-widget-layout .openpa-widget-title,
-.openpa-widget-title,
-.openpa-panel-label {
-    @extend .u-margin-bottom-xs;
-    @extend .u-text-h4;
-    padding-bottom: 0 !important;
-    font-weight: 400 !important;
-    line-height: 1.2;
-    border-bottom:0.5rem solid var(--Color-secondary) !important;
-    background-color: transparent !important;
-}
-.openpa-widget-title a,
-.openpa-widget-title span,
-.openpa-panel-label span {
-    @extend .u-padding-left-xs;
-    @extend .u-padding-right-xs;
-    @extend .u-color-50;
-    @extend .u-textClean;
-    background-color: var(--Color-secondary);
-    color: var(--Color-white) !important;
-    position: relative !important;
-}
-
-.openpa-widget-title a:after,
-.openpa-widget-title span:after,
-.openpa-panel-label span:after{
-    content: " ";
-    position: absolute;
-    top: 0;
-    left: 100%;
-    width: 0;
-    height: 0;
-    border-bottom: 1em solid var(--Color-secondary);
-    border-right: 1em solid transparent;
-    border-bottom-width: 30px;
-}
-
-@media (--md-viewport), (--lg-viewport) {
-    .openpa-widget-title a:after,
-    .openpa-widget-title span:after,
-    .openpa-panel-label span:after {
-        border-bottom-width: 32px;
-    }
-}
-
-.Header-navbar {
-    background-color: var(--Color-secondary) !important;
-}
-
-.Linklist a:hover,
-.Linklist li.active a,
-.Linklist li.current a,
-.Linklist li.active a:hover,
-.Linklist li.current a:hover {
-    background-color: var(--Color-secondary) !important;
-    color: var(--Color-white) !important;
-}
-
-.Header-navbar {
-    background-color: var(--Color-secondary) !important;
-}
-/*.Header-search button,
-.Header-searchTrigger button {
-    background-color: var(--Color-secondary) !important;
-    color: var(--Color-primary) !important;
-}*/
-
-.openpa-carousel.u-padding-all-xx {
-    padding: 0 !important;
-}
-
-.openpa-carousel_image {
-@extend .u-posRelative;
-}
-
-.openpa-carousel_image .overlay {
-@extend .u-posAbsolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    border-radius: 0;
-    background: var(--Color-secondary);
-    color: var(--Color-white);
-    vertical-align: middle;
-    -webkit-transition: opacity 500ms;
-    -moz-transition: opacity 500ms;
-    -o-transition: opacity 500ms;
-    transition: opacity 500ms;
-    padding: 30px;
-}
-
-.openpa-carousel_image .overlay h3{
-@extend .u-textCenter;
-@extend .u-alignMiddle;
-}
-
-.openpa-carousel_image:hover .overlay {
-    opacity: .8;
-}
-
-.readmore {
-@extend .u-hidden;
-}
-
-.singolo_gallery .owl-item h2 {
-@extend .u-hidden;
-}
-
-.nav-tab.ui-tabs-active{ background-color: var(--Color-secondary) !important;}
-.nav-tabs { border-color: var(--Color-secondary) !important;}
-
-/* End Theme */
-

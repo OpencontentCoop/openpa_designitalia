@@ -12,13 +12,13 @@
 
     {include uri='design:openpa/panel/parts/image.tpl'}
 
-    <div class="Card-content u-padding-r-all">
+    <div class="openpa-panel-content">
 
         {if is_set($is_program)}
-            <p class="Card-title">
+            <h3 class="Card-title">
                 <a class="Card-titleLink" href="{$openpa.content_link.full_link}"
                    title="{$node.name|wash()}">{$node.name|wash()}</a>
-            </p>
+            </h3>
         {else}
             <div class="Grid Grid--withGutter">
                 <div class="Grid-cell u-md-size2of4 u-lg-size2of4">

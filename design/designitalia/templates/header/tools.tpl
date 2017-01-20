@@ -7,7 +7,7 @@
     <button aria-controls="header-search" class="js-Header-search-trigger Icon Icon-search"
             title="attiva il form di ricerca" aria-label="attiva il form di ricerca" aria-hidden="false">
     </button>
-    <button aria-controls="header-search" class="js-Header-search-trigger Icon Icon-close u-hiddenVisually"
+    <button aria-controls="header-search" class="js-Header-search-trigger Icon Icon-close u-hidden"
             title="disattiva il form di ricerca" aria-label="disattiva il form di ricerca" aria-hidden="true">
     </button>
 </div>
@@ -77,7 +77,7 @@
                     <label class="Form-label" for="cerca">Cerca nel sito</label>
                 {/if}
 
-                <button type="submit" value="cerca" name="SearchButton" {if $pagedata.is_edit}disabled="disabled"{/if} class="Grid-cell u-sizeFit Icon-search u-background-60 u-color-white u-padding-all-s u-textWeight-700"
+                <button type="submit" value="cerca" name="SearchButton" {if $pagedata.is_edit}disabled="disabled"{/if} class="Grid-cell u-sizeFit Icon-search u-background-40 u-color-white u-padding-all-s u-textWeight-700"
                         title="Avvia la ricerca" aria-label="Avvia la ricerca">
                 </button>
             </div>
@@ -85,7 +85,6 @@
                 <input name="Mode" type="hidden" value="browse" />
             {/if}
         </form>
-
     </div>
 </div>
 

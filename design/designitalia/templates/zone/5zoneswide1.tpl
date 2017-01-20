@@ -16,7 +16,7 @@
         {/if}
     </div>
 
-    <div class="u-layout-wide u-layoutCenter u-text-r-xl u-layout-r-withGutter u-padding-r-top">
+    <div class="u-layout-wide u-layoutCenter u-text-r-xl u-layout-r-withGutter">
         <div class="Grid Grid--withGutter">
             <div class="Grid-cell u-sizeFull u-md-size8of12 u-lg-size8of12">
                 {if and( is_set( $zones[1].blocks ), $zones[1].blocks|count() )}
@@ -68,7 +68,7 @@
         </div>
     {/if}
 
-    <div class="u-layout-wide u-layoutCenter u-text-r-xl u-layout-r-withGutter u-padding-r-top">
+    <div class="u-layout-wide u-layoutCenter u-text-r-xl u-layout-r-withGutter">
         <div class="Grid Grid--withGutter">
             <div class="Grid-cell u-sizeFull">
                 {if and( is_set( $zones[4].blocks ), $zones[4].blocks|count() )}
