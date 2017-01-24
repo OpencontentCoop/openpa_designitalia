@@ -27,9 +27,9 @@
     --Prose-color-text-primary: #1c2024;
     --Prose-color-text-secondary: #5a6772;
     --Prose-color-text-highlighted: #b2ebed;
-    --Prose-color-link: var(--Color-primary);
-    --Prose-color-link-hover: var(--Color-primary);
-    --Prose-color-link-visited: var(--Color-primary);
+    --Prose-color-link: var(--Color-secondary);
+    --Prose-color-link-hover: var(--Color-secondary);
+    --Prose-color-link-visited: var(--Color-secondary);
     --Color-focus: rgba(255,255,255,0);
 }
 

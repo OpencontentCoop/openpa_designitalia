@@ -35,6 +35,10 @@
 {/if}
 
 
+{if and( $pagedata.homepage|has_attribute('partners'), $pagedata.homepage|attribute('partners').has_content) }
+    {include uri='design:footer/partners.tpl'}
+{/if}
+
 <footer class="Footer u-padding-all-s">
     <div class="u-layout-wide u-layoutCenter">
         <div class="u-cf">

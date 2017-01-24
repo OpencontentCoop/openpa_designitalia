@@ -11,7 +11,7 @@
     {if $openpa.content_gallery.has_galleries}
         {foreach $openpa.content_gallery.galleries as $gallery}
             <div class="openpa-widget">
-                <h3 class="openpa-widget-title"><i class="fa fa-camera"></i> {$gallery.name|wash()}</h3>
+                <h3 class="openpa-widget-title"><a href="{$gallery.url_alias|ezurl(no)}" title="{$gallery.name|wash()}"><i class="fa fa-camera"></i> {$gallery.name|wash()|trim())}</a></h3>
                 <div class="openpa-widget-content">
                     {include uri='design:atoms/gallery.tpl'
                              items=fetch( content, list, hash( 'parent_node_id', $gallery.node_id, 'class_filter_type', 'include', 'class_filter_array', array( 'image' ), limit, 3))

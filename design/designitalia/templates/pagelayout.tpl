@@ -45,20 +45,19 @@
     {include uri='design:menu/offcanvas_menu.tpl'}
 
     <div id="main">
-        <section>
-            {if and(is_set($pagedata.persistent_variable.has_sidemenu), $pagedata.persistent_variable.has_sidemenu)}
-                <p class="u-md-hidden u-lg-hidden u-padding-r-all u-text-m u-background-grey-20">
-                    <span class="Icon-list u-text-r-xl u-alignMiddle u-padding-r-right" aria-hidden="true"></span>
-                    <a accesskey="3"  class="js-scrollTo u-text-r-s u-textClean u-color-grey-50 u-alignMiddle" href="#subnav" >Vai menu di sezione</a>
-                </p>
-            {/if}
-
+        {if and(is_set($pagedata.persistent_variable.has_sidemenu), $pagedata.persistent_variable.has_sidemenu)}
+            <p class="u-md-hidden u-lg-hidden u-padding-r-all u-text-m u-background-grey-20">
+                <span class="Icon-list u-text-r-xl u-alignMiddle u-padding-r-right" aria-hidden="true"></span>
+                <a accesskey="3"  class="js-scrollTo u-text-r-s u-textClean u-color-grey-50 u-alignMiddle" href="#subnav" >Vai menu di sezione</a>
+            </p>
+        {/if}
+        <section class="{if $pagedata.is_homepage}u-layout-wide{else}u-layout-medium{/if} u-layoutCenter">
             {if and( $pagedata.is_homepage|not(), $pagedata.is_search_page|not(), $pagedata.show_path, array( 'edit', 'browse' )|contains( $ui_context )|not(), is_set( $module_result.content_info ) )}
                 {include uri='design:breadcrumb.tpl'}
             {/if}
 
             {if is_set($pagedata.persistent_variable.has_container)|not()}
-                <div class="u-layout-wide u-layoutCenter u-text-r-xl u-layout-r-withGutter u-padding-r-top">
+                <div class="u-text-r-xl u-layout-r-withGutter u-padding-r-top">
             {/if}
 
 {/cache-block}
@@ -69,6 +68,7 @@
             {if is_set($pagedata.persistent_variable.has_container)|not()}
                 </div>
             {/if}
+        </section class="{if$pagedata.is_homepage}u-layout-wide{else}u-layout-medium{/if} u-layoutCenter">
 
             {if is_unset($pagedata)}{def $pagedata = openpapagedata()}{/if}
             {if and( $pagedata.is_login_page|not(), $pagedata.show_path, array( 'edit', 'browse' )|contains( $ui_context )|not() )}
@@ -77,7 +77,7 @@
 
 {/cache-block}
 
-        </section>
+
 
     </div>
 
