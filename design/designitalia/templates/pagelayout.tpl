@@ -20,7 +20,17 @@
     {def $pagedata = openpapagedata()
          $locales = fetch( 'content', 'translation_list' )
          $current_node_id = $pagedata.node_id
-         $theme = openpaini('GeneralSettings','theme', 'pac')}
+         $theme = openpaini('GeneralSettings','theme', 'pac')
+         $main_content_class = ''}
+
+    {if is_set($pagedata.persistent_variable.has_container)|not()}
+        {if $pagedata.is_homepage}
+            {set $main_content_class = 'u-layout-wide u-layoutCenter'}
+        {else}
+            {set $main_content_class = 'u-layout-medium u-layoutCenter'}
+        {/if}
+    {/if}
+
 
     {include uri='design:page_head.tpl'}
     {include uri='design:page_head_style.tpl'}
@@ -51,7 +61,7 @@
                 <a accesskey="3"  class="js-scrollTo u-text-r-s u-textClean u-color-grey-50 u-alignMiddle" href="#subnav" >Vai menu di sezione</a>
             </p>
         {/if}
-        <section class="{if $pagedata.is_homepage}u-layout-wide{else}u-layout-medium{/if} u-layoutCenter">
+        <section class="{$main_content_class}">
             {if and( $pagedata.is_homepage|not(), $pagedata.is_search_page|not(), $pagedata.show_path, array( 'edit', 'browse' )|contains( $ui_context )|not(), is_set( $module_result.content_info ) )}
                 {include uri='design:breadcrumb.tpl'}
             {/if}
@@ -68,7 +78,7 @@
             {if is_set($pagedata.persistent_variable.has_container)|not()}
                 </div>
             {/if}
-        </section class="{if$pagedata.is_homepage}u-layout-wide{else}u-layout-medium{/if} u-layoutCenter">
+        </section>
 
             {if is_unset($pagedata)}{def $pagedata = openpapagedata()}{/if}
             {if and( $pagedata.is_login_page|not(), $pagedata.show_path, array( 'edit', 'browse' )|contains( $ui_context )|not() )}
