@@ -8306,6 +8306,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var classFocused = _ref$classFocused === undefined ? 'fr-tree-focus' : _ref$classFocused;
 	  var _ref$classParent = _ref.classParent;
 	  var classParent = _ref$classParent === undefined ? 'fr-tree-parent' : _ref$classParent;
+	  var _ref$classMenuHandler = _ref.classMenuHandler;
+	  var classMenuHandler = _ref$classMenuHandler === undefined ? 'menu-handler' : _ref$classMenuHandler;
 	  var _ref$multiselectable = _ref.multiselectable;
 	  var multiselectable = _ref$multiselectable === undefined ? true : _ref$multiselectable;
 	
@@ -8566,10 +8568,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return true;
 	    }
 	
-	    treeview.$activeItem = $item;
-	    _updateStyling(treeview, $item);
-	    _toggleGroup(treeview, $item);
+	    return true;
+	
+	    /*treeview.$activeItem = $item
+	    _updateStyling(treeview, $item)
+	    _toggleGroup(treeview, $item)
+	    e.stopPropagation()
+	    return false*/
+	  }
+	
+	  function _handleClickMenuHandler(treeview, $item, e) {
 	    e.stopPropagation();
+	    var $parent = $item.parent().parent();
+	    console.log($parent);
+	    treeview.$activeItem = $parent;
+	    _updateStyling(treeview, $parent);
+	    _toggleGroup(treeview, $parent);
+	
 	    return false;
 	  }
 	
@@ -8593,6 +8608,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (openOnClick) {
 	      treeview.$parents.click(function (e) {
 	        return _handleDblClick(treeview, (0, _jquery2['default'])(this), e);
+	      });
+	      treeview.$handlers.click(function (e) {
+	        return _handleClickMenuHandler(treeview, (0, _jquery2['default'])(this), e);
 	      });
 	    } else {
 	      treeview.$parents.click(function (e) {
@@ -8655,9 +8673,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        $el: $el,
 	        $items: $el.find('li'),
 	        $parents: $el.find('.' + classParent),
+	        $handlers: $el.find('.' + classMenuHandler),
 	        $visibleItems: null,
 	        $activeItem: null
 	      };
+	      console.log(treeview);
 	      _collapseAll(treeview);
 	      _bindEvents(treeview);
 	    });
