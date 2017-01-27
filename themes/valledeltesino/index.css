@@ -14,7 +14,7 @@
 /*
  *	Only apply to body class="purple"
  */
-.mubel {
+.valledeltesino {
     font-family: var(--Theme-font-family-sans);
 }
 
@@ -27,9 +27,9 @@
     --Prose-color-text-primary: #1c2024;
     --Prose-color-text-secondary: #5a6772;
     --Prose-color-text-highlighted: #b2ebed;
-    --Prose-color-link: var(--Color-primary);
-    --Prose-color-link-hover: var(--Color-primary);
-    --Prose-color-link-visited: var(--Color-primary);
+    --Prose-color-link: var(--Color-secondary);
+    --Prose-color-link-hover: var(--Color-secondary);
+    --Prose-color-link-visited: var(--Color-secondary);
     --Color-focus: rgba(255,255,255,0);
 }
 
@@ -165,7 +165,6 @@ a:focus {
     @extend .u-color-50;
     @extend .u-textClean;
     background-color: var(--Color-secondary);
-    color: var(--Color-white) !important;
     position: relative !important;
 }
 
@@ -195,10 +194,6 @@ a:focus {
     }
 }
 
-.Header-navbar {
-    background-color: var(--Color-secondary) !important;
-}
-
 .Linklist a:hover,
 .Linklist li.active a,
 .Linklist li.current a,
@@ -206,10 +201,6 @@ a:focus {
 .Linklist li.current a:hover {
     background-color: var(--Color-secondary) !important;
     color: var(--Color-white) !important;
-}
-
-.Header-navbar {
-    background-color: var(--Color-secondary) !important;
 }
 
 .readmore {
@@ -222,5 +213,10 @@ a:focus {
 
 .nav-tab.ui-tabs-active{ background-color: var(--Color-secondary) !important;}
 .nav-tabs { border-bottom:0.5rem solid var(--Color-secondary) !important;}
+
+button.Icon-search,
+button.Icon-close {
+    background-color: var(--Color-secondary) !important;
+}
 
 /* End Theme */
