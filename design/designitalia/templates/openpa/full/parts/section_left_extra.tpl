@@ -72,7 +72,7 @@
                 <ul class="Linklist Linklist--padded u-layout-prose Treeview js-fr-treeview u-text-r-xs">
                     {foreach $classification as $className => $objects}
                         <li>
-                            <a href="#">{$className}
+                            <a href="#" class="has_children">{$className}
                                 <span class="menu-handler"></span>
                             </a>
                             <ul>
