@@ -1,9 +1,11 @@
 {default enable_print=true()}
 
+{def $favicon = openpaini('GeneralSettings','favicon', 'favicon.ico')}
+
 <link rel="Home" href={"/"|ezurl} title="{'%sitetitle front page'|i18n('design/ocbootstrap/link',,hash('%sitetitle',$site.title))|wash}" />
 <link rel="Index" href={"/"|ezurl} />
 <link rel="Search" href={"content/advancedsearch"|ezurl} title="{'Search %sitetitle'|i18n('design/ocbootstrap/link',,hash('%sitetitle',$site.title))|wash}" />
-<link rel="Shortcut icon" href={"favicon.ico"|ezimage} type="image/x-icon" />
+<link rel="Shortcut icon" href={$favicon|ezimage} type="image/x-icon" />
 <link rel="Copyright" href={"/ezinfo/copyright"|ezurl} />
 <link rel="Author" href={"/ezinfo/about"|ezurl} />
 <link rel="Alternate" type="application/rss+xml" title="RSS" href="{'/rss/feed/my_feed'|ezurl(no)}" />
@@ -25,4 +27,5 @@
 </script>
 {/if}
 
+{undef $favicon}
 {/default}

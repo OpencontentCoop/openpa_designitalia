@@ -1,11 +1,15 @@
 <div class="Header-logo Grid-cell" aria-hidden="true">
+    {if and( $pagedata.homepage|has_attribute('only_logo'), $pagedata.homepage|attribute('only_logo').data_int|eq(1) )}
+        <h1 alt="{ezini('SiteSettings','SiteName')}">
+    {/if}
     <a href="/" tabindex="-1">
         {if and( is_set($pagedata.header.logo.url), $pagedata.header.logo.url)}
             <img src="{$pagedata.header.logo.url|ezroot(no)}" alt="{ezini('SiteSettings','SiteName')}" />
-        {else}
-            <img src="//placehold.it/75x80" alt="{ezini('SiteSettings','SiteName')}" />
         {/if}
     </a>
+    {if and( $pagedata.homepage|has_attribute('only_logo'), $pagedata.homepage|attribute('only_logo').data_int|eq(1) )}
+        </h1>
+    {/if}
 </div>
 
 {if and( $pagedata.homepage|has_attribute('only_logo'), $pagedata.homepage|attribute('only_logo').data_int|eq(1) )}

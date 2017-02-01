@@ -92,11 +92,11 @@
 
         </div>
         
-        <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter">
+        <div class="u-layout-wide u-layoutCenter">
 
             {if $day_events_count|ne(0)}
                 <div class="u-layout-leftContent" id="oggi" style="display: none;">
-                    <section class="js-Masonry-container" data-columns>
+                    <section class="js-Masonry-container u-layout-wide" data-columns>
                         {foreach $day_events as $i => $child max 10}
                         <div class="Masonry-item js-Masonry-item">
                             {node_view_gui content_node=$child.node view=panel image_class=carousel event=$child}
@@ -108,7 +108,7 @@
 
             {if $prossimi_count|gt(0)}
                 <div id="{$block.custom_attributes.tab_title|slugize}" class="u-layout-centerContent " style="display: none;">
-                    <section class="js-Masonry-container" data-columns>
+                    <section class="js-Masonry-container u-layout-wide" data-columns>
                         {foreach $prossimi as $i => $child max 10}
                         <div class="Masonry-item js-Masonry-item">
                             {node_view_gui content_node=$child.node view=panel image_class=carousel event=$child}

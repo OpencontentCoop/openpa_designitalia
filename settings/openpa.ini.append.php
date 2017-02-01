@@ -8,6 +8,8 @@ valutation=1
 # Abilita / Disabilita l'header service (Accedi ai servizi), valori permessi : 0,1
 # Se non dichiarato prende come default 1
 valutation=1
+# Se non dichiarato prende favicon.ico
+favicon=favicon.ico
 
 [SemanticClassGroup_classificazione]
 Classes[]=tipo_commissione

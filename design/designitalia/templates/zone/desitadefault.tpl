@@ -61,8 +61,8 @@
     </div>
 
     {if and( is_set( $zones[4].blocks ), $zones[4].blocks|count() )}
-        <div class="u-background-grey-30 u-layout-centerContent u-padding-r-top">
-            <section class="u-layout-wide u-text-r-s u-padding-r-top u-padding-r-bottom">
+        <div class="u-background-grey-20 u-padding-r-top u-padding-r-bottom">
+            <section class="u-layout-wide u-layoutCenter u-layout-r-withGutter">
                 <div class="Grid Grid--withGutter">
                     <div class="Grid-cell u-sizeFull">
                         {foreach $zones[4].blocks as $block}
