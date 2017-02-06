@@ -67,18 +67,12 @@
     {def $classification = $openpa.content_related.classification}
     {if count($classification)|gt(0)}
         <div class="openpa-widget nav-section">
-            <h2 class="openpa-widget-title">Classificazione dell'informazione</h2>
+            <h2 class="openpa-widget-title">Classificazione</h2>
             <div class="openpa-widget-content">
-                <ul class="Linklist Linklist--padded u-layout-prose Treeview js-fr-treeview u-text-r-xs">
+                <ul class="Prose">
                     {foreach $classification as $className => $objects}
-                        <li>
-                            <a href="#" class="has_children">{$className}
-                                <span class="menu-handler"></span>
-                            </a>
-                            <ul>
-                                {foreach $objects as $object}
-                                    <li>{node_view_gui content_node=$object.main_node view='text_linked'}</li>{/foreach}
-                            </ul>
+                        <li class="u-padding-bottom-s">
+                            <strong>{$className}:</strong> {foreach $objects as $object}{node_view_gui content_node=$object.main_node view='text_linked'}{delimiter}, {/delimiter}{/foreach}
                         </li>
                     {/foreach}
                 </ul>

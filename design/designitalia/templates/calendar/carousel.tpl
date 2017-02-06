@@ -8,14 +8,14 @@
 'pagination', false(),
 'auto_height', false(),
 'top_pagination_position', false(),
-'navigation_text', concat( "['", '<i class="fa fa-arrow-circle-left"></i>', "','", '<i class="fa fa-arrow-circle-right"></i>', "']"),
+'navigation_text', concat( "['", '<span class="u-alignMiddle Icon Icon-arrow-left" role="presentation"></span>', "','", '<span class="u-alignMiddle Icon Icon-arrow-right" role="presentation"></span>', "']"),
 'css_id', $root_node.node_id
 ))}
 
 {if and( $root_node, $items )}
 {if $root_node}
 
-    <div id="carousel_{$css_id}" class="owl-carousel">
+    <div id="carousel_{$css_id}" class="owl-carousel owl-theme">
         {foreach $items as $item}
             <div class="item">
                 {node_view_gui content_node=$item.node view=$i_view image_class=$image_class event=$item}
@@ -31,7 +31,7 @@
                 nav: {cond( $navigation|gt(0), 'true', 'false')},
                 dots: {cond( $pagination|gt(0), 'true', 'false')},
                 {if $auto_height}autoHeight : true,{/if}
-                navigationText: {cond( $navigation_text|ne(false()), $navigation_text, false )}
+                navText: {cond( $navigation_text|ne(false()), $navigation_text, false )}
                 {if $top_pagination_position}, onInitialized: function(e){ldelim}
                     var owl = $(e.target);
                     owl.find('.owl-nav').prependTo(owl);

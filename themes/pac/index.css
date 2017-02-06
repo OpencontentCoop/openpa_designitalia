@@ -87,3 +87,38 @@ a:focus {
     background-color: var(--Color-focus);
     color: var(--Color-white);
 }
+
+
+.Header-navbar {
+    background-color: var(--Color-white) !important;
+    border-bottom: 1px solid var(--Color-primary);
+}
+
+.Hamburger-toggle,
+.Hamburger-toggle:before,
+.Hamburger-toggle:after {
+    background: var(--Color-black) !important;
+}
+
+.Hamburger-toggle.is-active {
+    background-color: transparent !important;
+}
+
+.Hamburger-toggle.is-active:before,
+.Hamburger-toggle.is-active:after {
+    background-color: var(--Color-white) !important;
+}
+
+.Header-searchTrigger button,
+.Header-search button {
+    @extend .u-background-90;
+}
+
+.Header-toggleText,
+.Header-titleLink a {
+    color: var(--Color-black) !important;
+}
+
+.owl-theme .owl-nav {
+    top: -83px !important;
+}

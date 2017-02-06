@@ -1,4 +1,4 @@
-{if and( $pagedata.is_login_page|not(), array( 'edit', 'browse' )|contains( $ui_context )|not() )}
+{if and( $pagedata.is_login_page|not(), array( 'edit', 'browse' )|contains( $ui_context )|not(), openpaini( 'TopMenu', 'ShowMegaMenu', 'enabled' )|eq('enabled') )}
     
 {def $top_menu_node_ids = openpaini( 'TopMenu', 'NodiCustomMenu', array() )}
 {def $top_menu_node_ids_count = $top_menu_node_ids|count()}

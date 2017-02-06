@@ -1,4 +1,4 @@
-<div class="openpa-widget {$block.view} {if is_set($block.custom_attributes.color_style)}color color-{$block.custom_attributes.color_style}{/if}">
+<div class="openpa-widget {$block.view} {if and(is_set($block.custom_attributes.color_style), $block.custom_attributes.color_style|ne(''))}color color-{$block.custom_attributes.color_style}{/if}">
     <h3 class="openpa-widget-title">{$block.name}</h3>
     <div class="openpa-widget-content">
         <form id="search-form-{$block.id}" action="{'ezajax/search'|ezurl('no')}" method="post">

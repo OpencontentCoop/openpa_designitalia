@@ -1,9 +1,9 @@
 <?php /*
 
 [General]
-#Design Italia
-AllowedTypes[]=desItaDefault
-AllowedTypes[]=5ZonesWide1
+AllowedTypes[]
+AllowedTypes[]=desItaGlobal
+AllowedTypes[]=GlobalZoneLayout
 
 [desItaDefault]
 Zones[]
@@ -37,10 +37,26 @@ AvailableForClasses[]=homepage_interna
 AvailableForClasses[]=subsite
 AvailableForClasses[]=albotelematicotrentino
 
+[desItaGlobal]
+Zones[]
+ZoneName[]
+ZoneTypeName=Design Italia Layout
+Zones[]=global
+ZoneName[global]=Zona unica
+ZoneThumbnail=desitadefault.jpg
+Template=desitaglobal.tpl
+AvailableForClasses[]=frontpage
+AvailableForClasses[]=area_tematica
+AvailableForClasses[]=progetto
+AvailableForClasses[]=homepage
+AvailableForClasses[]=homepage_interna
+AvailableForClasses[]=subsite
+AvailableForClasses[]=albotelematicotrentino
+
 [5ZonesWide1]
 Zones[]
 ZoneName[]
-ZoneTypeName=5 zone (wide 1 - Design Italia)
+ZoneTypeName=Design Italia (5 zone)
 Zones[]=top
 Zones[]=center_left
 Zones[]=center_right

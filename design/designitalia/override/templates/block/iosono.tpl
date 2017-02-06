@@ -7,7 +7,7 @@
     $modulo = 3    
     $classi_da_escludere = openpaini( 'GestioneClassi', 'classi_da_escludere_dai_blocchi_ezflow' )}
 
-<div class="openpa-widget {$block.view} {if is_set($block.custom_attributes.color_style)}color color-{$block.custom_attributes.color_style}{/if}">
+<div class="openpa-widget {$block.view} {if iand(is_set($block.custom_attributes.color_style), $block.custom_attributes.color_style|ne(''))}color color-{$block.custom_attributes.color_style}{/if}">
     <div class="openpa-widget-content">
         <div class="widget_tabs" id="{$block.id}">
             <ul class="nav nav-tabs" role="tablist">

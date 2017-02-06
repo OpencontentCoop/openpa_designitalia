@@ -1,6 +1,6 @@
 {def $valid_nodes = $block.valid_nodes}
 {if $valid_nodes|count()|gt(0)}
-<div class="openpa-widget {$block.view} {if is_set($block.custom_attributes.color_style)}color color-{$block.custom_attributes.color_style}{/if}">
+<div class="openpa-widget {$block.view} {if and(is_set($block.custom_attributes.color_style), $block.custom_attributes.color_style|ne(''))}color color-{$block.custom_attributes.color_style}{/if}">
     {if $block.name}
         <h3 class="openpa-widget-title">{$block.name}</h3>
     {/if}

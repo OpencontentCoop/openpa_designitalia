@@ -120,7 +120,7 @@ Match[class_identifier]=image
 
 [block_gmapitems_geo_located_content]
 Source=block/view/view.tpl
-MatchFile=block/geo_located_content.tpl
+MatchFile=block/geo_located_content_osm.tpl
 Subdir=templates
 Match[type]=GMapItems
 Match[view]=geo_located_content
@@ -209,23 +209,30 @@ Subdir=templates
 Match[type]=FeedRSS
 Match[view]=feed_meteo
 
+[block_singolo_full]
+Source=block/view/view.tpl
+MatchFile=block/singolo_full.tpl
+Subdir=templates
+Match[type]=Singolo
+Match[view]=singolo_full
+
 [block_singolo_img]
 Source=block/view/view.tpl
-MatchFile=block/singolo_img.tpl
+MatchFile=block/singolo_full.tpl
 Subdir=templates
 Match[type]=Singolo
 Match[view]=singolo_img
 
 [block_singolo_img_interne]
 Source=block/view/view.tpl
-MatchFile=block/singolo_img_interne.tpl
+MatchFile=block/singolo_full.tpl
 Subdir=templates
 Match[type]=Singolo
 Match[view]=singolo_img_interne
 
 [block_singolo_imgtit_interne]
 Source=block/view/view.tpl
-MatchFile=block/singolo_imgtit_interne.tpl
+MatchFile=block/singolo_full.tpl
 Subdir=templates
 Match[type]=Singolo
 Match[view]=singolo_imgtit_interne
@@ -244,9 +251,16 @@ Subdir=templates
 Match[type]=Singolo
 Match[view]=singolo_box
 
+[block_singolo_piccolo]
+Source=block/view/view.tpl
+MatchFile=block/singolo_box_piccolo.tpl
+Subdir=templates
+Match[type]=Singolo
+Match[view]=singolo_box_piccolo
+
 [block_singolo_pulsante]
 Source=block/view/view.tpl
-MatchFile=block/singolo_pulsante.tpl
+MatchFile=block/singolo_banner.tpl
 Subdir=templates
 Match[type]=Singolo
 Match[view]=singolo_pulsante
@@ -267,7 +281,7 @@ Match[view]=singolo_in_evidenza
 
 [block_singolo_gallery]
 Source=block/view/view.tpl
-MatchFile=block/singolo_gallery.tpl
+MatchFile=block/singolo_full.tpl
 Subdir=templates
 Match[type]=Singolo
 Match[view]=singolo_gallery
@@ -305,6 +319,13 @@ Source=block/view/view.tpl
 MatchFile=block/lista_box.tpl
 Subdir=templates
 Match[type]=Lista
+Match[view]=lista_box
+
+[block_lista_box_figli]
+Source=block/view/view.tpl
+MatchFile=block/lista_box_figli.tpl
+Subdir=templates
+Match[type]=Lista3
 Match[view]=lista_box
 
 [block_lista_box_2_Lista3]
@@ -398,6 +419,20 @@ Subdir=templates
 Match[type]=Lista
 Match[view]=lista_in_evidenza
 
+[block_lista_in_evidenza3]
+Source=block/view/view.tpl
+MatchFile=block/lista_evidenza.tpl
+Subdir=templates
+Match[type]=Lista3
+Match[view]=lista_in_evidenza
+
+[block_lista_in_evidenza4]
+Source=block/view/view.tpl
+MatchFile=block/lista_evidenza.tpl
+Subdir=templates
+Match[type]=Lista4
+Match[view]=lista_in_evidenza
+
 [block_lista_carousel3]
 Source=block/view/view.tpl
 MatchFile=block/lista_carousel.tpl
@@ -409,8 +444,14 @@ Match[view]=lista_carousel
 Source=block/view/view.tpl
 MatchFile=block/lista_masonry.tpl
 Subdir=templates
-Match[type]=Lista
 Match[view]=lista_masonry
+
+[block_lista_banner]
+Source=block/view/view.tpl
+MatchFile=block/lista_banner.tpl
+Subdir=templates
+Match[type]=Lista
+Match[view]=lista_banner
 
 [block_iosono]
 Source=block/view/view.tpl

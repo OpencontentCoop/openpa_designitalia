@@ -1,3 +1,4 @@
+{ezpagedata_set( 'has_container', true() )}
 {if $openpa.content_tools.editor_tools}
     {include uri=$openpa.content_tools.template}
 {/if}

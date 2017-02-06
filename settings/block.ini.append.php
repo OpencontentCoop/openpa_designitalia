@@ -12,37 +12,14 @@ AllowedTypes[]
 AllowedTypes[]=Singolo
 AllowedTypes[]=Lista
 AllowedTypes[]=Lista3
-AllowedTypes[]=Lista4
 AllowedTypes[]=Eventi
 AllowedTypes[]=Iosono
-#AllowedTypes[]=FeedRSS
 AllowedTypes[]=VideoPlayer
 AllowedTypes[]=ContentSearch
 AllowedTypes[]=GMapItems
-#AllowedTypes[]=GMap #rimosso perché duplicato
 AllowedTypes[]=AreaRiservata
-AllowedTypes[]=Cosmos
 AllowedTypes[]=Meteo
 AllowedTypes[]=HTML
-AllowedTypes[]=Banner
-AllowedTypes[]=ImmagineDimensioneOriginale
-
-
-[AreaRiservata]
-Name=Login Area Riservata
-ViewName[]
-ViewName[accesso_area_riservata]=Accesso area riservata
-
-[GMapItems]
-Name=Google Map Items
-ViewName[]
-ViewName[geo_located_content]=Mappa (Google)
-ViewName[geo_located_content_osm]=Mappa (OpenStreetMap)
-
-[GMap]
-Name=Google Map
-ViewName[]
-ViewName[gmap]=Google Map
 
 [Singolo]
 Name=Oggetto singolo
@@ -50,34 +27,23 @@ NumberOfValidItems=1
 NumberOfArchivedItems=0
 ManualAddingOfItems=enabled
 ViewList[]
-ViewList[]=singolo_img
-ViewList[]=singolo_imgtit
-#ViewList[]=singolo_img_interne #rimosso perché duplicato
-ViewList[]=singolo_imgtit_interne
-ViewList[]=singolo_img_interne_piccolo
-ViewList[]=singolo_imgtit_interne_piccolo
+ViewList[]=singolo_full
 ViewList[]=singolo_box_piccolo
 ViewList[]=singolo_box
 ViewList[]=singolo_banner
-ViewList[]=singolo_pulsante
 ViewList[]=singolo_in_evidenza
 ViewName[]
-ViewName[singolo_img]=Solo immagine
+ViewName[singolo_full]=Default
+ViewName[singolo_box_piccolo]=Titolo del blocco o dell’oggetto, miniatura e abstract
+ViewName[singolo_box]=Panel
 ViewName[singolo_banner]=Banner
-#ViewName[singolo_img_interne]=Titolo e immagine #rimosso perché duplicato
-ViewName[singolo_imgtit_interne]=Immagine e Titolo (media)
-ViewName[singolo_img_interne_piccolo]=Full
-ViewName[singolo_imgtit_interne_piccolo]=Immagine e Titolo (con titolo blocco)
-ViewName[singolo_box_piccolo]=Line (immagine piccola con blocco titolo)
-ViewName[singolo_box]=Line
-ViewName[singolo_pulsante]=Pulsante
-ViewName[singolo_imgtit]=Line (con blocco titolo, sfondo grigio)
 ViewName[singolo_in_evidenza]=In evidenza
 
 [Lista]
-Name=Lista di oggetti (assegnare un contenitore)
+Name=Lista automatica
 NumberOfValidItems=1
 NumberOfArchivedItems=0
+CustomAttributes[]
 CustomAttributes[]=node_id
 UseBrowseMode[node_id]=true
 CustomAttributes[]=limite
@@ -108,91 +74,136 @@ ViewList[]=lista_num
 ViewList[]=lista_accordion
 ViewList[]=lista_box
 ViewList[]=lista_carousel
-#ViewList[]=lista_carousel_rassegna
-#ViewList[]=lista_carousel_rassegna_oggi
 ViewList[]=lista_in_evidenza
 ViewList[]=lista_masonry
+ViewList[]=lista_banner
 ViewName[]
-ViewName[lista_num]=Panelli (carousel) [Mostra solo elementi con immagine]
+ViewName[lista_num]=Carousel
 ViewName[lista_accordion]=Accordion
 ViewName[lista_box]=Elenco
-ViewName[lista_carousel]=Banner (carousel) [Mostra solo elementi con immagine]
-ViewName[lista_carousel_rassegna]=Pannelli (carousel)
-ViewName[lista_carousel_rassegna_oggi]=Schede (carousel rassegna oggi)
+ViewName[lista_carousel]=Slider
 ViewName[lista_in_evidenza]=In evidenza
 ViewName[lista_masonry]=Masonry
+ViewName[lista_banner]=Banner
+TTL=3600
 
 [Lista3]
-Name=Lista di oggetti (assegnati singolarmente) - MAX 5
-NumberOfValidItems=5
-NumberOfArchivedItems=0
-ManualAddingOfItems=enabled
-ViewList[]
-ViewList[]=lista_accordion_manual
-ViewList[]=lista_box2
-ViewList[]=lista_box4
-ViewList[]=lista_tab
-ViewList[]=lista_carousel
-ViewList[]=lista_in_evidenza
-ViewName[]
-ViewName[lista_accordion_manual]=Accordion
-ViewName[lista_box2]=Elenco su due colonne
-ViewName[lista_box4]=Box ultimi figli (3 oggetti)
-ViewName[lista_tab]=Schede (tab)
-ViewName[lista_carousel]=Banner (carousel) [Mostra solo elementi con immagine]
-ViewName[lista_in_evidenza]=In evidenza
-
-[Lista4]
-Name=Lista di oggetti (assegnati singolarmente) - MAX 15
+Name=Lista manuale
 NumberOfValidItems=15
 NumberOfArchivedItems=0
 ManualAddingOfItems=enabled
 ViewList[]
 ViewList[]=lista_accordion_manual
+ViewList[]=lista_box
+ViewList[]=lista_box2
+ViewList[]=lista_tab
+ViewList[]=lista_carousel
+ViewList[]=lista_in_evidenza
+ViewList[]=lista_masonry
+ViewName[]
+ViewName[lista_accordion_manual]=Accordion
+ViewName[lista_box]=Elenco ultimi 4 figli
+ViewName[lista_box2]=Elenco su due colonne
+ViewName[lista_tab]=Tabs
+ViewName[lista_carousel]=Slider
+ViewName[lista_in_evidenza]=In evidenza
+ViewName[lista_masonry]=Masonry
+
+[Lista4]
+Name=Lista manuale (bc)
+NumberOfValidItems=15
+NumberOfArchivedItems=0
+ManualAddingOfItems=enabled
+ViewList[]
+ViewList[]=lista_accordion_manual
+ViewList[]=lista_box
 ViewList[]=lista_box2
 ViewList[]=lista_tab
 ViewList[]=lista_in_evidenza
+ViewList[]=lista_masonry
 ViewName[]
 ViewName[lista_accordion_manual]=Accordion
+ViewName[lista_box]=Elenco
 ViewName[lista_box2]=Elenco su due colonne
 ViewName[lista_tab]=Schede (tab)
 ViewName[lista_in_evidenza]=In evidenza
+ViewName[lista_masonry]=Masonry
 
 [Eventi]
 Name=Eventi
-ViewName[]
-ViewName[eventi]=Eventi
-ViewName[eventi_manual]=Eventi singoli
-ViewName[eventi_carousel]=Panelli (carousel)
+NumberOfValidItems=3
+NumberOfArchivedItems=0
+ManualAddingOfItems=enabled
+CustomAttributes[]
+CustomAttributes[]=tab_title
+CustomAttributeNames[tab_title]=Per il secondo tab - etichetta
+CustomAttributes[]=custom_interval
+CustomAttributeNames[custom_interval]=Per il secondo tab - periodo di riferimento
+CustomAttributeTypes[custom_interval]=select
+CustomAttributeSelection_custom_interval[]
+CustomAttributeSelection_custom_interval[TOMORROW]=Domani
+CustomAttributeSelection_custom_interval[TOMORROW-P1W]=Da domani per una settimana
+CustomAttributeSelection_custom_interval[TOMORROW-P2W]=Da domani per due settimane
+CustomAttributeSelection_custom_interval[TOMORROW-P1M]=Da domani per un mese
+CustomAttributeSelection_custom_interval[TOMORROW-P2M]=Da domani per due mesi
+CustomAttributeSelection_custom_interval[TODAY]=Oggi
+CustomAttributeSelection_custom_interval[TODAY-P1W]=Da oggi per una settimana
+CustomAttributeSelection_custom_interval[TODAY-P2W]=Da oggi per due settimane
+CustomAttributeSelection_custom_interval[TODAY-P1M]=Da oggi per un mese
+CustomAttributeSelection_custom_interval[TODAY-P2M]=Da oggi per due mesi
+CustomAttributes[]=custom_filter
+CustomAttributeNames[custom_filter]=Per il secondo tab - filtra solo eventi
+CustomAttributeTypes[custom_filter]=select
+CustomAttributeSelection_custom_filter[]
+CustomAttributeSelection_custom_filter[NULL]=Tutti gli eventi (nessun filtro)
+CustomAttributeSelection_custom_filter[SPECIAL]=Eventi speciali
+CustomAttributeSelection_custom_filter[MANIFESTAZIONE]=Eventi di tipo manifestazione
+CustomAttributeSelection_custom_filter[MANIFESTAZIONE+SPECIAL]=Eventi speciali di tipo manifestazione
+ViewList[]
+ViewList[]=eventi
+ViewList[]=eventi_carousel
+ViewList[]=eventi_wide
+ViewName[eventi]=Tabs
+ViewName[eventi_carousel]=Carousel
 ViewName[eventi_wide]=Wide
 
 [Iosono]
 Name=Schede Homepage (Io sono, eventi della vita, ecc...)
+NumberOfValidItems=5
+NumberOfArchivedItems=0
+ManualAddingOfItems=enabled
+ViewList[]
+ViewList[]=iosono
 ViewName[]
-ViewName[iosono]=Schede (tab)
-
-[FeedRSS]
-Name=Feed reader
-ViewName[]
-ViewName[feed_reader]=Feed reader
-ViewName[feed_meteo]=Feed meteo
+ViewName[iosono]=Schede
 
 [VideoPlayer]
 Name=Video Player
+NumberOfValidItems=1
+NumberOfArchivedItems=0
+ManualAddingOfItems=enabled
+ViewList[]
+ViewList[]=video_flow
 ViewName[]
-ViewName[video_ez]=eZ Player
 ViewName[video_flow]=Flow Player
-ViewName[video_flow_playlist]=Flow Player Playlist (piccola)
-ViewName[video_flow_playlist_big]=Flow Player Playlist (grande)
 
 [ContentSearch]
 Name=Motori di ricerca
+ManualAddingOfItems=disabled
+CustomAttributes[]
+CustomAttributes[]=node_id
+UseBrowseMode[node_id]=true
+CustomAttributes[]=class
+CustomAttributes[]=attribute
+ViewList[]
+ViewList[]=search_class_and_attributes
+ViewList[]=search_free_ajax
 ViewName[]
 ViewName[search_class_and_attributes]=Cerca per classe e attributi
 ViewName[search_free_ajax]=Ricerca libera
 
 [GMapItems]
-Name=Map Items
+Name=Mappa
 ManualAddingOfItems=disabled
 CustomAttributes[]
 CustomAttributes[]=parent_node_id
@@ -203,21 +214,9 @@ CustomAttributes[]=width
 CustomAttributes[]=height
 UseBrowseMode[parent_node_id]=true
 ViewList[]
-ViewList[]=geo_located_content
 ViewList[]=geo_located_content_osm
 ViewName[]
-ViewName[geo_located_content]=Mappa (Google)
 ViewName[geo_located_content_osm]=Mappa (OpenStreetMap)
-
-[GMap]
-ManualAddingOfItems=disabled
-CustomAttributes[]
-CustomAttributes[]=location
-CustomAttributes[]=key
-ViewList[]
-ViewList[]=gmap
-ViewName[]
-ViewName[gmap]=Map
 
 [AreaRiservata]
 ManualAddingOfItems=disabled
@@ -243,28 +242,6 @@ ViewList[]
 ViewList[]=html
 ViewName[html]=html
 
-[Banner]
-Name=Banner
-NumberOfValidItems=1
-NumberOfArchivedItems=0
-ManualAddingOfItems=enabled
-CustomAttributes[]
-CustomAttributes[]=uri
-CustomAttributeTypes[uri]=Url del link
-ViewList[]
-ViewList[]=banner_uri
-ViewName[]
-ViewName[banner_uri]=Banner
-
-[ImmagineDimensioneOriginale]
-Name=Singola Immagine a dimensione originale
-NumberOfValidItems=1
-NumberOfArchivedItems=0
-ManualAddingOfItems=enabled
-ViewList[]
-ViewList[]=single_original_image
-ViewName[]
-ViewName[single_original_image]=L'immagine visualizzata sarà in formato orginale
 
 
-*/?>
+*/ ?>

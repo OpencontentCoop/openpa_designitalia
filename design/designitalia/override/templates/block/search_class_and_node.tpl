@@ -65,7 +65,7 @@ $(function() {
 	 $attributi_da_escludere_dalla_ricerca= openpaini( 'GestioneAttributi', 'attributi_da_escludere_dalla_ricerca', array())
      $anni = openpaini( 'MotoreDiRicerca', 'RicercaAvanzataSelezionaAnni', array())
 }
-<div class="openpa-widget {$block.view} {if is_set($block.custom_attributes.color_style)}color color-{$block.custom_attributes.color_style}{/if}">
+<div class="openpa-widget {$block.view} {if and(is_set($block.custom_attributes.color_style), $block.custom_attributes.color_style|ne(''))}color color-{$block.custom_attributes.color_style}{/if}">
 	<h3 class="openpa-widget-title">Cerca in {$folder}</h3>
 
 	<div class="openpa-widget-content">
