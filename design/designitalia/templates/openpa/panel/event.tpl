@@ -1,60 +1,65 @@
+{set_defaults( hash('show_image', true()))}
 {if is_set( $event.from )}
     {def $from = $event.from|datetime( 'custom', '%M' )
          $to = $event.from|datetime( 'custom', '%j' )
+         $year = $event.from|datetime( 'custom', '%Y' )
+         $time = $event.from|datetime( 'custom', '%T' )
          $sameDay = cond($event.to|sub($event.from)|le(86400), true(), false())}
 {else}
     {def $from = $node.data_map.from_time.content.timestamp|datetime( 'custom', '%M' )
          $to = $node.data_map.from_time.content.timestamp|datetime( 'custom', '%j' )
+         $year = $node.data_map.from_time.content.timestamp|datetime( 'custom', '%Y' )
+         $time = $node.data_map.from_time.content.timestamp|datetime( 'custom', '%T' )
          $sameDay = cond($node.data_map.to_time.content.timestamp|sub($node.data_map.from_time.content.timestamp)|le(86400), true(), false())}
 {/if}
 
-<div class="openpa-panel {$node|access_style}">
+<div class="openpa-panel {$node|access_style} {$node.class_identifier}">
 
-    {include uri='design:openpa/panel/parts/image.tpl'}
+    {if $show_image}
+      {include uri='design:openpa/panel/parts/image.tpl'}
+    {/if}
 
     <div class="openpa-panel-content">
+        <time class="event-date" datetime="{$time}">
+            {if $sameDay|not()}<span class="starts">Dal</span>{/if}
+            <span class="day">{$to}</span>
+            <span class="month">{$from}</span>
+            <span class="year">{$year}</span>
+        </time>
 
-        {if is_set($is_program)}
-            <h3 class="Card-title">
-                <a class="Card-titleLink" href="{$openpa.content_link.full_link}"
-                   title="{$node.name|wash()}">{$node.name|wash()}</a>
-            </h3>
-        {else}
-            <div class="Grid Grid--withGutter">
-                <div class="Grid-cell u-md-size2of4 u-lg-size2of4">
-                    <div class="calendar-date">
-                        <span class="month">{$from}</span>
-                        <span class="day">{if $sameDay|not()}<small>dal </small>{/if}{$to}</span>
-                    </div>
-                </div>
-                <div class="Grid-cell u-md-size2of4 u-lg-size2of4">
-                    <p class="Card-title">
-                        <a class="Card-titleLink" href="{$openpa.content_link.full_link}"
-                           title="{$node.name|wash()}">{$node.name|wash()}</a>
-                    </p>
-                </div>
+        <h3 class="Card-title">
+            <a class="Card-titleLink" href="{$openpa.content_link.full_link}"
+               title="{$node.name|wash()}">{$node.name|wash()}</a>
+        </h3>
+
+        {if and( $event.to, $sameDay|not() )}
+            <div class="place">
+                <p><i class="fa fa-calendar" aria-hidden="true"></i> {$event.from|datetime( 'custom', '%d %M %Y' )} - {$event.to|datetime( 'custom', '%d %M %Y' )}</p>
             </div>
         {/if}
 
-        <div class="Card-text">
+        {if or( $node|has_attribute( 'indirizzo' ), $node|has_attribute( 'luogo_svolgimento' ), $node|has_attribute( 'comune' ))}
+            <div class="place">
+                <p><i class="fa fa-map-marker" aria-hidden="true"></i>
+                    {if $node|has_attribute( 'indirizzo' )}
+                        <span>{attribute_view_gui attribute=$node.data_map.indirizzo}</span>
+                    {/if}
+                    {if $node|has_attribute( 'luogo_svolgimento' )}
+                        <span>{attribute_view_gui attribute=$node.data_map.luogo_svolgimento}</span>
+                    {/if}
+                    {if $node|has_attribute( 'comune' )}
+                        <span>{attribute_view_gui attribute=$node.data_map.comune}</span>
+                    {/if}
+                </p>
+            </div>
+        {/if}
 
-            {if $node|has_attribute( 'indirizzo' )}
-                <p>{attribute_view_gui attribute=$node.data_map.indirizzo}</p>
-            {/if}
-            {if $node|has_attribute( 'luogo_svolgimento' )}
-                <p>{attribute_view_gui attribute=$node.data_map.luogo_svolgimento}</p>
-            {/if}
-            {if $node|has_attribute( 'comune' )}
-                <p>{attribute_view_gui attribute=$node.data_map.comune}</p>
-            {/if}
-
-            {$node|abstract()|oc_shorten(250)}
-
-        </div>
-
-
+        {*<div class="Card-text">
+            <p>{$node|abstract()|oc_shorten(100)}</p>
+        </div>*}
     </div>
-
     <a class="readmore" href="{object_handler($node).content_link.full_link}" title="{$node.name|wash()}">Leggi</a>
-
 </div>
+
+
+

@@ -67,8 +67,8 @@
     @extend .Grid--withGutter > .Grid-cell;
     @extend .Grid-cell;
     @extend .u-padding-bottom-xl;
-    @extend .u-md-size7of12;
-    @extend .u-lg-size7of12;
+    @extend .u-md-size8of12;
+    @extend .u-lg-size8of12;
 }
 
 .openpa-full .contentLayout.withExtra {
@@ -190,12 +190,18 @@
     position: relative;
 }
 
+.openpa-widget.color {
+    @extend .u-background-grey-20;
+}
+
 .openpa-widget-title {
     @extend .u-margin-r-bottom;
     @extend .u-padding-top-m;
+    /*
     @extend .u-padding-bottom-xs;
+    */
     @extend .u-text-h3;
-    @extend .u-border-bottom-m;
+    /*@extend .u-border-bottom-s;*/
 }
 
 .openpa-widget-title span {
@@ -205,9 +211,9 @@
 
 .openpa-widget-title a{
     font-size: inherit;
-    color: color(var(--Color-primary) l(-10%)) !important;
+    @extend .u-color-60;
     @extend .u-textClean;
-    @extend .u-color-50;
+    /*@extend .u-color-50;*/
 }
 
 .openpa-widget-title,
@@ -236,8 +242,8 @@
 }
 
 .openpa-panel-content {
-    @extend .Card-content;
-    @extend .u-padding-all-s;
+    /*@extend .Card-content;*/
+    @extend .u-padding-all-m;
 }
 
 .tab-pane > .openpa-accordion_content,
@@ -284,7 +290,6 @@
     @extend .u-background-white;
     @extend .u-color-70;
     font-size: 2em;
-    line-height: 65px;
     font-weight: bold;
     border: 1px solid var(--Color-primary);
     white-space: nowrap;
@@ -305,9 +310,13 @@
 .openpa-panel {
     @extend .Card;
     @extend .u-text-r-xxs;
-    @extend .u-background-white;
+    @extend .u-background-grey-20;
     @extend .u-flexAlignSelfStretch;
     @extend .u-margin-r-all;
+}
+
+.color .openpa-panel {
+    @extend .u-background-white;
 }
 
 .openpa-panel-image{
@@ -520,16 +529,17 @@
 
 /* Events wide */
 .events_wide_wrapper {
-    background: #eeeeee none repeat scroll 0 0;
+    background: #eee none repeat scroll 0 0;
     height: 100px;
-    line-height: 100px;
-    margin-bottom: 8px;
+    line-height: 99px;
     position: relative;
     z-index: 1;
+    border-bottom: 1px solid #ccc;
 }
 
+.events_wide_tabs_wrapper,
 .eventi_wide .ui-tabs-panel {
-    background: #fff !important;
+    background: #eee !important;
 }
 
 /*.eventi_wide .js-Masonry-container{
@@ -572,6 +582,30 @@
     padding: 0 20px;
 }
 
+/* Lista Banner */
+
+.lista_banner .Grid-cell a {
+    transition: background .25s ease-in-out;
+    -moz-transition: background .25s ease-in-out;
+    -webkit-transition: background .25s ease-in-out;
+}
+.lista_banner .Grid-cell a img {
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+}
+
+.lista_banner .Grid-cell a:hover {
+    @extend .u-background-50;
+    @extend .u-color-white;
+    text-decoration: none !important;
+}
+
+.lista_banner .Grid-cell a:hover img {
+    opacity: .5;
+}
+
 /* Masonry */
 .lista_masonry .openpa-widget-content {
     @extend .u-padding-all-s;
@@ -585,6 +619,62 @@
 .global-view-full{
     @extend .u-cf;
     @extends .u-padding-all-s;
+}
+
+/* Event */
+.event .Card-title,
+.event .place,
+.event .Card-text {
+    float: right;
+    width: -webkit-calc(100% - 63px);
+    width: calc(100% - 63px);
+}
+
+.event .place {
+    @extend .u-text-h6;
+    @extend .u-color-90;
+}
+
+.event .place p {
+    @extend .u-text-xs;
+}
+
+.event .place span{
+    @extend .u-margin-left-xs;
+}
+
+.event .event-date {
+    @extend .u-color-90;
+    float: left;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    overflow: hidden;
+}
+
+.event .event-date .day,
+.event .event-date .month,
+.event .event-date .year {
+    display: block;
+    line-height: 100%;
+}
+
+.event .event-date .starts {
+    text-transform: none;
+}
+
+.event .event-date .day {
+    font-size: 38px;
+}
+
+.event .event-date .month {
+    font-size: 20px;
+    line-height: normal;
+}
+
+.event .event-date .year {
+    font-size: 18px;
+    font-weight: 400;
 }
 
 /* Misc */

@@ -1,6 +1,3 @@
-{ezpagedata_set( 'has_container', true() )}
-
-
 <div class="frontpage">
     <div class="Grid-cell u-sizeFull first">
         {if and( is_set( $zones[0].blocks ), $zones[0].blocks|count() )}

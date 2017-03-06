@@ -2,7 +2,7 @@
 {def $valid_node = $block.valid_nodes[0]}
 {def $current_openpa = object_handler($valid_node)}
 
-<div class="openpa-widget {$block.view} {if is_set($block.custom_attributes.color_style)}color color-{$block.custom_attributes.color_style}{/if}">
+<div class="openpa-widget {$block.view} {if and(is_set($block.custom_attributes.color_style), $block.custom_attributes.color_style|ne(''))}color color-{$block.custom_attributes.color_style}{/if}">
     {if and( $show_title, $block.name|ne('') )}
         <h3 class="openpa-widget-title"><a href={$valid_node.url_alias|ezurl()}>{$block.name|wash()}</a></h3>
     {/if}

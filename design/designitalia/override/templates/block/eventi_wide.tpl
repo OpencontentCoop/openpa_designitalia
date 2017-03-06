@@ -37,88 +37,83 @@
 
 {else}
 
-    <div id="{$block.id}" class="openpa-widget {$block.view} {if is_set($block.custom_attributes.color_style)}color color-{$block.custom_attributes.color_style}{/if}">
+    <div id="{$block.id}" class="openpa-widget {$block.view} color">
 
-        <div class="events_wide_wrapper">
-            <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter">
+      <div class="events_wide_wrapper">
+          <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter Grid">
 
-                {if $block.name|ne('')}
-                    {if $show_link}
-                        <h3 class="u-text-h3">
-                            <a href="{$valid_node.url_alias|ezurl(no)}" title="Vai al calendario" class="u-color-black">
-                              {$block.name|wash()}
-                            </a>
-                        </h3>                    
-                    {else}
+              {if $block.name|ne('')}
+                <div class="Grid-cell u-size1of2">
+                  {if $show_link}
                       <h3 class="u-text-h3">
-                          {$block.name|wash()}
+                          <a href="{$valid_node.url_alias|ezurl(no)}" title="Vai al calendario" class="u-color-black">
+                            {$block.name|wash()}
+                          </a>
                       </h3>
-                    {/if}
-                {/if}
-
-                <div class="events_toolbar u-hidden u-sm-block u-md-block u-lg-block">
-
-
-                    {if and( $day_events_count|gt(0), $prossimi_count|gt(0) )}
-                        <ul role="tablist">
-                            {if $day_events_count|ne(0)}
-                                <li class="eventi-oggi">
-                                    <a href="#oggi" data-toggle="tab">
-                                        <i class="fa fa-clock-o"></i> Oggi
-                                    </a>
-                                </li>
-                            {/if}
-                            {if $prossimi_count|gt(0)}
-                                <li class="eventi-futuri eventi-{$block.custom_attributes.tab_title|slugize}">
-                                    <a href="#{$block.custom_attributes.tab_title|slugize}" data-toggle="tab">
-                                        <i class="fa fa-calendar-o"></i> {$block.custom_attributes.tab_title}
-                                    </a>
-                                </li>
-                            {/if}
-
-                            {if $show_link}
-                                <li class="jump-to-calendar">
-                                    <a href="{$valid_node.url_alias|ezurl(no)}" title="Vai al calendario">
-                                        <i class="fa fa-calendar"></i> Tutti
-                                    </a>
-                                </li>
-                            {/if}
-
-                        </ul>
-                    {/if}
-
+                  {else}
+                    <h3 class="u-text-h3">
+                        {$block.name|wash()}
+                    </h3>
+                  {/if}
                 </div>
+              {/if}
+
+              <div class="Grid-cell u-size1of2 events_toolbar u-hidden u-sm-block u-md-block u-lg-block">
+                  {if and( $day_events_count|gt(0), $prossimi_count|gt(0) )}
+                      <ul role="tablist" class="u-floatRight">
+                          {if $day_events_count|ne(0)}
+                              <li class="eventi-oggi">
+                                  <a href="#oggi" data-toggle="tab">
+                                      <i class="fa fa-clock-o"></i> Oggi
+                                  </a>
+                              </li>
+                          {/if}
+                          {if $prossimi_count|gt(0)}
+                              <li class="eventi-futuri eventi-{$block.custom_attributes.tab_title|slugize}">
+                                  <a href="#{$block.custom_attributes.tab_title|slugize}" data-toggle="tab">
+                                      <i class="fa fa-calendar-o"></i> {$block.custom_attributes.tab_title}
+                                  </a>
+                              </li>
+                          {/if}
+
+                          {if $show_link}
+                              <li class="jump-to-calendar">
+                                  <a href="{$valid_node.url_alias|ezurl(no)}" title="Vai al calendario">
+                                      <i class="fa fa-calendar"></i> Tutti
+                                  </a>
+                              </li>
+                          {/if}
+                      </ul>
+                  {/if}
+              </div>
+          </div>
+      </div>
+
+      <div class="events_wide_tabs_wrapper">
+        {if $day_events_count|ne(0)}
+            <div class="u-layout-centerContent u-cf" id="oggi">
+                <section class="js-Masonry-container u-layout-wide" data-columns>
+                    {foreach $day_events as $i => $child max 10}
+                    <div class="Masonry-item js-Masonry-item">
+                        {node_view_gui content_node=$child.node view=panel image_class=agid_panel show_image=false() event=$child}
+                    </div>
+                    {/foreach}
+                </section>
             </div>
+        {/if}
 
-        </div>
-        
-        <div class="u-layout-wide u-layoutCenter">
-
-            {if $day_events_count|ne(0)}
-                <div class="u-layout-leftContent" id="oggi" style="display: none;">
-                    <section class="js-Masonry-container u-layout-wide" data-columns>
-                        {foreach $day_events as $i => $child max 10}
-                        <div class="Masonry-item js-Masonry-item">
-                            {node_view_gui content_node=$child.node view=panel image_class=carousel event=$child}
-                        </div>
-                        {/foreach}
-                    </section>
-                </div>
-            {/if}
-
-            {if $prossimi_count|gt(0)}
-                <div id="{$block.custom_attributes.tab_title|slugize}" class="u-layout-centerContent " style="display: none;">
-                    <section class="js-Masonry-container u-layout-wide" data-columns>
-                        {foreach $prossimi as $i => $child max 10}
-                        <div class="Masonry-item js-Masonry-item">
-                            {node_view_gui content_node=$child.node view=panel image_class=carousel event=$child}
-                        </div>
-                        {/foreach}
-                    </section>
-                </div>
-            {/if}
-            
-        </div>
+        {if $prossimi_count|gt(0)}
+            <div id="{$block.custom_attributes.tab_title|slugize}" class="lista_masonry u-layout-centerContent u-cf">
+                <section class="js-Masonry-container u-layout-wide" data-columns>
+                    {foreach $prossimi as $i => $child max 10}
+                    <div class="Masonry-item js-Masonry-item">
+                        {node_view_gui content_node=$child.node view=panel image_class=agid_panel show_image=false() event=$child}
+                    </div>
+                    {/foreach}
+                </section>
+            </div>
+        {/if}
+      </div>
 
     </div>
 
@@ -126,7 +121,6 @@
         {literal}
         $(document).ready(function() {
             $("#{/literal}{$block.id}{literal}").tabs({
-                active: false,
                 collapsible: true,
                 beforeActivate: function( event, ui ) {
                     if (ui.newTab.hasClass('jump-to-calendar')){

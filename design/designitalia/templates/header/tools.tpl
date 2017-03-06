@@ -15,14 +15,13 @@
 <div class="Header-utils Grid-cell">
     <div class="Header-social Headroom-hideme">
         {if or(is_set($pagedata.contacts.facebook), is_set($pagedata.contacts.twitter), is_set($pagedata.contacts.linkedin), is_set($pagedata.contacts.instagram))}
-            <p>Seguici su:</p>
             <ul class="Header-socialIcons">
                 {if is_set($pagedata.contacts.facebook)}
                     <li>
                         <a href="{$pagedata.contacts.facebook}">
                             <span class="openpa-icon fa-stack">
-                                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
-                                <i class="fa fa-facebook fa-stack-1x u-color-50" aria-hidden="true"></i>
+                                <i class="fa fa-circle fa-stack-2x u-color-90"></i>
+                                <i class="fa fa-facebook fa-stack-1x u-color-white" aria-hidden="true"></i>
                             </span>
                             <span class="u-hiddenVisually">Facebook</span>
                         </a>
@@ -32,8 +31,8 @@
                     <li>
                         <a href="{$pagedata.contacts.twitter}">
                             <span class="openpa-icon fa-stack">
-                                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
-                                <i class="fa fa-twitter fa-stack-1x u-color-50" aria-hidden="true"></i>
+                                <i class="fa fa-circle fa-stack-2x u-color-90"></i>
+                                <i class="fa fa-twitter fa-stack-1x u-color-white" aria-hidden="true"></i>
                             </span>
                             <span class="u-hiddenVisually">Twitter</span>
                         </a>
@@ -43,8 +42,8 @@
                     <li>
                         <a href="{$pagedata.contacts.linkedin}">
                             <span class="openpa-icon fa-stack">
-                                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
-                                <i class="fa fa-linkedin fa-stack-1x u-color-50" aria-hidden="true"></i>
+                                <i class="fa fa-circle fa-stack-2x u-color-90"></i>
+                                <i class="fa fa-linkedin fa-stack-1x u-color-white" aria-hidden="true"></i>
                             </span>
                             <span class="u-hiddenVisually">Linkedin</span>
                         </a>
@@ -54,8 +53,8 @@
                     <li>
                         <a href="{$pagedata.contacts.instagram}">
                             <span class="openpa-icon fa-stack">
-                                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
-                                <i class="fa fa-instagram fa-stack-1x u-color-50" aria-hidden="true"></i>
+                                <i class="fa fa-circle fa-stack-2x u-color-90"></i>
+                                <i class="fa fa-instagram fa-stack-1x u-color-white" aria-hidden="true"></i>
                             </span>
                             <span class="u-hiddenVisually">Instagram</span>
                         </a>
@@ -77,7 +76,7 @@
                     <label class="Form-label" for="cerca">Cerca nel sito</label>
                 {/if}
 
-                <button type="submit" value="cerca" name="SearchButton" {if $pagedata.is_edit}disabled="disabled"{/if} class="Grid-cell u-sizeFit Icon-search u-background-40 u-color-white u-padding-all-s u-textWeight-700"
+                <button type="submit" value="cerca" name="SearchButton" {if $pagedata.is_edit}disabled="disabled"{/if} class="Grid-cell u-sizeFit Icon-search u-color-white u-padding-all-s u-textWeight-700"
                         title="Avvia la ricerca" aria-label="Avvia la ricerca">
                 </button>
             </div>

@@ -11,7 +11,7 @@
           {set $sottotitoli = concat("content/download/",$flash_node.data_map.sottotitoli.contentobject_id,"/",$flash_node.data_map.sottotitoli.content.contentobject_attribute_id,"/",$flash_node.data_map.sottotitoli.content.original_filename)|ezurl}
       {/if}
   {/if}
-<div class="openpa-widget {$block.view} {if is_set($block.custom_attributes.color_style)}color color-{$block.custom_attributes.color_style}{/if}">
+<div class="openpa-widget {$block.view} {if and(is_set($block.custom_attributes.color_style), $block.custom_attributes.color_style|ne(''))}color color-{$block.custom_attributes.color_style}{/if}">
 
   {if $block.name|ne('')}
       <h3 class="openpa-widget-title"><span>{$block.name|wash()}</span></h3>

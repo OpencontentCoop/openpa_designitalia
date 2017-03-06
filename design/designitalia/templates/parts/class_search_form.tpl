@@ -104,20 +104,18 @@
                     <legend class="Form-label">{$attribute.name}</legend>
 
                     <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                        <label class="Form-label u-hiddenVisually" for="{$attribute.identifier}_from">Dalla data:
-                            <input type="text" class="from_picker Form-input" placeholder="Dalla data"
-                                   id="{$attribute.identifier}_from"
-                                   name="Data[{$attribute.identifier}][]" title="Dalla data"
-                                   value="{cond(is_set($Data[$attribute.identifier]),$Data[$attribute.identifier][0])}"/>
-                        </label>
+                        <label class="Form-label u-hiddenVisually" for="{$attribute.identifier}_from">Dalla data:</label>
+                        <input type="text" class="from_picker Form-input" placeholder="Dalla data"
+                               id="{$attribute.identifier}_from"
+                               name="Data[{$attribute.identifier}][]" title="Dalla data"
+                               value="{cond(is_set($Data[$attribute.identifier]),$Data[$attribute.identifier][0])}"/>
                     </div>
                     <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                        <label class="Form-label u-hiddenVisually" for="{$attribute.identifier}_to">Alla data:
-                            <input class="to_picker Form-input" type="text" placeholder="Alla data"
-                                   id="{$attribute.identifier}_to"
-                                   name="Data[{$attribute.identifier}][]" title="Alla data"
-                                   value="{cond(is_set($Data[$attribute.identifier]),$Data[$attribute.identifier][1])}"/>
-                        </label>
+                        <label class="Form-label u-hiddenVisually" for="{$attribute.identifier}_to">Alla data:</label>
+                        <input class="to_picker Form-input" type="text" placeholder="Alla data"
+                               id="{$attribute.identifier}_to"
+                               name="Data[{$attribute.identifier}][]" title="Alla data"
+                               value="{cond(is_set($Data[$attribute.identifier]),$Data[$attribute.identifier][1])}"/>
                     </div>
                 </fieldset>
             {/case}
