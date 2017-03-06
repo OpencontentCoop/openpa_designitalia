@@ -1,5 +1,10 @@
 <?php /*
 
+[CreditsSettings]
+Name=ComunWEB
+Url=http://www.comunweb.it/
+Title=Progetto ComunWEB - Consorzio dei Comuni Trentini
+
 [GeneralSettings]
 theme=pac
 # Abilita / Disabilita il blocco di valutazione nel footer, valori permessi : 0,1
