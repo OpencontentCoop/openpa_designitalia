@@ -3,7 +3,7 @@
 ))}
 
 {def $root_nodes = array( $node.node_id )
-$self = object_handler( $node )}
+     $self = object_handler( $node )}
 {if is_set( $self.content_virtual.folder.subtree )}
     {set $root_nodes = $self.content_virtual.folder.subtree}
 {/if}
