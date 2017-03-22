@@ -34,7 +34,7 @@
     </div>
     {if $link_top_title|not()}
         <p class="u-textCenter u-text-md-right u-text-lg-right u-margin-r-top">
-            <a href="{$openpa.root_node.url_alias|ezurl(no)}" class="u-color-50 u-textClean u-text-h4">
+            <a href="{$valid_node.url_alias|ezurl(no)}" class="u-color-50 u-textClean u-text-h4">
                 Vedi tutto <span class="Icon Icon-chevron-right"></span></a>
         </p>
     {/if}

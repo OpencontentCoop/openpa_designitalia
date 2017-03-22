@@ -1,5 +1,5 @@
 {def $valid_nodes = $block.valid_nodes
-$show_link = true()}
+     $show_link = true()}
 
 <div class="openpa-widget {$block.view} {if and(is_set($block.custom_attributes.color_style), $block.custom_attributes.color_style|ne(''))}color color-{$block.custom_attributes.color_style}{/if}">
     {if $block.name|ne('')}
