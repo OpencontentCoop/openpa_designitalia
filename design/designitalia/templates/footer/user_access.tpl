@@ -15,7 +15,7 @@
         {/if}
         <span class="u-margin-right-s" id="logout">
             <a href="{"/user/logout"|ezurl(no)}" title="Esegui il logout">
-                Logout ({$current_user.contentobject.name|wash})
+                Logout {*({$current_user.contentobject.name|wash})*}
             </a>
         </span>
     {else}

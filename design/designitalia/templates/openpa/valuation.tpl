@@ -90,7 +90,7 @@
                         <div class="Form-field">
                             <label class="Form-label"
                                    for="helpcomment">{$data_map.comment.contentclass_attribute_name|wash()}</label>
-                            <textarea style="height: 100px" id="helpcomment" class="Form-input"
+                            <textarea style="height: 100px" id="helpcomment" class="Form-input u-color-black"
                                       name="ContentObjectAttribute_ezstring_data_text_{$data_map.comment.id}" cols="20"
                                       rows="4"></textarea>
                         </div>
@@ -100,7 +100,7 @@
                         <div class="Form-field">
                             <label class="Form-label" for="helpemail_aiutaci"
                             >{$data_map.email_aiutaci.contentclass_attribute_name|wash()}</label>
-                            <input id="helpemail_aiutaci" class="Form-input" type="text" value=""
+                            <input id="helpemail_aiutaci" class="Form-input u-color-black" type="text" value=""
                                    name="ContentObjectAttribute_ezstring_data_text_{$data_map.email_aiutaci.id}"/>
                         </div>
                     {/if}
@@ -141,7 +141,7 @@
                                     </p>
 
                                     <p class="u-padding-bottom-l">
-                                        <input class="captcha-input Form-input"
+                                        <input class="captcha-input Form-input u-color-black"
                                                id="nxc-captcha-collection-input-{$attribute.id}" type="text"
                                                name="nxc_captcha_{$attribute.id}" value=""
                                                size="{$class_content.length.value}"
