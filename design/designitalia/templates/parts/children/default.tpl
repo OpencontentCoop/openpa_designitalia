@@ -15,10 +15,10 @@
 	{def $params = hash( 'class_filter_type', 'include', 'class_filter_array', $include_classes )}
 {/if}
 
-{def $children_count = fetch( content, concat( $fetch_type, '_count' ), hash( 'parent_node_id', $parent_node.node_id )|merge( $params ) )}
+{def $children_count = fetch( openpa, concat( $fetch_type, '_count' ), hash( 'parent_node_id', $parent_node.node_id )|merge( $params ) )}
 {if $children_count}
   <div class="content-view-children u-sizeFull">
-	{foreach fetch( content, $fetch_type, hash( 'parent_node_id', $parent_node.node_id,
+	{foreach fetch( openpa, $fetch_type, hash( 'parent_node_id', $parent_node.node_id,
 											'offset', $view_parameters.offset,
 											'sort_by', $parent_node.sort_array,											
 											'limit', $page_limit )|merge( $params ) ) as $child }
