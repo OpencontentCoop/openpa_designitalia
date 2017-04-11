@@ -73,7 +73,7 @@
 {/cache-block}
 
                 {include uri='design:page_mainarea.tpl'}
-{cache-block expiry=86400 keys=array( $module_result.uri, $user_hash_cache_key, $access_type.name, $extra_cache_key )}
+{cache-block keys=array( $module_result.uri, $user_hash_cache_key, $access_type.name, $extra_cache_key )}
 
             {if is_set($pagedata.persistent_variable.has_container)|not()}
                 </div>

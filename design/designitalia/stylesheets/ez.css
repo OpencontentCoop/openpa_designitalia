@@ -640,3 +640,7 @@ p .leaflet-div-icon{
 .block-color-select.default-9 {
     background: #9b0000
 }
+
+.readmore{
+    display: block !important;
+}
