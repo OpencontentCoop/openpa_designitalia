@@ -20,6 +20,7 @@ AllowedTypes[]=GMapItems
 AllowedTypes[]=AreaRiservata
 AllowedTypes[]=Meteo
 AllowedTypes[]=HTML
+AllowedTypes[]=Html3Colonne
 
 [Singolo]
 Name=Oggetto singolo
@@ -241,6 +242,20 @@ CustomAttributeTypes[html]=text
 ViewList[]
 ViewList[]=html
 ViewName[html]=html
+
+[Html3Colonne]
+Name=Codice HTML in 3 colonne
+ManualAddingOfItems=disabled
+CustomAttributes[]
+CustomAttributes[]=htmlCol1
+CustomAttributes[]=htmlCol2
+CustomAttributes[]=htmlCol3
+CustomAttributeTypes[htmlCol1]=text
+CustomAttributeTypes[htmlCol2]=text
+CustomAttributeTypes[htmlCol3]=text
+ViewList[]
+ViewList[]=html_3_colonne
+ViewName[html_3_colonne]=html
 
 
 
