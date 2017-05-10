@@ -13,7 +13,7 @@ icon_class=fa fa-table
 
 [ChildrenView_chart]
 edit_template=true
-edit_template_help=test
+edit_template_help=class|row attribute|column attribute|strategy (avg, total, ...)
 hide_menu=true
 label=Grafico
 icon_class=fa fa-bar-chart

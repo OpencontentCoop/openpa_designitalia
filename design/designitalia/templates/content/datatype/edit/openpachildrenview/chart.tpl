@@ -18,8 +18,8 @@
            name="{$attribute_base}_openpachildrenview_extra_{$attribute.id}[{$view.identifier}][chart]"
            value="{cond(is_set($extra_configs[$view.identifier]['chart']), $extra_configs[$view.identifier]['chart']|wash(), '')}" >
 
-    <p class="u-padding-all-xs"><a class="toggle-editor">Mostra/nascondi editor del grafico</a></p>
-    <div class="chart-editor" style="display: none"></div>
+    {*<p class="u-padding-all-xs"><a class="toggle-editor">Mostra/nascondi editor del grafico</a></p>*}
+    <div class="chart-editor" {*style="display: none"*}></div>
 </div>
 
 <script type="text/javascript" src="//code.highcharts.com/highcharts.js" charset="utf-8"></script>
@@ -40,26 +40,31 @@
         var chartConfigContainer = $('#openpachildrenview_extra-{/literal}{$attribute.id}-{$view.identifier}{literal}');
         var chartEditor = chartConfigContainer.find('.chart-editor');
         var chartInput = chartConfigContainer.find('.chart-data');
+        var chartRequest = chartConfigContainer.find('.chart-fields');
         chartConfigContainer.find('a.toggle-editor').on('click', function(){
             chartEditor.toggle();
         });
-        var data = [
-            ['',1,3],
-            [1,5,7]
-        ];
-        var instance = new ec({
+        var easyChart = new ec({
             debuggerTab: true,
             showLogo: false,
             element: chartEditor[0]
         });
-        if (chartInput.val()){
-            instance.setConfigStringified(chartInput.val());
-        }
-        var params = 'aaa';
-        var url = "{/literal}{'/openpa/data/chart?params='|ezurl(no)}{literal}"+params;
-        instance.setDataUrl(url);
-        instance.on('configUpdate', function(e){
-            chartInput.val(instance.getConfigStringified());
+
+        var refreshRequest = function(){
+            var params = chartRequest.val();
+            var subtree = "{/literal}{cond($attribute.object.main_node_id, $attribute.object.main_node_id, 0)}{literal}";
+            var url = "{/literal}{'/openpa/data/chart?params='|ezurl(no)}{literal}"+params+"&subtree="+subtree;
+            easyChart.setDataUrl(url);
+        };
+        chartRequest.on('change',function(e){
+            refreshRequest();
         });
+        if (chartInput.val()){
+            easyChart.setConfigStringified(chartInput.val());
+        }
+        easyChart.on('configUpdate', function(e){
+            chartInput.val(easyChart.getConfigStringified());
+        });
+        refreshRequest();
     });
 {/literal}</script>
