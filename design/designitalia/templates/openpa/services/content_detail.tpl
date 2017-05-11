@@ -11,7 +11,7 @@
                     {if and( $openpa_attribute.full.show_label, $openpa_attribute.full.collapse_label )}
                         <strong>{$openpa_attribute.label}</strong>
                     {/if}
-                    {attribute_view_gui attribute=$openpa_attribute.contentobject_attribute href=cond($openpa_attribute.full.show_link|not, 'no-link', '')}
+                    {attribute_view_gui attribute=$openpa_attribute.contentobject_attribute href=cond($openpa_attribute.full.show_link|not, 'no-link', '') show_newline=true()}
                 </div>
             </div>
         {/foreach}
