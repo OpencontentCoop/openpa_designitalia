@@ -2,7 +2,7 @@
     <label class="Form-label" for="openpachildrenview_option-{$attribute.id}-{$view.identifier}">
         {'Opzioni'|i18n( 'design/admin/content/edit_attribute' )} {$view.name|wash()}
     </label>
-    <em class="attribute-description">{$view.edit_template_help}</em>
+    <em class="attribute-description">{$view.edit_template_help|wash()}</em>
 
     <input class="Form-input chart-fields"
            id="openpachildrenview_option-{$attribute.id}-{$view.identifier}"
