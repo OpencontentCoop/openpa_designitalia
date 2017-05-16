@@ -11,7 +11,7 @@
       <div class="Grid-cell u-md-size1of3 u-lg-size1of3 u-margin-bottom-s">
         {$block.custom_attributes.htmlCol2}
       </div>
-      <div class="Grid-cell u-md-size1of3 u-lg-size1of3u-margin-bottom-s">
+      <div class="Grid-cell u-md-size1of3 u-lg-size1of3 u-margin-bottom-s">
         {$block.custom_attributes.htmlCol3}
       </div>
     </div>
