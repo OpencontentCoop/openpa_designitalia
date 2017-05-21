@@ -1,4 +1,4 @@
-{def $wide = array('lista_in_evidenza', 'eventi_wide')}
+{def $wide = array('lista_in_evidenza', 'eventi_wide', 'map_wide')}
 {def $persistent_variable = ezpagedata().persistent_variable}
 {*<div class="Grid-cell u-sizeFull"></div>*}
 <div class="frontpage">

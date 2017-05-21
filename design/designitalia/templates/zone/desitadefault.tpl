@@ -1,4 +1,4 @@
-{def $wide = array('lista_in_evidenza', 'eventi_wide')}
+{def $wide = array('lista_in_evidenza', 'eventi_wide', 'map_wide')}
 
 <div class="frontpage">
     {for 0 to 8 as $counter}
