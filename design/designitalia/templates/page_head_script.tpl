@@ -19,13 +19,15 @@
 {ezscript_load( array(
     'ezjsc::jquery',
     'ezjsc::jqueryUI',
-    'ezjsc::jqueryio'
+    'ezjsc::jqueryio',
+    'embed_youtube_ratio_resizer.js'
 ))}
 
 <!-- include html5shim per Explorer 8 -->
 <script src="{'javascript/vendor/modernizr.js'|ezdesign(no)}"></script>
 
-
+<!-- youtube embed fix -->
+{literal}<script type="application/javascript">$(document).ready(function(){$("iframe[src*='youtube']").each(function(){var width = $(this).attr('width');var height = $(this).attr('height');var parent = $(this).parent();if (parent.css('overflow') == 'hidden' && width > 0 && height > 0){parent.css('padding-bottom', parseFloat(height / width * 100) + '%');}})});</script>{/literal}
 
 <script type="text/javascript">{literal}//<![CDATA[
 var UiContext = {/literal}"{$ui_context}"{literal}, UriPrefix = {/literal}{'/'|ezurl()}{literal}, PathArray = [{/literal}{if is_set( $pagedata.path_array[0].node_id )}{foreach $pagedata.path_array|reverse as $path}{$path.node_id}{delimiter},{/delimiter}{/foreach}{/if}{literal}];
