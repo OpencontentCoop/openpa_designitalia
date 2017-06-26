@@ -1,5 +1,12 @@
 <?php /*
 
+[InstanceSettings]
+# Nome dell'amministrazione afferente
+#NomeAmministrazioneAfferente=Provincia autonoma di Trento
+# Url dell'amministrazione afferente
+#UrlAmministrazioneAfferente=http://www.provincia.tn.it/
+
+
 [CreditsSettings]
 Name=ComunWEB
 Url=http://www.comunweb.it/
