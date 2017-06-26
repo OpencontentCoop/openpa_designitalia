@@ -38,11 +38,15 @@
         <meta name="{$key|wash}" content="{$item|wash}" />
 
     {/foreach}
+
+    <meta name="author" content="OpenContent Scarl e Consorzio dei Comuni Trentini" />
+    <meta name="copyright" content="Consorzio dei Comuni Trentini e {ezini( 'SiteSettings', 'SiteName' )}" />
+    <meta name="description" content="Sito istituzionale del {ezini( 'SiteSettings', 'SiteName' )}" />
+    <meta name="keywords" content="comunweb, Rete civica {ezini( 'SiteSettings', 'SiteName' )}, Comunicati Stampa {ezini( 'SiteSettings', 'SiteName' )}, Notizie e eventi da {ezini( 'SiteSettings', 'SiteName' )}" />
+
     {foreach $site.meta as $key => $item}
     {if is_set( $module_result.content_info.persistent_variable[$key] )}
         <meta name="{$key|wash}" content="{$module_result.content_info.persistent_variable[$key]|wash}" />
-    {else}
-        <meta name="{$key|wash}" content="{$item|wash}" />
     {/if}
 
     {/foreach}
