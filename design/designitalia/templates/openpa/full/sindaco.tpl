@@ -13,7 +13,7 @@
     {def $show_left = false()}
 {/if}
 
-{def $extra_template = cond( $node.data_map.sindaco.has_content, 'design:openpa/full/parts/section_left_extra.tpl', false())}
+{def $extra_template = cond( $node.data_map.sindaco.has_content, 'design:openpa/full/parts/section_left/sindaco.tpl', false())}
 
 <div class="openpa-full class-{$node.class_identifier}">
     <div class="title">
