@@ -438,6 +438,10 @@
     font-size: 1.1em;
 }
 
+Footer {
+  @extend .u-background-95;
+}
+
 .Footer-socialIcons .openpa-icon {
     font-size: 1.6em;
 }

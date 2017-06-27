@@ -1,4 +1,9 @@
-<header class="Header {*Headroom--fixed js-Headroom*} u-hiddenPrint">
+<ul class="Skiplinks js-fr-bypasslinks u-hiddenPrint">
+  <li><a href="#main">Vai al Contenuto</a></li>
+  <li><a class="js-fr-offcanvas-open" href="#menu" aria-controls="menu" aria-label="accedi al menu" title="accedi al menu">Vai alla navigazione del sito</a></li>
+</ul>
+
+<header class="Header u-hiddenPrint">
     {include uri='design:header/service.tpl'}
     {include uri='design:header/navigation.tpl'}
     {include uri='design:menu/header_menu.tpl'}
