@@ -14,7 +14,7 @@
             </a>
         </div>
         <nav>
-            <ul class="Linklist Linklist--padded Treeview js-fr-treeview u-text-r-xs">
+            <ul class="Linklist Linklist--padded Treeview Treeview--default js-Treeview u-text-r-xs">
 
                 {*<li class="toplevel firstli {if $current_node_id|eq(ezini( 'NodeSettings', 'RootNode', 'content.ini' ))}current{/if}">
                     <a title="Link a homepage" href={'/'|ezurl()}>
