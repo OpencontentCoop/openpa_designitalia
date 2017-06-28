@@ -38,7 +38,7 @@ module.exports = {
   },
   'postcss-url': {
     url: 'copy',
-    assetsPath: 'ita-web-toolkit/assets',
+    assetsPath: './',
     useHash: true,
   },
   'postcss-inline-svg': {

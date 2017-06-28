@@ -53,7 +53,7 @@ plugins.push(new webpack.LoaderOptionsPlugin({
 var config = {
   entry: {
     IWT: __dirname + '/index.js',
-    styleguide: __dirname + '/ita-web-toolkit/theme/index-styleguide.js'
+    /*styleguide: __dirname + '/ita-web-toolkit/theme/index-styleguide.js'*/
   },
   devtool: 'source-map',
   output: {
