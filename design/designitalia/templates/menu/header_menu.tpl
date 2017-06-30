@@ -75,17 +75,17 @@
             {if $current_user.is_logged_in}
               <li class="Megamenu-area">
                 {if fetch( 'user', 'has_access_to', hash( 'module', 'user', 'function', 'selfedit' ) )}
-                  <a href="{"/user/edit/"|ezurl(no)}" title="Visualizza il profilo utente" class="Button Button--default u-color-95"><i class="fa fa-user" aria-hidden="true"></i> <span class="u-sm-hidden">Profilo utente</span></a>
+                  <a href="{"/user/edit/"|ezurl(no)}" title="Visualizza il profilo utente" class="Button Button--default u-color-95 u-sm-hidden"><i class="fa fa-user" aria-hidden="true"></i> <span class="u-md-hidden">Profilo utente</span></a>
                 {/if}
-                <a href="{"/user/logout"|ezurl(no)}" title="Esegui il logout" class="Button Button--default u-color-95"><i class="fa fa-sign-out" aria-hidden="true"></i> <span class="u-sm-hidden">Logout</span></a>
+                <a href="{"/user/logout"|ezurl(no)}" title="Esegui il logout" class="Button Button--default u-color-95 u-sm-hidden"><i class="fa fa-sign-out" aria-hidden="true"></i> <span class="u-md-hidden">Logout</span></a>
               </li>
             {else}
               <li class="Megamenu-area">
                 {if ezmodule( 'user/login' )}
-                  <a href="{concat("/user/login?url=",$module_result.uri)|ezurl(no)}" title="Esegui il login al sito" class="Button Button--default u-color-95"><i class="fa fa-sign-in" aria-hidden="true"></i> <span class="u-sm-hidden">Accedi</span></a>
+                  <a href="{concat("/user/login?url=",$module_result.uri)|ezurl(no)}" title="Esegui il login al sito" class="Button Button--default u-color-95 u-sm-hidden"><i class="fa fa-sign-in" aria-hidden="true"></i> <span class="u-md-hidden">Accedi</span></a>
                 {/if}
                 {if ezmodule( 'user/register' )}
-                  <a href="{"/user/register"|ezurl(no)}" title="Registrati al sito" class="Button Button--default u-color-95"><i class="fa fa-user-plus" aria-hidden="true"></i> <span class="u-sm-hidden">Registrati</span></a>
+                  <a href="{"/user/register"|ezurl(no)}" title="Registrati al sito" class="Button Button--default u-color-95 u-sm-hidden"><i class="fa fa-user-plus" aria-hidden="true"></i> <span class="u-md-hidden">Registrati</span></a>
                 {/if}
               </li>
             {/if}

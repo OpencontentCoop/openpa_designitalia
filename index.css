@@ -6,9 +6,9 @@
 
 /* Start theme */
 /*
- *	Only apply to body class="Pac"
+ *	Only apply to body class="redpurple"
  */
-.pac {
+.redpurple {
     font-family: var(--Theme-font-family-sans);
 }
 
@@ -16,11 +16,11 @@
  * 	Brand color
  */
 :root {
-    --Color-primary: #0099d1;
-    --Color-secondary: var(--Color-primary);
+    --Color-primary: #b31a34;
+    --Color-secondary: #c0b193;
     --Prose-color-text-primary: #1c2024;
     --Prose-color-text-secondary: #5a6772;
-    --Prose-color-text-highlighted: #b2ebed;
+    --Prose-color-text-highlighted: #eeeeee;
     --Prose-color-link: var(--Color-primary);
     --Prose-color-link-hover: var(--Color-primary);
     --Prose-color-link-visited: var(--Color-primary);
@@ -64,6 +64,11 @@ a:focus {
     @extend .u-background-grey-10;
 }
 
+.Megamenu--default {
+  background-color: var(--Color-primary) !important;
+  border-top: 1px solid #eee !important;
+}
+
 .Megamenu--styled .Megamenu-list > li > a[aria-expanded=false]::after {
     color: var(--Color-grey-80);
 }
@@ -89,15 +94,15 @@ a:focus {
 }
 
 
-.Header-navbar {
+/*.Header-navbar {
     background-color: var(--Color-white) !important;
     border-bottom: 1px solid var(--Color-primary);
-}
+}*/
 
 .Hamburger-toggle,
 .Hamburger-toggle:before,
 .Hamburger-toggle:after {
-    background: var(--Color-black) !important;
+    background: var(--Color-white) !important;
 }
 
 .Hamburger-toggle.is-active {
@@ -111,12 +116,35 @@ a:focus {
 
 .Header-searchTrigger button,
 .Header-search button {
-    @extend .u-background-90;
+    /*@extend .u-background-90;*/
+    color: var(--Color-black) !important;
+    background-color: var(--Color-secondary) !important;
 }
 
 .Header-toggleText,
 .Header-titleLink a {
-    color: var(--Color-black) !important;
+    color: var(--Color-white) !important;
+}
+
+button.Icon-search,
+button.Icon-close {
+  background-color: var(--Color-secondary) !important;
+}
+
+.Header-socialIcons a {
+  color: var(--Color-white) !important;
+}
+
+.Header-socialIcons a span i.fa-stack-2x.u-color-90{
+  color: var(--Color-white) !important;
+}
+
+.Header-socialIcons a span i.fa-stack-1x.u-color-white{
+  color: var(--Color-primary) !important;
+}
+
+a.ScrollTop.js-scrollTop {
+  background-color: var(--Color-primary) !important;
 }
 
 .owl-theme .owl-nav {
