@@ -86,7 +86,23 @@
                         {undef $tree_menu}
                     {/foreach}
                 {/if}
-
+                {if $current_user.is_logged_in}
+                  <li class="Megamenu-area">
+                    {if fetch( 'user', 'has_access_to', hash( 'module', 'user', 'function', 'selfedit' ) )}
+                      <a href="{"/user/edit/"|ezurl(no)}" title="Visualizza il profilo utente" class="Button Button--default u-border-none u-background-grey-20 u-color-95 u-text-r-xxs"><i class="fa fa-user"></i> Profilo utente</a>
+                    {/if}
+                    <a href="{"/user/logout"|ezurl(no)}" title="Esegui il logout" class="Button Button--default u-border-none u-background-grey-20 u-color-95 u-text-r-xxs"><i class="fa fa-sign-out"></i> Logout</a>
+                  </li>
+                {else}
+                  <li class="Megamenu-area">
+                    {if ezmodule( 'user/login' )}
+                      <a href="{concat("/user/login?url=",$module_result.uri)|ezurl(no)}" title="Esegui il login al sito" class="Button Button--default u-border-none u-background-grey-20 u-color-95 u-text-r-xxs"><i class="fa fa-sign-in"></i> Accedi</a>
+                    {/if}
+                    {if ezmodule( 'user/register' )}
+                      <a href="{"/user/register"|ezurl(no)}" title="Registrati al sito" class="Button Button--default u-border-none u-background-grey-20 u-color-95 u-text-r-xxs"><i class="fa fa-user-plus"></i> Registrati</a>
+                    {/if}
+                  </li>
+                {/if}
             </ul>
 
         </nav>
