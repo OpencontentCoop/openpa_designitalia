@@ -1,8 +1,8 @@
 {ezscript_require(array( 'ezjsc::jquery' ) )}
 <script type="text/javascript">
 {literal}
-$(function() {	    
-    if (location.hash == '') {      
+$(function() {
+    if (location.hash == '') {
       $("html, body").animate({ scrollTop: $("#today").offset().top });
     }
     $(".calendar_picker").datepicker({
@@ -99,41 +99,41 @@ $(function() {
             <input type="submit" name="ViewProgramButton" class="btn btn-primary" value="Lista" />
             <input type="submit" name="NextMonthCalendarButton" class="btn btn-default " value="&raquo;" />
         </div>
-    </div>    
-    
+    </div>
+
     <h1>{$calendarData.parameters.timestamp|datetime( custom, '%F' )|upfirst()}&nbsp;{$calendarData.parameters.timestamp|datetime( custom, '%Y' )}</h1>
-    
-    <div class="well well-sm calendar-tools">            
+
+    <div class="well well-sm calendar-tools">
       <label class="hide" for="calendar_query">Cerca nel testo</label>
       <input id="calendar_query"  class="query form-control" placeholder="Cerca tra gli eventi" type="text" name="Query" value="{$calendarData.parameters.query|wash()}" />
-      
+
       <label class="hide" for="calendar_picker">Seleziona data</label>
       <input id="calendar_picker" class="calendar_picker form-control" placeholder="gg-mm-yyyy" type="text" name="SearchDate" title="Seleziona data" value="{$calendarData.parameters.picker_date|wash()}" />
-      
+
       {foreach $calendarData.search_facets as $facetFieldName => $facets}
           {if count($facets)|gt(0)}
           <label class="hide" for="calendar_facet">Cerca {$facetFieldName}</label>
           <select name="{$facetFieldName}" class="form-control" id="calendar_facet">
               <option value="">{$facetFieldName}</option>
-              {foreach $facets as $styleAndName}                
+              {foreach $facets as $styleAndName}
                   <option value="{$styleAndName.value|wash()}"{if $calendarData.parameters[$facetFieldName]|eq($styleAndName.value)} selected="selected"{/if}>{if $styleAndName.indent}&nbsp;&nbsp;&nbsp;{/if}{$styleAndName.name|wash()}</option>
-              {/foreach}            
+              {/foreach}
           </select>
           {/if}
       {/foreach}
-      
+
       {if and( count($calendarData.search_facets)|eq(0), is_set( $view_parameters.Manifestazione ) )}
           <label class="hide" for="calendar_facet">Cerca Manifestazione</label>
           <select name="Manifestazione" class="form-control" id="calendar_facet">
               <option value="">Manifestazione</option>
-              <option value="{$view_parameters.Manifestazione|wash()}" selected="selected">{$view_parameters.Manifestazione|wash()}</option>              
+              <option value="{$view_parameters.Manifestazione|wash()}" selected="selected">{$view_parameters.Manifestazione|wash()}</option>
           </select>
       {/if}
-      
+
       <button class="defaultbutton" type="submit" name="SearchButton" title="Cerca"><i class="fa fa-search"></i></button>
       <button class="button" type="submit" name="TodayButton" title="Azzera la ricerca"><i class="fa fa-close"></i></button>
     </div>*}
-    
+
     <hr />
     {foreach $calendarData.day_by_day as $calendarDay}
         {if $calendarDay.count|gt(0)}
@@ -144,7 +144,7 @@ $(function() {
               <span class="month">{$calendarDay.start|datetime( 'custom', '%M' )}</span>
               <span class="day">{$calendarDay.start|datetime( 'custom', '%j' )}</span>
             </div>
-            
+
                 <!--<h3 class="widget_title">
                     {if $calendarDay.is_today}Oggi - {$calendarDay.start|l10n( 'date' )}
                     {elseif $calendarDay.is_tomorrow}Domani - {$calendarDay.start|l10n( 'date' )}
@@ -152,18 +152,20 @@ $(function() {
                     {else}{$calendarDay.start|l10n( 'date' )}
                     {/if}
                 </h3>-->
-              
+
               <div class="calendar-events">
-                <div class="openpa-panels-container">
+                <div class="openpa-panels-container Grid">
                   {foreach $calendarDay.events as $event}
+                      <div class="Grid-cell u-sizeFull u-md-size1of2 u-lg-size1of3">
                       {node_view_gui view=panel content_node=$event.node image_class=small is_program=true()}
+                      </div>
                   {/foreach}
                 </div>
               </div>
 
             </div>
           <hr />
-        {/if}        
+        {/if}
     {/foreach}
 
     {*<div class="calendar-more">
