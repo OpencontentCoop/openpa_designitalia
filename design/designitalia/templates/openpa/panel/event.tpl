@@ -1,4 +1,4 @@
-{set_defaults( hash('show_image', false()))}
+{set_defaults( hash('is_program',false(), 'show_image', false()))}
 {if is_set( $event.from )}
     {def $from = $event.from
          $to = $event.to
@@ -24,17 +24,18 @@
     {/if}
 
     <div class="openpa-panel-content">
+        {if $is_program|not()}
         <time class="event-date" datetime="{$time}">
             {if $sameDay|not()}<span class="starts">Dal</span>{/if}
             <span class="day">{$day}</span>
             <span class="month">{$month}</span>
             <span class="year">{$year}</span>
         </time>
+        {/if}
 
         <h3 class="Card-title">
             <a class="Card-titleLink" href="{$openpa.content_link.full_link}"
                title="{$node.name|wash()}">{$node.name|wash()}</a>
-          <span class="hidden">{$node.data_map.to_time.content.timestamp|sub($node.data_map.from_time.content.timestamp)} - {$node.data_map.from_time.content.timestamp} - {$node.data_map.to_time.content.timestamp} - {$sameDay|attribute(show))}</span>
         </h3>
 
         {if and( $to, $sameDay|not() )}

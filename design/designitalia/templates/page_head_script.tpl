@@ -19,8 +19,7 @@
 {ezscript_load( array(
     'ezjsc::jquery',
     'ezjsc::jqueryUI',
-    'ezjsc::jqueryio',
-    'embed_youtube_ratio_resizer.js'
+    'ezjsc::jqueryio'
 ))}
 
 <!-- include html5shim per Explorer 8 -->

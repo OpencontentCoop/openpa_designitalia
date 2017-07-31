@@ -515,3 +515,10 @@ MatchFile=block/single_original_image.tpl
 Subdir=templates
 Match[type]=ImmagineDimensioneOriginale
 Match[view]=single_original_image
+
+[block_html_3_colonne]
+Source=block/view/view.tpl
+MatchFile=block/html_3_colonne.tpl
+Subdir=templates
+Match[type]=Html3Colonne
+Match[view]=html_3_colonne
