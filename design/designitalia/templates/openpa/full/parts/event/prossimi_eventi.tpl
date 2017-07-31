@@ -36,10 +36,10 @@
                 <div class="calendar-date Grid-cell u-md-size5of6 u-lg-size5of6 u-margin-bottom-s" id="day-{$calendarDay.identifier}">
                     <div class="Grid Grid--withGutter openpa-panels-container">
                         {foreach $calendarDay.events as $event}
-                        <div class="u-md-size1of3">
+                        <div class="u-lg-size1of2">
                             {node_view_gui view=panel content_node=$event.node image_class=small is_program=true()}
                         </div>
-                        {delimiter modulo=3}</div><div class="Grid Grid--withGutter openpa-panels-container">{/delimiter}
+                        {delimiter modulo=2}</div><div class="Grid Grid--withGutter openpa-panels-container">{/delimiter}
                         {/foreach}
                     </div>
                 </div>
