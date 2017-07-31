@@ -33,19 +33,19 @@
             </time>
         {/if}
 
-        <h3 class="Card-title"{if $is_program|not()} style="width: 100%; float:none"{/if}>
+        <h3 class="Card-title"{if $is_program} style="width: 100%; float:none"{/if}>
             <a class="Card-titleLink" href="{$openpa.content_link.full_link}"
                title="{$node.name|wash()}">{$node.name|wash()}</a>
         </h3>
 
         {if and( $to, $sameDay|not() )}
-            <div class="place"{if $is_program|not()} style="width: 100%; float:none"{/if}>
+            <div class="place"{if $is_program} style="width: 100%; float:none"{/if}>
                 <p><i class="fa fa-calendar" aria-hidden="true"></i> {$from|datetime( 'custom', '%d %M %Y' )} - {$to|datetime( 'custom', '%d %M %Y' )}</p>
             </div>
         {/if}
 
         {if or( $node|has_attribute( 'indirizzo' ), $node|has_attribute( 'luogo_svolgimento' ), $node|has_attribute( 'comune' ))}
-            <div class="place"{if $is_program|not()} style="width: 100%; float:none"{/if}>
+            <div class="place"{if $is_program} style="width: 100%; float:none"{/if}>
                 <p><i class="fa fa-map-marker" aria-hidden="true"></i>
                     {if $node|has_attribute( 'indirizzo' )}
                         <span>{attribute_view_gui attribute=$node.data_map.indirizzo}</span>
@@ -60,7 +60,7 @@
             </div>
         {/if}
 
-        {*<div class="Card-text"{if $is_program|not()} style="width: 100%; float:none"{/if}>
+        {*<div class="Card-text"{if $is_program} style="width: 100%; float:none"{/if}>
             <p>{$node|abstract()|oc_shorten(100)}</p>
         </div>*}
     </div>
