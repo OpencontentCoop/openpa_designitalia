@@ -54,6 +54,7 @@
                     {if $top_pagination_position}, onInitialized: function(e){ldelim}
                     var owl = $(e.target);
                     owl.find('.owl-nav').prependTo(owl);
+                    owl.find('.owl-dots').addClass('u-block u-md-hidden u-lg-hidden');
                     {rdelim}
                     {/if}
                 {rdelim},
@@ -65,5 +66,3 @@
 {/if}
 
 {unset_defaults( array('i_view','items','autoplay','items_per_row', 'image_class','navigation','pagination','navigation_text','css_id'))}
-
-

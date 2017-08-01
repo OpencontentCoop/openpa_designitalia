@@ -11,7 +11,8 @@
                  items=$openpa.content
                  css_id=$block.id
                  root_node=$openpa.root_node
-                 pagination=$items_per_row|gt(1)
+                 pagination=$items_per_row|ge(1)
+                 top_pagination_position=true()
                  navigation= and( $show_title, $block.name|ne(''), $items_per_row|gt(1) )
                  items_per_row=$items_per_row
                  i_view=carousel_evidence
