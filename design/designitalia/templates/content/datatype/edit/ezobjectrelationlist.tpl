@@ -85,7 +85,7 @@
                 {/foreach}
                 {/if}
                 >
-                    <span class="Form-fieldIcon" role="presentation"></span> {$node.name|wash}
+                    <span class="Form-fieldIcon" role="presentation"></span> {$node.name|wash} <small class="u-text-xxs u-color-grey-40">{$node.url_alias|shorten(70, '...', 'middle')|wash}</small>
                 </label>
             {/section}
         {/case}
@@ -103,7 +103,7 @@
                 {/foreach}
                 {/if}
                 />
-                        <span class="Form-fieldIcon" role="presentation"></span> {$node.name|wash}
+                        <span class="Form-fieldIcon" role="presentation"></span> {$node.name|wash} <small class="u-text-xxs u-color-grey-40">{$node.url_alias|shorten(70, '...', 'middle')|wash}</small>
                 </label>
             {/section}
         {/case}
