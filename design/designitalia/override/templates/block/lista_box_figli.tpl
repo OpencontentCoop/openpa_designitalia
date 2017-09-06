@@ -7,6 +7,7 @@
         {break}
     {/if}
 {/for}
+{if count($openpa.content)|gt(0)}
 {set_defaults(hash('show_title', true()))}
 <div class="openpa-widget {$block.view} {if and(is_set($block.custom_attributes.color_style), $block.custom_attributes.color_style|ne(''))}color color-{$block.custom_attributes.color_style}{/if}">
     <div class="openpa-widget-content u-padding-top-s">
@@ -32,3 +33,4 @@
     </div>
 </div>
 {unset_defaults( array('show_title') )}
+{/if}
