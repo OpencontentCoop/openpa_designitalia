@@ -28,7 +28,7 @@
 
             var isChangeView = false;
 
-            var initMap = function () {
+            /*var initMap = function () {
                 if (document.getElementById('map')) {
                     var map = tools.initMap(
                         'map',
@@ -71,7 +71,7 @@
                 if (response.totalCount > 0) {
                     tools.loadMarkersInMap(query);
                 }
-            };
+            };*/
 
             var initCalendar = function (view) {
                 $("body").on("shown.bs.tab", function (e) {
@@ -112,7 +112,7 @@
                         defaultDate: defaultDate,
                         editable: false,
                         timeFormat: 'H(:mm)',
-                        eventClick: function (calEvent, jsEvent, view) {
+                        /*eventClick: function (calEvent, jsEvent, view) {
                             preview.find('.modal-content').html('');
                             var template = $.templates("#tpl-event");
                             $.views.helpers(OpenpaAgendaHelpers);
@@ -120,7 +120,7 @@
                             preview.find('.modal-content').html(htmlOutput);
                             preview.find('.col-md-6').removeClass('col-md-6');
                             preview.modal();
-                        },
+                        },*/
                         events: {
                             url: tools.settings().endpoint.fullcalendar,
                             data: function () {
@@ -137,7 +137,6 @@
                 } else {
                     isChangeView = false;
                 }
-
             };
 
             var loadListResults = function (response, query, appendResults, view) {
@@ -170,7 +169,7 @@
                 $(this.element).opendataSearchView({
                     query: $.opendataTools.settings('base_query'),
                     onInit: function (view) {
-                        initMap();
+                        //initMap();
                         initCalendar(view);
                     },
                     onBeforeSearch: function (query, view) {
@@ -178,7 +177,7 @@
                     },
                     onLoadResults: function (response, query, appendResults, view) {
                         loadListResults(response, query, appendResults, view);
-                        loadMapResults(response, query, appendResults, view);
+                        //loadMapResults(response, query, appendResults, view);
                         loadCalendarResults(response, query, appendResults, view);
                     },
                     onLoadErrors: function (errorCode, errorMessage, jqXHR, view) {
@@ -198,7 +197,4 @@
     };
 
 })(jQuery, window, document);
-$(document).ready(function () {
-
-
-});
+$(document).ready(function () {});

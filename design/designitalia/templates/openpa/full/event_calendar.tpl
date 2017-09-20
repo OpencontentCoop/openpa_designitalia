@@ -47,7 +47,7 @@ $view_all = false()}
             {include uri=$openpa.control_children.views.calendar.template
                      current_calendar_view=$_calendar_view*}
 
-            {include uri='design:agenda/parts/calendar/views.tpl' views=array('list','geo','agenda') view_all=$view_all}
+            {include uri='design:agenda/parts/calendar/views.tpl' views=array('list','agenda') view_all=$view_all}
 
 
             {include
