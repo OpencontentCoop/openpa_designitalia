@@ -18,21 +18,3 @@
     </div>
 
 </div>
-
-
-<script type="text/javascript">
-    {literal}
-    $(document).ready(function() {
-        $("#agenda-container").tabs({
-            select: function(event) {
-                // You need Firebug or the developer tools on your browser open to see these
-                console.log(event);
-                // This will get you the index of the tab you selected
-                console.log(event.options.selected);
-                // And this will get you it's name
-                console.log(event.tab.text);
-            }
-        });
-    });
-    {/literal}
-</script>

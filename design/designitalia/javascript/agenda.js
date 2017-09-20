@@ -81,10 +81,6 @@
                         refreshCalendar(view);
                         $('.widget[data-filter="date"]').addClass('hide');
                         isChangeView = true;
-
-                        console.log('aaaaaaa');
-
-
                     } else {
                         $('.widget[data-filter="date"]').removeClass('hide');
                     }
@@ -195,4 +191,13 @@
     };
 
 })(jQuery, window, document);
-$(document).ready(function () {});
+$(document).ready(function () {
+    $("#agenda-container").tabs({
+        select: function(event, ui){
+            var tabNumber = ui.index;
+            var tabName = $(ui.tab).text();
+
+            console.log('aaaaa');
+        }
+    });
+});
