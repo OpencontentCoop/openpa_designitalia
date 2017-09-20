@@ -4,33 +4,26 @@
 
 <style>
     {literal}
-    #calendar-{/literal}{$node.contentobject_id}{literal} .ui-tabs-panel {
+    #agenda-container .ui-tabs-panel {
         background-color: #fff !important;
     }
     {/literal}
 </style>
 
-<div class="Grid Grid--withGutter" id="calendar-{$node.contentobject_id}">
+<div class="Grid Grid--withGutter" id="agenda-container">
 
     <div class="Grid-cell u-sizeFull">
         {include uri='design:agenda/parts/calendar/view_pills.tpl' views=$views}
         {include uri='design:agenda/parts/calendar/view_tabs.tpl' views=$views}
     </div>
 
-    {*<div class="Grid-cell u-sizeFull u-md-size9of12 u-lg-size9of12">
-        {include uri='design:agenda/parts/calendar/view_tabs.tpl' views=$views}
-    </div>
-    <div class="Grid-cell u-sizeFull u-md-size3of12 u-lg-size3of12">
-        {include uri='design:agenda/parts/calendar/view_pills.tpl' views=$views}
-        include uri='design:agenda/parts/calendar/filters.tpl' view_all=$view_all
-    </div>*}
 </div>
 
 
 <script type="text/javascript">
     {literal}
     $(document).ready(function() {
-        $("#calendar-{/literal}{$node.contentobject_id}{literal}").tabs({
+        $("#agenda-container").tabs({
             select: function(event) {
                 // You need Firebug or the developer tools on your browser open to see these
                 console.log(event);

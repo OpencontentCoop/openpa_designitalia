@@ -81,6 +81,10 @@
                         refreshCalendar(view);
                         $('.widget[data-filter="date"]').addClass('hide');
                         isChangeView = true;
+
+                        console.log('aaaaaaa');
+
+
                     } else {
                         $('.widget[data-filter="date"]').removeClass('hide');
                     }
@@ -112,15 +116,9 @@
                         defaultDate: defaultDate,
                         editable: false,
                         timeFormat: 'H(:mm)',
-                        /*eventClick: function (calEvent, jsEvent, view) {
-                            preview.find('.modal-content').html('');
-                            var template = $.templates("#tpl-event");
-                            $.views.helpers(OpenpaAgendaHelpers);
-                            var htmlOutput = template.render(calEvent.content);
-                            preview.find('.modal-content').html(htmlOutput);
-                            preview.find('.col-md-6').removeClass('col-md-6');
-                            preview.modal();
-                        },*/
+                        eventClick: function (calEvent, jsEvent, view) {
+                            window.location.href = $.opendataTools.settings('accessPath') + '/content/view/full/' + calEvent.content.metadata.mainNodeId;
+                        },
                         events: {
                             url: tools.settings().endpoint.fullcalendar,
                             data: function () {

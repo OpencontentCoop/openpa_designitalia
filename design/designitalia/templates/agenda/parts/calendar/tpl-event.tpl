@@ -15,7 +15,7 @@
                 </time>
 
                 <h3 class="Card-title">
-                    <a class="Card-titleLink" href="#"title="{{:~i18n(data,'titolo')}}">{{:~i18n(data,'titolo')}}</a>
+                    <a class="Card-titleLink" href="{{:~agendaUrl(metadata.mainNodeId)}}"title="{{:~i18n(data,'titolo')}}">{{:~i18n(data,'titolo')}}</a>
                 </h3>
 
                 {{if ~formatDate(~i18n(data,'to_time'),'Y.MM.D') !== ~formatDate(~i18n(data,'from_time'),'Y.MM.D')}}

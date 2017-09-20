@@ -2,22 +2,13 @@
     'ezjsc::jquery',
     'jquery.opendataTools.js',
     'moment-with-locales.min.js',
-    'leaflet.js',
-    'leaflet.markercluster.js',
-    'leaflet.makimarkers.js',
     'fullcalendar/fullcalendar.js',
     'fullcalendar/locale/it.js',
     'fullcalendar/locale/de.js',
     'fullcalendar/locale/en.js',
-    'openpa_agenda_helpers.js',
+    'agenda_helpers.js',
     'jquery.opendataSearchView.js',
-    'openpa_agenda_filters/base.js',
-    'openpa_agenda_filters/type_tree.js',
-    'openpa_agenda_filters/type.js',
-    'openpa_agenda_filters/date.js',
-    'openpa_agenda_filters/target.js',
-    'openpa_agenda_filters/iniziativa.js',
-    'openpa_agenda.js',
+    'agenda.js',
     'jsrender.js'
 ))}
 {ezcss_require(array(
@@ -77,21 +68,7 @@
 
 </script>
 
-
-{literal}
-<style>
-    .patronage small span::before {content: "{/literal}{'Patrocinato da'|i18n('agenda')}{literal} ";}
-</style>
-{/literal}
-
 {include uri='design:agenda/parts/calendar/tpl-spinner.tpl'}
 {include uri='design:agenda/parts/calendar/tpl-empty.tpl'}
 {include uri='design:agenda/parts/calendar/tpl-load-other.tpl'}
 {include uri='design:agenda/parts/calendar/tpl-event.tpl'}
-
-<div id="preview" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="previewlLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        </div>
-    </div>
-</div>
