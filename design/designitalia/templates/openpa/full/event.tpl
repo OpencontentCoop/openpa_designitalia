@@ -12,7 +12,12 @@
 <div class="openpa-full class-{$node.class_identifier}">
     <div class="title">
         {include uri='design:openpa/full/parts/node_languages.tpl'}
-        <h2>{$node.name|wash()}</h2>
+        <h2>{attribute_view_gui attribute=$node|attribute( 'titolo' )}</h2>
+        {if $node|has_attribute( 'short_title' )}
+            <h3 class="u-text-h3">
+                {attribute_view_gui attribute=$node|attribute( 'short_title' )}
+            </h3>
+        {/if}
     </div>
     <div class="content-container">
         <div class="content{if or( $show_left, $openpa.control_menu.show_extra_menu )} withExtra{/if}">

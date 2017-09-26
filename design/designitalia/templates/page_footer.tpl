@@ -59,7 +59,7 @@
     {include uri='design:footer/partners.tpl'}
 {/if}
 
-<footer class="Footer u-padding-all-s">
+<footer class="Footer u-padding-all-s u-hiddenPrint">
     <div class="u-layout-wide u-layoutCenter">
         <div class="u-cf">
 

@@ -3,7 +3,9 @@
 {literal}
 $(function() {
     if (location.hash == '') {
-      $("html, body").animate({ scrollTop: $("#today").offset().top });
+        if ( $("#today").length > 0 ){
+            $("html, body").animate({ scrollTop: $("#today").offset().top });
+        }
     }
     $(".calendar_picker").datepicker({
       defaultDate: "+1w",
