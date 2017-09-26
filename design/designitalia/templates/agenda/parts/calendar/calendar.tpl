@@ -8,6 +8,8 @@
     'fullcalendar/locale/en.js',
     'agenda_helpers.js',
     'jquery.opendataSearchView.js',
+    'agenda_filters/base.js',
+    'agenda_filters/date.js',
     'agenda.js',
     'jsrender.js'
 ))}
@@ -16,12 +18,10 @@
 ))}
 
 {def $filterDefinitions = hash(
-    'date','OpenpaAgendaDateFilter',
-    'target','OpenpaAgendaTargetFilter',
-    'iniziativa','OpenpaAgendaIniziativaFilter'
+    'date','OpenpaAgendaDateFilter'
 )}
 {def $has_tags = false()}
-{foreach api_class('event').fields as $field}
+{*foreach api_class('event').fields as $field}
     {if and($field.identifier|eq('tipo_evento'), $field.dataType|eq('eztags'))}
         {set $has_tags = true()}
     {/if}
@@ -30,7 +30,7 @@
     {set $filterDefinitions = $filterDefinitions|merge(hash('type', 'OpenpaAgendaTypeTreeFilter'))}
 {else}
     {set $filterDefinitions = $filterDefinitions|merge(hash('type', 'OpenpaAgendaTypeFilter'))}
-{/if}
+{/if*}
 
 {if is_set($filters)|not()}{def $filters = array()}{/if}
 {undef $has_tags}
@@ -61,8 +61,8 @@
     $.opendataTools.settings('locale', "{$moment_language}");
 
     $(document).ready(function () {ldelim}
-        //$("#calendar").initSearchView().data('opendataSearchView'){foreach $filters as $filter}.addFilter({$filterDefinitions[$filter]}){/foreach}.init().doSearch();
-        $("#calendar").initSearchView().data('opendataSearchView').init().doSearch();
+        $("#calendar").initSearchView().data('opendataSearchView'){foreach $filters as $filter}.addFilter({$filterDefinitions[$filter]}){/foreach}.init().doSearch();
+        //$("#calendar").initSearchView().data('opendataSearchView').init().doSearch();
     {rdelim});
 
 

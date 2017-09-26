@@ -74,7 +74,19 @@
             };*/
 
             var initCalendar = function (view) {
-                $("body").on("shown.bs.tab", function (e) {
+                $( "#agenda-container" ).on( "tabsactivate", function( event, ui ) {
+                  var hash = ui.newTab.context.hash;
+                  if (hash == '#agenda') {
+                    view.setFilterValue('date', 'all');
+                    view.doSearch();
+                    refreshCalendar(view);
+                    $('.widget[data-filter="date"]').addClass('hide');
+                    isChangeView = true;
+                  } else {
+                    $('.widget[data-filter="date"]').removeClass('hide');
+                  }
+                });
+                /*$("body").on("shown.bs.tab", function (e) {
                     if ($(e.target).attr('href') == '#agenda') {
                         view.setFilterValue('date', 'all');
                         view.doSearch();
@@ -84,7 +96,7 @@
                     } else {
                         $('.widget[data-filter="date"]').removeClass('hide');
                     }
-                });
+                });*/
             };
 
             var refreshCalendar = function (view, response) {
@@ -193,11 +205,6 @@
 })(jQuery, window, document);
 $(document).ready(function () {
     $("#agenda-container").tabs({
-        select: function(event, ui){
-            var tabNumber = ui.index;
-            var tabName = $(ui.tab).text();
-
-            console.log('aaaaa');
-        }
+        activate: function(event, ui){}
     });
 });
