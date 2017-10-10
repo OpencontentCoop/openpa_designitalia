@@ -4,7 +4,7 @@
 {def $main_styles = openpaini( 'Stili', 'Nodo_NomeStile', array() )}
 {def $item_class = "no-main-style"}
 
-<section class="Offcanvas Offcanvas--left Offcanvas--modal js-fr-offcanvas u-jsVisibilityHidden u-nojsDisplayNone" id="menu">
+<section class="Offcanvas Offcanvas--right Offcanvas--modal js-fr-offcanvas u-jsVisibilityHidden u-nojsDisplayNone u-hiddenPrint" id="menu">
     <h2 class="u-hiddenVisually">Menu di navigazione</h2>
     <div class="Offcanvas-content u-background-white">
         <div class="Offcanvas-toggleContainer u-background-70 u-jsHidden">
@@ -14,7 +14,7 @@
             </a>
         </div>
         <nav>
-            <ul class="Linklist Linklist--padded Treeview js-fr-treeview u-text-r-xs">
+            <ul class="Linklist Linklist--padded Treeview Treeview--default js-Treeview u-text-r-xs">
 
                 {*<li class="toplevel firstli {if $current_node_id|eq(ezini( 'NodeSettings', 'RootNode', 'content.ini' ))}current{/if}">
                     <a title="Link a homepage" href={'/'|ezurl()}>
@@ -86,7 +86,23 @@
                         {undef $tree_menu}
                     {/foreach}
                 {/if}
-
+                {if $current_user.is_logged_in}
+                  <li class="Megamenu-area">
+                    {if fetch( 'user', 'has_access_to', hash( 'module', 'user', 'function', 'selfedit' ) )}
+                      <a href="{"/user/edit/"|ezurl(no)}" title="Visualizza il profilo utente" class="Button Button--default u-border-none u-background-grey-20 u-color-95 u-text-r-xxs"><i class="fa fa-user"></i> Profilo utente</a>
+                    {/if}
+                    <a href="{"/user/logout"|ezurl(no)}" title="Esegui il logout" class="Button Button--default u-border-none u-background-grey-20 u-color-95 u-text-r-xxs"><i class="fa fa-sign-out"></i> Logout</a>
+                  </li>
+                {else}
+                  <li class="Megamenu-area">
+                    {if ezmodule( 'user/login' )}
+                      <a href="{concat("/user/login?url=",$module_result.uri)|ezurl(no)}" title="Esegui il login al sito" class="Button Button--default u-border-none u-background-grey-20 u-color-95 u-text-r-xxs"><i class="fa fa-sign-in"></i> Accedi</a>
+                    {/if}
+                    {if ezmodule( 'user/register' )}
+                      <a href="{"/user/register"|ezurl(no)}" title="Registrati al sito" class="Button Button--default u-border-none u-background-grey-20 u-color-95 u-text-r-xxs"><i class="fa fa-user-plus"></i> Registrati</a>
+                    {/if}
+                  </li>
+                {/if}
             </ul>
 
         </nav>

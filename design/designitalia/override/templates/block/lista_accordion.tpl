@@ -10,7 +10,7 @@
     </h3>
   {/if}
 
-  <div class="Accordion fr-accordion js-fr-accordion" id="accordion-{$block.id}">
+  <div class="Accordion Accordion--default fr-accordion js-fr-accordion" id="accordion-{$block.id}">
     {foreach $openpa.content as $index => $item}
       <h2 class="Accordion-header js-fr-accordion__header fr-accordion__header" id="accordion-header-{$block.id}-{$item.node_id}">
         <span class="Accordion-link u-text-r-s">{$item.name|wash()}</span>

@@ -1,14 +1,8 @@
 @import "suitcss-base";
 @import "suitcss-components";
 @import "suitcss-utils";
-
 @import "suitcss-components-form";
-
-/*
- *  @FIXME: replace with glob patterns when this gets merged:
- *    https://github.com/TrySound/postcss-easy-import/pull/7
- */
-@import "../../ita-web-toolkit/src/utils/borders";
+/*@import "../../ita-web-toolkit/src/utils/borders";
 @import "../../ita-web-toolkit/src/utils/colors";
 @import "../../ita-web-toolkit/src/utils/corners";
 @import "../../ita-web-toolkit/src/utils/display";
@@ -58,7 +52,13 @@
 
 @import "../../ita-web-toolkit/src/print";
 
-@import "../../ita-web-toolkit/src/legacy";
+@import "../../ita-web-toolkit/src/legacy";*/
+@import "../../ita-web-toolkit/src/utils/**/index.css";
+@import "../../ita-web-toolkit/src/icons/**/index.css";
+@import "../../ita-web-toolkit/src/elements/**/index.css";
+@import "../../ita-web-toolkit/src/components/**/index.css";
+@import "../../ita-web-toolkit/src/modules/**/index.css";
+@import "../../ita-web-toolkit/src/print";
 
 @custom-media --sm-viewport screen and (min-width: 768px) and (max-width: 991px);
 @custom-media --md-viewport screen and (min-width: 992px) and (max-width: 1365px);
@@ -69,31 +69,30 @@
  */
 
 :root {
-    --it-Base-font-size-ratio: 1.8;
-    --it-Base-font-size: calc(1rem * var(--it-Base-font-size-ratio));
-    --it-Base-text-color: #1c2024;
-    --it-Base-focus-color: #ff8c00;
-    --it-Base-font-family:
-            -apple-system,
-            BlinkMacSystemFont,
-            Segoe UI,
-            Roboto,
-            Oxygen,
-            Ubuntu,
-            Cantarell,
-            Fira Sans,
-            Droid Sans,
-            HelveticaNeue-Light,
-            Helvetica Neue Light,
-            Helvetica Neue,
-            Helvetica,
-            Arial,
-            Lucida Grande,
-            sans-serif;
+  --it-Base-font-size-ratio: 1.8;
+  --it-Base-font-size: calc(1rem * var(--it-Base-font-size-ratio));
+  --it-Base-text-color: #1c2024;
+  --it-Base-focus-color: #ff8c00;
+  --it-Base-font-family: -apple-system,
+  BlinkMacSystemFont,
+  Segoe UI,
+  Roboto,
+  Oxygen,
+  Ubuntu,
+  Cantarell,
+  Fira Sans,
+  Droid Sans,
+  HelveticaNeue-Light,
+  Helvetica Neue Light,
+  Helvetica Neue,
+  Helvetica,
+  Arial,
+  Lucida Grande,
+  sans-serif;
 }
 
 :root {
-    --Grid-gutter-size: 1.6rem;
+  --Grid-gutter-size: 1.6rem;
 }
 
 /*  stylelint-disable */
@@ -105,11 +104,11 @@
 /*  stylelint-enable */
 
 html {
-    font-family: var(--it-Base-font-family);
-    font-size: 62.5%; /* 1 */
-    font-variant-ligatures: common-ligatures; /* 2 */
+  font-family: var(--it-Base-font-family);
+  font-size: 62.5%; /* 1 */
+  font-variant-ligatures: common-ligatures; /* 2 */
 
-    /* text-rendering: optimizeLegibility; */
+  /* text-rendering: optimizeLegibility; */
 }
 
 /**
@@ -117,15 +116,21 @@ html {
  */
 
 body {
-    color: var(--it-Base-text-color);
-    font-size: var(--it-Base-font-size);
-    min-width: 300px; /* 1 */
+  color: var(--it-Base-text-color);
+  font-size: var(--it-Base-font-size);
+  min-width: 300px; /* 1 */
 }
 
 :focus {
-    outline: 3px solid var(--it-Base-focus-color);
+  box-shadow: 0 0 0 3px var(--Border-focus-color) inset !important;
+  /*outline: 3px solid var(--it-Base-focus-color);*/
+}
+
+.c-hideFocus :focus {
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 a:hover {
-    text-decoration: underline !important;
+  text-decoration: underline !important;
 }

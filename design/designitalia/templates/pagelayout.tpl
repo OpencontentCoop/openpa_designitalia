@@ -39,11 +39,6 @@
 </head>
 <body class="{$theme}">
 
-    <ul class="Skiplinks js-fr-bypasslinks">
-        <li><a accesskey="2" href="#main">Vai al Contenuto</a></li>
-        <li><a accesskey="3" href="#menu">Vai alla navigazione del sito</a></li>
-    </ul>
-
     {include uri='design:page_browser_alert.tpl'}
 
     {if and( $pagedata.website_toolbar, array( 'edit', 'browse' )|contains( $ui_context )|not() )}

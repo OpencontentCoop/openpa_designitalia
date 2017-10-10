@@ -21,9 +21,9 @@ $is_active = $path_array|contains($menu_item.item.node_id)}
 
         {$menu_item.item.name|wash()}
 
-        {if $menu_item.has_children}
+        {*if $menu_item.has_children}
             <span class="menu-handler"></span>
-        {/if}
+        {/if*}
     </a>
 
     {if $menu_item.has_children}

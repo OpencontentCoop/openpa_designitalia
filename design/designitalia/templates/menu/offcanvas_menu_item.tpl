@@ -6,7 +6,7 @@
     {if and( $icon, $recursion|eq(0) )}<span class="fa {$icon}" aria-hidden="true"></span>{/if}
     {undef $icon*}
     {$menu_item.item.name|wash()}
-    {if $menu_item.has_children}
+    {*if $menu_item.has_children}
         <span class="menu-handler"></span>
-    {/if}
+    {/if*}
 </a>
