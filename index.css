@@ -8,7 +8,7 @@
 /*
  *	Only apply to body class="Pac"
  */
-.bellusco {
+.cesio {
   font-family: var(--Theme-font-family-sans);
 }
 
@@ -16,7 +16,7 @@
  * 	Brand color
  */
 :root {
-  --Color-primary: #BE171F;
+  --Color-primary: #73d601;
   --Color-secondary: var(--Color-primary);
   --Prose-color-text-primary: #1c2024;
   --Prose-color-text-secondary: #5a6772;

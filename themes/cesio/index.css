@@ -16,7 +16,7 @@
  * 	Brand color
  */
 :root {
-  --Color-primary: #7b9950;
+  --Color-primary: #73d601;
   --Color-secondary: var(--Color-primary);
   --Prose-color-text-primary: #1c2024;
   --Prose-color-text-secondary: #5a6772;
