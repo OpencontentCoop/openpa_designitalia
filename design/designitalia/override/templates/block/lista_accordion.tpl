@@ -1,6 +1,7 @@
 {def $openpa= object_handler($block)}
 {set_defaults( hash('show_title', true(), 'items_per_row', 3) )}
 
+{if count($openpa.content)}
 <div class="openpa-widget {$block.view} {if and(is_set($block.custom_attributes.color_style), $block.custom_attributes.color_style|ne(''))}color color-{$block.custom_attributes.color_style}{/if}">
   {if and( $show_title, $block.name|ne('') )}
     <h3 class="openpa-widget-title">
@@ -23,4 +24,5 @@
   </div>
 
 </div>
+{/if}
 {unset_defaults( array('show_title', 'items_per_row') )}
