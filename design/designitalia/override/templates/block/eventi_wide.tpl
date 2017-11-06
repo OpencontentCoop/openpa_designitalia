@@ -43,7 +43,7 @@
           <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter Grid">
 
               {if $block.name|ne('')}
-                <div class="Grid-cell u-size1of2">
+                <div class="Grid-cell u-size1of2 u-sm-size1of4 u-md-size1of4">
                   {if $show_link}
                       <h3 class="u-text-h3">
                           <a href="{$valid_node.url_alias|ezurl(no)}" title="Vai al calendario" class="u-color-black">
@@ -58,7 +58,7 @@
                 </div>
               {/if}
 
-              <div class="Grid-cell u-size1of2 events_toolbar u-hidden u-sm-block u-md-block u-lg-block">
+              <div class="Grid-cell u-size1of2 u-sm-size3of4 u-md-size3of4 events_toolbar u-hidden u-sm-block u-md-block u-lg-block">
                   {if and( $day_events_count|gt(0), $prossimi_count|gt(0) )}
                       <ul role="tablist" class="u-floatRight">
                           {if $day_events_count|ne(0)}
