@@ -694,3 +694,33 @@
 .ScrollTop-icon {
     top: 22% !important;
 }
+
+
+/* Hero - @mirko 18.12.2017
+-------------------------------------------------
+*/
+
+.Hero{
+    background-position-x: center;
+}
+
+.Hero-image a{display: block;}
+.Hero-image a img{display: block;}
+
+@media (--xs-viewport){
+
+    .u-text-h2{
+        font-size: 2rem !important;
+        font-weight: 500;
+    }
+
+    .Hero{
+        height: auto ! important;
+    }
+
+    .Hero-content{
+        opacity: 1;
+        top: 0 !important;
+        transform: none !important;
+    }
+}

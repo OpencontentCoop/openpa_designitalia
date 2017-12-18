@@ -6,6 +6,19 @@
 
 <div class="openpa-carousel">
     <div class="Hero" style="background-image:url({$image});">
+
+      {if $node.data_map.image.content}
+          <div class="Hero-image u-sm-hidden u-md-hidden u-lg-hidden">
+            {*attribute_view_gui attribute=$image_attribute image_class="agid_panel" fluid=$fluid*}
+              <a href="{$openpa.content_link.full_link}" aria-hidden="true" role="presentation" tabindex="-1">
+                  <img src="{$image}"
+                       alt=""
+                       class="u-sizeFull"
+                       role="presentation" />
+              </a>
+          </div>
+      {/if}
+
         <div class="Hero-content carousel-caption">
             <h3 class="u-text-h2"><a href="{$openpa.content_link.full_link}" class="u-color-95 u-textClean">{$node.name|wash()}</a></h3>
             {if $node|has_abstract()}

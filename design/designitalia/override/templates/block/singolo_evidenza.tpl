@@ -1,13 +1,29 @@
 {def $valid_node = $block.valid_nodes[0]
+$image_attribute = ocdesignitalia_main_image($valid_node)
 $image = false()}
-{if $valid_node.data_map.image.content['agid_carousel']}
-    {set $image = $valid_node.data_map.image.content['agid_carousel'].url|ezroot(no)}
+
+{if $image_attribute.content['agid_carousel']}
+  {set $image = $image_attribute.content['agid_carousel'].url|ezroot(no)}
 {/if}
+
 {def $openpa_valid_node = object_handler($valid_node)}
 <div class="Hero openpa-widget {$block.view} {if and(is_set($block.custom_attributes.color_style), $block.custom_attributes.color_style|ne(''))}color color-{$block.custom_attributes.color_style}{/if}" style="background-image:url({$image});">
+
+  {if $image}
+      <div class="Hero-image u-sm-hidden u-md-hidden u-lg-hidden">
+        {*attribute_view_gui attribute=$image_attribute image_class="agid_panel" fluid=$fluid*}
+          <a href="{$openpa.content_link.full_link}" aria-hidden="true" role="presentation" tabindex="-1">
+              <img src="{$image}"
+                   alt=""
+                   class="u-sizeFull"
+                   role="presentation" />
+          </a>
+      </div>
+  {/if}
+
     <div class="Hero-content">
         {if array('link','banner')|contains($valid_node.class_identifier)|not()}
-        <p class="u-padding-r-bottom u-padding-r-top u-text-r-xs">
+        <p class="u-padding-r-bottom u-padding-r-top u-text-r-xs u-xs-hidden">
             <a href="{$valid_node.parent.url_alias|ezurl(no)}" class="u-textClean u-color-60 u-text-h4"><span class="Dot u-background-60"></span>{$valid_node.parent.name|wash()}</a>
         </p>
         {/if}

@@ -18,7 +18,7 @@ Filters[]=forcecenter=#ffffff;600;400
 Reference=reference
 Filters[]
 Filters[]=strip
-Filters[]=geometry/scaleheight=220
+Filters[]=geometry/scaleheight=310
 Filters[]=forcecenter=#ffffff;400;220
 
 [agid_topbanner]
