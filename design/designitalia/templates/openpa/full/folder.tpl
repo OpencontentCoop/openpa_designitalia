@@ -23,7 +23,7 @@
 
             {if $node|find_first_parent( 'pagina_trasparenza' )}
               {include uri='design:openpa/full/parts/amministrazione_trasparente/children_table.tpl'
-                       nodes=fetch_alias( 'children', hash( 'parent_node_id', $node.node_id,'sort_by', $node.sort_array, 'load_data_map', false(), 'offset', first_set( $view_parameters.offset, 0) ) )
+                       nodes=fetch_alias( 'children', hash( 'parent_node_id', $node.node_id,'sort_by', $node.sort_array, 'load_data_map', false(), 'limit', openpaini( 'GestioneFigli', 'limite_paginazione', 25 ), 'offset', first_set( $view_parameters.offset, 0) ) )
                        nodes_count=fetch_alias( 'children_count', hash( 'parent_node_id', $node.node_id ) )
                        class=''}
             {elseif and( is_set( $openpa.content_albotelematico ), $openpa.content_albotelematico.is_container )}
