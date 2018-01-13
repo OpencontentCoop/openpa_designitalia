@@ -6,7 +6,10 @@
             <a href="{openpaini('InstanceSettings','UrlAmministrazioneAfferente', '#')}">
                 <span>{openpaini('InstanceSettings','NomeAmministrazioneAfferente', 'Provincia autonoma di Trento')}</span>
             </a>
-            {* Blocco multilingua, non utilizzato per ora
+
+            {include uri='design:page_header_languages.tpl'}
+
+          {* Blocco multilingua, non utilizzato per ora
             <div class="Header-languages">
                 <a class="Header-language is-active u-hidden u-md-inlineBlock u-lg-inlineBlock" href="" title="sito in italiano">
                     <abbr title="Italiano">ITA</abbr>
@@ -36,7 +39,7 @@
                     </ul>
                 </div>
             </div>
-            *}
+*}
         </div>
     </div>
 {/if}
