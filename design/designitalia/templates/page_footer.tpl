@@ -137,6 +137,103 @@
   </div>
 </div>
 
+{* Box al volo per orari *}
+{literal}
+    <style>
+        #times {
+            position: fixed;
+            height: auto;
+            width: auto;
+            z-index: 999999;
+            bottom: 4em;
+            right: 1em;
+            border-radius: 5px;
+            margin-left: 1em;
+            background-color: #fff;
+            opacity: .9;
+            border-radius: 5px;
+            border: 1px solid #253d15;
+            max-width: 60%;
+        }
+
+        #open-times-entry {
+            padding: 8px 16px;
+        }
+
+        #times-entry {
+            padding: 20px;
+        }
+
+
+        .market-info {
+            text-align: right;
+        }
+
+        @media screen and (max-width: 800px) {
+            #times {
+                max-width: 100%;
+            }
+
+            .market-info {
+                text-align: left;
+            }
+
+            .market-address {
+                display: none;
+            }
+        }
+
+
+    </style>
+{/literal}
+
+
+{def $markets = fetch( 'content', 'list',
+                hash( 'parent_node_id', array( '1211' ),
+                'sort_by',        array( 'name', true() ) ) )}
+
+<div id="times">
+    <div class="Grid Grid--withGutter u-hidden" id="open-times-entry">
+        <h3 class="u-text-h3" style="margin-bottom: 0 !important;"><a href="#" id="open-times" class="u-floatRight"><i class="fa fa-shopping-cart"></i></a></h3>
+    </div>
+    <div class="Grid Grid--withGutter" id="times-entry">
+        <div class="Grid-cell u-size" style="/*border-bottom: 1px solid #eee*/">
+            <h3 class="u-text-h3">Orari apertura <a href="#" id="close-times" class="u-floatRight"><i class="fa fa-times"></i></a></h3>
+        </div>
+
+        {foreach $markets as $m max 3}
+            <div class="Grid-cell u-size u-md-size2of5 u-lg-size2of5 u-margin-top-s">
+                <h4 class="u-text-h4"><a href="#"><i class="fa fa-shopping-cart"></i> {$m.name}</a></h4>
+            </div>
+
+            <div class="Grid-cell u-size u-md-size3of5 u-lg-size3of5 market-info">
+                <p class="Prose"><span class="market-address"><strong>Indirizzo:</strong> {$m.data_map.geo.content.address}<br /></span>
+                <strong>Orario:</strong> <strong style="color:#155724"> Aperto</strong> ⋅ Chiude tra 3 ore 20<br />
+            </div>
+            {delimiter}<div class="Grid-cell u-size u-margin-top-s" style="border-bottom: 1px solid #eee; margin: 0 4em"></div>{/delimiter}
+        {/foreach}
+    </div>
+</div>
+
+{ezscript_require( array( 'ezjsc::jquery' ) )}
+{literal}
+    <script type="application/javascript">
+        $( "#close-times" ).click(function(event) {
+            event.preventDefault();
+            $( "#times-entry" ).addClass('u-hidden');
+            $( "#open-times-entry" ).removeClass('u-hidden')
+        });
+        $( "#open-times" ).click(function(event) {
+            event.preventDefault();
+            $( "#open-times-entry" ).addClass('u-hidden');
+            $( "#times-entry" ).removeClass('u-hidden')
+        });
+    </script>
+{/literal}
+
+{undef $markets}
+
+
 <a href="#" title="torna all'inizio del contenuto" class="ScrollTop js-scrollTop js-scrollTo">
     <i class="ScrollTop-icon Icon-collapse" aria-hidden="true"></i>
     <span class="u-hiddenVisually">{"torna all'inizio del contenuto"|i18n('openpa/footer')}</span>
