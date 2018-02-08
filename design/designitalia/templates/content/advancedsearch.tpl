@@ -39,7 +39,7 @@
                 in tutto il sito
             {/if}
             {if $isSingleClassSearch}
-                solo tra informazioni di tipo "{$Class.name}"
+                <small>solo tra informazioni di tipo "{$Class.name}"</small>
             {/if}
         </h2>
     </div>

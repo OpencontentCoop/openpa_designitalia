@@ -1,390 +1,761 @@
 /* alert */
+
 .message-confirmation,
 .message-feedback,
 .feedback,
-.alert.alert-success{
-    @extend .Prose;
-    @extend .Alert;
-    @extend .Alert--success;
+.alert.alert-success {
+  @extend .Prose;
+  @extend .Alert;
+  @extend .Alert--success;
 }
+
 .message-warning,
 .warning,
-.alert.alert-warning{
-    @extend .Prose;
-    @extend .Alert;
-    @extend .Alert--warning;
+.alert.alert-warning {
+  @extend .Prose;
+  @extend .Alert;
+  @extend .Alert--warning;
 }
+
 .message-error,
-.alert.alert-danger{
-    @extend .Prose;
-    @extend .Alert;
-    @extend .Alert--error;
+.alert.alert-danger {
+  @extend .Prose;
+  @extend .Alert;
+  @extend .Alert--error;
 }
 
-.img-responsive{
-    display: block;
-    height: auto;
-    max-width: 100%;
+.img-responsive {
+  display: block;
+  height: auto;
+  max-width: 100%;
 }
 
-/* dl-horizontal */
 .dl-horizontal dt {
-    clear: left;
-    float: left;
-    overflow: hidden;
-    text-align: right;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 160px;
+  clear: left;
+  float: left;
+  overflow: hidden;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 160px;
 }
 
-dt {  font-weight: bold;  }
-dt, dd {  line-height: 1.42857;  }
-.dl-horizontal dd::before, .dl-horizontal dd::after {  content: " ";  display: table;  }
-.dl-horizontal dd::after {  clear: both;  }
-.dl-horizontal dd::before, .dl-horizontal dd::after {  content: " ";  display: table;  }
-.dl-horizontal dd {  margin-left: 180px;  }
-dd {  margin-left: 0;  }
+dt {
+  font-weight: bold;
+}
+
+dt,
+dd {
+  line-height: 1.42857;
+}
+
+.dl-horizontal dd::before,
+.dl-horizontal dd::after {
+  content: " ";
+  display: table;
+}
+
+.dl-horizontal dd::after {
+  clear: both;
+}
+
+.dl-horizontal dd::before,
+.dl-horizontal dd::after {
+  content: " ";
+  display: table;
+}
+
+.dl-horizontal dd {
+  margin-left: 180px;
+}
+
+dd {
+  margin-left: 0;
+}
 
 /* badge */
+
 .badge {
-@extend .u-background-80;
-@extend .u-color-white;
-    border-radius: 10px;
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1;
-    min-width: 10px;
-    padding: 3px 7px;
-    text-align: center;
-    vertical-align: middle;
-    white-space: nowrap;
+  @extend .u-background-80;
+  @extend .u-color-white;
+  border-radius: 10px;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  min-width: 10px;
+  padding: 3px 7px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
 }
-.Linklist .badge{
-    float: right;
+
+.Linklist .badge {
+  float: right;
 }
-.Linklist--padded .badge{
-    margin-right: 1em;
+
+.Linklist--padded .badge {
+  margin-right: 1em;
 }
 
 /* bootstrap */
-.list-group{
-    @extend .Linklist;
-    @extend .Linklist--padded;
+
+.list-group {
+  @extend .Linklist;
+  @extend .Linklist--padded;
 }
 
-.row{  @extend .Grid;  @extend .Grid--withGutter;  }
-.row .col-md-1 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size1of12;  @extend .u-lg-size1of12;  }
-.row .col-md-2 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size2of12;  @extend .u-lg-size2of12;  }
-.row .col-md-3 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size3of12;  @extend .u-lg-size3of12;  }
-.row .nav-section, .row .col-md-4 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size4of12;  @extend .u-lg-size4of12;  }
-.row .col-md-5 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size5of12;  @extend .u-lg-size5of12;  }
-.row .col-md-6 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size6of12;  @extend .u-lg-size6of12;  }
-.row .col-md-7 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size7of12;  @extend .u-lg-size7of12;  }
-.row .content-main, .row .col-md-8 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size8of12;  @extend .u-lg-size8of12;  }
-.row .col-md-9 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size9of12;  @extend .u-lg-size9of12;  }
-.row .col-md-10{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size10of12;  @extend .u-lg-size10of12;  }
-.row .col-md-11{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size11of12;  @extend .u-lg-size11of12;  }
-.row .col-md-12{ @extend .Grid-cell;}
-.row .col-sm-1 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size1of12;  @extend .u-lg-size1of12;  }
-.row .col-sm-2 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size2of12;  @extend .u-lg-size2of12;  }
-.row .col-sm-3 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size3of12;  @extend .u-lg-size3of12;  }
-.row .col-sm-4 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size4of12;  @extend .u-lg-size4of12;  }
-.row .col-sm-5 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size5of12;  @extend .u-lg-size5of12;  }
-.row .col-sm-6 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size6of12;  @extend .u-lg-size6of12;  }
-.row .col-sm-7 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size7of12;  @extend .u-lg-size7of12;  }
-.row .col-sm-8 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size8of12;  @extend .u-lg-size8of12;  }
-.row .col-sm-9 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size9of12;  @extend .u-lg-size9of12;  }
-.row .col-sm-10{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size10of12;  @extend .u-lg-size10of12;  }
-.row .col-sm-11{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size11of12;  @extend .u-lg-size11of12;  }
-.row .col-sm-12{ @extend .Grid-cell;}
-.row .col-lg-1 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size1of12;  @extend .u-lg-size1of12;  }
-.row .col-lg-2 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size2of12;  @extend .u-lg-size2of12;  }
-.row .col-lg-3 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size3of12;  @extend .u-lg-size3of12;  }
-.row .col-lg-4 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size4of12;  @extend .u-lg-size4of12;  }
-.row .col-lg-5 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size5of12;  @extend .u-lg-size5of12;  }
-.row .col-lg-6 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size6of12;  @extend .u-lg-size6of12;  }
-.row .col-lg-7 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size7of12;  @extend .u-lg-size7of12;  }
-.row .col-lg-8 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size8of12;  @extend .u-lg-size8of12;  }
-.row .col-lg-9 { @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size9of12;  @extend .u-lg-size9of12;  }
-.row .col-lg-10{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size10of12;  @extend .u-lg-size10of12;  }
-.row .col-lg-11{ @extend .Grid-cell; @extend .Grid--withGutter > .Grid-cell; @extend .u-md-size11of12;  @extend .u-lg-size11of12;  }
-.row .col-lg-12{ @extend .Grid-cell;}
+.row {
+  @extend .Grid;
+  @extend .Grid--withGutter;
+}
 
-#accordion-classFilters form{ @extend .Form; @extend .Form--spaced; @extend .u-padding-all-s}
-.form-group{  @extend .Form-field; @extend .Form--spaced .Form-field; }
-.form-control{  @extend .Form-input;  }
-.form-group label{  @extend .Form-label;  }
+.row .col-md-1 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size1of12;
+  @extend .u-lg-size1of12;
+}
 
-.media, .media-body { overflow: hidden;  }
-.media-body {  width: 10000px; @extend .Prose }
-.media-left, .media-image, .media-body {  display: table-cell;  vertical-align: top;  }
-.media-image, .media > .pull-left{  @extend .u-padding-right-s;  }
-.media-heading{  @extend .u-padding-bottom-s;  @extend .u-textClean;  @extend .u-textWeight-700;  @extend .u-color-50;  @extend .u-text-h4;  line-height: normal; margin-bottom: 0 !important;  }
-.media-heading a{  @extend .u-textWeight-700;  }
+.row .col-md-2 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size2of12;
+  @extend .u-lg-size2of12;
+}
 
-.button{  @extend .Button;  @extend .Button--info; }
-.button.defaultbutton, .defaultbutton{  @extend .Button;  @extend .Button--default; }
-.btn{  @extend .Button; @extend .Button--info;  }
-.btn.btn-info{  @extend .Button; @extend .Button--info;  }
-.btn.btn-warning, .btn.btn-danger{ @extend .Button;  @extend .Button--danger;  }
+.row .col-md-3 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size3of12;
+  @extend .u-lg-size3of12;
+}
 
-.well{  @extend .u-background-grey-10; @extend .u-padding-all-s}
+.row .nav-section,
+.row .col-md-4 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size4of12;
+  @extend .u-lg-size4of12;
+}
 
-.nav-tabs{  border-bottom: 3px solid; @extend .u-color-70; @extend .u-flex;  }
-.nav-tab{ }
-.nav-tab a{ @extend .u-block;font-size: 1.2em;  line-height: normal; @extend .u-padding-top-xs; @extend .u-padding-bottom-xs; @extend .u-padding-left-s; @extend .u-padding-right-s; @extend .u-textClean; @extend .u-color-70;}
-.nav-tab.ui-tabs-active{ @extend .u-background-70}
-.nav-tab.ui-tabs-active a{ @extend .u-color-white}
-.ui-tabs-panel{@extend .u-background-grey-10; @extend .u-cf;}
+.row .col-md-5 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size5of12;
+  @extend .u-lg-size5of12;
+}
+
+.row .col-md-6 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size6of12;
+  @extend .u-lg-size6of12;
+}
+
+.row .col-md-7 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size7of12;
+  @extend .u-lg-size7of12;
+}
+
+.row .content-main,
+.row .col-md-8 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size8of12;
+  @extend .u-lg-size8of12;
+}
+
+.row .col-md-9 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size9of12;
+  @extend .u-lg-size9of12;
+}
+
+.row .col-md-10 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size10of12;
+  @extend .u-lg-size10of12;
+}
+
+.row .col-md-11 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size11of12;
+  @extend .u-lg-size11of12;
+}
+
+.row .col-md-12 {
+  @extend .Grid-cell;
+}
+
+.row .col-sm-1 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size1of12;
+  @extend .u-lg-size1of12;
+}
+
+.row .col-sm-2 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size2of12;
+  @extend .u-lg-size2of12;
+}
+
+.row .col-sm-3 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size3of12;
+  @extend .u-lg-size3of12;
+}
+
+.row .col-sm-4 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size4of12;
+  @extend .u-lg-size4of12;
+}
+
+.row .col-sm-5 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size5of12;
+  @extend .u-lg-size5of12;
+}
+
+.row .col-sm-6 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size6of12;
+  @extend .u-lg-size6of12;
+}
+
+.row .col-sm-7 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size7of12;
+  @extend .u-lg-size7of12;
+}
+
+.row .col-sm-8 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size8of12;
+  @extend .u-lg-size8of12;
+}
+
+.row .col-sm-9 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size9of12;
+  @extend .u-lg-size9of12;
+}
+
+.row .col-sm-10 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size10of12;
+  @extend .u-lg-size10of12;
+}
+
+.row .col-sm-11 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size11of12;
+  @extend .u-lg-size11of12;
+}
+
+.row .col-sm-12 {
+  @extend .Grid-cell;
+}
+
+.row .col-lg-1 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size1of12;
+  @extend .u-lg-size1of12;
+}
+
+.row .col-lg-2 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size2of12;
+  @extend .u-lg-size2of12;
+}
+
+.row .col-lg-3 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size3of12;
+  @extend .u-lg-size3of12;
+}
+
+.row .col-lg-4 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size4of12;
+  @extend .u-lg-size4of12;
+}
+
+.row .col-lg-5 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size5of12;
+  @extend .u-lg-size5of12;
+}
+
+.row .col-lg-6 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size6of12;
+  @extend .u-lg-size6of12;
+}
+
+.row .col-lg-7 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size7of12;
+  @extend .u-lg-size7of12;
+}
+
+.row .col-lg-8 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size8of12;
+  @extend .u-lg-size8of12;
+}
+
+.row .col-lg-9 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size9of12;
+  @extend .u-lg-size9of12;
+}
+
+.row .col-lg-10 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size10of12;
+  @extend .u-lg-size10of12;
+}
+
+.row .col-lg-11 {
+  @extend .Grid-cell;
+  @extend .Grid--withGutter > .Grid-cell;
+  @extend .u-md-size11of12;
+  @extend .u-lg-size11of12;
+}
+
+.row .col-lg-12 {
+  @extend .Grid-cell;
+}
+
+#accordion-classFilters form {
+  @extend .Form;
+  @extend .Form--spaced;
+  @extend .u-padding-all-s;
+}
+
+.form-group {
+  @extend .Form-field;
+  @extend .Form--spaced .Form-field;
+}
+
+.form-control {
+  @extend .Form-input;
+}
+
+.form-group label {
+  @extend .Form-label;
+}
+
+.media,
+.media-body {
+  overflow: hidden;
+}
+
+.media-body {
+  @extend .Prose;
+}
+
+.media-left,
+.media-image,
+.media-body {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.media-image,
+.media > .pull-left {
+  @extend .u-padding-right-s;
+}
+
+.media-heading a {
+  @extend .u-textClean;
+  @extend .u-text-h4;
+}
+
+.button {
+  @extend .Button;
+  @extend .Button--info;
+}
+
+.button.defaultbutton,
+.defaultbutton {
+  @extend .Button;
+  @extend .Button--default;
+}
+
+.btn {
+  @extend .Button;
+  @extend .Button--info;
+}
+
+.btn.btn-info {
+  @extend .Button;
+  @extend .Button--info;
+}
+
+.btn.btn-warning,
+.btn.btn-danger {
+  @extend .Button;
+  @extend .Button--danger;
+}
+
+.well {
+  @extend .u-background-grey-10;
+  @extend .u-padding-all-s;
+}
+
+.nav-tabs {
+  border-bottom: 3px solid;
+  @extend .u-color-70;
+  @extend .u-flex;
+}
+
+.nav-tab a {
+  @extend .u-block;
+  font-size: 1.2em;
+  line-height: normal;
+  @extend .u-padding-top-xs;
+  @extend .u-padding-bottom-xs;
+  @extend .u-padding-left-s;
+  @extend .u-padding-right-s;
+  @extend .u-textClean;
+  @extend .u-color-70;
+}
+
+.nav-tab.ui-tabs-active {
+  @extend .u-background-70;
+}
+
+.nav-tab.ui-tabs-active a {
+  @extend .u-color-white;
+}
+
+.ui-tabs-panel {
+  @extend .u-background-grey-10;
+  @extend .u-cf;
+}
 
 .video-wrapper {
-    max-width: 100%;
-    width: 600px;
+  max-width: 100%;
+  width: 600px;
 }
 
 .video-container {
-    height: 0;
-    overflow: hidden;
-    padding-bottom: 56.25%;
-    position: relative;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
 }
 
 .ui-tooltip {
-    @extend .u-padding-all-s;
-    position: absolute;
-    z-index: 9999;
-    max-width: 300px;
+  @extend .u-padding-all-s;
+  position: absolute;
+  z-index: 9999;
+  max-width: 300px;
 }
 
 .ui-tooltip.ui-widget {
-    font-family: inherit;
-    font-size: inherit;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .ui-tooltip.ui-widget-content {
-    border: 1px solid var(--Color-grey-30);
-    background: var(--Color-white);
-    color: var(--Color-grey-90);
+  border: 1px solid var(--Color-grey-30);
+  background: var(--Color-white);
+  color: var(--Color-grey-90);
 }
 
 input.disabled,
 input:disabled {
-    @extend .u-background-grey-30;
+  @extend .u-background-grey-30;
 }
 
 .ui-datepicker {
-    width: 17em;
-    padding: .2em .2em 0;
-    display: none;
-    background: #fff;
+  width: 17em;
+  padding: .2em .2em 0;
+  display: none;
+  background: #fff;
 }
+
 .ui-datepicker .ui-datepicker-header {
-    position: relative;
-    padding: .2em 0;
+  position: relative;
+  padding: .2em 0;
 }
+
 .ui-datepicker .ui-datepicker-prev,
 .ui-datepicker .ui-datepicker-next {
-    position: absolute;
-    top: 2px;
-    width: 1.8em;
-    height: 1.8em;
+  position: absolute;
+  top: 2px;
+  width: 1.8em;
+  height: 1.8em;
 }
+
 .ui-datepicker .ui-datepicker-prev-hover,
 .ui-datepicker .ui-datepicker-next-hover {
-    top: 1px;
+  top: 1px;
 }
+
 .ui-datepicker .ui-datepicker-prev {
-    left: 2px;
+  left: 2px;
 }
+
 .ui-datepicker .ui-datepicker-next {
-    right: 2px;
+  right: 2px;
 }
+
 .ui-datepicker .ui-datepicker-prev-hover {
-    left: 1px;
+  left: 1px;
 }
+
 .ui-datepicker .ui-datepicker-next-hover {
-    right: 1px;
+  right: 1px;
 }
+
 .ui-datepicker .ui-datepicker-prev span,
 .ui-datepicker .ui-datepicker-next span {
-    display: block;
-    position: absolute;
-    left: 50%;
-    margin-left: -8px;
-    top: 50%;
-    margin-top: -8px;
+  display: block;
+  position: absolute;
+  left: 50%;
+  margin-left: -8px;
+  top: 50%;
+  margin-top: -8px;
 }
+
 .ui-datepicker .ui-datepicker-title {
-    margin: 0 2.3em;
-    line-height: 1.8em;
-    text-align: center;
+  margin: 0 2.3em;
+  line-height: 1.8em;
+  text-align: center;
 }
+
 .ui-datepicker .ui-datepicker-title select {
-    font-size: 1em;
-    margin: 1px 0;
+  font-size: 1em;
+  margin: 1px 0;
 }
+
 .ui-datepicker select.ui-datepicker-month,
 .ui-datepicker select.ui-datepicker-year {
-    width: 45%;
+  width: 45%;
 }
+
 .ui-datepicker table {
-    width: 100%;
-    font-size: .9em;
-    border-collapse: collapse;
-    margin: 0 0 .4em;
+  width: 100%;
+  font-size: 0.9em;
+  border-collapse: collapse;
+  margin: 0 0 0.4em;
 }
+
 .ui-datepicker th {
-    padding: .7em .3em;
-    text-align: center;
-    font-weight: bold;
-    border: 0;
+  padding: 0.7em .3em;
+  text-align: center;
+  font-weight: bold;
+  border: 0;
 }
+
 .ui-datepicker td {
-    border: 0;
-    padding: 1px;
+  border: 0;
+  padding: 1px;
 }
+
 .ui-datepicker td span,
 .ui-datepicker td a {
-    display: block;
-    padding: .2em;
-    text-align: center;
-    text-decoration: none;
+  display: block;
+  padding: 0.2em;
+  text-align: center;
+  text-decoration: none;
 }
-.ui-datepicker td a:focus{
-    background: none;
-    outline:none;
-    text-decoration: none;
+
+.ui-datepicker td a:focus {
+  background: none;
+  outline: none;
+  text-decoration: none;
 }
+
 .ui-datepicker .ui-datepicker-buttonpane {
-    background-image: none;
-    margin: .7em 0 0 0;
-    padding: 0 .2em;
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 0;
+  background-image: none;
+  margin: 0.7em 0 0 0;
+  padding: 0 0.2em;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
 }
+
 .ui-datepicker .ui-datepicker-buttonpane button {
-    float: right;
-    margin: .5em .2em .4em;
-    cursor: pointer;
-    padding: .2em .6em .3em .6em;
-    width: auto;
-    overflow: visible;
+  float: right;
+  margin: 0.5em 0.2em 0.4em;
+  cursor: pointer;
+  padding: 0.2em 0.6em 0.3em 0.6em;
+  width: auto;
+  overflow: visible;
 }
+
 .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
-    float: left;
+  float: left;
 }
 
 /* with multiple calendars */
 .ui-datepicker.ui-datepicker-multi {
-    width: auto;
+  width: auto;
 }
+
 .ui-datepicker-multi .ui-datepicker-group {
-    float: left;
+  float: left;
 }
+
 .ui-datepicker-multi .ui-datepicker-group table {
-    width: 95%;
-    margin: 0 auto .4em;
+  width: 95%;
+  margin: 0 auto 0.4em;
 }
+
 .ui-datepicker-multi-2 .ui-datepicker-group {
-    width: 50%;
+  width: 50%;
 }
+
 .ui-datepicker-multi-3 .ui-datepicker-group {
-    width: 33.3%;
+  width: 33.3%;
 }
+
 .ui-datepicker-multi-4 .ui-datepicker-group {
-    width: 25%;
+  width: 25%;
 }
+
 .ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header,
 .ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
-    border-left-width: 0;
+  border-left-width: 0;
 }
+
 .ui-datepicker-multi .ui-datepicker-buttonpane {
-    clear: left;
+  clear: left;
 }
+
 .ui-datepicker-row-break {
-    clear: both;
-    width: 100%;
-    font-size: 0;
+  clear: both;
+  width: 100%;
+  font-size: 0;
 }
 
 /* RTL support */
 .ui-datepicker-rtl {
-    direction: rtl;
+  direction: rtl;
 }
+
 .ui-datepicker-rtl .ui-datepicker-prev {
-    right: 2px;
-    left: auto;
+  right: 2px;
+  left: auto;
 }
+
 .ui-datepicker-rtl .ui-datepicker-next {
-    left: 2px;
-    right: auto;
+  left: 2px;
+  right: auto;
 }
+
 .ui-datepicker-rtl .ui-datepicker-prev:hover {
-    right: 1px;
-    left: auto;
+  right: 1px;
+  left: auto;
 }
+
 .ui-datepicker-rtl .ui-datepicker-next:hover {
-    left: 1px;
-    right: auto;
+  left: 1px;
+  right: auto;
 }
+
 .ui-datepicker-rtl .ui-datepicker-buttonpane {
-    clear: right;
+  clear: right;
 }
+
 .ui-datepicker-rtl .ui-datepicker-buttonpane button {
-    float: left;
+  float: left;
 }
+
 .ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current,
 .ui-datepicker-rtl .ui-datepicker-group {
-    float: right;
+  float: right;
 }
+
 .ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header,
 .ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
-    border-right-width: 0;
-    border-left-width: 1px;
+  border-right-width: 0;
+  border-left-width: 1px;
 }
 
 /* Icons */
 .ui-datepicker .ui-icon {
-    display: block;
-    text-indent: -99999px;
-    overflow: hidden;
-    background-repeat: no-repeat;
-    left: .5em;
-    top: .3em;
+  display: block;
+  text-indent: -99999px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  left: .5em;
+  top: .3em;
+}
+
+@media (--md-viewport), (--lg-viewport) {
+  .withExtra .content-view-children {
+    width: 90%;
+  }
 }
 
 .Accordion-link,
 .Card-titleLink {
-    @extend .u-color-50;
+  @extend .u-color-50;
 }
 
-.Card-titleLink:hover {
-    text-decoration: underline !important;
-}
-
-.Card-extra {
-    font-weight: normal !important;
-}
-
-.Card-text > p {
-    @extend .u-color-black;
-}
-
-.readmore{
-    display: none;
-    @extend .Button;
-    @extend .Button--info;
-    @extend .u-text-xxs;
-    @extend .u-floatRight;
-    @extend .u-margin-right-m;
-    @extend .u-margin-bottom-m;
+.readmore {
+  display: none;
+  @extend .Button;
+  @extend .Button--info;
+  @extend .u-text-xxs;
+  @extend .u-floatRight;
+  @extend .u-margin-right-m;
+  @extend .u-margin-bottom-m;
 }
 
 @media (--md-viewport), (--lg-viewport) {
-    .readmore{
-        display: block;
-    }
+  .readmore {
+    display: block;
+  }
+}
+
+.goto {
+  @extend .u-textCenter;
+  @extend .u-text-md-right;
+  @extend .u-text-lg-right;
+  @extend .u-margin-r-top;
+}
+
+.goto a {
+  @extend .u-color-50;
+  @extend .u-textClean;
+  @extend .u-text-h4;
+}
+
+.goto a span {
+  @extend .Icon;
+  @extend .Icon-chevron-right;
 }

@@ -1,6 +1,6 @@
-{def $wide = array('lista_in_evidenza', 'eventi_wide', 'map_wide')}
+{def $wide = array('lista_in_evidenza', 'lista_carousel', 'eventi_wide', 'map_wide', 'html_wide', 'singolo_in_evidenza_wide')}
 {def $persistent_variable = ezpagedata().persistent_variable}
-{*<div class="Grid-cell u-sizeFull"></div>*}
+
 <div class="frontpage">
     {if and( is_set( $zones[0].blocks ), $zones[0].blocks|count() )}
         {foreach $zones[0].blocks as $block}
@@ -10,7 +10,7 @@
                 and( eq( ezini( $block.type, 'ManualAddingOfItems', 'block.ini' ), 'disabled' ), ezini_hasvariable( $block.type, 'FetchClass', 'block.ini' )|not ) )}
 
                 {if $wide|contains($block.view)}
-                    <div class="Grid-cell u-sizeFull">
+                    <div class="Grid-cell u-sizeFull wide">
                         {block_view_gui block=$block items_per_row=1 link_top_title=false()}
                     </div>
                 {else}

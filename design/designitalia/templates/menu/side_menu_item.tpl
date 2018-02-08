@@ -12,18 +12,10 @@ $is_active = $path_array|contains($menu_item.item.node_id)}
             {else}
                 aria-expanded="false"
             {/if}
-            {if $menu_item.has_children}
-                {set $class = concat($class, " has_children")}
-            {/if}
-
             {if $menu_item.item.target}target="{$menu_item.item.target}"{/if}
        title="Vai a {$menu_item.item.name|wash()}" class="{$class}">
 
         {$menu_item.item.name|wash()}
-
-        {if $menu_item.has_children}
-            <span class="menu-handler"></span>
-        {/if}
     </a>
 
     {if $menu_item.has_children}

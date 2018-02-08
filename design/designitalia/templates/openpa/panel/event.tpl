@@ -64,7 +64,6 @@
             <p>{$node|abstract()|oc_shorten(100)}</p>
         </div>*}
     </div>
-    <a class="readmore" href="{object_handler($node).content_link.full_link}" title="{$node.name|wash()}">Leggi</a>
 </div>
 {undef $from $to $year $time $sameDay}
 

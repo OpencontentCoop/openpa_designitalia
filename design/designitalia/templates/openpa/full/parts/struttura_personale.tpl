@@ -34,6 +34,7 @@
 
         {if $dipendenti|count()}
             <div class="openpa-widget-content" {if count($dipendenti)|gt(15)}style="height: 180px; overflow-y: scroll; margin-bottom: 20px;"{/if}>
+                <p class="Prose">Dipendenti</p>
                 {foreach $dipendenti as $item}
                     <p class="Prose">
                         <a href={$item.url_alias|ezurl()}>{$item.name}</a>
@@ -56,14 +57,14 @@
 
 
                 {if $informatici|count()}
-                    <h5>Referenti informatici</h5>
+                    <p class="Prose">Referenti informatici</p>
                     {foreach $informatici as $item}
                         <p class="Prose"><a href={$item.url_alias|ezurl()}>{$item.name}</a></p>
                     {/foreach}
                 {/if}
 
                 {if $editors|count()}
-                    <h5>Redattori sito/intranet</h5>
+                    <p class="Prose">Redattori sito/intranet</p>
                     {foreach $editors as $item}
                         <p class="Prose"><a href={$item.url_alias|ezurl()}>{$item.name}</a></p>
                     {/foreach}

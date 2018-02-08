@@ -58,7 +58,7 @@
     {if $objects_count|gt(0)}
         {if $objects_count|lt(100)}
             {def $done = array()}
-            <div class="openpa-widget oggetti-correlati">
+            <div class="openpa-widget nav-section oggetti-correlati">
                 <h3 class="openpa-widget-title">{$title}</h3>
                 <div class="openpa-widget-content">
                     <ul class="Linklist Linklist--padded u-layout-prose">

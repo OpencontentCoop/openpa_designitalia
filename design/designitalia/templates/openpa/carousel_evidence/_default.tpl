@@ -1,5 +1,4 @@
 {def $is_single = cond( or( is_set($items_per_row)|not(), and(is_set($items_per_row), $items_per_row|eq(1)) ), true(), false() )
-     $image = false()
 $image_attribute = ocdesignitalia_main_image($node)
 $image = false()}
 {if $image_attribute.content[$image_class]}

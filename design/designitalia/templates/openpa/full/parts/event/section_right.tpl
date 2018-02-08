@@ -1,9 +1,9 @@
 <div class="content-related">
-  
+
   <div class="openpa-widget nav-section">
 	<h2 class="openpa-widget-title"><i class="fa fa-calendar-o"></i> Quando</h2>
 	<div class="openpa-widget-content">
-       
+
         {if $node|has_attribute( 'periodo_svolgimento' )}
           <p class="Prose">
             <strong>{$node.data_map.periodo_svolgimento.contentclass_attribute_name}</strong>
@@ -14,21 +14,21 @@
            {include uri='design:atoms/dates.tpl' item=$node}
           </p>
         {/if}
-                
+
         {if $node|has_attribute( 'orario_svolgimento' )}
           <p class="Prose">
             <strong>{$node.data_map.orario_svolgimento.contentclass_attribute_name}</strong>
             {attribute_view_gui attribute=$node.data_map.orario_svolgimento}
-          </p>        
+          </p>
         {/if}
-        
+
         {if $node|has_attribute( 'durata' )}
           <p class="Prose">
             <strong>{$node.data_map.durata.contentclass_attribute_name}</strong>
             {attribute_view_gui attribute=$node.data_map.durata}
-          </p>        
+          </p>
         {/if}
-        
+
         {if $node|has_attribute( 'iniziativa' )}
         <div class="well well-sm">
           parte di:{attribute_view_gui attribute=$node|attribute( 'iniziativa' ) show_link=true()}
@@ -36,14 +36,14 @@
         {/if}
     </div>
   </div>
-  
+
   {if or($node|has_attribute( 'indirizzo' ),
           $node|has_attribute( 'luogo_svolgimento' ),
           $node|has_attribute( 'comune' ),
           $node|has_attribute( 'geo' )
     )}
 
-  
+
   <div class="openpa-widget nav-section">
 	<h2 class="openpa-widget-title"><i class="fa fa-map-marker"></i> Dove</h2>
 	<div class="openpa-widget-content">
@@ -54,13 +54,13 @@
         <p class="Prose">{attribute_view_gui attribute=$node.data_map.luogo_svolgimento}</p>
       {/if}
       {if $node|has_attribute( 'comune' )}
-        {*if $node|has_attribute( 'cap' )}
-          {attribute_view_gui attribute=$node.data_map.cap}
-        {/if*}
         <p class="Prose">{attribute_view_gui attribute=$node.data_map.comune}</p>
       {/if}
+      {if and( $node|has_attribute( 'indirizzo' )|not, $node|has_attribute( 'luogo_svolgimento' )|not, $node|has_attribute( 'comune' )|not, $node.data_map.geo.content.address|ne(''))}
+        <p class="Prose">{$node.data_map.geo.content.address}</p>
+      {/if}
       {if $node|has_attribute( 'geo' )}
-        {attribute_view_gui attribute=$node.data_map.geo zoom=3}        
+        {attribute_view_gui attribute=$node.data_map.geo zoom=3}
       {/if}
     </div>
   </div>
@@ -75,34 +75,34 @@
     <div class="openpa-widget nav-section">
 	  <h2 class="openpa-widget-title">Contatti</h2>
 	  <div class="openpa-widget-content">
-        <ul class="list-group">
+        <ul class="Linklist Linklist--padded u-layout-prose">
           {if $node|has_attribute( 'telefono' )}
-            <li class="list-group-item"><i class="fa fa-phone"></i> {attribute_view_gui attribute=$node.data_map.telefono}</li>
+            <li><a href="tel:{$node.data_map.telefono.content|wash}"><i class="fa fa-phone"></i>  {$node.data_map.telefono.content|wash}</a></li>
           {/if}
           {if $node|has_attribute( 'fax' )}
-            <li class="list-group-item"><i class="fa fa-fax"></i> {attribute_view_gui attribute=$node.data_map.fax}</li>
+            <li><a href="tel:{$node.data_map.email.content|wash}"><i class="fa fa-fax"></i> {$node.data_map.fax.content|wash}</a></li>
           {/if}
           {if $node|has_attribute( 'email' )}
-            <li class="list-group-item"><i class="fa fa-envelope"></i> {attribute_view_gui attribute=$node.data_map.email}</li>
+            <li><a href="mailto:{$node.data_map.fax.content|wash}"><i class="fa fa-envelope"></i> {$node.data_map.email.content|wash()}</a></li>
           {/if}
           {if $node|has_attribute( 'url' )}
-            <li class="list-group-item"><i class="fa fa-globe"></i> {attribute_view_gui attribute=$node.data_map.url}</li>
+            <li><a href="{$node.data_map.url.content|wash()}"><i class="fa fa-globe"></i> {$node.data_map.url.content|wash}</a></li>
           {/if}
         </ul>
       </div>
-    </div>        
+    </div>
   {/if}
-  
+
   {def $classification = $openpa.content_related.classification}
-  {if count($classification)|gt(0)}  
+  {if count($classification)|gt(0)}
     <div class="openpa-widget nav-section">
-	  <h2 class="openpa-widget-title"><i class="fa fa-info"></i> Informazioni</h2>    
+	  <h2 class="openpa-widget-title"><i class="fa fa-info"></i> Informazioni</h2>
     <div class="openpa-widget-content">
-        <ul class="list-unstyled">
+        <ul class="Linklist Linklist--padded u-layout-prose">
           {foreach $classification as $className => $objects}
           <li>
             <strong>{$className}: </strong>
-            {foreach $objects as $object}{node_view_gui content_node=$object.main_node view='text_linked'}{delimiter}, {/delimiter}{/foreach}            
+            {foreach $objects as $object}{node_view_gui content_node=$object.main_node view='text_linked'}{/foreach}
           </li>
           {/foreach}
         </ul>
@@ -119,7 +119,7 @@
       </div>
     </div>
   {/if}
-  
+
   {if count($openpa.content_related.info)|gt(0)}
         <div class="openpa-widget nav-section">
             <h2 class="openpa-widget-title">Informazioni correlate</h2>
@@ -157,11 +157,11 @@
             </div>
         </div>
     {/if}
-  
-  {if $openpa.content_globalinfo.has_content}        
+
+  {if $openpa.content_globalinfo.has_content}
     <div class="data_map_layout nav-section">
 		{attribute_view_gui attribute=$openpa.content_globalinfo.object.data_map.page}
 	</div>
   {/if}
-  
+
 </div>

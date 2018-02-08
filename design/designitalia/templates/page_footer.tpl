@@ -58,11 +58,10 @@
 {if and( $pagedata.homepage|has_attribute('partners'), $pagedata.homepage|attribute('partners').has_content) }
     {include uri='design:footer/partners.tpl'}
 {/if}
-
-<footer class="Footer u-padding-all-s u-hiddenPrint">
-    <div class="u-layout-wide u-layoutCenter">
+<div class="footer-container u-hiddenPrint">
+  <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter">
+    <footer class="Footer u-hiddenPrint">
         <div class="u-cf">
-
             {if and( is_set($pagedata.header.logo.url), $pagedata.header.logo.url)}
                 <img height="75" class="Footer-logo"
                      src="{$pagedata.header.logo.url|ezroot(no)}"
@@ -136,12 +135,12 @@
                 {/if}
             </div>
         </div>
-    </div>
-</footer>
-
+    </footer>
+  </div>
+</div>
 
 <a href="#" title="torna all'inizio del contenuto" class="ScrollTop js-scrollTop js-scrollTo">
-    <i class="ScrollTop-icon Icon-arrow-up" aria-hidden="true"></i>
+    <i class="ScrollTop-icon Icon-collapse" aria-hidden="true"></i>
     <span class="u-hiddenVisually">torna all'inizio del contenuto</span>
 </a>
 
