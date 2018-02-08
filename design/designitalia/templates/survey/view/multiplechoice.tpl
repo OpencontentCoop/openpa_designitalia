@@ -423,7 +423,7 @@
 {/section}
 
 
-<script type="text/javascript">
+<script>
     <!--
     {literal}
     function synchFormElements() {

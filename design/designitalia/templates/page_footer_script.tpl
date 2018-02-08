@@ -1,3 +1,7 @@
+{if ezini('GeneralSettings','SocialButtons', 'openpa.ini')|eq('enabled')}
+  <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid={ezini('GeneralSettings','SocialPubId', 'openpa.ini')}"></script>
+{/if}
+
 <!--[if IE 8]>
 <script src="{'javascript/vendor/respond.min.js'|ezdesign(no)}"></script>
 <script src="{'javascript/vendor/rem.min.js'|ezdesign(no)}"></script>
@@ -9,14 +13,10 @@
 <script src="{'javascript/vendor/polyfill.min.js'|ezdesign(no)}"></script>
 <![endif]-->
 
-{if ezini('TemplateSettings','DevelopmentMode')|eq('enabled')}
-  <script src="{'javascript/IWT.js'|ezdesign(no)}"></script>
-{else}
-  <script src="{'javascript/IWT.min.js'|ezdesign(no)}"></script>
-{/if}
+<script src="{'javascript/IWT.min.js'|ezdesign(no)}"></script>
 
 {if openpaini( 'Seo', 'GoogleAnalyticsAccountID', false() )}
-<script type="text/javascript">
+<script>
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', '{openpaini( 'Seo', 'GoogleAnalyticsAccountID' )}']);
   _gaq.push(['_setAllowLinker', true]);

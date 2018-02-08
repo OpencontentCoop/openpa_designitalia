@@ -80,7 +80,7 @@
 
     {ezscript_require( array( 'ezjsc::yui2', 'ezjsc::yui3', 'ezjsc::yui3io' ) )}
 
-    <script type="text/javascript">
+    <script>
     (function() {ldelim}
         var loader = new YAHOO.util.YUILoader(YUI2_config);
 

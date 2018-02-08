@@ -126,10 +126,21 @@
     <a href="{ezini( 'SiteSettings', 'AdditionalLoginFormActionURL' )|explode('user/login')[0]}{$current_node.url_alias}" target="_blank" title="{'Go to admin interface.'|i18n( 'design/standard/parts/website_toolbar' )}"><img src={"websitetoolbar/ezwt-icon-admin.png"|ezimage} alt="{'Go to admin interface.'|i18n( 'design/standard/parts/website_toolbar' )}" /></a>
 {/if}
 
+
+{if openpaini( 'WebsiteToolbar', 'ShowMediaRoot', 'enabled' )|eq('enabled')}
+  <a href="{concat('content/view/full/',ezini('NodeSettings', 'MediaRootNode', 'content.ini'))|ezurl(no)}" class="btn btn-default btn-xs" style="vertical-align: super;padding:3px">Media</a>
+{/if}
+{if openpaini( 'WebsiteToolbar', 'ShowUsersRoot', 'enabled' )|eq('enabled')}
+  <a href="{concat('content/view/full/',ezini('NodeSettings', 'UserRootNode', 'content.ini'))|ezurl(no)}" class="btn btn-default btn-xs" style="vertical-align: super;padding:3px">Utenti</a>
+{/if}
+
 </div>
 </form>
 
+{if openpaini( 'WebsiteToolbar', 'ShowTranslate', 'disabled' )|eq('enabled')}
 {include uri='design:parts/websitetoolbar/smart_translate.tpl'}
+{/if}
+
 {*
 {def $disable_oo=true()}
 {if $odf_display_classes|contains( $content_object.content_class.identifier )}

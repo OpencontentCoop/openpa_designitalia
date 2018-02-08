@@ -100,7 +100,7 @@
         </div>
     </div>
 
-    <script type="text/javascript">
+    <script>
         {literal}
         $(document).ready(function() {
             $(".event-carousel").owlCarousel({

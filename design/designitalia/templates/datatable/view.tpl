@@ -46,7 +46,7 @@
 </table>
 
 {literal}
-<script type="text/javascript">
+<script>
 $(document).ready(function() {
     var elem = '#table-{/literal}{$table_id}{literal}';
     var dataSource = {/literal}{concat('datatable/view/', $subtree|implode(','), '/', $classes|implode(','), '/', $fields|implode(','), , '/', $filters|implode(','))|ezurl()}{literal};

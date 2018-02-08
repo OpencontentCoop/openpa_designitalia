@@ -40,6 +40,13 @@ MatchFile=datatype/link_video.tpl
 Subdir=templates
 Match[attribute_identifier]=codice_video_3
 
+[datatype_link_applicativo]
+Source=content/datatype/view/ezurl.tpl
+MatchFile=datatype/link_applicativo.tpl
+Subdir=templates
+Match[class_identifier]=applicativo
+Match[attribute_identifier]=location_applicativo
+
 ############################################
 ############################################ EMBED
 ############################################
@@ -138,6 +145,13 @@ MatchFile=block/map_wide.tpl
 Subdir=templates
 Match[type]=GMapItems
 Match[view]=map_wide
+
+[block_gmapitems_map_nolist]
+Source=block/view/view.tpl
+MatchFile=block/map_nolist.tpl
+Subdir=templates
+Match[type]=GMapItems
+Match[view]=map_nolist
 
 [block_accesso_area_riservata]
 Source=block/view/view.tpl
@@ -286,6 +300,13 @@ Subdir=templates
 Match[type]=Singolo
 Match[view]=singolo_in_evidenza
 
+[block_singolo_in_evidenza_wide]
+Source=block/view/view.tpl
+MatchFile=block/singolo_evidenza.tpl
+Subdir=templates
+Match[type]=Singolo
+Match[view]=singolo_in_evidenza_wide
+
 [block_singolo_gallery]
 Source=block/view/view.tpl
 MatchFile=block/singolo_full.tpl
@@ -298,6 +319,13 @@ Source=block/view/view.tpl
 MatchFile=block/lista_num.tpl
 Subdir=templates
 Match[type]=Lista
+Match[view]=lista_num
+
+[block_lista_num3]
+Source=block/view/view.tpl
+MatchFile=block/lista_num.tpl
+Subdir=templates
+Match[type]=Lista3
 Match[view]=lista_num
 
 [block_lista_accordion]
@@ -398,6 +426,13 @@ Subdir=templates
 Match[type]=Lista
 Match[view]=lista_carousel
 
+[block_lista_carousel_wide]
+Source=block/view/view.tpl
+MatchFile=block/lista_carousel.tpl
+Subdir=templates
+Match[type]=Lista
+Match[view]=lista_carousel_wide
+
 [block_lista_immagini]
 Source=block/view/view.tpl
 MatchFile=block/lista_immagini.tpl
@@ -426,12 +461,26 @@ Subdir=templates
 Match[type]=Lista
 Match[view]=lista_in_evidenza
 
+[block_lista_in_evidenza_wide]
+Source=block/view/view.tpl
+MatchFile=block/lista_evidenza.tpl
+Subdir=templates
+Match[type]=Lista
+Match[view]=lista_in_evidenza_wide
+
 [block_lista_in_evidenza3]
 Source=block/view/view.tpl
 MatchFile=block/lista_evidenza.tpl
 Subdir=templates
 Match[type]=Lista3
 Match[view]=lista_in_evidenza
+
+[block_lista_in_evidenza3_wide]
+Source=block/view/view.tpl
+MatchFile=block/lista_evidenza.tpl
+Subdir=templates
+Match[type]=Lista3
+Match[view]=lista_in_evidenza_wide
 
 [block_lista_in_evidenza4]
 Source=block/view/view.tpl
@@ -447,17 +496,37 @@ Subdir=templates
 Match[type]=Lista3
 Match[view]=lista_carousel
 
+[block_lista_carousel3_wide]
+Source=block/view/view.tpl
+MatchFile=block/lista_carousel.tpl
+Subdir=templates
+Match[type]=Lista3
+Match[view]=lista_carousel_wide
+
 [block_lista_masonry]
 Source=block/view/view.tpl
 MatchFile=block/lista_masonry.tpl
 Subdir=templates
 Match[view]=lista_masonry
 
+[block_lista_panel]
+Source=block/view/view.tpl
+MatchFile=block/lista_panel.tpl
+Subdir=templates
+Match[view]=lista_panel
+
 [block_lista_banner]
 Source=block/view/view.tpl
 MatchFile=block/lista_banner.tpl
 Subdir=templates
 Match[type]=Lista
+Match[view]=lista_banner
+
+[block_lista_banner2]
+Source=block/view/view.tpl
+MatchFile=block/lista_banner.tpl
+Subdir=templates
+Match[type]=Lista3
 Match[view]=lista_banner
 
 [block_iosono]
@@ -480,6 +549,13 @@ MatchFile=block/html.tpl
 Subdir=templates
 Match[type]=HTML
 Match[view]=html
+
+[block_html_wide]
+Source=block/view/view.tpl
+MatchFile=block/html.tpl
+Subdir=templates
+Match[type]=HTML
+Match[view]=html_wide
 
 [block_eventi_carousel]
 Source=block/view/view.tpl

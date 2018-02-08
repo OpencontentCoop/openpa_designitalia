@@ -15,7 +15,7 @@ $group_has_content = false()}
             {foreach $node.data_map as $identifier => $attribute}
                 {if and( $identifiers|contains( $identifier ), $attribute.has_content, $attribute.data_text|ne('') )}
                     <div class="u-padding-bottom-l">
-                        <strong>{$attribute.contentclass_attribute_name}</strong><br/>
+                        <strong class="u-text-h5">{$attribute.contentclass_attribute_name}</strong><br/>
                         {attribute_view_gui attribute=$attribute}
                     </div>
                 {/if}

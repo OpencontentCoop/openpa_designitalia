@@ -13,7 +13,7 @@
 
         {ezscript_require( array( 'ezjsc::yui3', 'ezjsc::yui3io', 'ezajaxsearch.js' ) )}
 
-        <script type="text/javascript">
+        <script>
         eZAJAXSearch.cfg = {ldelim}
                                 searchstring: '#search-string-{$block.id}',
                                 searchbutton: '#search-button-{$block.id}',

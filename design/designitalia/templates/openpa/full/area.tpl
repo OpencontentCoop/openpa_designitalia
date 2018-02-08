@@ -19,8 +19,6 @@
 
             {include uri=$openpa.content_main.template}
 
-            {include struttura=$node uri='design:openpa/full/parts/struttura_responsabile.tpl'}
-
             {include uri=$openpa.content_contacts.template}
 
             {include struttura=$node uri='design:openpa/full/parts/struttura_personale.tpl'}
@@ -31,7 +29,7 @@
 
             {include uri='design:parts/posizione_in_organigramma.tpl'}
 
-            {include uri=$openpa.control_children.template}
+            {node_view_gui content_node=$node view=children view_parameters=$view_parameters}
 
         </div>
 

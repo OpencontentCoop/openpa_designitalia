@@ -49,7 +49,7 @@
 
 {ezscript_require(array( 'ezjsc::jquery', ocmp('flowplayer','js') ) )}
 {ezcss_require( 'controls-audio.css' )}
-<script type="text/javascript">
+<script>
 $(document).ready(function(){ldelim}
     flowplayer("audio-{$attribute.contentobject_id}", {ocmp('flowplayer','flash')},
     {ldelim}
@@ -80,7 +80,7 @@ $(document).ready(function(){ldelim}
 
 {ezscript_require(array( 'ezjsc::jquery', ocmp('flowplayer','js'), ocmp('controls','js') ) )}
 {ezcss_require( 'controls-audio.css' )}
-<script type="text/javascript">
+<script>
 $(document).ready(function(){ldelim}
     flowplayer("audio-{$attribute.contentobject_id}", {ocmp('flowplayer','flash')},
     {ldelim}

@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script>
     <!--
     {literal}
     function synchFormElements() {
@@ -352,7 +352,7 @@
     </div>
 </fieldset>
 
-<script type="text/javascript">
+<script>
     <!--
     synchFormElements('{$prefixAttribute}_ezsurvey_valid_from_no_limit_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_from_year_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_from_month_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_from_day_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_from_hour_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_from_minute_{$attributeID}', false);
 

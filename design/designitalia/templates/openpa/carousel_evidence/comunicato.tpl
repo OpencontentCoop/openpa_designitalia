@@ -1,7 +1,7 @@
 {def $is_single = cond( or( is_set($items_per_row)|not(), and(is_set($items_per_row), $items_per_row|eq(1)) ), true(), false() )
-$image_attribute = ocdesignitalia_main_image($node)
-$image = false()}
-{if $image_attribute.content[$image_class]}
+     $image_attribute = $valid_node|attribute('image')
+     $image = false()}
+{if and($image_attribute, $image_attribute.content[$image_class])}
   {set $image = $image_attribute.content[$image_class].url|ezroot(no)}
 {/if}
 
@@ -11,9 +11,9 @@ $image = false()}
     {if image_attribute}
     <div class="Hero-image u-sm-hidden u-md-hidden u-lg-hidden">
       {*attribute_view_gui attribute=$image_attribute image_class="agid_panel" fluid=$fluid*}
-      <a href="{$openpa.content_link.full_link}" aria-hidden="true" role="presentation" tabindex="-1">
+      <a href="{$openpa.content_link.full_link}" aria-hidden="true" tabindex="-1">
         <img src="{$image_attribute.content['agid_panel'].full_path|ezroot(no)}"
-             alt=""
+             alt="Immagine decorativa per il contenuto {$node.name|wash()}"
              class="u-sizeFull"
              role="presentation" />
       </a>

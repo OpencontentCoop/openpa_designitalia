@@ -18,7 +18,7 @@ $flash_var = concat( "moviepath=", $video )}
 
             <div class="content-media" id="flash-{$block.zone_id}-{$block.id}">
 
-                <script type="text/javascript">
+                <script>
                     <!--
                     var flash_id = "flash-{$block.zone_id}-{$block.id}";
 

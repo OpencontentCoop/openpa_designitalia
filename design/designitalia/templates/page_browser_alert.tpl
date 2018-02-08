@@ -3,9 +3,9 @@
 <script>
 document.addEventListener('DOMContentLoaded', function(event) {
 cookieChoices.showCookieConsentBar(
-"I cookie ci aiutano ad erogare servizi di qualità. Utilizzando i nostri servizi, l'utente accetta le nostre modalità d'uso dei cookie.",
-'OK',
-'Maggiori informazioni',
+"Questo sito utilizza cookie tecnici, analytics e di terze parti. Proseguendo nella navigazione accetti l’utilizzo dei cookie.",
+'Accetto',
+'Privacy policy',
 '{/literal}{'openpa/cookie'|ezurl(no,full)}{literal}'
 );});
 </script>

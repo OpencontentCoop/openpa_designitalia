@@ -1,7 +1,7 @@
 {if $openpa.content_contacts.has_content}
     <div class="openpa-widget">
         {if $openpa.content_contacts.show_label}
-            <h3 class="openpa-widget-title">{$openpa.content_contacts.label}</h3>
+            <h3 class="openpa-widget-title"><i class="fa fa-comments-o fa-lg"></i> {$openpa.content_contacts.label}</h3>
         {/if}
         <section class="Prose Alert Alert--info u-margin-bottom-l">
             <div class="Grid Grid--withGutter">

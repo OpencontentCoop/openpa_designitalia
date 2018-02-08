@@ -16,7 +16,7 @@
 
 {ezscript_require(array( 'ezjsc::jquery', ocmp('flowplayer','js'), ocmp('controls','js'), ocmp('playlist','js') ) )}
 {ezcss_require( 'controls-audio.css' )}
-<script type="text/javascript">
+<script>
 $(document).ready(function(){ldelim}
     flowplayer("playlistplayer-{$node.node_id}", {ocmp('flowplayer','flash')},
     {ldelim}

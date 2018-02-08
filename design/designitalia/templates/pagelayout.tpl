@@ -21,27 +21,34 @@
          $locales = fetch( 'content', 'translation_list' )
          $current_node_id = $pagedata.node_id
          $theme = openpaini('GeneralSettings','theme', 'pac')
-         $main_content_class = ''}
+         $main_content_class = ''
+         $class_body = ''}
 
     {if is_set($pagedata.persistent_variable.has_container)|not()}
         {if $pagedata.is_homepage}
             {set $main_content_class = 'u-layout-wide u-layoutCenter'}
         {else}
-            {set $main_content_class = 'u-layout-medium u-layoutCenter'}
+            {set $main_content_class = 'u-layout-wide u-layoutCenter'}
         {/if}
     {/if}
 
+    {if and( is_area_tematica(), array( 'edit', 'browse' )|contains( $ui_context )|not() )}
+      {def $area = is_area_tematica()}
+      {if $area.data_map.stile.has_content}
+        {set $class_body = $area.data_map.stile.content}
+      {/if}
+    {/if}
 
     {include uri='design:page_head.tpl'}
     {include uri='design:page_head_style.tpl'}
     {include uri='design:page_head_script.tpl'}
 
 </head>
-<body class="{$theme}">
+<body class="{$theme} {$class_body}">
 
-    <ul class="Skiplinks js-fr-bypasslinks">
-        <li><a accesskey="2" href="#main">Vai al Contenuto</a></li>
-        <li><a accesskey="3" href="#menu">Vai alla navigazione del sito</a></li>
+    <ul class="Skiplinks js-fr-bypasslinks u-hiddenPrint">
+      <li><a href="#main">Vai al Contenuto</a></li>
+      <li><a class="js-fr-offcanvas-open" href="#menu" aria-controls="menu" aria-label="accedi al menu" title="accedi al menu">Vai alla navigazione del sito</a></li>
     </ul>
 
     {include uri='design:page_browser_alert.tpl'}
@@ -61,7 +68,7 @@
                 <a accesskey="3"  class="js-scrollTo u-text-r-s u-textClean u-color-grey-50 u-alignMiddle" href="#subnav" >Vai menu di sezione</a>
             </p>
         {/if}
-        <section class="{$main_content_class}">
+        <section class="maincontent {$main_content_class}">
             {if and( $pagedata.is_homepage|not(), $pagedata.is_search_page|not(), $pagedata.show_path, array( 'edit', 'browse' )|contains( $ui_context )|not(), is_set( $module_result.content_info ) )}
                 {include uri='design:breadcrumb.tpl'}
             {/if}

@@ -360,7 +360,7 @@
         {def $use_styles = openpaini( 'Stili', 'UsaNeiBlocchi', 'disabled' )|eq('enabled')}
         {if $use_styles}
             <div class="Form-field">
-                <label class="Form-label u-text-xxs">Colore identificativo</label>
+                <label class="Form-label u-text-xxs">Colore di sfondo</label>
                 <input type="radio" id="block-custom_attribute-{$block_id}-19771205" class="block-control" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][color_style]" {if is_set($block.custom_attributes[color_style])|not()}checked="checked"{/if} value="" />
                 <div style="vertical-align: middle; margin-right: 5px; width: 15px; height: 15px; display: inline-block; border: 1px solid #ccc; background: #fff"></div>
                 {def $node_styles = openpaini('Stili', 'Nodo_NomeStile')
@@ -378,6 +378,12 @@
                 {/foreach}
             </div>
         {/if}
+
+        <div class="Form-field">
+            <label class="Form-label u-text-xxs">Mostra link al blocco successivo</label>
+            <input id="block-custom_attribute-{$block_id}-20171205-a" class="Form-input u-text-xxs" type="hidden" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][show_next_link]" value="0" />
+            <input id="block-custom_attribute-{$block_id}-20171205-b" class="Form-input u-text-xxs" type="checkbox" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][show_next_link]"{if and(  is_set($block.custom_attributes[show_next_link]), $block.custom_attributes[show_next_link]|eq(1) )} checked="checked"{/if} value="1" />
+        </div>
     {/if}
 
     </div>

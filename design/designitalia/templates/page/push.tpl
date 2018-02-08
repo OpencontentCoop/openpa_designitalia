@@ -54,7 +54,7 @@
 
 {ezscript_require(array( 'ezjsc::yui2' ) )}
 
-<script type="text/javascript">
+<script>
     YUILoader.onSuccess = function() {ldelim}
         eZPushToBlock.cfg = {ldelim}
             requesturl: "{'ezflow/get'|ezurl('no')}",

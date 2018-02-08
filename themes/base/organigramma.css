@@ -1,52 +1,52 @@
 ul.org-chart li,
 ul.org-chart ul li {
-    list-style: none;
-    text-indent: 0;
+  list-style: none;
+  text-indent: 0;
 }
 
 ul.org-chart li:before {
-    content: ""
+  content: ""
 }
 
 ul.org-chart ul,
 ul.org-chart ul ul {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 ul.org-chart li {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 ul.org-chart ul li {
-    padding: 5px 0 5px 50px;
-    margin: 0 0 0 50px;
+  padding: 5px 0 5px 50px;
+  margin: 0 0 0 50px;
 }
 ul.org-chart li div.vcard {
-    padding: 14px;
-    margin: 0;
-    min-height: 50px;
-    @extend .u-background-grey-10;
-    display: inline-block;
-    font-size: 18px;
-    text-transform: uppercase;
-    font-weight: bold;
+  padding: 14px;
+  margin: 0;
+  min-height: 50px;
+  @extend .u-background-grey-10;
+  display: inline-block;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 ul.org-chart li div.vcard a {
-    color: #000;
-    text-decoration: none;
-    line-height: normal;
+  color: #000;
+  text-decoration: none;
+  line-height: normal;
 }
 ul.org-chart li div.vcard.current{
-    @extend .u-background-grey-40;
+  @extend .u-background-grey-40;
 }
 ul.org-chart li div.vcard.current a{
-    color: #fff;
+  color: #fff;
 }
 ul.org-chart ul li {
-    background: url("images/org-tree-mid.gif") no-repeat left -15px;
+  background: url("images/org-tree-mid.gif") no-repeat left -15px;
 }
 
 ul.org-chart ul li:last-child {
-    background: url("images/org-tree-last.gif") no-repeat left -15px;
+  background: url("images/org-tree-last.gif") no-repeat left -15px;
 }

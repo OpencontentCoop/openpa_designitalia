@@ -20,7 +20,7 @@
 
 {ezscript_require( array( 'ezjsc::jquery', 'ezjsc::jqueryio', 'ezjsc::jqueryUI', 'plugins/jquery.fileupload/jquery.fileupload.js' ) )}
 {ezcss_require( 'plugins/jquery.fileupload/jquery.fileupload.css' )}
-<script type="text/javascript">
+<script>
 {literal}
 $(function () {
     'use strict';

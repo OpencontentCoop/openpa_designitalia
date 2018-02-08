@@ -103,22 +103,23 @@
             {switch match=$attribute.data_type_string}
 
             {case in=array('ezdate', 'ezdatetime')}
-                <fieldset class="Grid">
+                <fieldset>
                     <legend class="Form-label">{$attribute.name}</legend>
-
-                    <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                        <label class="Form-label u-hiddenVisually" for="{$attribute.identifier}_from">Dalla data:</label>
-                        <input type="text" class="from_picker Form-input" placeholder="Dalla data"
-                               id="{$attribute.identifier}_from"
-                               name="Data[{$attribute.identifier}][]" title="Dalla data"
-                               value="{cond(is_set($Data[$attribute.identifier]),$Data[$attribute.identifier][0])}"/>
-                    </div>
-                    <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                        <label class="Form-label u-hiddenVisually" for="{$attribute.identifier}_to">Alla data:</label>
-                        <input class="to_picker Form-input" type="text" placeholder="Alla data"
-                               id="{$attribute.identifier}_to"
-                               name="Data[{$attribute.identifier}][]" title="Alla data"
-                               value="{cond(is_set($Data[$attribute.identifier]),$Data[$attribute.identifier][1])}"/>
+                    <div class="Grid">
+                        <div class="Form-field Grid-cell u-size1of2">
+                            <label class="Form-label u-hiddenVisually" for="{$attribute.identifier}_from">Dalla data:</label>
+                            <input type="text" class="from_picker Form-input" placeholder="Dalla data"
+                                   id="{$attribute.identifier}_from"
+                                   name="Data[{$attribute.identifier}][]" title="Dalla data"
+                                   value="{cond(is_set($Data[$attribute.identifier]),$Data[$attribute.identifier][0])}"/>
+                        </div>
+                        <div class="Form-field Grid-cell u-size1of2">
+                            <label class="Form-label u-hiddenVisually" for="{$attribute.identifier}_to">Alla data:</label>
+                            <input class="to_picker Form-input" type="text" placeholder="Alla data"
+                                   id="{$attribute.identifier}_to"
+                                   name="Data[{$attribute.identifier}][]" title="Alla data"
+                                   value="{cond(is_set($Data[$attribute.identifier]),$Data[$attribute.identifier][1])}"/>
+                        </div>
                     </div>
                 </fieldset>
             {/case}
@@ -158,27 +159,29 @@
             {/switch}
         {/foreach}
 
-        <fieldset class="Grid">
+        <fieldset>
             <legend class="Form-label">Data di pubblicazione</legend>
-            <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                <label class="Form-label u-hiddenVisually" for="published_from">Dalla data:</label>
-                <input id="published_from"
-                       type="text"
-                       class="from_picker Form-input"
-                       name="Data[published][]"
-                       title="Dalla data"
-                       placeholder="Dalla data"
-                       value="{cond(is_set($Data['published']),$Data['published'][0])}"/>
-            </div>
-            <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                <label class="Form-label u-hiddenVisually" for="published_to">Alla data:</label>
-                <input id="published_to"
-                       type="text"
-                       class="to_picker Form-input"
-                       name="Data[published][]"
-                       title="Dalla data"
-                       placeholder="Alla data"
-                       value="{cond(is_set($Data['published']),$Data['published'][1])}"/>
+            <div class="Grid">
+                <div class="Form-field Grid-cell u-size1of2">
+                    <label class="Form-label u-hiddenVisually" for="published_from">Dalla data:</label>
+                    <input id="published_from"
+                           type="text"
+                           class="from_picker Form-input"
+                           name="Data[published][]"
+                           title="Dalla data"
+                           placeholder="Dalla data"
+                           value="{cond(is_set($Data['published']),$Data['published'][0])}"/>
+                </div>
+                <div class="Form-field Grid-cell u-size1of2">
+                    <label class="Form-label u-hiddenVisually" for="published_to">Alla data:</label>
+                    <input id="published_to"
+                           type="text"
+                           class="to_picker Form-input"
+                           name="Data[published][]"
+                           title="Dalla data"
+                           placeholder="Alla data"
+                           value="{cond(is_set($Data['published']),$Data['published'][1])}"/>
+                </div>
             </div>
         </fieldset>
 
@@ -196,7 +199,7 @@
     <input name="ClassArray[]" type="hidden" value="{$class.id|wash()}"/>
 
 
-    <script type="text/javascript">
+    <script>
         {literal}
         $(function () {
             $(".from_picker").datepicker({

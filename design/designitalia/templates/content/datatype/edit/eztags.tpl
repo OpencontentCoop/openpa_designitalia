@@ -21,11 +21,15 @@
 
 <div class="Form-field{if $attribute.has_validation_error} has-error{/if}">
 
-    <label class="Form-label {if $attribute.is_required}is-required{/if}" for="ezcoa-{$attribute.contentclassattribute_id}_{$attribute.contentclass_attribute_identifier}">
+    <legend class="Form-label {if $attribute.is_required}is-required{/if}" for="ezcoa-{$attribute.contentclassattribute_id}_{$attribute.contentclass_attribute_identifier}">
         {first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}
         {if $attribute.is_information_collector} <em class="collector">{'information collector'|i18n( 'design/admin/content/edit_attribute' )}</em>{/if}
         {if $attribute.is_required} ({'richiesto'|i18n('design/ocbootstrap/designitalia')}){/if}
-    </label>
+    </legend>
+
+    {if $contentclass_attribute.description}
+        <em class="attribute-description">{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</em>
+    {/if}
 
     {def $permission_array = $attribute.content.permission_array}
     {def $builder = 'Default'}
@@ -54,7 +58,7 @@
         {include uri=concat( 'design:content/datatype/edit/view/', $builder|downcase, '.tpl' )}
     </div>
 
-<script type="text/javascript">
+<script>
 {run-once}
 $.EzTags.Base.defaults.translations = {ldelim}{*
 *}"selectedTags":"{'Selected tags'|i18n( 'extension/eztags/datatypes' )}",{*
@@ -77,3 +81,42 @@ $.EzTags.Base.defaults.translations = {ldelim}{*
 
 </div>
 {/default}
+
+{run-once}
+<style>{literal}
+.eztags-wrapper{font-size: .875em}
+.tagssuggest-ui:before, .tagssuggest-ui:after{content: " ";display: table;}
+.tagssuggest-ui:after{clear: both;}
+
+.tagssuggest-ui .tags-output{float: left;width: 50%}
+.tagssuggest-ui .tags-input{float: right;width: 50%}
+
+div.tagssuggestfieldwrap{float: left;width: 65%;margin: 0}
+div.tagssuggestfieldwrap .tags-input-field{margin: 0;width: 100%;height: 33px;font-size: 1.5em;}
+.tags-input .button-add-tag{float: right;max-width: 50%}
+.tags-input input[disabled]{
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;    
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+div.jsonSuggestResults{border: none;}
+.js-autocomplete-item img,
+ul.js-tags-selected li img, 
+div.tagssuggest div.tags-suggested ul li.js-suggested-item img{display: none;}
+.js-autocomplete-item{font-size: 1.5em;}
+.js-autocomplete-item span{padding-left: 5px;font-size: .7em;font-style: italic;}
+div.tagssuggest ul.js-tags-selected li, div.tagssuggest div.tags-suggested ul li.js-suggested-item{border: none;border-radius: 0}
+div.ez-tags-tree-selector{max-width: none;width: 100%}
+.tags-list .no-results{font-size: .7em;font-style: italic;}
+{/literal}</style>
+{/run-once}

@@ -78,7 +78,7 @@
     
 
 {ezscript_require(array( 'ezjsc::jquery', ocmp('flowplayer','js'), ocmp('ipad','js') ) )}
-<script type="text/javascript">
+<script>
 $(document).ready(function(){ldelim}
     flowplayer("video-{$attribute.contentobject_id}", {ocmp('flowplayer','flash')},
     {ldelim}

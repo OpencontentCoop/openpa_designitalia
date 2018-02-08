@@ -39,7 +39,7 @@
 <style type="text/css">
 #videocontrols-{$node.node_id} .track{ldelim}width:{$defaults['width']|sub(20)}px{rdelim}
 </style>
-<script type="text/javascript">
+<script>
 $(document).ready(function(){ldelim}
     flowplayer("video-{$node.node_id}", {ocmp('flowplayer','flash')},
     {ldelim}

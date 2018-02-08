@@ -27,7 +27,7 @@
     'jquery.opendataTools.js'    
 ))}
 <div class="content-view-full class-{$node.class_identifier}">
-<script type="text/javascript" language="javascript" class="init">
+<script class="init">
     var mainQuery = "{concat( 'raw[', solr_meta_subfield('serv_interessato','id'), '] = ', $node.contentobject_id )}";
     
     console.log(mainQuery);

@@ -1,10 +1,18 @@
-{def $top_menu_node_ids = openpaini( 'TopMenu', 'NodiCustomMenu', array() )}
+{def $is_area_tematica = is_area_tematica()}
+{if and($is_area_tematica, $is_area_tematica|has_attribute('link_al_menu_orizzontale'))}
+    {def $top_menu_node_ids = array()}
+    {foreach $is_area_tematica|attribute('link_al_menu_orizzontale').content.relation_list as $item}
+        {set $top_menu_node_ids = $top_menu_node_ids|append($item.node_id)}
+    {/foreach}
+{else}
+    {def $top_menu_node_ids = openpaini( 'TopMenu', 'NodiCustomMenu', array() )}
+{/if}
 {def $top_menu_node_ids_count = $top_menu_node_ids|count()}
 
 {def $main_styles = openpaini( 'Stili', 'Nodo_NomeStile', array() )}
 {def $item_class = "no-main-style"}
 
-<section class="Offcanvas Offcanvas--left Offcanvas--modal js-fr-offcanvas u-jsVisibilityHidden u-nojsDisplayNone" id="menu">
+<section class="Offcanvas Offcanvas--right Offcanvas--modal js-fr-offcanvas u-jsVisibilityHidden u-nojsDisplayNone u-hiddenPrint" id="menu">
     <h2 class="u-hiddenVisually">Menu di navigazione</h2>
     <div class="Offcanvas-content u-background-white">
         <div class="Offcanvas-toggleContainer u-background-70 u-jsHidden">
@@ -14,7 +22,7 @@
             </a>
         </div>
         <nav>
-            <ul class="Linklist Linklist--padded Treeview js-fr-treeview u-text-r-xs">
+            <ul class="Linklist Linklist--padded Treeview Treeview--default js-Treeview u-text-r-xs">
 
                 {*<li class="toplevel firstli {if $current_node_id|eq(ezini( 'NodeSettings', 'RootNode', 'content.ini' ))}current{/if}">
                     <a title="Link a homepage" href={'/'|ezurl()}>
@@ -84,7 +92,12 @@
                             {/if}
                         </li>
                         {undef $tree_menu}
-                    {/foreach}
+                    {/foreach}                    
+                {/if}
+                {if openpaini('GeneralSettings','service_menu', 0)}
+                <li>
+                    <a href="{'/accedi-ai-servizi'|ezurl(no)}" class="Button u-border-none u-color-95 u-background-compl u-text-r-xxs is-focus">Accedi ai servizi</a>
+                  </li>
                 {/if}
 
             </ul>
@@ -92,3 +105,4 @@
         </nav>
     </div>
 </section>
+{undef $is_area_tematica}

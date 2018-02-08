@@ -1,5 +1,5 @@
 {default attribute_base=ContentObjectAttribute}
-<div class="Form-field{if $attribute.has_validation_error} has-error{/if}">
+    <div class="Form-field{if $attribute.has_validation_error} has-error{/if}">
     <label class="Form-label {if $attribute.is_required}is-required{/if}"
            for="ezcoa-{$attribute.contentclassattribute_id}_{$attribute.contentclass_attribute_identifier}">
         {first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}
@@ -8,41 +8,54 @@
         {if $attribute.is_required} ({'richiesto'|i18n('design/ocbootstrap/designitalia')}){/if}
     </label>
 
-    <div id="uploader_{$attribute_base}_data_multibinaryfilename_{$attribute.id}">
-
-        <div class="clearfix upload-file-list">
-            {include uri="design:content/datatype/view/filelist.tpl" attribute=$attribute}
-        </div>
-
         {def $file_count = 0}
+
+        {if $attribute.has_content}
+            <table class="list" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th>
+                        File allegati:
+                        <button class="btn btn-default pull-right" type="submit"
+                                name="CustomActionButton[{$attribute.id}_delete_binary]" title="Rimuovi tutti i file">
+                            Elimina tutti i file
+                        </button>
+                    </th>
+                </tr>
+                {foreach $attribute.content as $file}
+                    <tr>
+                        <td>
+                            <button class="ocmultibutton btn btn-link" type="submit"
+                                    name="CustomActionButton[{$attribute.id}_delete_multibinary][{$file.filename}]"
+                                    title="Rimuovi questo file">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            {$file.original_filename|wash( xhtml )}&nbsp;({$file.filesize|si( byte )})
+                        </td>
+                    </tr>
+                {/foreach}
+            </table>
+        {else}
+            <p>Nessun file caricato.</p>
+        {/if}
+
         {if $attribute.has_content}
             {set $file_count = $attribute.content|count()}
         {/if}
         {if or($file_count|lt( $attribute.contentclass_attribute.data_int2 ), $attribute.contentclass_attribute.data_int2|eq(0) )}
-            <div class="clearfix upload-button-container">
-                <span class="btn btn-info fileinput-button">
-                    <i class="fa fa-plus"></i>
-                    <span>Aggiungi file</span>
-                    <input class="upload" type="file" name="OcMultibinaryFiles[]" data-url="{concat('ocmultibinary/upload/', $attribute.id, '/', $attribute.version, '/', $attribute.language_code  )|ezurl(no)}" />
-                </span>
-            </div>
-            <div class="clearfix upload-button-spinner" style="display: none">
-                <i class="fa fa-cog fa-spin fa-3x"></i>
+            <div class="block clearfix u-cf">
+                <label class="ocmultilabel hide"
+                       for="ezcoa-{if ne( $attribute_base, 'ContentObjectAttribute' )}{$attribute_base}-{/if}{$attribute.contentclassattribute_id}_{$attribute.contentclass_attribute_identifier}">{'New file for upload'|i18n( 'design/standard/content/datatype' )}:
+                </label>
+                <input type="hidden" name="MAX_FILE_SIZE" value="{$attribute.contentclass_attribute.data_int1}000000"/>
+                <input id="ezcoa-{if ne( $attribute_base, 'ContentObjectAttribute' )}{$attribute_base}-{/if}{$attribute.contentclassattribute_id}_{$attribute.contentclass_attribute_identifier}"
+                       class="box ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier} pull-left"
+                       name="{$attribute_base}_data_multibinaryfilename_{$attribute.id}" type="file"/>                
+                <input class="ocmultibutton btn btn-default pull-left" type="submit"
+                       name="CustomActionButton[{$attribute.id}_upload_multibinary]" value="Allega file"
+                       title="Allega il file"/>
             </div>
         {/if}
 
 
     </div>
-</div>
 {/default}
-
-
-{ezscript_require( array( 'ezjsc::jquery', 'ezjsc::jqueryio', 'ezjsc::jqueryUI', 'jquery.fileupload.js','jquery.ocmultibinary.js') )}
-{ezcss_require( 'jquery.fileupload.css' )}
-
-
-<script>
-    $(document).ready(function(){ldelim}
-        $('#uploader_{$attribute_base}_data_multibinaryfilename_{$attribute.id}').ocmultibinary();
-        {rdelim});
-</script>

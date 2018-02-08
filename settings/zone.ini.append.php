@@ -4,6 +4,9 @@
 AllowedTypes[]
 AllowedTypes[]=desItaGlobal
 AllowedTypes[]=GlobalZoneLayout
+AllowedTypes[]=0ZonesLayoutFolder
+AllowedTypes[]=1ZonesLayoutFolder
+
 
 [desItaDefault]
 Zones[]

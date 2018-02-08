@@ -54,7 +54,20 @@
                     <p class="u-color-grey-90 u-text-p">
                         <em>{attribute_view_gui attribute=$nota[0].data_map.testo_nota}</em>
                         {include uri="design:parts/toolbar/node_edit.tpl" current_node=$nota[0]}
+                        {include uri="design:parts/toolbar/node_trash.tpl" current_node=$nota[0]}
                     </p>
+                </div>
+            {elseif $node.object.can_create}
+                <div class="Callout Callout--could u-text-r-xs u-margin-top-m u-margin-bottom-m">
+                <form method="post" action="{'content/action'|ezurl(no)}">
+                    <input type="hidden" name="ContentLanguageCode" value="{ezini( 'RegionalSettings', 'ContentObjectLocale', 'site.ini')}" />
+                    <input type="hidden" name="HasMainAssignment" value="1" />
+                    <input type="hidden" name="ClassIdentifier" value="nota_trasparenza" />
+                    <input type="hidden" name="ContentObjectID" value="{$node.contentobject_id}" />
+                    <input type="hidden" name="NodeID" value="{$node.node_id}" />
+                    <input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
+                    <input class="btn btn-primary" type="submit" name="NewButton" value="Aggiungi nota" />
+                </form>
                 </div>
             {/if}
 
@@ -75,6 +88,8 @@
                     {include uri='design:openpa/full/parts/amministrazione_trasparente/children.tpl'
                              nodes=$figli_pagina_trasparenza
                              nodes_count=$conteggio_figli_pagina_trasparenza}
+
+                    {if $conteggio_figli|gt(0)}<hr />{/if}
 
                 {/if}
 
@@ -159,12 +174,17 @@
                     {/if}
                 {/if}
 
-                {if and( $conteggio_figli_pagina_trasparenza|eq(0), $conteggio_figli|eq(0), $nota|count()|eq(0), $node.object.remote_id|ne('5a2189cac55adf79ddfee35336e796fa'), openpaini('Trasparenza','MostraAvvisoPaginaVuota', 'disabled')|eq('enabled') )}
-                    {* se non c'è nemmeno la nota occorre esporre un alert *}
+                
+                {* se non c'è nemmeno la nota occorre esporre un alert *}
+                {if and( 
+                    $conteggio_figli_pagina_trasparenza|eq(0), 
+                    $conteggio_figli|eq(0), $nota|count()|eq(0), 
+                    $node.object.remote_id|ne('5a2189cac55adf79ddfee35336e796fa'), 
+                    openpaini('Trasparenza','MostraAvvisoPaginaVuota', 'disabled')|eq('enabled') 
+                )}                    
                     <div class="alert alert-warning">
                         <p>Sezione in allestimento</p>
                     </div>
-
                 {/if}
 
             </div>

@@ -1,6 +1,6 @@
 <div class="content-draft Prose u-padding-bottom-xxl">
 
-<script type="text/javascript">
+<script>
 {literal}
 function checkAll()
 {

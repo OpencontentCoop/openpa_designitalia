@@ -1,14 +1,14 @@
 {if $openpa.content_attachment.has_content}
-    <div class="Grid Grid--withGutter">
+<div class="content-detail content-detail-attachment">    
+    <div class="content-detail-item withLabel">
         {foreach $openpa.content_attachment.attributes as $attribute}
-            <div class="Grid-cell u-size3of12">
-                <strong>{$attribute.contentclass_attribute_name|wash()}</strong>
-            </div>
-            <div class="Grid-cell u-size9of12">
+            <div class="label u-text-h5"><strong>{$attribute.contentclass_attribute_name|wash()}</strong></div>            
+            <div class="value">
                 {attribute_view_gui attribute=$attribute}
             </div>
         {/foreach}
     </div>
+</div>
 {/if}
 
 {if $openpa.content_attachment.children_count}
@@ -36,4 +36,11 @@
             </li>
         {/foreach}
     </ul>
+    {include name=navigator
+         uri='design:navigator/google.tpl'
+         page_uri=$node.url_alias
+         item_count=$openpa.content_attachment.children_count
+         view_parameters=$view_parameters
+         item_limit=$openpa.content_attachment.page_limit}
+
 {/if}

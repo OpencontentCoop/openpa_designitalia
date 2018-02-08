@@ -644,3 +644,13 @@ p .leaflet-div-icon{
 .readmore{
     display: block !important;
 }
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
