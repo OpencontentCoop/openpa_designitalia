@@ -2,7 +2,7 @@
     "use strict";
     var pluginName = "initOwlCarousel";
 
-    function InitOwlCarousel(container, options, showPreview, widePreview) {
+    function InitOwlCarousel(container, options, showPreview, widePreview, controlButtons) {
         var owl = $(container);
         owl.owlCarousel(options);
         if (showPreview) {
@@ -10,7 +10,7 @@
                 $(e.target).find('[data-index]').removeClass('active').find('a').removeClass('focus');
                 $(e.target).find('[data-index="' + e.item.index + '"]').addClass('active').find('a').addClass('focus');
             });
-            
+
             var previewContainer = $('<div class="owl-preview-container" />');
             var preview = $('<ul class="owl-preview" />');
             owl.find('.carousel-caption h3').each(function (index) {
@@ -30,19 +30,38 @@
             if (widePreview) {
                 var wideContainer = $('<div class="u-layout-wide u-layoutCenter u-layout-r-withGutter u-text-r-xs" />');
                 preview.appendTo(wideContainer);
-                wideContainer.appendTo(previewContainer);  
-            }else{
-                preview.appendTo(previewContainer);   
-            }            
+                wideContainer.appendTo(previewContainer);
+            } else {
+                preview.appendTo(previewContainer);
+            }
             previewContainer.appendTo(owl);
+        }
+
+        if ( controlButtons )
+        {
+          var contolContainer = $('<div class="control-buttons"></div>');
+          var pauseButton = $('<a href="#" title="Ferma"><i class="fa fa-pause"></i></a>').bind('click', function (event) {
+            event.preventDefault();
+            owl.trigger('stop.owl.autoplay');
+            console.log('stop');
+          });
+          contolContainer.append(pauseButton);
+
+          var playButton = $(' <a href="#" title="Avvia"><i class="fa fa-play"></i></a>').bind('click', function (event) {
+            event.preventDefault();
+            owl.trigger('play.owl.autoplay',[0, 1000]);
+            console.log('play');
+          });
+          contolContainer.append(playButton);
+          owl.append(contolContainer);
         }
 
     }
 
-    $.fn[pluginName] = function (options, showPreview, widePreview) {
+    $.fn[pluginName] = function (options, showPreview, widePreview, controlButtons) {
         return this.each(function () {
             if (!$.data(this, pluginName)) {
-                $.data(this, pluginName, new InitOwlCarousel(this, options, showPreview, widePreview));
+                $.data(this, pluginName, new InitOwlCarousel(this, options, showPreview, widePreview, controlButtons));
             }
         });
     };

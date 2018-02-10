@@ -1,4 +1,4 @@
-<header class="Header {*Headroom--fixed js-Headroom*} u-hiddenPrint">
+<header class="Header u-hiddenPrint">
     {include uri='design:header/service.tpl'}
     {include uri='design:header/navigation.tpl'}
     {include uri='design:menu/header_menu.tpl'}

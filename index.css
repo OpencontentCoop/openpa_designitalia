@@ -5,18 +5,21 @@
 @import "themes/base/owl.theme.default";
 
 /* Start theme */
+
 /*
- *	Only apply to body class="Pac"
+ *	Only apply to body class="pac"
  */
-.orange {
+
+.pac {
   font-family: var(--Theme-font-family-sans);
 }
 
 /**
  * 	Brand color
  */
+
 :root {
-  --Color-primary: #E65100;
+  --Color-primary: #0099d1;
   --Color-secondary: var(--Color-primary);
   --Prose-color-text-primary: #1c2024;
   --Prose-color-text-secondary: #5a6772;
@@ -24,23 +27,25 @@
   --Prose-color-link: var(--Color-primary);
   --Prose-color-link-hover: var(--Color-primary);
   --Prose-color-link-visited: var(--Color-primary);
-  --Color-focus: rgba(255,255,255, 0);
+  --Color-focus: rgba(255, 255, 255, 0);
 }
 
 /**
  * 	Fonts
  */
+
 :root {
   --Theme-font-family-sans: Titillium Web, HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
 }
 
-a{
+a {
   color: var(--Color-primary);
-  text-decoration: none !important;
   cursor: pointer;
+  text-decoration: none !important;
 }
 
-button, input[type=submit]{
+button,
+input[type=submit] {
   cursor: pointer;
 }
 
@@ -50,21 +55,21 @@ a:focus {
   color: var(--Color-primary);
 }
 
-#toolbar{
-@extend .u-hidden;
-@extend .u-md-block;
-@extend .u-lg-block;
+#toolbar {
+  @extend .u-hidden;
+  @extend .u-md-block;
+  @extend .u-lg-block;
 }
 
 .GridStriped .Grid:nth-child(2n) {
-@extend .u-background-grey-10;
+  @extend .u-background-grey-10;
 }
 
 .ContainerStriped .ItemStriped:nth-child(2n) {
-@extend .u-background-grey-10;
+  @extend .u-background-grey-10;
 }
 
-.Megamenu--styled .Megamenu-list > li > a[aria-expanded=false]::after {
+/*.Megamenu--styled .Megamenu-list > li > a[aria-expanded=false]::after {
   color: var(--Color-grey-80);
 }
 
@@ -76,9 +81,8 @@ a:focus {
   max-width: 25%;
 }
 
-
 .Megamenu-subnavGroup  li a {
-@extend .u-padding-all-xxs;
+  @extend .u-padding-all-xxs;
 }
 
 .Megamenu-subnavGroup  li  a:hover,
@@ -86,12 +90,11 @@ a:focus {
 .Megamenu-subnavGroup  li  a.is-focus {
   background-color: var(--Color-focus);
   color: var(--Color-white);
-}
+}*/
 
 
 .Header-navbar {
   background-color: var(--Color-white) !important;
-  border-bottom: 1px solid var(--Color-primary);
 }
 
 .Hamburger-toggle,
@@ -111,7 +114,7 @@ a:focus {
 
 .Header-searchTrigger button,
 .Header-search button {
-@extend .u-background-90;
+  @extend .u-background-90;
 }
 
 .Header-toggleText,

@@ -2,8 +2,8 @@
 $image_attribute = ocdesignitalia_main_image($valid_node)
 $image = false()}
 
-{if $image_attribute.content['agid_carousel']}
-  {set $image = $image_attribute.content['agid_carousel'].url|ezroot(no)}
+{if $image_attribute.content['agid_wide_carousel']}
+  {set $image = $image_attribute.content['agid_wide_carousel'].url|ezroot(no)}
 {/if}
 
 {def $openpa_valid_node = object_handler($valid_node)}
@@ -12,7 +12,7 @@ $image = false()}
   {if $image}
       <div class="Hero-image u-sm-hidden u-md-hidden u-lg-hidden">
         {*attribute_view_gui attribute=$image_attribute image_class="agid_panel" fluid=$fluid*}
-          <a href="{$openpa.content_link.full_link}" aria-hidden="true" role="presentation" tabindex="-1">
+          <a href="{$openpa_valid_node.content_link.full_link}" aria-hidden="true" role="presentation" tabindex="-1">
               <img src="{$image}"
                    alt=""
                    class="u-sizeFull"
