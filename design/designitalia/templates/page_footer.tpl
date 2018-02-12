@@ -58,9 +58,9 @@
 {if and( $pagedata.homepage|has_attribute('partners'), $pagedata.homepage|attribute('partners').has_content) }
     {include uri='design:footer/partners.tpl'}
 {/if}
-<div class="u-background-95 u-hiddenPrint">
+<div class="footer-container u-hiddenPrint">
   <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter">
-    <footer class="Footer u-background-95 u-hiddenPrint">
+    <footer class="Footer u-hiddenPrint">
         <div class="u-cf">
             {if and( is_set($pagedata.header.logo.url), $pagedata.header.logo.url)}
                 <img height="75" class="Footer-logo"

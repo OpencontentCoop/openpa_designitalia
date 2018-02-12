@@ -88,3 +88,7 @@ body {
 a:hover {
   text-decoration: underline !important;
 }
+
+.footer-container {
+  background-color: var(--Header-banner-bg);
+}

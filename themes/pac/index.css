@@ -69,30 +69,6 @@ a:focus {
   @extend .u-background-grey-10;
 }
 
-/*.Megamenu--styled .Megamenu-list > li > a[aria-expanded=false]::after {
-  color: var(--Color-grey-80);
-}
-
-.Megamenu--styled .Megamenu-list > li > a[aria-expanded=true]::after {
-  color: var(--Color-white);
-}
-
-.Megamenu-subnavGroup {
-  max-width: 25%;
-}
-
-.Megamenu-subnavGroup  li a {
-  @extend .u-padding-all-xxs;
-}
-
-.Megamenu-subnavGroup  li  a:hover,
-.Megamenu-subnavGroup  li  a.current,
-.Megamenu-subnavGroup  li  a.is-focus {
-  background-color: var(--Color-focus);
-  color: var(--Color-white);
-}*/
-
-
 .Header-navbar {
   background-color: var(--Color-white) !important;
 }
@@ -123,5 +99,5 @@ a:focus {
 }
 
 .owl-theme .owl-nav {
-  top: -83px !important;
+  top: -80px !important;
 }
