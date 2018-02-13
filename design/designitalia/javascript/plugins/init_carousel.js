@@ -40,20 +40,28 @@
         if ( controlButtons )
         {
           var contolContainer = $('<div class="control-buttons"></div>');
-          var pauseButton = $('<a href="#" title="Ferma"><i class="fa fa-pause"></i></a>').bind('click', function (event) {
-            event.preventDefault();
-            owl.trigger('stop.owl.autoplay');
-            console.log('stop');
-          });
-          contolContainer.append(pauseButton);
+          var pauseButton = $('<a href="#" title="Ferma"><i class="fa fa-pause"></i></a>');
+          var playButton = $(' <a href="#" title="Avvia" class="u-hidden"><i class="fa fa-play"></i></a>');
 
-          var playButton = $(' <a href="#" title="Avvia"><i class="fa fa-play"></i></a>').bind('click', function (event) {
-            event.preventDefault();
-            owl.trigger('play.owl.autoplay',[0, 1000]);
-            console.log('play');
-          });
+          contolContainer.append(pauseButton);
           contolContainer.append(playButton);
           owl.append(contolContainer);
+
+          pauseButton.bind('click', function (event) {
+            event.preventDefault();
+            owl.trigger('stop.owl.autoplay');
+            playButton.removeClass('u-hidden');
+            pauseButton.addClass('u-hidden');
+          });
+
+          playButton.bind('click', function (event) {
+            event.preventDefault();
+            owl.trigger('play.owl.autoplay',[1000]);
+            pauseButton.removeClass('u-hidden');
+            playButton.addClass('u-hidden');
+          });
+
+
         }
 
     }

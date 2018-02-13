@@ -3,6 +3,7 @@
     'items', array(),
     'autoplay', 0,
     'items_per_row', 1,
+    'loop', 0,
     'image_class', 'agid_carousel',
     'navigation', true(),
     'pagination', false(),
@@ -47,10 +48,12 @@
                             items: {$items_per_row}
                             {rdelim},
                         {rdelim},
-                    autoPlay: {if $autoplay|gt(0)}true{else}false{/if},
                     nav: {cond( $navigation|gt(0), 'true', 'false')},
                     dots: {cond( $pagination|gt(0), 'true', 'false')},
                     autoHeight : false,
+                    loop:{cond( $loop|gt(0), 'true', 'false')},
+                    autoplaySpeed: 1000,
+                    autoplay: {cond( $autoplay|gt(0), 'true', 'false')},
                     navText: {cond( $navigation_text|ne(false()), $navigation_text, false )}
                     {if $top_pagination_position}, onInitialized: function(e){ldelim}
                       var owl = $(e.target);
