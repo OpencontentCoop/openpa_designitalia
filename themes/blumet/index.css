@@ -34,91 +34,66 @@
     --Theme-font-family-sans: Titillium Web, HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
 }
 
-a{
-    color: var(--Color-primary);
-    text-decoration: none !important;
-    cursor: pointer;
+a {
+  color: var(--Color-primary);
+  cursor: pointer;
+  text-decoration: none !important;
 }
 
-button, input[type=submit]{
-    cursor: pointer;
+button,
+input[type=submit] {
+  cursor: pointer;
 }
 
 a:focus {
-    background: var(--Color-focus);
-    outline: var(--Color-focus) solid 3px;
-    color: var(--Color-primary);
+  background: var(--Color-focus);
+  outline: var(--Color-focus) solid 3px;
+  color: var(--Color-primary);
 }
 
-#toolbar{
-    @extend .u-hidden;
-    @extend .u-md-block;
-    @extend .u-lg-block;
+#toolbar {
+@extend .u-hidden;
+@extend .u-md-block;
+@extend .u-lg-block;
 }
 
 .GridStriped .Grid:nth-child(2n) {
-    @extend .u-background-grey-10;
+@extend .u-background-grey-10;
 }
 
 .ContainerStriped .ItemStriped:nth-child(2n) {
-    @extend .u-background-grey-10;
+@extend .u-background-grey-10;
 }
-
-.Megamenu--styled .Megamenu-list > li > a[aria-expanded=false]::after {
-    color: var(--Color-grey-80);
-}
-
-.Megamenu--styled .Megamenu-list > li > a[aria-expanded=true]::after {
-    color: var(--Color-white);
-}
-
-.Megamenu-subnavGroup {
-    max-width: 25%;
-}
-
-
-.Megamenu-subnavGroup  li a {
-    @extend .u-padding-all-xxs;
-}
-
-.Megamenu-subnavGroup  li  a:hover,
-.Megamenu-subnavGroup  li  a.current,
-.Megamenu-subnavGroup  li  a.is-focus {
-    background-color: var(--Color-focus);
-    color: var(--Color-white);
-}
-
 
 .Header-navbar {
-    background-color: var(--Color-white) !important;
-    border-bottom: 1px solid var(--Color-primary);
+  background-color: var(--Color-white) !important;
 }
 
 .Hamburger-toggle,
 .Hamburger-toggle:before,
 .Hamburger-toggle:after {
-    background: var(--Color-black) !important;
+  background: var(--Color-black) !important;
 }
 
 .Hamburger-toggle.is-active {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 
 .Hamburger-toggle.is-active:before,
 .Hamburger-toggle.is-active:after {
-    background-color: var(--Color-white) !important;
+  background-color: var(--Color-white) !important;
 }
 
 .Header-searchTrigger button,
 .Header-search button {
-    @extend .u-background-90;
+@extend .u-background-90;
 }
 
 .Header-toggleText,
 .Header-titleLink a {
-    color: var(--Color-black) !important;
+  color: var(--Color-black) !important;
 }
 
 .owl-theme .owl-nav {
-    top: -83px !important;
+  top: -80px !important;
 }

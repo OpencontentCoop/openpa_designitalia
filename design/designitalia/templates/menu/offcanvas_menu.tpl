@@ -4,7 +4,7 @@
 {def $main_styles = openpaini( 'Stili', 'Nodo_NomeStile', array() )}
 {def $item_class = "no-main-style"}
 
-<section class="Offcanvas Offcanvas--left Offcanvas--modal js-fr-offcanvas u-jsVisibilityHidden u-nojsDisplayNone" id="menu">
+<section class="Offcanvas Offcanvas--right Offcanvas--modal js-fr-offcanvas u-jsVisibilityHidden u-nojsDisplayNone u-hiddenPrint" id="menu">
     <h2 class="u-hiddenVisually">Menu di navigazione</h2>
     <div class="Offcanvas-content u-background-white">
         <div class="Offcanvas-toggleContainer u-background-70 u-jsHidden">
@@ -14,7 +14,7 @@
             </a>
         </div>
         <nav>
-            <ul class="Linklist Linklist--padded Treeview js-fr-treeview u-text-r-xs">
+            <ul class="Linklist Linklist--padded Treeview Treeview--default js-Treeview u-text-r-xs">
 
                 {*<li class="toplevel firstli {if $current_node_id|eq(ezini( 'NodeSettings', 'RootNode', 'content.ini' ))}current{/if}">
                     <a title="Link a homepage" href={'/'|ezurl()}>

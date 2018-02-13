@@ -1,62 +1,65 @@
 var webpack = require('webpack')
 var path = require('path')
 var libraryName = 'IWT'
-var outputFile = libraryName + '.js'
 
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin
-var env = process.env.WEBPACK_ENV
 
 var plugins = []
-var outputFile
-
 var loaders = []
 
-if (env === 'build') {
+if ('dev' !== process.env.WEBPACK_ENV) {
   plugins.push(new UglifyJsPlugin({
-    minimize: true
+    minimize: true,
+    sourceMap: true
   }))
-  outputFile = libraryName + '.min.js'
-} else {
-  outputFile = libraryName + '.js'
 }
 
+plugins.push(
+  new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /it/)
+)
+
 loaders.push({
-  test: /\.png/, loader: 'url-loader?limit=100000&minetype=image/png'
+  test: /\.png/,
+  loader: 'url-loader?limit=100000&minetype=image/png'
 })
 
-// if (env === 'build') {
-  loaders.push({
-    test: /\.css$/,
-    loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
-  })
-  plugins.push(new ExtractTextPlugin('vendor.css'))
-// } else {
-//   loaders.push({
-//     test: /\.css$/,
-//     loader: 'style-loader!css-loader'
-//   })
-// }
+loaders.push({
+  test: /\.css$/,
+  use: [
+    { loader: 'style-loader' },
+    { loader: 'css-loader' },
+  ]
+})
+
+plugins.push(new webpack.LoaderOptionsPlugin({
+  debug: true
+}))
 
 var config = {
-  entry: __dirname + '/index.js',
+  entry: {
+    IWT: __dirname + '/index.js',
+    /*styleguide: __dirname + '/assets/index-styleguide.js'*/
+  },
   devtool: 'source-map',
   output: {
     path: __dirname + '/design/designitalia/javascript',
-    filename: outputFile,
+    filename: '[name].min.js',
     library: libraryName,
     libraryTarget: 'umd',
-    umdNamedDefine: true
+    umdNamedDefine: true,
+    publicPath: /*process.env.PUBLIC_PATH || ''*/ '/extension/openpa_designitalia/design/designitalia/javascript/',
+    chunkFilename: '[name].chunk.js'
   },
   externals: {
     'jquery': 'jQuery',
     '$': 'jQuery',
   },
   module: {
-    loaders: [...loaders, {
+    rules: [...loaders, {
       test: /(\.jsx|\.js)$/,
       loader: 'babel-loader',
-//      exclude: /(node_modules|bower_components)/
+      exclude: /(pikaday)/,
+      // exclude: /(node_modules|bower_components)/
     }, {
       test: /(\.jsx|\.js)$/,
       loader: 'eslint-loader',
@@ -64,11 +67,13 @@ var config = {
     }]
   },
   resolve: {
-    root: path.resolve('./ita-web-toolkit/src'),
-    extensions: ['', '.js']
+    modules: [
+      path.resolve('./ita-web-toolkit/src'),
+      path.resolve('./ita-web-toolkit/assets'),
+      'node_modules'
+    ]
   },
   plugins: plugins,
-  debug: true
 }
 
 module.exports = config

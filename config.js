@@ -28,7 +28,7 @@ const CONFIG = {}
 CONFIG.includes = []
 
 /*
- *  Blacklist: use this array of RegEx to exclude specific omponents
+ *  Blacklist: use this array of RegEx to exclude specific components
  *  or modules from the final build.
  *
  *    ie. to exclude all global CSS:
@@ -38,6 +38,6 @@ CONFIG.includes = []
  * @see index.css for possible values
  *
  */
-CONFIG.excludes = []
+CONFIG.excludes = ['(.*)carousel(.*)']
 
 module.exports = CONFIG

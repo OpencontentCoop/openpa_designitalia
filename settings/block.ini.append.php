@@ -33,12 +33,14 @@ ViewList[]=singolo_box_piccolo
 ViewList[]=singolo_box
 ViewList[]=singolo_banner
 ViewList[]=singolo_in_evidenza
+ViewList[]=singolo_in_evidenza_wide
 ViewName[]
 ViewName[singolo_full]=Default
 ViewName[singolo_box_piccolo]=Titolo del blocco o dell’oggetto, miniatura e abstract
 ViewName[singolo_box]=Panel
 ViewName[singolo_banner]=Banner
 ViewName[singolo_in_evidenza]=In evidenza
+ViewName[singolo_in_evidenza_wide]=In evidenza wide
 
 [Lista]
 Name=Lista automatica
@@ -243,7 +245,9 @@ CustomAttributes[]=html
 CustomAttributeTypes[html]=text
 ViewList[]
 ViewList[]=html
+ViewList[]=html_wide
 ViewName[html]=html
+ViewName[html_wide]=html wide
 
 [Html3Colonne]
 Name=Codice HTML in 3 colonne

@@ -1,5 +1,5 @@
 {if and( $pagedata.is_login_page|not(), array( 'edit', 'browse' )|contains( $ui_context )|not(), openpaini( 'TopMenu', 'ShowMegaMenu', 'enabled' )|eq('enabled') )}
-    
+
 {def $top_menu_node_ids = openpaini( 'TopMenu', 'NodiCustomMenu', array() )}
 {def $top_menu_node_ids_count = $top_menu_node_ids|count()}
 
@@ -8,7 +8,7 @@
 
 
 <!-- Header-navbar -->
-<div class="Headroom-hideme u-textCenter u-hidden u-sm-block u-md-block u-lg-block">
+<div class="Headroom-hideme u-textCenter u-hidden u-sm-hidden u-md-block u-lg-block">
     {*<nav class="Megamenu Megamenu--styled js-megamenu" data-rel=".Offcanvas .Treeview"></nav>*}
 
     <nav class="Megamenu Megamenu--default js-megamenu">
@@ -21,12 +21,13 @@
                                  name=top_menu
                                  uri='design:menu/header_menu_item.tpl'
                                  menu_item=$tree_menu
-                                 current=or($tree_menu.item.node_id|eq($current_node_id), $pagedata.path_id_array|contains($tree_menu.item.node_id))}
+                                 current=or($tree_menu.item.node_id|eq($current_node_id), $pagedata.path_id_array|contains($tree_menu.item.node_id))
+                                 has_link=cond( $tree_menu.has_children, false(), true())}
                         {if $tree_menu.has_children}
                             {if $tree_menu.max_recursion|eq(1)}
-                                <div class="Megamenu-subnav u-jsDisplayNone u-textCenter">
+                                <div class="Megamenu-subnav u-jsDisplayNone">
                                     {foreach $tree_menu.children as $child}
-                                        <ul class="Megamenu-subnavGroup u-size1of4">
+                                        <ul class="Megamenu-subnavGroup">
                                             <li>
                                                 {include
                                                 recursion=1

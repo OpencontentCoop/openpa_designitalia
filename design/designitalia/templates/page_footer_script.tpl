@@ -9,11 +9,7 @@
 <script src="{'javascript/vendor/polyfill.min.js'|ezdesign(no)}"></script>
 <![endif]-->
 
-{if ezini('TemplateSettings','DevelopmentMode')|eq('enabled')}
-  <script src="{'javascript/IWT.js'|ezdesign(no)}"></script>
-{else}
-  <script src="{'javascript/IWT.min.js'|ezdesign(no)}"></script>
-{/if}
+<script src="{'javascript/IWT.min.js'|ezdesign(no)}"></script>
 
 {if openpaini( 'Seo', 'GoogleAnalyticsAccountID', false() )}
 <script type="text/javascript">

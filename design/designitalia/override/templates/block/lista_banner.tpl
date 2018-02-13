@@ -24,22 +24,21 @@
     <div class="openpa-widget-content">
         <div class="Grid Grid--withGutter">
             {foreach $openpa.content as $item}
-                <div class="Grid-cell u-md-size1of{$size} u-lg-size1of{$size} u-padding-bottom-s">
-                    <a class="u-sizeFull u-textClean u-text-m {$bg_class} u-floatLeft" href="{$item.url_alias|ezurl(no)}" style="height: 120px; overflow: hidden">
+                <div class="Grid-cell u-md-size1of{$size} u-lg-size1of{$size} u-padding-bottom-xs">
+                    <a class="u-sizeFull u-textClean u-text-m {$bg_class} u-floatLeft {if $item|has_attribute('image')|not} u-textCenter{/if} list-banner u-borderShadow-xxs u-borderRadius-m" href="{$item.url_alias|ezurl(no)}" style="height: 100px; overflow: hidden;">
                         {if $item|has_attribute('image')}
-                            <img src="{$item|attribute('image').content['agid_square'].full_path|ezroot(no)}" alt="" class="u-margin-right-xs u-floatLeft" height="120" />
+                            <img src="{$item|attribute('image').content['agid_square'].full_path|ezroot(no)}" alt="" class="u-margin-right-xs u-floatLeft" height="100" />
                         {/if}
-                        <span class="u-block u-padding-all-l">{$item.name|oc_shorten(120)}</span>
+                        <span class="u-block u-padding-all-s">{$item.name|oc_shorten(120)}</span>
                     </a>
                 </div>
             {/foreach}
         </div>
     </div>
     {if and($openpa.root_node, $link_top_title|not())}
-        <p class="u-textCenter u-text-md-right u-text-lg-right u-margin-r-top">
-            <a href="{$openpa.root_node.url_alias|ezurl(no)}" class="u-color-50 u-textClean u-text-h4">
-                Vedi tutto <span class="Icon Icon-chevron-right"></span></a>
-        </p>
+      <p class="goto">
+        <a href="{$openpa.root_node.url_alias|ezurl(no)}">Vedi tutto <span></span></a>
+      </p>
     {/if}
 </div>
 {/if}

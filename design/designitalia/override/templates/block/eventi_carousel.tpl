@@ -19,6 +19,7 @@
         <h3 class="openpa-widget-title">{if $link_top_title}<a href="{$valid_node.url_alias|ezurl(no)}" title="Vai al calendario">{/if}{$block.name|wash()}{if $link_top_title}</a>{/if}</h3>
     {/if}
     <div class="openpa-widget-content">
+      {if $calendarData.events|gt(0)}
         <div class="carousel-top-control openpa-panels-container {$block.view}">
             {include uri='design:calendar/carousel.tpl'
                     css_id=$block.id
@@ -31,12 +32,18 @@
 					top_pagination_position=true()
                     items_per_row=$items_per_row}
         </div>
+      {else}
+        <div class="Alert Alert--info Alert--withIcon u-padding-r-bottom u-padding-r-right u-margin-r-bottom" role="alert">
+          <h4 class="u-text-h4">
+            Non ci sono eventi in programma.
+          </h4>
+        </div>
+      {/if}
     </div>
-    {if $link_top_title|not()}
-        <p class="u-textCenter u-text-md-right u-text-lg-right u-margin-r-top">
-            <a href="{$valid_node.url_alias|ezurl(no)}" class="u-color-50 u-textClean u-text-h4">
-                Vedi tutto <span class="Icon Icon-chevron-right"></span></a>
-        </p>
+    {if and( $link_top_title|not(), $calendarData.events|gt(0) )}
+      <p class="goto">
+        <a href="{$valid_node.url_alias|ezurl(no)}">Vai al calendario <span></span></a>
+      </p>
     {/if}
 </div>
 {unset_defaults(array('show_title','items_per_row'))}
