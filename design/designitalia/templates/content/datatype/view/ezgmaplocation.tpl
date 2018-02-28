@@ -5,7 +5,7 @@
 
   <div id="map-{$attribute.id}" style="width: 100%; height: 200px;"></div>
   <p class="goto">
-    <a class="btn btn-xs btn-success pull-right" target="_blank" href="https://www.google.com/maps/dir//'{$attribute.content.latitude},{$attribute.content.longitude}'/@{$attribute.content.latitude},{$attribute.content.longitude},15z?hl=it">Come arrivare <i class="fa fa-external-link"></i></a>
+    <a class="btn u-layout-matchHeight u-margin-bottom-xs u-margin-top-xs" target="_blank" href="https://www.google.com/maps/dir//'{$attribute.content.latitude},{$attribute.content.longitude}'/@{$attribute.content.latitude},{$attribute.content.longitude},15z?hl=it"><i class="fa fa-external-link"></i> Come arrivare</a>
   </p>
 
   {run-once}

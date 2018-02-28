@@ -27,7 +27,7 @@
         {if $pagedata.is_homepage}
             {set $main_content_class = 'u-layout-wide u-layoutCenter'}
         {else}
-            {set $main_content_class = 'u-layout-medium u-layoutCenter'}
+            {set $main_content_class = 'u-layout-wide u-layoutCenter'}
         {/if}
     {/if}
 
@@ -39,9 +39,9 @@
 </head>
 <body class="{$theme}">
 
-    <ul class="Skiplinks js-fr-bypasslinks">
-        <li><a accesskey="2" href="#main">Vai al Contenuto</a></li>
-        <li><a accesskey="3" href="#menu">Vai alla navigazione del sito</a></li>
+    <ul class="Skiplinks js-fr-bypasslinks u-hiddenPrint">
+      <li><a href="#main">Vai al Contenuto</a></li>
+      <li><a class="js-fr-offcanvas-open" href="#menu" aria-controls="menu" aria-label="accedi al menu" title="accedi al menu">Vai alla navigazione del sito</a></li>
     </ul>
 
     {include uri='design:page_browser_alert.tpl'}

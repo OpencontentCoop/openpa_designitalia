@@ -35,5 +35,9 @@
 {/if}
 
 {if $show_flip}
-    {include uri=flip_template( $attribute.id, $attribute.version ) id=$attribute.id version=$attribute.version view='small'}
+    {def $template = flip_template( $attribute.id, $attribute.version )}
+    {if $template}
+    	{include uri=$template id=$attribute.id version=$attribute.version view='small'}
+    {/if}
+    {undef $template}
 {/if}

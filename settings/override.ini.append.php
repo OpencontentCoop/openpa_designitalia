@@ -286,6 +286,13 @@ Subdir=templates
 Match[type]=Singolo
 Match[view]=singolo_in_evidenza
 
+[block_singolo_in_evidenza_wide]
+Source=block/view/view.tpl
+MatchFile=block/singolo_evidenza.tpl
+Subdir=templates
+Match[type]=Singolo
+Match[view]=singolo_in_evidenza_wide
+
 [block_singolo_gallery]
 Source=block/view/view.tpl
 MatchFile=block/singolo_full.tpl
@@ -480,6 +487,13 @@ MatchFile=block/html.tpl
 Subdir=templates
 Match[type]=HTML
 Match[view]=html
+
+[block_html_wide]
+Source=block/view/view.tpl
+MatchFile=block/html.tpl
+Subdir=templates
+Match[type]=HTML
+Match[view]=html_wide
 
 [block_eventi_carousel]
 Source=block/view/view.tpl

@@ -26,6 +26,23 @@
     <script type="text/javascript">
         $(document).ready(function() {ldelim}
             $("#carousel_{$css_id}").owlCarousel({ldelim}
+                responsive:{ldelim}
+                  0: {ldelim}
+                    items: 1
+                    {rdelim},
+                  480: {ldelim}
+                    items: 1
+                    {rdelim},
+                  768: {ldelim}
+                    items: {$items_per_row}
+                    {rdelim},
+                  900: {ldelim}
+                    items: {$items_per_row}
+                    {rdelim},
+                  1200: {ldelim}
+                    items: {$items_per_row}
+                    {rdelim},
+                  {rdelim},
                 items : {$items_per_row},
                 autoPlay: false,
                 nav: {cond( $navigation|gt(0), 'true', 'false')},

@@ -4,12 +4,10 @@
 {/if}
 
 <div class="Header-searchTrigger Grid-cell">
-    <button aria-controls="header-search" class="js-Header-search-trigger Icon Icon-search"
-            title="attiva il form di ricerca" aria-label="attiva il form di ricerca" aria-hidden="false">
-    </button>
-    <button aria-controls="header-search" class="js-Header-search-trigger Icon Icon-close u-hidden"
-            title="disattiva il form di ricerca" aria-label="disattiva il form di ricerca" aria-hidden="true">
-    </button>
+  <button aria-controls="header-search" class="js-Header-search-trigger Icon Icon-search Icon--rotated" title="attiva il form di ricerca" aria-label="attiva il form di ricerca" aria-hidden="false">
+  </button>
+  <button aria-controls="header-search" class="js-Header-search-trigger Icon Icon-close u-hidden " title="disattiva il form di ricerca" aria-label="disattiva il form di ricerca" aria-hidden="true">
+  </button>
 </div>
 
 <div class="Header-utils Grid-cell">
@@ -63,20 +61,21 @@
             </ul>
         {/if}
     </div>
+
     <div class="Header-search" id="header-search">
         <form class="Form" action="{"/content/search"|ezurl(no)}">
-            <div class="Form-field Form-field--withPlaceholder Grid">
+            <div class="Form-field Form-field--withPlaceholder Grid u-background-white u-color-grey-30 u-borderRadius-s" role="search">
 
                 {if is_area_tematica()}
                     <input type="hidden" value="{is_area_tematica().node_id}" name="SubTreeArray[]" />
-                    <input type="text" id="cerca" class="Form-input Grid-cell u-sizeFill u-text-r-s" name="SearchText" {if $pagedata.is_edit}disabled="disabled"{/if}>
-                    <label class="Form-label" for="cerca">Cerca in {is_area_tematica().name|wash()}</label>
+                    <input type="text" id="cerca" class="Form-input Grid-cell u-sizeFill u-text-r-s u-color-black u-text-r-xs" required name="SearchText" {if $pagedata.is_edit}disabled="disabled"{/if}>
+                    <label class="Form-label u-color-grey-50 u-text-r-xxs" for="cerca">Cerca in {is_area_tematica().name|wash()}</label>
                 {else}
-                    <input type="text" id="cerca" class="Form-input Grid-cell u-sizeFill u-text-r-s" name="SearchText" {if $pagedata.is_edit}disabled="disabled"{/if}>
-                    <label class="Form-label" for="cerca">Cerca nel sito</label>
+                    <input type="text" id="cerca" class="Form-input Grid-cell u-sizeFill u-text-r-s u-color-black u-text-r-xs" required name="SearchText" {if $pagedata.is_edit}disabled="disabled"{/if}>
+                    <label class="Form-label u-color-grey-50 u-text-r-xxs" for="cerca">Cerca nel sito</label>
                 {/if}
 
-                <button type="submit" value="cerca" name="SearchButton" {if $pagedata.is_edit}disabled="disabled"{/if} class="Grid-cell u-sizeFit Icon-search u-color-white u-padding-all-s u-textWeight-700"
+                <button type="submit" value="cerca" name="SearchButton" {if $pagedata.is_edit}disabled="disabled"{/if} class="Grid-cell u-sizeFit Icon-search Icon--rotated u-color-white u-padding-all-s u-textWeight-700"
                         title="Avvia la ricerca" aria-label="Avvia la ricerca">
                 </button>
             </div>

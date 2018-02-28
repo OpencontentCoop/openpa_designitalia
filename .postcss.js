@@ -9,7 +9,7 @@ const _ = require('lodash')
 
 module.exports = {
   use: [
-    'postcss-devtools',
+    // 'postcss-devtools',
 
     'postcss-easy-import',
     'postcss-custom-properties',
@@ -31,20 +31,21 @@ module.exports = {
     'postcss-pseudoelements',
 
     'postcss-flexbugs-fixes',
-    'postcss-reporter'
+    // 'postcss-reporter'
   ],
   'autoprefixer': {
     browsers: ['last 10 versions', 'ie 8', 'ie 9']
   },
   'postcss-url': {
     url: 'copy',
-    assetsPath: './'
+    assetsPath: 'ita-web-toolkit/assets',
+    useHash: true,
   },
   'postcss-inline-svg': {
     path: 'ita-web-toolkit/src/'
   },
   'postcss-assets': {
-    loadPaths: [ 'ita-web-toolkit/src/' ],
+    loadPaths: ['ita-web-toolkit/src/'],
     cachebuster: true
   },
   'postcss-easy-import': {
@@ -80,7 +81,8 @@ module.exports = {
   },
   postcss: {
     from: 'index.css',
-    to: 'design/designitalia/stylesheets/build.css',
+    to: 'build/build.css',
     map: false,
-  }
+  },
+  stylelint: require('./.stylelintrc')
 };

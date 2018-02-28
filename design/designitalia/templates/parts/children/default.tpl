@@ -17,10 +17,10 @@
 
 {def $children_count = fetch( openpa, concat( $fetch_type, '_count' ), hash( 'parent_node_id', $parent_node.node_id )|merge( $params ) )}
 {if $children_count}
-  <div class="content-view-children u-sizeFull">
+  <div class="content-view-children">
 	{foreach fetch( openpa, $fetch_type, hash( 'parent_node_id', $parent_node.node_id,
 											'offset', $view_parameters.offset,
-											'sort_by', $parent_node.sort_array,											
+											'sort_by', $parent_node.sort_array,
 											'limit', $page_limit )|merge( $params ) ) as $child }
 	  {node_view_gui view=$view content_node=$child}
 	  {delimiter}{$delimiter}{/delimiter}

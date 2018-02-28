@@ -1,63 +1,14 @@
 @import "suitcss-base";
 @import "suitcss-components";
 @import "suitcss-utils";
-
 @import "suitcss-components-form";
 
-/*
- *  @FIXME: replace with glob patterns when this gets merged:
- *    https://github.com/TrySound/postcss-easy-import/pull/7
- */
-@import "../../ita-web-toolkit/src/utils/borders";
-@import "../../ita-web-toolkit/src/utils/colors";
-@import "../../ita-web-toolkit/src/utils/corners";
-@import "../../ita-web-toolkit/src/utils/display";
-@import "../../ita-web-toolkit/src/utils/layout";
-@import "../../ita-web-toolkit/src/utils/shadows";
-@import "../../ita-web-toolkit/src/utils/space";
-@import "../../ita-web-toolkit/src/utils/text";
-@import "../../ita-web-toolkit/src/utils/zindex";
-
-@import "../../ita-web-toolkit/src/icons/ita";
-
-@import "../../ita-web-toolkit/src/components/button";
-@import "../../ita-web-toolkit/src/components/form";
-@import "../../ita-web-toolkit/src/components/forward";
-@import "../../ita-web-toolkit/src/components/prose";
-@import "../../ita-web-toolkit/src/components/table";
-
-@import "../../ita-web-toolkit/src/modules/accordion";
-@import "../../ita-web-toolkit/src/modules/alert";
-@import "../../ita-web-toolkit/src/modules/breadcrumb";
-@import "../../ita-web-toolkit/src/modules/bullets";
-@import "../../ita-web-toolkit/src/modules/callout";
-@import "../../ita-web-toolkit/src/modules/card";
-@import "../../ita-web-toolkit/src/modules/carousel";
-@import "../../ita-web-toolkit/src/modules/cookiebar";
-@import "../../ita-web-toolkit/src/modules/dialog";
-@import "../../ita-web-toolkit/src/modules/dot";
-@import "../../ita-web-toolkit/src/modules/dropdown";
-@import "../../ita-web-toolkit/src/modules/entrypoint";
-@import "../../ita-web-toolkit/src/modules/footer";
-@import "../../ita-web-toolkit/src/modules/hamburger";
-@import "../../ita-web-toolkit/src/modules/header";
-@import "../../ita-web-toolkit/src/modules/hero";
-@import "../../ita-web-toolkit/src/modules/leads";
-@import "../../ita-web-toolkit/src/modules/linklist";
-@import "../../ita-web-toolkit/src/modules/megamenu";
-@import "../../ita-web-toolkit/src/modules/masonry";
-@import "../../ita-web-toolkit/src/modules/navscroll";
-@import "../../ita-web-toolkit/src/modules/offcanvas";
-@import "../../ita-web-toolkit/src/modules/scrolltop";
-@import "../../ita-web-toolkit/src/modules/skiplinks";
-@import "../../ita-web-toolkit/src/modules/tooltip";
-@import "../../ita-web-toolkit/src/modules/treeview";
-
-@import "../../ita-web-toolkit/src/extra/share";
-@import "../../ita-web-toolkit/src/extra/spid";
-
+@import "../../ita-web-toolkit/src/utils/**/index.css";
+@import "../../ita-web-toolkit/src/icons/**/index.css";
+@import "../../ita-web-toolkit/src/elements/**/index.css";
+@import "../../ita-web-toolkit/src/components/**/index.css";
+@import "../../ita-web-toolkit/src/modules/**/index.css";
 @import "../../ita-web-toolkit/src/print";
-
 @import "../../ita-web-toolkit/src/legacy";
 
 @custom-media --xs-viewport screen and (max-width: 767px);
@@ -65,75 +16,36 @@
 @custom-media --md-viewport screen and (min-width: 992px) and (max-width: 1365px);
 @custom-media --lg-viewport screen and (min-width: 1366px);
 
-
-@media (--xs-viewport) {
-
-  .u-xs-block {
-    display: block !important;
-  }
-
-  .u-xs-hidden {
-    display: none !important;
-  }
-
-  .u-xs-inline {
-    display: inline !important;
-  }
-
-  /**
-   * 1. Fix for Firefox bug: an image styled `max-width:100%` within an
-   * inline-block will display at its default size, and not limit its width to
-   * 100% of an ancestral container.
-   */
-  .u-xs-inlineBlock {
-    display: inline-block !important;
-    max-width: 100%; /* 1 */
-  }
-
-  .u-xs-table {
-    display: table !important;
-  }
-
-  .u-xs-tableCell {
-    display: table-cell !important;
-  }
-
-  .u-xs-tableRow {
-    display: table-row !important;
-  }
-}
-
-
 /*
  *  System font stack see https://github.com/twbs/bootstrap/pull/19098/files
  */
 
 :root {
-    --it-Base-font-size-ratio: 1.8;
-    --it-Base-font-size: calc(1rem * var(--it-Base-font-size-ratio));
-    --it-Base-text-color: #1c2024;
-    --it-Base-focus-color: #ff8c00;
-    --it-Base-font-family:
-            -apple-system,
-            BlinkMacSystemFont,
-            Segoe UI,
-            Roboto,
-            Oxygen,
-            Ubuntu,
-            Cantarell,
-            Fira Sans,
-            Droid Sans,
-            HelveticaNeue-Light,
-            Helvetica Neue Light,
-            Helvetica Neue,
-            Helvetica,
-            Arial,
-            Lucida Grande,
-            sans-serif;
+  --it-Base-font-size-ratio: 1.8;
+  --it-Base-font-size: calc(1rem * var(--it-Base-font-size-ratio));
+  --it-Base-text-color: #1c2024;
+  --it-Base-focus-color: #ff8c00;
+  --it-Base-font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans,
+    Droid Sans,
+    HelveticaNeue-Light,
+    Helvetica Neue Light,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    Lucida Grande,
+    sans-serif;
 }
 
 :root {
-    --Grid-gutter-size: 1.6rem;
+  --Grid-gutter-size: 1.6rem;
 }
 
 /*  stylelint-disable */
@@ -145,11 +57,11 @@
 /*  stylelint-enable */
 
 html {
-    font-family: var(--it-Base-font-family);
-    font-size: 62.5%; /* 1 */
-    font-variant-ligatures: common-ligatures; /* 2 */
+  font-family: var(--it-Base-font-family);
+  font-size: 62.5%; /* 1 */
+  font-variant-ligatures: common-ligatures; /* 2 */
 
-    /* text-rendering: optimizeLegibility; */
+  /* text-rendering: optimizeLegibility; */
 }
 
 /**
@@ -157,15 +69,26 @@ html {
  */
 
 body {
-    color: var(--it-Base-text-color);
-    font-size: var(--it-Base-font-size);
-    min-width: 300px; /* 1 */
+  color: var(--it-Base-text-color);
+  font-size: var(--it-Base-font-size);
+  min-width: 300px; /* 1 */
 }
 
 :focus {
-    outline: 3px solid var(--it-Base-focus-color);
+  box-shadow: 0 0 0 3px var(--Border-focus-color) inset !important;
+
+  /*  outline: 3px solid var(--it-Base-focus-color); */
+}
+
+.c-hideFocus :focus {
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 a:hover {
-    text-decoration: underline !important;
+  text-decoration: underline !important;
+}
+
+.footer-container {
+  background-color: var(--Header-banner-bg);
 }

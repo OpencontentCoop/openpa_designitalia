@@ -9,7 +9,7 @@
 
 {if $data.count}
 
-    <div class="content-view-children u-sizeFull">
+    <div class="content-view-children">
         {foreach $data.contents as $child }
             {node_view_gui view=line content_node=$child}
         {/foreach}

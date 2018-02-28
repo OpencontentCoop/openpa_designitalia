@@ -1,3 +1,5 @@
+{set_defaults(hash('show_title', true(), 'link_top_title', true()))}
+
 {def $valid_node = cond( is_set( $block.valid_nodes[0] ), $block.valid_nodes[0], false() )
      $show_link = true()}
 
@@ -42,19 +44,9 @@
       <div class="events_wide_wrapper">
           <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter Grid">
 
-              {if $block.name|ne('')}
+            {if and( $show_title, $block.name|ne('') )}
                 <div class="Grid-cell u-size1of2 u-sm-size1of4 u-md-size1of4">
-                  {if $show_link}
-                      <h3 class="u-text-h3">
-                          <a href="{$valid_node.url_alias|ezurl(no)}" title="Vai al calendario" class="u-color-black">
-                            {$block.name|wash()}
-                          </a>
-                      </h3>
-                  {else}
-                    <h3 class="u-text-h3">
-                        {$block.name|wash()}
-                    </h3>
-                  {/if}
+                  <h3 class="openpa-widget-title u-margin-top-s">{if and($valid_node, $link_top_title)}<a href={$valid_node.url_alias|ezurl()}>{/if}{$block.name|wash()}{if and($valid_node, $link_top_title)}</a>{/if}</h3>
                 </div>
               {/if}
 
@@ -91,7 +83,7 @@
 
       <div class="events_wide_tabs_wrapper">
         {if $day_events_count|ne(0)}
-            <div class="u-layout-centerContent u-cf" id="oggi">
+            <div class="openpa-widget-content u-layout-centerContent u-cf" id="oggi">
                 <section class="js-Masonry-container u-layout-wide" data-columns>
                     {foreach $day_events as $i => $child max 10}
                     <div class="Masonry-item js-Masonry-item">
@@ -103,7 +95,7 @@
         {/if}
 
         {if $prossimi_count|gt(0)}
-            <div id="{$block.custom_attributes.tab_title|slugize}" class="lista_masonry u-layout-centerContent u-cf">
+            <div id="{$block.custom_attributes.tab_title|slugize}" class="lista_masonry openpa-widget-content u-layout-centerContent u-cf">
                 <section class="js-Masonry-container u-layout-wide" data-columns>
                     {foreach $prossimi as $i => $child max 10}
                     <div class="Masonry-item js-Masonry-item">
@@ -114,9 +106,9 @@
             </div>
         {/if}
       </div>
-
     </div>
 
+    {ezscript_require(array('jquery-ui.min.js'))}
     <script type="text/javascript">
         {literal}
         $(document).ready(function() {

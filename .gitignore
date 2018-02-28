@@ -1,4 +1,7 @@
 node_modules
+ita-web-toolkit/node_modules
+node_modules/*
+ita-web-toolkit/node_modules/*
 dist
 .tmp
 bower_components
