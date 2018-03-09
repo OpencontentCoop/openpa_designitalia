@@ -1,8 +1,10 @@
 {def $image = false()
      $aspect_ratio = false()}
-{if $node.data_map.image.content[$image_class]}
-  {set $image = $node.data_map.image.content[$image_class].url|ezroot(no)}
-  {set $aspect_ratio = $node.data_map.image.content[$image_class].height|div($node.data_map.image.content[$image_class].width)|mul(100)}
+{if $node|has_attribute('image')}
+	{if $node|attribute('image').content[$image_class]}
+	  {set $image = $node|attribute('image').content[$image_class].url|ezroot(no)}
+	  {set $aspect_ratio = $node|attribute('image').content[$image_class].height|div($node|attribute('image').content[$image_class].width)|mul(100)}
+	{/if}
 {/if}
 {if $image}
   <div class="carousel-image"
