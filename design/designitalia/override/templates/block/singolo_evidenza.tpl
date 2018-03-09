@@ -1,8 +1,8 @@
 {def $valid_node = $block.valid_nodes[0]
-$image_attribute = ocdesignitalia_main_image($valid_node)
-$image = false()}
+     $image_attribute = $valid_node|attribute('image')
+     $image = false()}
 
-{if $image_attribute.content['agid_wide_carousel']}
+{if and($image_attribute, $image_attribute.content['agid_wide_carousel'])}
   {set $image = $image_attribute.content['agid_wide_carousel'].url|ezroot(no)}
 {/if}
 
