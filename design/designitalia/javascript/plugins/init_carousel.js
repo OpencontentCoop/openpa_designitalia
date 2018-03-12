@@ -28,7 +28,7 @@
             });
 
             if (widePreview) {
-                var wideContainer = $('<div class="u-layout-wide u-layoutCenter u-layout-r-withGutter u-text-r-xs" />');
+                var wideContainer = $('<div class="u-layout-wide u-layoutCenter u-text-r-xs" />');
                 preview.appendTo(wideContainer);
                 wideContainer.appendTo(previewContainer);
             } else {

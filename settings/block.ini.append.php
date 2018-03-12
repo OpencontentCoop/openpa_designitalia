@@ -41,6 +41,8 @@ ViewName[singolo_box]=Panel
 ViewName[singolo_banner]=Banner
 ViewName[singolo_in_evidenza]=In evidenza
 ViewName[singolo_in_evidenza_wide]=In evidenza wide
+ItemsPerRow[]
+ItemsPerRow[singolo_in_evidenza_wide]=1
 
 [Lista]
 Name=Lista automatica
@@ -77,7 +79,9 @@ ViewList[]=lista_num
 ViewList[]=lista_accordion
 ViewList[]=lista_box
 ViewList[]=lista_carousel
+ViewList[]=lista_carousel_wide
 ViewList[]=lista_in_evidenza
+ViewList[]=lista_in_evidenza_wide
 ViewList[]=lista_masonry
 ViewList[]=lista_banner
 ViewName[]
@@ -85,10 +89,17 @@ ViewName[lista_num]=Carousel
 ViewName[lista_accordion]=Accordion
 ViewName[lista_box]=Elenco
 ViewName[lista_carousel]=Slider
+ViewName[lista_carousel_wide]=Slider wide
 ViewName[lista_in_evidenza]=In evidenza
+ViewName[lista_in_evidenza_wide]=In evidenza wide
 ViewName[lista_masonry]=Masonry
 ViewName[lista_banner]=Banner
 TTL=3600
+ItemsPerRow[]
+ItemsPerRow[lista_in_evidenza]=1
+ItemsPerRow[lista_in_evidenza_wide]=1
+ItemsPerRow[lista_carousel]=1
+ItemsPerRow[lista_carousel_wide]=1
 
 [Lista3]
 Name=Lista manuale
@@ -101,7 +112,9 @@ ViewList[]=lista_box
 ViewList[]=lista_box2
 ViewList[]=lista_tab
 ViewList[]=lista_carousel
+ViewList[]=lista_carousel_wide
 ViewList[]=lista_in_evidenza
+ViewList[]=lista_in_evidenza_wide
 ViewList[]=lista_masonry
 ViewName[]
 ViewName[lista_accordion_manual]=Accordion
@@ -109,8 +122,15 @@ ViewName[lista_box]=Elenco ultimi 4 figli
 ViewName[lista_box2]=Elenco su due colonne
 ViewName[lista_tab]=Tabs
 ViewName[lista_carousel]=Slider
+ViewName[lista_carousel_wide]=Slider wide
 ViewName[lista_in_evidenza]=In evidenza
+ViewName[lista_in_evidenza_wide]=In evidenza wide
 ViewName[lista_masonry]=Masonry
+ItemsPerRow[]
+ItemsPerRow[lista_in_evidenza]=1
+ItemsPerRow[lista_in_evidenza_wide]=1
+ItemsPerRow[lista_carousel]=1
+ItemsPerRow[lista_carousel_wide]=1
 
 [Lista4]
 Name=Lista manuale (bc)
@@ -169,6 +189,8 @@ ViewList[]=eventi_wide
 ViewName[eventi]=Tabs
 ViewName[eventi_carousel]=Carousel
 ViewName[eventi_wide]=Wide
+ItemsPerRow[]
+ItemsPerRow[eventi_wide]=1
 
 [Iosono]
 Name=Schede Homepage (Io sono, eventi della vita, ecc...)
@@ -222,6 +244,8 @@ ViewList[]=map_wide
 ViewName[]
 ViewName[geo_located_content_osm]=Mappa (OpenStreetMap)
 ViewName[map_wide]=Mappa wide (OpenStreetMap)
+ItemsPerRow[]
+ItemsPerRow[map_wide]=1
 
 [AreaRiservata]
 ManualAddingOfItems=disabled
@@ -248,6 +272,8 @@ ViewList[]=html
 ViewList[]=html_wide
 ViewName[html]=html
 ViewName[html_wide]=html wide
+ItemsPerRow[]
+ItemsPerRow[html_wide]=1
 
 [Html3Colonne]
 Name=Codice HTML in 3 colonne
