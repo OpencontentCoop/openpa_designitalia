@@ -3,7 +3,7 @@
 
     {if $node|has_attribute( 'image' )}
         <div class="media-image">
-            <a href="{if is_set( $node.url_alias )}{$node.url_alias|ezurl('no')}{else}#{/if}">
+            <a href="{$openpa.content_link.full_link}">
                 {attribute_view_gui attribute=$node|attribute( 'image' ) href=false() image_class=$image_class image_css_class="media-object" fluid=false()}
             </a>
         </div>
