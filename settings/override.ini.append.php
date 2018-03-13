@@ -495,6 +495,13 @@ Subdir=templates
 Match[type]=Lista
 Match[view]=lista_banner
 
+[block_lista_banner2]
+Source=block/view/view.tpl
+MatchFile=block/lista_banner.tpl
+Subdir=templates
+Match[type]=Lista3
+Match[view]=lista_banner
+
 [block_iosono]
 Source=block/view/view.tpl
 MatchFile=block/iosono.tpl

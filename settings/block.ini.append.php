@@ -116,6 +116,7 @@ ViewList[]=lista_carousel_wide
 ViewList[]=lista_in_evidenza
 ViewList[]=lista_in_evidenza_wide
 ViewList[]=lista_masonry
+ViewList[]=lista_banner
 ViewName[]
 ViewName[lista_accordion_manual]=Accordion
 ViewName[lista_box]=Elenco ultimi 4 figli
@@ -126,6 +127,7 @@ ViewName[lista_carousel_wide]=Slider wide
 ViewName[lista_in_evidenza]=In evidenza
 ViewName[lista_in_evidenza_wide]=In evidenza wide
 ViewName[lista_masonry]=Masonry
+ViewName[lista_banner]=Banner
 ItemsPerRow[]
 ItemsPerRow[lista_in_evidenza]=1
 ItemsPerRow[lista_in_evidenza_wide]=1
