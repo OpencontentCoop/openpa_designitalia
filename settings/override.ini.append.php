@@ -307,6 +307,13 @@ Subdir=templates
 Match[type]=Lista
 Match[view]=lista_num
 
+[block_lista_num3]
+Source=block/view/view.tpl
+MatchFile=block/lista_num.tpl
+Subdir=templates
+Match[type]=Lista3
+Match[view]=lista_num
+
 [block_lista_accordion]
 Source=block/view/view.tpl
 MatchFile=block/lista_accordion.tpl

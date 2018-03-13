@@ -16,7 +16,8 @@
                  image_class=squaremedium
                  items_per_row=$items_per_row}
     </div>
-    {if and($openpa.root_node, $link_top_title|not())}
+
+    {if and($openpa.root_node, $link_top_title|not(), $block.type|eq('Lista'))}
       <p class="goto">
         <a href="{$openpa.root_node.url_alias|ezurl(no)}">Vedi tutto <span></span></a>
       </p>
