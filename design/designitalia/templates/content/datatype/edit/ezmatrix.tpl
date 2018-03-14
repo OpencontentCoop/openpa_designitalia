@@ -41,8 +41,8 @@
 
 
 {* Buttons. *}
-<div class="row">
-<div class="col-xs-3">
+<div class="Grid Grid--withGutter">
+<div class="Grid-cell u-sizeFull u-sm-size6of12 u-md-size6of12 u-lg-size6of12">
 {if $matrix.rows.sequential}
 <input id="ezcoa-{if ne( $attribute_base, 'ContentObjectAttribute' )}{$attribute_base}-{/if}{$attribute.contentclassattribute_id}_{$attribute.contentclass_attribute_identifier}_remove_selected" class="button ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}" type="submit" name="CustomActionButton[{$attribute.id}_remove_selected]" value="{'Remove selected'|i18n( 'design/standard/content/datatype' )}" title="{'Remove selected rows from the matrix.'|i18n( 'design/standard/content/datatype' )}" />
 {else}
@@ -54,9 +54,9 @@
         {set row_count=0}
 {/if}
 </div>
-<div class="col-xs-2 col-sm-offset-4">
+<div class="Grid-cell u-size4of12 u-sm-size2of12 u-md-size2of12 u-lg-size1of12">
 <select id="ezcoa-{if ne( $attribute_base, 'ContentObjectAttribute' )}{$attribute_base}-{/if}{$attribute.contentclassattribute_id}_{$attribute.contentclass_attribute_identifier}_add_count"
-        class="form-control matrix_cell ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}"
+        class="Form-input form-control matrix_cell ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}"
         name="{$attribute_base}_data_matrix_add_count_{$attribute.id}"
         title="{'Number of rows to add.'|i18n( 'design/standard/content/datatype' )}" >
     <option value="1">1</option>
@@ -68,7 +68,7 @@
    {/section}
 </select>
 </div>
-<div class="col-xs-3">
+<div class="Grid-cell u-size4of12 u-sm-size4of12 u-md-size3of12 u-lg-size3of12">
 <input id="ezcoa-{if ne( $attribute_base, 'ContentObjectAttribute' )}{$attribute_base}-{/if}{$attribute.contentclassattribute_id}_{$attribute.contentclass_attribute_identifier}_new_row" class="button ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}" type="submit" name="CustomActionButton[{$attribute.id}_new_row]" value="{'Add rows'|i18n('design/standard/content/datatype')}" title="{'Add new rows to the matrix.'|i18n( 'design/standard/content/datatype' )}" />
 </div>
 </div>
