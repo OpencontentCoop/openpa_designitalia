@@ -1,4 +1,4 @@
-{def $limit = 10}
+{def $limit = 9}
 <div class="openpa-full">
   <div class="title">
     <h1><i class="fa fa-tag"></i> {$tag.keyword|wash}</h1>
