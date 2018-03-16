@@ -61,11 +61,20 @@ CustomAttributes[]=state_id
 CustomAttributeNames[]
 CustomAttributeNames[livello_profondita]=Livello di profondità nell'alberatura
 CustomAttributeNames[limite]=Numero di elementi
-CustomAttributeNames[elementi_per_riga]=Elementi per riga: specificare un valore tra 1 e 6 (non ha effetto su Masonry)
+CustomAttributeNames[elementi_per_riga]=Elementi per riga (non ha effetto su Masonry)
 CustomAttributeNames[includi_classi]=Tipologie di contenuto da includere
 CustomAttributeNames[escludi_classi]=Tipologie di contenuto da escludere (alternativo rispetto al precedente)
 CustomAttributeNames[ordinamento]=Ordina per
 CustomAttributeNames[state_id]=Stato
+CustomAttributeTypes[elementi_per_riga]=select
+CustomAttributeSelection_elementi_per_riga[]
+CustomAttributeSelection_elementi_per_riga[unset]=Non specificato
+CustomAttributeSelection_elementi_per_riga[1]=1
+CustomAttributeSelection_elementi_per_riga[2]=2
+CustomAttributeSelection_elementi_per_riga[3]=3
+CustomAttributeSelection_elementi_per_riga[4]=4
+CustomAttributeSelection_elementi_per_riga[5]=5
+CustomAttributeSelection_elementi_per_riga[6]=6
 CustomAttributeTypes[ordinamento]=select
 CustomAttributeTypes[includi_classi]=class_select
 CustomAttributeTypes[escludi_classi]=class_select
@@ -113,7 +122,16 @@ ManualAddingOfItems=enabled
 CustomAttributes[]
 CustomAttributes[]=elementi_per_riga
 CustomAttributeNames[]
-CustomAttributeNames[elementi_per_riga]=Elementi per riga: specificare un valore tra 1 e 6 (non ha effetto su Masonry)
+CustomAttributeNames[elementi_per_riga]=Elementi per riga (non ha effetto su Masonry)
+CustomAttributeTypes[elementi_per_riga]=select
+CustomAttributeSelection_elementi_per_riga[]
+CustomAttributeSelection_elementi_per_riga[unset]=Non specificato
+CustomAttributeSelection_elementi_per_riga[1]=1
+CustomAttributeSelection_elementi_per_riga[2]=2
+CustomAttributeSelection_elementi_per_riga[3]=3
+CustomAttributeSelection_elementi_per_riga[4]=4
+CustomAttributeSelection_elementi_per_riga[5]=5
+CustomAttributeSelection_elementi_per_riga[6]=6
 ViewList[]
 ViewList[]=lista_accordion_manual
 ViewList[]=lista_box
