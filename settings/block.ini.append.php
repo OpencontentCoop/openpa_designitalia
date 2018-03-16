@@ -52,6 +52,7 @@ CustomAttributes[]
 CustomAttributes[]=node_id
 UseBrowseMode[node_id]=true
 CustomAttributes[]=limite
+CustomAttributes[]=elementi_per_riga
 CustomAttributes[]=includi_classi
 CustomAttributes[]=escludi_classi
 CustomAttributes[]=ordinamento
@@ -60,6 +61,7 @@ CustomAttributes[]=state_id
 CustomAttributeNames[]
 CustomAttributeNames[livello_profondita]=Livello di profondità nell'alberatura
 CustomAttributeNames[limite]=Numero di elementi
+CustomAttributeNames[elementi_per_riga]=Elementi per riga: specificare un valore tra 1 e 6 (non ha effetto su Masonry)
 CustomAttributeNames[includi_classi]=Tipologie di contenuto da includere
 CustomAttributeNames[escludi_classi]=Tipologie di contenuto da escludere (alternativo rispetto al precedente)
 CustomAttributeNames[ordinamento]=Ordina per
@@ -84,6 +86,7 @@ ViewList[]=lista_in_evidenza
 ViewList[]=lista_in_evidenza_wide
 ViewList[]=lista_masonry
 ViewList[]=lista_banner
+ViewList[]=lista_panel
 ViewName[]
 ViewName[lista_num]=Carousel
 ViewName[lista_accordion]=Accordion
@@ -94,6 +97,7 @@ ViewName[lista_in_evidenza]=In evidenza
 ViewName[lista_in_evidenza_wide]=In evidenza wide
 ViewName[lista_masonry]=Masonry
 ViewName[lista_banner]=Banner
+ViewName[lista_panel]=Panel
 TTL=3600
 ItemsPerRow[]
 ItemsPerRow[lista_in_evidenza]=1
@@ -106,6 +110,10 @@ Name=Lista manuale
 NumberOfValidItems=15
 NumberOfArchivedItems=0
 ManualAddingOfItems=enabled
+CustomAttributes[]
+CustomAttributes[]=elementi_per_riga
+CustomAttributeNames[]
+CustomAttributeNames[elementi_per_riga]=Elementi per riga: specificare un valore tra 1 e 6 (non ha effetto su Masonry)
 ViewList[]
 ViewList[]=lista_accordion_manual
 ViewList[]=lista_box

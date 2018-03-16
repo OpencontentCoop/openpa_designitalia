@@ -495,6 +495,12 @@ MatchFile=block/lista_masonry.tpl
 Subdir=templates
 Match[view]=lista_masonry
 
+[block_lista_panel]
+Source=block/view/view.tpl
+MatchFile=block/lista_panel.tpl
+Subdir=templates
+Match[view]=lista_panel
+
 [block_lista_banner]
 Source=block/view/view.tpl
 MatchFile=block/lista_banner.tpl
