@@ -2,7 +2,7 @@
 {if is_area_tematica()}
     {def $area = is_area_tematica()}
     {if and( is_set( $area.data_map.cover ), $area.data_map.cover.has_content, $area.data_map.cover.content['original'].height|ge(200))}
-        {set $image = $area.data_map.image}
+        {set $image = $area.data_map.cover}
         <div class="Headroom-hideme Header-homebanner u-hidden u-sm-block u-md-block u-lg-block">
             <div id="Imageheader" role="presentation">
                 <div class="inner"></div>
