@@ -1,10 +1,24 @@
 {if $fields}
-	{def $fieldsParts = $fields|explode( '|' )
-       $class = api_class($fieldsParts[0]|trim())
-       $identifiers = $fieldsParts[1]|explode( ',' )
-       $depth = cond( is_set($fieldsParts[2]), $fieldsParts[2], false() )
-       $currentLanguage = ezini('RegionalSettings','Locale')
-       $depth_query_part = ''}
+	{def $fieldsParts = $fields|explode( '|' )}
+    {def $index = 0
+    	 $group_by = false()}
+    
+    {if $fieldsParts[0]|begins_with('group_by')}
+    	{set $index = 1}
+    	{def $groupParts = $fieldsParts[0]|explode(':')}
+    	{set $group_by = $groupParts[1]}
+    {/if}
+    
+    {def $class = api_class($fieldsParts[$index]|trim())}
+    {set $index = $index|inc()}
+    
+    {def $identifiers = $fieldsParts[$index]|explode( ',' )}
+    {set $index = $index|inc()}
+
+    {def $depth = cond( is_set($fieldsParts[$index]), $fieldsParts[$index], false() )}
+    
+    {def $currentLanguage = ezini('RegionalSettings','Locale')
+         $depth_query_part = ''}
 
 	{if is_set($class.identifier)}
 	    
@@ -26,6 +40,36 @@
 	      {/foreach}
 	    {/foreach} 
 
+        {def $query = concat($depth_query_part, " classes [",$class.identifier,"] subtree [",$node.node_id,"]")}        
+        {def $facet_buttons = array()}
+        
+        {if $group_by}
+            
+            {def $facets_search = api_search(concat($query, ' limit 1 facets [', $group_by, '|alpha|100]'))}            
+            
+            {if is_set($facets_search.facets[0].data)}
+                {foreach $facets_search.facets[0].data as $key => $value}
+                    {if $group_by|ends_with('year____dt]')}
+                        {set $key = $key|explode('-01-01T00:00:00Z')|implode('')}
+                    {/if}
+                    {set $facet_buttons = $facet_buttons|append($key)}
+                    
+                {/foreach}
+                {if or($group_by|eq('anno'), $group_by|ends_with('dt]'))}
+                    {set $facet_buttons = $facet_buttons|reverse}
+                {/if}
+            {/if}
+
+            {if count($facet_buttons)|gt(0)}
+            <div class="state-navigation" data-group="{$group_by}">
+            {foreach $facet_buttons as $index => $facet_button}
+                <a href="#" class="button{if $index|eq(0)} defaultbutton{/if}">{$facet_button|wash()}</a>
+            {/foreach}
+            </div>
+            {/if}
+
+        {/if}
+
 	    {if $class_fields|count()|gt(0)}
 	  
 		    {ezscript_require(array('jquery.dataTables.js', 'jquery.opendataDataTable.js', 'dataTables.bootstrap.js', 'dataTables.responsive.min.js', 'moment-with-locales.min.js', 'moment-timezone-with-data.js'))}
@@ -34,8 +78,8 @@
 		    <script type="text/javascript" language="javascript" class="init">
 		    moment.locale('it');
 		    $(document).ready(function () {ldelim}
-		      $('#container-{$node.node_id}').opendataDataTable({ldelim}
-		        "builder":{ldelim}"query": '{$depth_query_part}classes [{$class.identifier}] subtree [{$node.node_id}]'{rdelim},
+		      var fieldsDatatable = $('#container-{$node.node_id}').opendataDataTable({ldelim}
+		        "builder":{ldelim}"query": '{$query}'{rdelim},
 		        "table":{ldelim}
 		          "id": 'datatable-{$node.node_id}',
 		          "template": '<table class="table table-striped table-bordered display responsive no-wrap" cellspacing="0" width="100%"></table>'
@@ -125,7 +169,40 @@
 		            {/foreach}
 		          ]
 		        {rdelim}
-		      {rdelim}).data('opendataDataTable').loadDataTable();
+		      {rdelim}).data('opendataDataTable');
+	          
+	          {if count($facet_buttons)|gt(0)}
+	          var currentFilterName = $('.state-navigation').data('group');
+	          var setCurrentFilter = function(){ldelim}
+	              var currentFilterValue = $('.state-navigation .defaultbutton').text();
+	              fieldsDatatable.settings.builder.filters[currentFilterName] = {ldelim}
+	                'field': currentFilterName,
+	                {if $group_by|ends_with('year____dt]')}
+	                'operator': 'range',
+	                'value': [currentFilterValue+'-01-01T00:00:00Z',currentFilterValue+'-12-31T00:00:00Z']
+	                {else}
+	                'operator': 'in',
+	                'value': [currentFilterValue]
+	                {/if}
+	              {rdelim};
+	          {rdelim};          
+	          setCurrentFilter();
+
+	          $('.state-navigation .defaultbutton').on('click', function(e){ldelim}
+	            e.preventDefault();
+	          {rdelim});
+	          
+	          $('.state-navigation .button').on('click', function(e){ldelim}
+	            $('.state-navigation .defaultbutton').removeClass('defaultbutton');
+	            $(this).addClass('defaultbutton');
+	            setCurrentFilter();
+	            fieldsDatatable.loadDataTable();
+	            e.preventDefault();
+	          {rdelim});
+	          
+	          {/if}
+
+	          fieldsDatatable.loadDataTable();
 		    {rdelim});
 		    </script>
 		    
