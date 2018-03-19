@@ -57,7 +57,7 @@
             {section var=Rows loop=$matrix.rows.sequential sequence=array( bglight, bgdark )}
                 <tr class="{$Rows.sequence}">
                     {section var=Columns loop=$Rows.item.columns}
-                        <td>{$Columns.item|wash( xhtml )}</td>
+                        <td{if or($Columns.item|begins_with('€'), $Columns.item|ends_with('€'))} style="white-space:nowrap"{/if}>{$Columns.item|wash( xhtml )}</td>
                     {/section}
                 </tr>
             {/section}
