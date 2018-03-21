@@ -45,12 +45,12 @@
           <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter Grid">
 
             {if and( $show_title, $block.name|ne('') )}
-                <div class="Grid-cell u-size1of2 u-sm-size1of4 u-md-size1of4">
+                <div class="Grid-cell u-size1Full u-sm-size2of5 u-md-size2of5 u-lg-size2of5">
                   <h3 class="openpa-widget-title u-margin-top-s">{if and($valid_node, $link_top_title)}<a href={$valid_node.url_alias|ezurl()}>{/if}{$block.name|wash()}{if and($valid_node, $link_top_title)}</a>{/if}</h3>
                 </div>
               {/if}
 
-              <div class="Grid-cell u-size1of2 u-sm-size3of4 u-md-size3of4 events_toolbar u-hidden u-sm-block u-md-block u-lg-block">
+              <div class="Grid-cell u-size1Full u-sm-size3of5 u-md-size3of5 u-lg-size3of5 events_toolbar u-hidden u-sm-block u-md-block u-lg-block">
                   {if and( $day_events_count|gt(0), $prossimi_count|gt(0) )}
                       <ul role="tablist" class="u-floatRight">
                           {if $day_events_count|ne(0)}
