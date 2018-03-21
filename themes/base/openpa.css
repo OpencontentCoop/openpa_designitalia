@@ -684,7 +684,8 @@
 }
 
 .events_wide_wrapper .events_toolbar ul {
-  font-size: 1.4em;
+  /*font-size: 1.4em;*/
+  @extend .u-text-h6;
   text-transform: uppercase;
 }
 
