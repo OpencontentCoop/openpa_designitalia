@@ -1,4 +1,12 @@
-{def $top_menu_node_ids = openpaini( 'TopMenu', 'NodiCustomMenu', array() )}
+{def $is_area_tematica = is_area_tematica()}
+{if and($is_area_tematica, $is_area_tematica|has_attribute('link_al_menu_orizzontale'))}
+    {def $top_menu_node_ids = array()}
+    {foreach $is_area_tematica|attribute('link_al_menu_orizzontale').content.relation_list as $item}
+        {set $top_menu_node_ids = $top_menu_node_ids|append($item.node_id)}
+    {/foreach}
+{else}
+    {def $top_menu_node_ids = openpaini( 'TopMenu', 'NodiCustomMenu', array() )}
+{/if}
 {def $top_menu_node_ids_count = $top_menu_node_ids|count()}
 
 {def $main_styles = openpaini( 'Stili', 'Nodo_NomeStile', array() )}
@@ -92,3 +100,4 @@
         </nav>
     </div>
 </section>
+{undef $is_area_tematica}

@@ -1,11 +1,25 @@
+{def $is_area_tematica = is_area_tematica()}
 {def $footerBlocks = 4
      $has_notes = false()
      $has_contacts = false()
      $has_links  = false()
-     $has_social  = false()
-     $footer_notes = fetch( 'openpa', 'footer_notes' )
-     $footer_links = fetch( 'openpa', 'footer_links' )
+     $has_social  = false()     
      $footerBlocksClass = 'u-sizeFull'}
+
+{if and($is_area_tematica, $is_area_tematica|has_attribute('link'))}
+    {def $footer_links = array()}
+    {foreach $is_area_tematica|attribute('link').content.relation_list as $item}
+        {set $footer_links = $footer_links|append(fetch(content, node, hash(node_id, $item.node_id)))}
+    {/foreach}
+{else}
+    {def $footer_links = fetch( 'openpa', 'footer_links' )}
+{/if}
+
+{if and($is_area_tematica, $is_area_tematica|has_attribute('note_footer'))}
+    {def $footer_notes = $is_area_tematica|attribute('note_footer')}
+{else}
+    {def $footer_notes = fetch( 'openpa', 'footer_notes' )}
+{/if}
 
 {if count( $footer_notes )|gt(0)}
     {set $has_notes = true()}
@@ -13,14 +27,20 @@
     {set $footerBlocks = $footerBlocks|sub(1)}
 {/if}
 
-{if or(is_set($pagedata.contacts.indirizzo), is_set($pagedata.contacts.telefono), is_set($pagedata.contacts.fax),
-       is_set($pagedata.contacts.email), is_set($pagedata.contacts.pec), is_set($pagedata.contacts.web))}
+{if and($is_area_tematica, $is_area_tematica|has_attribute('contacts'))}
+    {def $contacts = parse_contacts_matrix($is_area_tematica)}
+{else}
+    {def $contacts = $pagedata.contacts}
+{/if}
+
+{if or(is_set($contacts.indirizzo), is_set($contacts.telefono), is_set($contacts.fax),
+       is_set($contacts.email), is_set($contacts.pec), is_set($contacts.web))}
     {set $has_contacts = true()}
 {else}
     {set $footerBlocks = $footerBlocks|sub(1)}
 {/if}
 
-{if or(is_set($pagedata.contacts.facebook), is_set($pagedata.contacts.twitter), is_set($pagedata.contacts.linkedin), is_set($pagedata.contacts.instagram))}
+{if or(is_set($contacts.facebook), is_set($contacts.twitter), is_set($contacts.linkedin), is_set($contacts.instagram))}
     {set $has_social = true()}
 {else}
     {set $footerBlocks = $footerBlocks|sub(1)}
@@ -88,7 +108,7 @@
             {if $has_contacts}
                 <div class="Footer-block Grid-cell {$footerBlocksClass}">
                     <h2 class="Footer-blockTitle">Contatti</h2>
-                    {include uri='design:footer/contacts_list.tpl'}
+                    {include uri='design:footer/contacts_list.tpl' contacts=$contacts}
                 </div>
             {/if}
 
