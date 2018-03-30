@@ -2,7 +2,7 @@
     <script type="text/javascript">
         WebFontConfig = {
             google: {
-                families: ['Titillium+Web:200,200i,300,300i,400,400i&subset=latin-ext']
+                families: ['Titillium+Web:200,200i,300,300i,400,400i,600,600i&subset=latin-ext']
             }
         };
         (function() {
