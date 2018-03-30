@@ -11,7 +11,9 @@
                     {if and( $openpa_attribute.full.show_label, $openpa_attribute.full.collapse_label )}
                         <div class="u-text-h5"><strong>{$openpa_attribute.label}</strong></div>
                     {/if}
+                    <div class="Prose{if and( $openpa_attribute.full.show_label, $openpa_attribute.full.collapse_label )} u-padding-left-s{/if}">
                     {attribute_view_gui attribute=$openpa_attribute.contentobject_attribute href=cond($openpa_attribute.full.show_link|not, 'no-link', '') show_newline=true()}
+                    </div>
                 </div>
             </div>
         {/foreach}

@@ -5,7 +5,7 @@
         {/if}
 
         {if is_set( $openpa.content_main.parts.image )}
-            {include uri='design:atoms/image.tpl' item=$node image_class=imagefull css_classes="main_image"}
+            {include uri='design:atoms/image.tpl' item=$node image_class=imagefull css_classes="main_image" image_css_class="img-responsive"}
         {/if}
 
     </article>
