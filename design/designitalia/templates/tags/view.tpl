@@ -1,7 +1,7 @@
 {def $limit = 10}
 <div class="openpa-full">
   <div class="title">
-    <h1><i class="fa fa-tag"></i> {$tag.keyword|wash}</h1>
+    <h2><i class="fa fa-tags"></i> {$tag.keyword|wash}</h2>
   </div>
   <div class="content-container">
     <div class="content">
@@ -21,10 +21,11 @@
                                                             main_node_only, true() ) )}
 
       {if $nodes|count}
-        <div class="openpa-widget-content u-layout-centerContent u-cf">
+        <div class="openpa-widget-content u-layout-centerContent u-cf tags">
           <section class="js-Masonry-container u-layout-wide" data-columns>
             {foreach $nodes as $node}
               <div class="Masonry-item js-Masonry-item">
+                <span class="class-name">{$node.class_name}</span>
                 {node_view_gui content_node=$node view='panel' image_class='agid_panel'}
               </div>
             {/foreach}

@@ -17,7 +17,7 @@
         var customIcon = L.MakiMarkers.icon({icon: "star", color: "#f00", size: "l"});
         var postMarker = new L.marker(latlng,{icon:customIcon});
         postMarker.addTo(map);
-        map.setView(latlng, 18);
+        map.setView(latlng, 16);
         L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
