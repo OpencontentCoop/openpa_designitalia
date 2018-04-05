@@ -23,7 +23,7 @@
 		                <span>{$item.name|wash()}</span>
 		            </a>	
 	            </div>
-            {/if}
+            {/foreach}
 
             {include uri='design:header/languages.tpl'}
 
