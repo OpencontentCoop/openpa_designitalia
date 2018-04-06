@@ -77,7 +77,7 @@
                 $( "#agenda-container" ).on( "tabsactivate", function( event, ui ) {
                   var hash = ui.newTab.context.hash;
                   if (hash == '#agenda') {
-                    view.setFilterValue('date', 'all');
+                    view.setFilterValue('date', 'next 30 days');
                     view.doSearch();
                     refreshCalendar(view);
                     $('.widget[data-filter="date"]').addClass('hide');
