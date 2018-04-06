@@ -123,7 +123,7 @@
                         selectable: false,
                         defaultDate: defaultDate,
                         editable: false,
-                        timeFormat: 'H(:mm)',
+                        timeFormat: 'H:mm',
                         eventClick: function (calEvent, jsEvent, view) {
                             window.location.href = $.opendataTools.settings('accessPath') + '/content/view/full/' + calEvent.content.metadata.mainNodeId;
                         },
@@ -204,7 +204,7 @@
 
 })(jQuery, window, document);
 $(document).ready(function () {
-    $("#agenda-container").tabs({        
+    $("#agenda-container").tabs({
         active: $('.agenda-views .nav-tab').index($('.agenda-views .nav-tab.active')),
         activate: function(event, ui){}
     });

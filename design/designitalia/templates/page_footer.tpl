@@ -3,7 +3,7 @@
      $has_notes = false()
      $has_contacts = false()
      $has_links  = false()
-     $has_social  = false()     
+     $has_social  = false()
      $footerBlocksClass = 'u-sizeFull'}
 
 {if and($is_area_tematica, $is_area_tematica|has_attribute('link'))}
