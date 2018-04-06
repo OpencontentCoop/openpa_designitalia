@@ -30,14 +30,14 @@
       </div>
   </div>
 
-  <div class="Grid-cell u-sizeFull u-margin-all-s hide widget agenda-filters" data-filter="date">
+  <div class="Grid-cell u-sizeFull u-margin-all-s widget agenda-filters {if $current_view|eq('agenda')}hide{/if}" data-filter="date">
       <h4>{'Quando?'|i18n('agenda')}</h4>
       <ul class="u-sm-flexInline u-md-flexInline u-lg-flexInline">
           <li><a href="#" data-value="today">{'Oggi'|i18n('agenda')}</a></li>
           <li><a href="#" data-value="weekend">{'Questo fine settimana'|i18n('agenda')}</a></li>
           <li><a href="#" data-value="next 7 days">{'I prossimi 7 giorni'|i18n('agenda')}</a></li>
-          <li><a href="#" data-value="next 30 days">{'I prossimi 30 giorni'|i18n('agenda')}</a></li>
-          <li class="active"><a href="#" data-value="all">{'Tutti'|i18n('agenda')}</a></li>
+          <li class="active"><a href="#" data-value="next 30 days">{'I prossimi 30 giorni'|i18n('agenda')}</a></li>
+          <li><a href="#" data-value="all">{'Tutti'|i18n('agenda')}</a></li>
       </ul>
   </div>
 </div>

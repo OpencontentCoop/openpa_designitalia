@@ -10,7 +10,7 @@
 
   <div class="Grid-cell u-sizeFull">
     {include uri='design:agenda/parts/calendar/view_pills.tpl' views=$views current_view=$current_view}
-    {include uri='design:agenda/parts/calendar/filters.tpl' view_all=$view_all}
+    {include uri='design:agenda/parts/calendar/filters.tpl' view_all=$view_all current_view=$current_view}
     {include uri='design:agenda/parts/calendar/view_tabs.tpl' views=$views current_view=$current_view}
   </div>
 
