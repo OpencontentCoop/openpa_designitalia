@@ -5,72 +5,111 @@
      $editors = fetch( 'openpa', 'dipendenti', hash( 'struttura', $struttura, 'subtree', array( openpaini( 'ControlloUtenti', 'redattori' ) ) ) )}
 
 {if or( $dipendenti|count(), or( $roles|count(), and( is_set( $struttura.data_map.responsabile ), $struttura.data_map.responsabile.has_content ) ) )}
-    <div class="openpa-widget attribute-personale">
+
+    {def $already_output = array()}    
+
+    <section class="Prose Alert Alert--info">
 
         <h3 class="openpa-widget-title">Personale</h3>
 
-        {if or( $roles|count(), and( is_set( $struttura.data_map.responsabile ), $struttura.data_map.responsabile.has_content ) )}
-            <div class="openpa-widget attribute-ruoli u-padding-bottom-xs">
-                {if $roles|count()}
-                    {foreach $roles as $item}
-                        <p class="Prose">
-                            <strong>{$item.name|wash()}</strong>
-                            <a href= {$item.url_alias|ezurl()}>
-                                {attribute_view_gui attribute=$item.data_map.utente}
-                            </a>
-                        </p>
+        <div class="openpa-widget attribute-ruoli Prose">             
+        
+            <ul>            
+            
+                {if or( $roles|count(), and( is_set( $struttura.data_map.responsabile ), $struttura.data_map.responsabile.has_content ) )}
+                    {if $roles|count()}
+                        {foreach $roles as $item}
+                            <li>
+                                <strong>{$item.name|wash()}: </strong>
+                                <a href= {$item.url_alias|ezurl()}>                                    
+                                    {foreach $item.data_map.utente.content.relation_list as $relation}
+                                        {set $already_output = $already_output|append($relation.contentobject_id)}
+                                        {content_view_gui view=dipendente_link_e_telefono content_object=fetch(content, object, hash(object_id, $relation.contentobject_id))}
+                                    {/foreach}
+                                </a>
+                            </li>
+                        {/foreach}
+
+                    {elseif and( is_set( $struttura.data_map.responsabile ), $struttura.data_map.responsabile.has_content )}
+                        <li>
+                            <strong>{$struttura.data_map.responsabile.contentclass_attribute_name}</strong>
+                            {if $struttura.data_map.responsabile.has_content}                                
+                                {foreach $struttura.data_map.responsabile.content.relation_list as $relation}
+                                    {set $already_output = $already_output|append($relation.contentobject_id)}
+                                    {content_view_gui view=dipendente_link_e_telefono content_object=fetch(content, object, hash(object_id, $relation.contentobject_id))}
+                                {/foreach}
+                            {/if}
+                        </li>
+                    {/if}
+                {/if}
+
+                {if $dipendenti|count()}
+
+                    {def $output_dipendenti = array()}
+                    {def $output_informatici = array()}
+                    {def $output_editors = array()}
+
+                    {foreach $dipendenti as $item}
+                        {if $already_output|contains($item.contentobject_id)|not()}
+                            {set $output_dipendenti = $output_dipendenti|append($item)}
+                        {/if}
                     {/foreach}
 
-                {elseif and( is_set( $struttura.data_map.responsabile ), $struttura.data_map.responsabile.has_content )}
-                    <p class="Prose">
-                        <strong>{$struttura.data_map.responsabile.contentclass_attribute_name}</strong>
-                        {if $struttura.data_map.responsabile.has_content}
-                            {attribute_view_gui attribute=$struttura.data_map.responsabile}
-                        {/if}
-                    </p>
-                {/if}
-            </div>
-        {/if}
-
-        {if $dipendenti|count()}
-            <div class="openpa-widget-content" {if count($dipendenti)|gt(15)}style="height: 180px; overflow-y: scroll; margin-bottom: 20px;"{/if}>
-                <p class="Prose">Dipendenti</p>
-                {foreach $dipendenti as $item}
-                    <p class="Prose">
-                        <a href={$item.url_alias|ezurl()}>{$item.name}</a>
-                        {def $telefoni_correlati=fetch('content', 'list',hash('parent_node_id', openpaini( 'ControlloUtenti', 'telefoni' ),'extended_attribute_filter', hash('id', 'ObjectRelationFilter','params', array(openpaini( 'ControlloUtenti', 'utente_telefono_attribute_ID' ), $item.contentobject_id) ) ) )}
-                        {if $telefoni_correlati|count()}
-                            {foreach $telefoni_correlati as $tel_correlato}
-                                <small>
-                                    {$tel_correlato.name}
-                                    {if $tel_correlato.data_map.numero_interno.has_content}
-                                        (interno: {attribute_view_gui attribute=$tel_correlato.data_map.numero_interno})
-                                    {/if}
-                                </small>
-                            {/foreach}
-                        {elseif is_set( $item.data_map.telefono )}
-                            <small>{attribute_view_gui attribute=$item.data_map.telefono}</small>
-                        {/if}
-                        {undef $telefoni_correlati}
-                    </p>
-                {/foreach}
-
-
-                {if $informatici|count()}
-                    <p class="Prose">Referenti informatici</p>
                     {foreach $informatici as $item}
-                        <p class="Prose"><a href={$item.url_alias|ezurl()}>{$item.name}</a></p>
+                        {if $already_output|contains($item.contentobject_id)|not()}
+                            {set $output_informatici = $output_informatici|append($item)}
+                        {/if}
                     {/foreach}
-                {/if}
 
-                {if $editors|count()}
-                    <p class="Prose">Redattori sito/intranet</p>
                     {foreach $editors as $item}
-                        <p class="Prose"><a href={$item.url_alias|ezurl()}>{$item.name}</a></p>
+                        {if $already_output|contains($item.contentobject_id)|not()}
+                            {set $output_editors = $output_editors|append($item)}
+                        {/if}
                     {/foreach}
+
+                    {if or($output_dipendenti|count(), $output_informatici|count(), $output_editors|count())}
+                        {if $output_dipendenti|count()}
+                            <li>
+                                <strong>Dipendenti:</strong>
+                                <ul style="max-height: 180px; overflow-y: auto; margin-bottom: 20px;">
+                                {foreach $output_dipendenti as $item}
+                                    <li>
+                                        {content_view_gui view=dipendente_link_e_telefono content_object=$item.object}
+                                    </li>
+                                {/foreach}
+                                </ul>
+                            </li>
+                        {/if}
+
+                        {if $output_informatici|count()}
+                            <li>
+                                <strong>Referenti informatici:</strong>
+                                <ul>
+                                {foreach $output_informatici as $item}
+                                    <li>
+                                        {content_view_gui view=dipendente_link_e_telefono content_object=$item.object}
+                                    </li>
+                                {/foreach}
+                                </ul>
+                            </li>
+                        {/if}
+
+                        {if $output_editors|count()}
+                            <li>
+                                <strong>Redattori:</strong>
+                                <ul>
+                                {foreach $ouput_editors as $item}
+                                    <li>
+                                        {content_view_gui view=dipendente_link_e_telefono content_object=$item.object}
+                                    </li>
+                                {/foreach}
+                                </ul>
+                            </li>
+                        {/if}
+                    {/if}
                 {/if}
-            </div>
-        {/if}
-    </div>
+            </ul>
+        </div>
+    </section>
 {/if}
 
