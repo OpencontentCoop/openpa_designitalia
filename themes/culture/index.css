@@ -94,6 +94,18 @@ a:focus {
   color: var(--Color-black) !important;
 }
 
+.Header-logo img {
+@extend .u-alignMiddle;
+
+  height: 7rem;
+  width: 7rem;
+
+@media (--sm-viewport), (--md-viewport), (--lg-viewport) {
+  height: 10.5rem;
+  width: 10.5rem;
+}
+}
+
 .owl-theme .owl-nav {
   top: -83px !important;
 }
