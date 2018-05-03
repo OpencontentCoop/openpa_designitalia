@@ -16,8 +16,9 @@
  * 	Brand color
  */
 :root {
-  --Color-primary: #4689c8;
-  --Color-secondary: #4689c8;
+  /*--Color-primary: #4689c8;*/
+  --Color-primary: #0099d1;
+  --Color-secondary: var(--Color-primary);
   --Prose-color-text-primary: #1c2024;
   --Prose-color-text-secondary: #5a6772;
   --Prose-color-text-highlighted: #b2ebed;
@@ -65,8 +66,9 @@ a:focus {
 }
 
 .Header-navbar {
-  background-color: var(--Color-white) !important;
-  border-bottom: 1px solid var(--Color-primary);
+  /*background-color: var(--Color-primary) !important;*/
+  background-color: color(var(--Color-primary) l(+5%) s(-15%)) !important;
+  border-bottom: 1px solid var(--Color-white);
 }
 
 .Hamburger-toggle,
@@ -117,4 +119,11 @@ a:focus {
 .openpa-panel {
   @extend .u-borderRadius-m;
   border: 1px solid #ccc;
+}
+
+
+.content.withExtra [data-columns]::before {
+  @media (--lg-viewport) {
+    content: "2 .u-floatLeft.u-size1of2";
+  }
 }
