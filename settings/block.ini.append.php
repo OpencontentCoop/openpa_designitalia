@@ -270,9 +270,11 @@ CustomAttributes[]=height
 UseBrowseMode[parent_node_id]=true
 ViewList[]
 ViewList[]=geo_located_content_osm
+ViewList[]=map_nolist
 ViewList[]=map_wide
 ViewName[]
 ViewName[geo_located_content_osm]=Mappa (OpenStreetMap)
+ViewName[map_nolist]=Mappa senza lista (OpenStreetMap)
 ViewName[map_wide]=Mappa wide (OpenStreetMap)
 ItemsPerRow[]
 ItemsPerRow[map_wide]=1

@@ -17,7 +17,8 @@
  */
 :root {
   /*--Color-primary: #4689c8;*/
-  --Color-primary: #0099d1;
+  /*--Color-primary: #0099d1;*/
+  --Color-primary: #007BA7;
   --Color-secondary: var(--Color-primary);
   --Prose-color-text-primary: #1c2024;
   --Prose-color-text-secondary: #5a6772;
@@ -74,7 +75,7 @@ a:focus {
 .Hamburger-toggle,
 .Hamburger-toggle:before,
 .Hamburger-toggle:after {
-  background: var(--Color-black) !important;
+  background: var(--Color-white) !important;
 }
 
 .Hamburger-toggle.is-active {
@@ -121,7 +122,10 @@ a:focus {
   border: 1px solid #ccc;
 }
 
-
+/*
+Fix colonne masonry con sidebar
+todo: spostare in base
+*/
 .content.withExtra [data-columns]::before {
   @media (--lg-viewport) {
     content: "2 .u-floatLeft.u-size1of2";

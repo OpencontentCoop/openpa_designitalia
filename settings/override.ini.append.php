@@ -139,6 +139,13 @@ Subdir=templates
 Match[type]=GMapItems
 Match[view]=map_wide
 
+[block_gmapitems_map_nolist]
+Source=block/view/view.tpl
+MatchFile=block/map_nolist.tpl
+Subdir=templates
+Match[type]=GMapItems
+Match[view]=map_nolist
+
 [block_accesso_area_riservata]
 Source=block/view/view.tpl
 MatchFile=block/accesso_area_riservata.tpl
