@@ -10,8 +10,9 @@
     {/if}
     <div class="media-body">
         <h3 class="media-heading">
-            <a href="{$openpa.content_link.full_link}">{$node.name|wash()}</a>
-            <small>{$openpa.content_link.full_link}</small>
+            <a href="{$openpa.content_link.full_link}" title="Link esterno alla pagina {$openpa.content_link.full_link|wash()}">
+                <i class="fa fa-icon"></i> {$node.name|wash()}
+            </a>
         </h3>
         {$node|abstract()}
         {include uri="design:parts/toolbar/node_edit.tpl" current_node=$node}
