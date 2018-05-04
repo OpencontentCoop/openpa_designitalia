@@ -11,7 +11,7 @@
     <div class="media-body">
         <h3 class="media-heading">
             <a href="{$openpa.content_link.full_link}" title="Link esterno alla pagina {$openpa.content_link.full_link|wash()}">
-                <i class="fa fa-icon"></i> {$node.name|wash()}
+                <i class="fa fa-external-link"></i> {$node.name|wash()}
             </a>
         </h3>
         {$node|abstract()}
