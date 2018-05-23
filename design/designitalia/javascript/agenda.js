@@ -77,8 +77,8 @@
                 $( "#agenda-container" ).on( "tabsactivate", function( event, ui ) {
                   var hash = ui.newTab.context.hash;
                   if (hash == '#agenda') {
-                    view.setFilterValue('date', 'next 30 days');
-                    view.doSearch();
+                    // view.setFilterValue('date', 'next 30 days');
+                    // view.doSearch();
                     refreshCalendar(view);
                     $('.widget[data-filter="date"]').addClass('hide');
                     isChangeView = true;
@@ -127,11 +127,23 @@
                         eventClick: function (calEvent, jsEvent, view) {
                             window.location.href = $.opendataTools.settings('accessPath') + '/content/view/full/' + calEvent.content.metadata.mainNodeId;
                         },
-                        events: {
-                            url: tools.settings().endpoint.fullcalendar,
-                            data: function () {
-                                return {q: view.getQuery()};
-                            }
+                        events: function(start, end, timezone, callback) {
+                            var currentQueryParts = view.buildQuery();
+                            currentQueryParts.filters.date = null;
+                            var startQuery = start.set('hour', 0).set('minute', 0).format('YYYY-MM-DD HH:mm');
+                            var endQuery = end.set('hour', 23).set('minute', 59).format('YYYY-MM-DD HH:mm');
+                            var data = {
+                                q: encodeURIComponent(view.buildQueryParts(currentQueryParts)),
+                                start: startQuery,
+                                end: endQuery
+                            };
+                            $.ajax({
+                                url: tools.settings().endpoint.fullcalendar,
+                                data: data,
+                                success: function(events) {                                    
+                                    callback(events);
+                                }
+                            });
                         }
                     });
                 }

@@ -46,6 +46,10 @@ var OpenpaAgendaDateFilter = {
                     start = moment().day(6);
                     end = moment().day(7);
                     break;
+                case 'month':
+                    start = moment().startOf('month');
+                    end = moment().endOf('month');
+                    break;
                 case 'next 7 days':
                     start = moment();
                     end = moment().add(7, 'days');
