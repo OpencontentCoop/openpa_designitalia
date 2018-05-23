@@ -63,7 +63,7 @@
             <div class="u-background-95 u-padding-all-xl u-layoutCenter u-hiddenPrint">
                 <p class="u-textCenter u-margin-top-m u-margin-bottom-m">
                     <a href="#" id="toggle-validation" class="u-color-white u-textClean u-text-h3">
-                        <span class="u-padding-r-right Icon Icon-comment"></span> Valuta questo sito
+                        <span class="u-padding-r-right Icon Icon-comment"></span> {'Valuta questo sito'|i18n('openpa/valuation')}
                     </a>
                 </p>
                 <div style="display: none" id="openpa-valuation">
@@ -96,7 +96,7 @@
 
             {if $has_notes}
                 <div class="Footer-block Grid-cell {$footerBlocksClass}">
-                    <h2 class="Footer-blockTitle">Informazioni</h2>
+                    <h2 class="Footer-blockTitle">{'Informazioni'|i18n('openpa/footer')}</h2>
                     <div class="Footer-subBlock">
                         <div class="u-lineHeight-xl u-color-white">
                             {attribute_view_gui attribute=$footer_notes}
@@ -107,14 +107,14 @@
 
             {if $has_contacts}
                 <div class="Footer-block Grid-cell {$footerBlocksClass}">
-                    <h2 class="Footer-blockTitle">Contatti</h2>
+                    <h2 class="Footer-blockTitle">{'Contatti'|i18n('openpa/footer')}</h2>
                     {include uri='design:footer/contacts_list.tpl' contacts=$contacts}
                 </div>
             {/if}
 
             {if $has_links}
                 <div class="Footer-block Grid-cell {$footerBlocksClass}">
-                    <h2 class="Footer-blockTitle">Links</h2>
+                    <h2 class="Footer-blockTitle">{'Links'|i18n('openpa/footer')}</h2>
                     <ul>
                         {foreach $footer_links as $item}
                             {def $href = $item.url_alias|ezurl(no)}
@@ -136,7 +136,7 @@
 
             {if $has_social}
                 <div class="Footer-block Grid-cell {$footerBlocksClass}">
-                    <h2 class="Footer-blockTitle">Seguici su</h2>
+                    <h2 class="Footer-blockTitle">{'Seguici su'|i18n('openpa/footer')}</h2>
                     {include uri='design:footer/social.tpl'}
                 </div>
             {/if}
@@ -161,7 +161,7 @@
 
 <a href="#" title="torna all'inizio del contenuto" class="ScrollTop js-scrollTop js-scrollTo">
     <i class="ScrollTop-icon Icon-collapse" aria-hidden="true"></i>
-    <span class="u-hiddenVisually">torna all'inizio del contenuto</span>
+    <span class="u-hiddenVisually">{"torna all'inizio del contenuto"|i18n('openpa/footer')}</span>
 </a>
 
 {undef}

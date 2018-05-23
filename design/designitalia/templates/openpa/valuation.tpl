@@ -27,24 +27,24 @@
                             <label class="Form-label Form-label--block u-color-black" for="utilita1">
                                 <input class="Form-input" id="utilita1" type="radio" value="0"
                                        name="ContentObjectAttribute_ezselect_selected_array_{$data_map.useful.id}[]"/>
-                                <span class="Form-fieldIcon" role="presentation"></span> per nulla
+                                <span class="Form-fieldIcon" role="presentation"></span> {'per nulla'|i18n('openpa/valuation')}
                             </label>
 
                             <label class="Form-label Form-label--block u-color-black" for="utilita2">
                                 <input class="Form-input" id="utilita2" type="radio" value="1"
                                        name="ContentObjectAttribute_ezselect_selected_array_{$data_map.useful.id}[]"/>
-                                <span class="Form-fieldIcon" role="presentation"></span> poco
+                                <span class="Form-fieldIcon" role="presentation"></span> {'poco'|i18n('openpa/valuation')}
                             </label>
 
                             <label class="Form-label Form-label--block u-color-black" for="utilita3">
                                 <input class="Form-input" id="utilita3" type="radio" value="2"
                                        name="ContentObjectAttribute_ezselect_selected_array_{$data_map.useful.id}[]"/>
-                                <span class="Form-fieldIcon" role="presentation"></span> abbastanza
+                                <span class="Form-fieldIcon" role="presentation"></span> {'abbastanza'|i18n('openpa/valuation')}
                             </label>
                             <label class="Form-label Form-label--block u-color-black" for="utilita4">
                                 <input class="Form-input" id="utilita4" type="radio" value="3"
                                        name="ContentObjectAttribute_ezselect_selected_array_{$data_map.useful.id}[]"/>
-                                <span class="Form-fieldIcon" role="presentation"></span> molto
+                                <span class="Form-fieldIcon" role="presentation"></span> {'molto'|i18n('openpa/valuation')}
                             </label>
 
                         </fieldset>
@@ -60,25 +60,25 @@
                             <label class="Form-label Form-label--block u-color-black" for="semplicita1">
                                 <input class="Form-input" id="semplicita1" type="radio" value="0"
                                        name="ContentObjectAttribute_ezselect_selected_array_{$data_map.easy.id}[]"/>
-                                <span class="Form-fieldIcon" role="presentation"></span> per nulla
+                                <span class="Form-fieldIcon" role="presentation"></span> {'per nulla'|i18n('openpa/valuation')}
                             </label>
 
                             <label class="Form-label Form-label--block u-color-black" for="semplicita2">
                                 <input class="Form-input" id="semplicita2" type="radio" value="1"
                                        name="ContentObjectAttribute_ezselect_selected_array_{$data_map.easy.id}[]"/>
-                                <span class="Form-fieldIcon" role="presentation"></span> poco
+                                <span class="Form-fieldIcon" role="presentation"></span> {'poco'|i18n('openpa/valuation')}
                             </label>
 
                             <label class="Form-label Form-label--block u-color-black" for="semplicita3">
                                 <input class="Form-input" id="semplicita3" type="radio" value="2"
                                        name="ContentObjectAttribute_ezselect_selected_array_{$data_map.easy.id}[]"/>
-                                <span class="Form-fieldIcon" role="presentation"></span> abbastanza
+                                <span class="Form-fieldIcon" role="presentation"></span> {'abbastanza'|i18n('openpa/valuation')}
                             </label>
 
                             <label class="Form-label Form-label--block u-color-black" for="semplicita4">
                                 <input class="Form-input" id="semplicita4" type="radio" value="3"
                                        name="ContentObjectAttribute_ezselect_selected_array_{$data_map.easy.id}[]"/>
-                                <span class="Form-fieldIcon" role="presentation"></span> molto
+                                <span class="Form-fieldIcon" role="presentation"></span> {'molto'|i18n('openpa/valuation')}
                             </label>
                         </fieldset>
                     {/if}
@@ -168,7 +168,7 @@
                     <input type="hidden" value="{$valutazione.main_node.node_id}" name="ContentNodeID"/>
                     <input type="hidden" value="{$valutazione.id}" name="ContentObjectID"/>
                     <input type="hidden" name="ViewMode" value="full"/>
-                    <input class="Button Button--info pull-right" type="submit" value="Invia la valutazione"
+                    <input class="Button Button--info pull-right" type="submit" value="{'Invia la valutazione'|i18n('openpa/valuation')}"
                            name="ActionCollectInformation"/>
 
                 </div>
