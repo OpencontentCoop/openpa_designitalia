@@ -18,7 +18,7 @@
                     <a class="Card-titleLink" href="{{:~agendaUrl(metadata.mainNodeId)}}"title="{{:~i18n(data,'titolo')}}">{{:~i18n(data,'titolo')}}</a>
                 </h3>
 
-                {{if ~formatDate(~i18n(data,'to_time'),'Y.MM.D') !== ~formatDate(~i18n(data,'from_time'),'Y.MM.D')}}
+                {{if ~i18n(data,'to_time') && ~formatDate(~i18n(data,'to_time'),'Y.MM.D') !== ~formatDate(~i18n(data,'from_time'),'Y.MM.D')}}
                     <div class="place">
                         <i class="fa fa-calendar"></i> {{:~formatDate(~i18n(data,'from_time'),'D MMMM')}} - {{:~formatDate(~i18n(data,'to_time'),'D MMMM')}}
                     </div>
@@ -32,10 +32,10 @@
 
                <div class="place">
                 {{if ~i18n(data,'luogo')}}
-                  <p><i class="fa fa-map-marker" aria-hidden="true"></i>{{for ~i18n(data,'luogo')}}{{>~i18n(name)}}{{/for}}</p>
+                  <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{for ~i18n(data,'luogo')}}{{>~i18n(name)}}{{/for}}</p>
                 {{else}}
                   {{if ~i18n(data,'luogo_svolgimento')}}
-                    <p><i class="fa fa-map-marker" aria-hidden="true"></i>{{:~i18n(data,'luogo_svolgimento')}}</p>
+                    <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{:~i18n(data,'luogo_svolgimento')}}</p>
                   {{/if}}
                 {{/if}}
               </div>
