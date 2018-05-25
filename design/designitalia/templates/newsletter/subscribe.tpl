@@ -215,12 +215,12 @@
                 </p>
             </div>
         </form>
-    {/if}
 
-    <div class="Prose u-margin-top-xl" id="informativa">
-      <h2>Informativa sul trattamento dei dati personali</h2>
-      {include uri='design:newsletter/informativa.tpl'}
-    </div>
+        <div class="Prose u-margin-top-xl" id="informativa">
+          <h2>Informativa sul trattamento dei dati personali</h2>
+          {include uri='design:newsletter/informativa.tpl'}
+        </div>
+    {/if}
 
 </div>
 
