@@ -13,7 +13,7 @@
             {*attribute_view_gui attribute=$image_attribute image_class="agid_panel" fluid=$fluid*}
               <a href="{$openpa.content_link.full_link}" aria-hidden="true" tabindex="-1">
                   <img src="{$image_attribute.content['agid_panel'].full_path|ezroot(no)}"
-                       alt=""
+                       alt="Immagine decorativa per il contenuto {$node.name|wash()}"
                        class="u-sizeFull"
                        role="presentation" />
               </a>

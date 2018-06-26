@@ -28,7 +28,9 @@
                 <div class="Grid-cell u-md-size1of{$size} u-lg-size1of{$size} u-padding-bottom-xs">
                     <a class="u-sizeFull u-textClean u-text-m {$bg_class} u-floatLeft {if $item|has_attribute('image')|not} u-textCenter{/if} u-borderShadow-xxs u-borderRadius-m" href="{$openpa_item.content_link.full_link}" style="height: 100px; overflow: hidden;">
                         {if $item|has_attribute('image')}
-                            <img src="{$item|attribute('image').content['agid_square'].full_path|ezroot(no)}" alt="" class="u-margin-right-xs u-floatLeft" height="100" />
+                            <img src="{$item|attribute('image').content['agid_square'].full_path|ezroot(no)}"
+                                 alt="Immagine decorativa per il contenuto {$item.name|wash()}"
+                                 class="u-margin-right-xs u-floatLeft" height="100" />
                         {/if}
                         <span class="u-block u-padding-all-s">{$item.name|oc_shorten(120)}</span>
                     </a>

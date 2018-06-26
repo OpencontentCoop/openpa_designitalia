@@ -14,7 +14,7 @@
         {*attribute_view_gui attribute=$image_attribute image_class="agid_panel" fluid=$fluid*}
           <a href="{$openpa_valid_node.content_link.full_link}" aria-hidden="true" tabindex="-1">
               <img src="{$image}"
-                   alt=""
+                   alt="Immagine decorativa per il contenuto {$valid_node.name|wash()}"
                    class="u-sizeFull"
                    role="presentation" />
           </a>
