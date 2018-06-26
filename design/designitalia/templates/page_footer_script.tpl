@@ -1,5 +1,5 @@
 {if ezini('GeneralSettings','SocialButtons', 'openpa.ini')|eq('enabled')}
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={ezini('GeneralSettings','SocialPubId', 'openpa.ini')}"></script>
+  <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid={ezini('GeneralSettings','SocialPubId', 'openpa.ini')}"></script>
 {/if}
 
 <!--[if IE 8]>

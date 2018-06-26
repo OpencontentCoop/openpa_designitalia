@@ -72,7 +72,7 @@
 	    {ezscript_require(array('jquery.dataTables.js', 'jquery.opendataDataTable.js', 'dataTables.bootstrap.js', 'dataTables.responsive.min.js', 'moment-with-locales.min.js', 'moment-timezone-with-data.js'))}
 	    {ezcss_require(array('dataTables.bootstrap.css','responsive.dataTables.min.css'))}
 	    
-	    <script type="text/javascript" language="javascript" class="init">
+	    <script class="init">
 	    moment.locale('it');
 	    $(document).ready(function () {ldelim}
 

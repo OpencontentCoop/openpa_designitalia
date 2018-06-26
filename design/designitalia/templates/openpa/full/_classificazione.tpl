@@ -27,7 +27,7 @@
 {ezcss_require( array('dataTables.bootstrap.css'))}
 {ezscript_require(array('ezjsc::jquery','plugins/chosen.jquery.js','moment.min.js','jquery.dataTables.js','dataTables.bootstrap.js','jquery.opendataDataTable.js','jquery.opendataTools.js', 'plugins/classificazione.js'))}
 
-<script type="text/javascript" language="javascript" class="init">
+<script class="init">
     var mainQuery = "{concat( 'raw[', solr_meta_subfield($subfield_identifier,$subfield_identifier_property), '] = ', $node.contentobject_id )}";
     var facets = [{foreach $facets as $identifier => $name}{ldelim}field: '{$identifier|explode('(')|implode('[')|explode(')')|implode(']')}', 'limit': 300, 'sort': 'alpha', name: '{$name}'{rdelim}{delimiter},{/delimiter}{/foreach}];
     {literal}
