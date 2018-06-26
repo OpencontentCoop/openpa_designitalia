@@ -108,8 +108,7 @@
                     {if is_set($data_map.antispam)}
                         {if $data_map.antispam.data_type_string|eq('ocrecaptcha')}
                             <div class="Form-field">
-                                <label class="Form-label"
-                                       for="g-recaptcha-response">{$data_map.antispam.contentclass_attribute_name|wash()}</label>
+                                <label class="Form-label">{$data_map.antispam.contentclass_attribute_name|wash()}</label>
                                 {attribute_view_gui attribute=$data_map.antispam}
                             </div>
                         {else}

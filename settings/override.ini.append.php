@@ -40,6 +40,13 @@ MatchFile=datatype/link_video.tpl
 Subdir=templates
 Match[attribute_identifier]=codice_video_3
 
+[datatype_link_applicativo]
+Source=content/datatype/view/ezurl.tpl
+MatchFile=datatype/link_applicativo.tpl
+Subdir=templates
+Match[class_identifier]=applicativo
+Match[attribute_identifier]=location_applicativo
+
 ############################################
 ############################################ EMBED
 ############################################

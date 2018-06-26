@@ -25,7 +25,7 @@ Input:
          alt_text=''
          fluid=true()
          title=''
-         role = 'img'}
+         role = false()}
 
 {let image_content = $attribute.content}
 
@@ -83,7 +83,7 @@ Input:
             {set $inline_style = concat( $inline_style, 'margin: ', $margin_size, 'px;' )}
         {/if}
         {if $href}<a title="{$title|wash(xhtml)}" href={$href}{if and( is_set( $link_class ), $link_class )} class="{$link_class}"{/if}{if and( is_set( $link_id ), $link_id )} id="{$link_id}"{/if}{if $target} target="{$target}"{/if}>{/if}
-        <img src={$image.url|ezroot} {if $image_css_classes|count()|gt(0)}class="{$image_css_classes|implode(" ")}"{/if} {if and(is_set($inline_style), ne($inline_style, ''))}{concat('style="', $inline_style, '"')}{/if} {if $hspace}hspace="{$hspace}"{/if} alt="{$alt_text|wash(xhtml)}" title="{$title|wash(xhtml)}" role="{$role}" />
+        <img src={$image.url|ezroot} {if $image_css_classes|count()|gt(0)}class="{$image_css_classes|implode(" ")}"{/if} {if and(is_set($inline_style), ne($inline_style, ''))}{concat('style="', $inline_style, '"')}{/if} {if $hspace}hspace="{$hspace}"{/if} alt="{$alt_text|wash(xhtml)}" title="{$title|wash(xhtml)}"{if $role} role="{$role}"{/if}/>
         {if $href}</a>{/if}
     {/if}
 

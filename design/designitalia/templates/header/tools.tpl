@@ -15,6 +15,9 @@
 <div class="Header-utils Grid-cell">
   <div class="Header-social Headroom-hideme">
     {if or(is_set($pagedata.contacts.facebook), is_set($pagedata.contacts.twitter), is_set($pagedata.contacts.linkedin), is_set($pagedata.contacts.instagram))}
+      
+      <p class="u-color-95">Seguici su</p>
+
       <ul class="Header-socialIcons">
         {if is_set($pagedata.contacts.facebook)}
           <li>
@@ -61,8 +64,8 @@
           </li>
         {/if}
 
-        {def $forms = fetch( 'content', 'class', hash( 'class_id', 'feedback_form' ) )
-             $form = $forms.object_list[0]}
+        {def $forms = fetch( 'content', 'class', hash( 'class_id', 'feedback_form' ) ).object_list
+             $form = cond(is_set($forms[0]), $forms[0], false())}
         {if $form}
           <li>
             <a href="{$form.main_node.url_alias|ezurl(no)}">

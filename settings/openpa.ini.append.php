@@ -19,9 +19,10 @@ theme=pac
 # Se non dichiarato prende come default 1
 valutation=1
 
-# Abilita / Disabilita l'header service (Accedi ai servizi), valori permessi : 0,1
-# Se non dichiarato prende come default 1
-valutation=1
+# Abilita / Disabilita il link ai servizi (Accedi ai servizi) nel megamenu, valori permessi : 0,1
+# Se non dichiarato prende come default 0
+# Devi creare un url alias /accedi-ai-servizi che punti alla pagina dei servizi
+service_menu=0
 
 # Se non dichiarato prende favicon.ico
 favicon=favicon.ico
