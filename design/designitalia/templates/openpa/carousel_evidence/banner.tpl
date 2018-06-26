@@ -10,7 +10,7 @@
       {if $node.data_map.image.content}
           <div class="Hero-image u-sm-hidden u-md-hidden u-lg-hidden">
             {*attribute_view_gui attribute=$image_attribute image_class="agid_panel" fluid=$fluid*}
-              <a href="{$openpa.content_link.full_link}" aria-hidden="true" role="presentation" tabindex="-1">
+              <a href="{$openpa.content_link.full_link}" aria-hidden="true" tabindex="-1">
                   <img src="{$image}"
                        alt=""
                        class="u-sizeFull"

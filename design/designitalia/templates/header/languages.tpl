@@ -17,7 +17,7 @@
             {$lang.text|wash|upcase}
           </a>
         {else}
-          <a class="Header-language u-hidden u-md-inlineBlock u-lg-inlineBlock" title="{$lang.text|wash|upcase}" href={$lang.url|ezurl} lang="{$lang.locale|extract_right(2)|downcase}">
+          <a class="Header-language u-hidden u-md-inlineBlock u-lg-inlineBlock" title="{$lang.text|wash|upcase}" href={$lang.url|ezurl}>
             {$lang.text|wash|upcase}
           </a>
 

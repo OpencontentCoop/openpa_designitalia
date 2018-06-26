@@ -18,7 +18,7 @@
             <div class="Grid-cell u-sizeFull u-md-size1of2 u-lg-size1of2 u-text-r-s u-padding-r-all">
                 {if $node|has_attribute('image')}
                     <div class="openpa-panel-image">
-                        <a href="{$node.url_alias|ezurl(no)}" aria-hidden="true" role="presentation" tabindex="-1">
+                        <a href="{$node.url_alias|ezurl(no)}" aria-hidden="true" tabindex="-1">
                             <img src="{$node|attribute('image').content['singolo'].full_path|ezroot(no)}"
                                  alt=""
                                  class="u-sizeFull"

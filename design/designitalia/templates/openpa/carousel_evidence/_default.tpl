@@ -11,7 +11,7 @@
       {if $image_attribute}
           <div class="Hero-image u-sm-hidden u-md-hidden u-lg-hidden">
             {*attribute_view_gui attribute=$image_attribute image_class="agid_panel" fluid=$fluid*}
-              <a href="{$openpa.content_link.full_link}" aria-hidden="true" role="presentation" tabindex="-1">
+              <a href="{$openpa.content_link.full_link}" aria-hidden="true" tabindex="-1">
                   <img src="{$image_attribute.content['agid_panel'].full_path|ezroot(no)}"
                        alt=""
                        class="u-sizeFull"
