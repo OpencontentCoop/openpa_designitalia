@@ -85,15 +85,12 @@
            role="search">
 
         {if is_area_tematica()}
-          <input type="hidden" value="{is_area_tematica().node_id}" name="SubTreeArray[]"/>
-          <input type="text" id="cerca" class="Form-input Grid-cell u-sizeFill u-text-r-s u-color-black u-text-r-xs"
-                 required name="SearchText" {if $pagedata.is_edit}disabled="disabled"{/if}>
-          <label class="Form-label u-color-grey-50 u-text-r-xxs" for="cerca">Cerca
-            in {is_area_tematica().name|wash()}</label>
+            <input type="hidden" value="{is_area_tematica().node_id}" name="SubTreeArray[]"/>
+            <label class="Form-label u-color-grey-50 u-text-r-xxs" for="cerca">Cerca in {is_area_tematica().name|wash()}</label>
+            <input type="text" id="cerca" class="Form-input Grid-cell u-sizeFill u-text-r-s u-color-black u-text-r-xs" required name="SearchText" {if $pagedata.is_edit}disabled="disabled"{/if}>
         {else}
-          <input type="text" id="cerca" class="Form-input Grid-cell u-sizeFill u-text-r-s u-color-black u-text-r-xs"
-                 required name="SearchText" {if $pagedata.is_edit}disabled="disabled"{/if}>
-          <label class="Form-label u-color-grey-50 u-text-r-xxs" for="cerca">Cerca nel sito</label>
+            <label class="Form-label u-color-grey-50 u-text-r-xxs" for="cerca">Cerca nel sito</label>
+            <input type="text" id="cerca" class="Form-input Grid-cell u-sizeFill u-text-r-s u-color-black u-text-r-xs" required name="SearchText" {if $pagedata.is_edit}disabled="disabled"{/if}>
         {/if}
 
         <button type="submit" value="cerca" name="SearchButton" {if $pagedata.is_edit}disabled="disabled"{/if}
