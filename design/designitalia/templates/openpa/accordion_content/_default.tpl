@@ -7,7 +7,7 @@
 
     {if $node|has_attribute('image')}
     <a href="{$openpa.content_link.full_link}">
-        {attribute_view_gui image_class=$image_class attribute=$node|attribute('image') href=false() image_css_class=$image_css_class fluid=$fluid alt_text=concat("Immagine decorativa per il contenuto", $node.name|wash())}
+        {attribute_view_gui image_class=$image_class attribute=$node|attribute('image') href=false() image_css_class=$image_css_class fluid=$fluid alt_text=concat("Immagine decorativa per il contenuto ", $node.name|wash())}
     </a>  
   {/if}
 
