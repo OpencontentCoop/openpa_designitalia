@@ -52,7 +52,7 @@
 {/if}
 
 {ezscript_require(array( 'ezjsc::jquery' ) )}
-<script type="text/javascript">
+<script>
 {literal}
 $(function() {
 	$(".block-search-advanced-link p").click(function () {

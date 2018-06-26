@@ -16,7 +16,7 @@
 <script src="{'javascript/IWT.min.js'|ezdesign(no)}"></script>
 
 {if openpaini( 'Seo', 'GoogleAnalyticsAccountID', false() )}
-<script type="text/javascript">
+<script>
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', '{openpaini( 'Seo', 'GoogleAnalyticsAccountID' )}']);
   _gaq.push(['_setAllowLinker', true]);

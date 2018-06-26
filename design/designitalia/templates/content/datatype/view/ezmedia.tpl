@@ -77,7 +77,7 @@
 
     {case match=silverlight}
     {literal}
-        <script type="text/javascript">
+        <script>
             function onErrorHandler(sender, args) { }
             function onResizeHandler(sender, args) { }
         </script>

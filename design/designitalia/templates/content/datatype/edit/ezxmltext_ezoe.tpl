@@ -78,7 +78,7 @@
     <script id="tinymce_script_loader" type="text/javascript" src={"javascript/tiny_mce_jquery.js"|ezdesign} charset="utf-8"></script>
     {ezscript( $dependency_js_list )}
     <!-- Init TinyMCE script -->
-    <script type="text/javascript">
+    <script>
     var eZOeAttributeSettings, eZOeGlobalSettings = {ldelim}
         mode : "none",
         theme : "ez",
@@ -199,7 +199,7 @@
         {if $input_handler.can_disable}
             <input class="button{if $layout_settings['buttons']|contains('disable')} hide{/if}" type="submit" name="CustomActionButton[{$attribute.id}_disable_editor]" value="{'Disable editor'|i18n('design/standard/content/datatype')}" />
         {/if}
-        <script type="text/javascript">
+        <script>
         eZOeAttributeSettings = eZOeGlobalSettings;
         eZOeAttributeSettings['ez_attribute_id'] = {$attribute.id};
         eZOeAttributeSettings['theme_advanced_buttons1'] = "{$layout_settings['buttons']|implode(',')}";

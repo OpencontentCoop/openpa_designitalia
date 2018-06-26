@@ -27,7 +27,7 @@
     </div>
 </div>
 
-    <script type="text/javascript">
+    <script>
         {literal}
         $(document).ready(function() {
             $("#{/literal}{$block.id}{literal}").tabs();

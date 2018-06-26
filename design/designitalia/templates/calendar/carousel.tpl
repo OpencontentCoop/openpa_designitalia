@@ -23,7 +23,7 @@
         {/foreach}
     </div>
 
-    <script type="text/javascript">
+    <script>
         $(document).ready(function() {ldelim}
             $("#carousel_{$css_id}").owlCarousel({ldelim}
                 responsive:{ldelim}

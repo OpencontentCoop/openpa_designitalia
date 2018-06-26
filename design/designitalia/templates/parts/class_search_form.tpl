@@ -199,7 +199,7 @@
     <input name="ClassArray[]" type="hidden" value="{$class.id|wash()}"/>
 
 
-    <script type="text/javascript">
+    <script>
         {literal}
         $(function () {
             $(".from_picker").datepicker({

@@ -40,7 +40,7 @@
     </select>
     <input name="{$prefix_attribute}_ezsurvey_answer2_{$question.id}_{$attribute_id}" value="{$answer2}" />
 </div>
-<script type="text/javascript">
+<script>
 
 {if ne( $answer, 'other' )}
     {literal}

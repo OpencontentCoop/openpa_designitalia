@@ -1,6 +1,6 @@
 {ezscript_require( array( 'ezjsc::yui3', 'ezjsc::yui3io') )}
 {ezcss_require( 'ezmultiupload.css' )}
-<script type="text/javascript">
+<script>
     (function(config){ldelim}
         config['modules']['ezmultiupload'] = {ldelim}
             type: 'js',

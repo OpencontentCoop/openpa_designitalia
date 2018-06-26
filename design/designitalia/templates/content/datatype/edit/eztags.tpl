@@ -58,7 +58,7 @@
         {include uri=concat( 'design:content/datatype/edit/view/', $builder|downcase, '.tpl' )}
     </div>
 
-<script type="text/javascript">
+<script>
 {run-once}
 $.EzTags.Base.defaults.translations = {ldelim}{*
 *}"selectedTags":"{'Selected tags'|i18n( 'extension/eztags/datatypes' )}",{*

@@ -99,7 +99,7 @@
 	  <input class="btn btn-info btn-sm" type="submit" name="CustomActionButton[{$attribute_id}_ezsurvey_mc_{$question.id}_uncheck_options]" value="{'Uncheck options'|i18n( 'survey' )}"{if $is_selected|eq(false())} disabled="disabled"{/if} />
 	</div>
 	
-	<script type="text/javascript">
+	<script>
 	<!--
 	synchFormElements( '{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_enable_css_style_{$attribute_id}', '{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_column_{$attribute_id}', false );
 	// -->

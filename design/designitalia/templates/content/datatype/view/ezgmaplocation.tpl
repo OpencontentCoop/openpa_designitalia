@@ -10,7 +10,7 @@
 
   {run-once}
   {literal}
-    <script type="text/javascript">
+    <script>
       var drawMap = function(latlng,id){
         var map = new L.Map('map-'+id);
         map.scrollWheelZoom.disable();
@@ -26,7 +26,7 @@
   {/literal}
   {/run-once}
 
-  <script type="text/javascript">
+  <script>
     drawMap([{$attribute.content.latitude},{$attribute.content.longitude}],{$attribute.id});
   </script>
 

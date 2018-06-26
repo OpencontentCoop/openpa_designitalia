@@ -101,7 +101,7 @@
 </div>
 
 {if is_set($currentPage)}
-<script type="text/javascript">
+<script>
 	var surveyPages = {$currentPage};
 	var currentPage = 1;
 	{literal}

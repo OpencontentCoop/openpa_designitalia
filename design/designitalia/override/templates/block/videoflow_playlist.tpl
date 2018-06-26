@@ -12,7 +12,7 @@
      $image_class = 'small'
 }
 
-<script type="text/javascript">
+<script>
 $(function(){ldelim}
     $f("player-{$block.id}", {ocmp('flowplayer','flash')}, {ldelim} 
 		clip:{ldelim}

@@ -69,7 +69,7 @@
 </div>
 
 {literal}
-    <script type="text/javascript">
+    <script>
         function disableButtons() {
             document.getElementById('PublishButton').disabled = true;
             document.getElementById('CancelButton').disabled = true;

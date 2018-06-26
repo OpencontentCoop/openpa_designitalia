@@ -109,7 +109,7 @@
     </div>
 
     {ezscript_require(array('jquery-ui.min.js'))}
-    <script type="text/javascript">
+    <script>
         {literal}
         $(document).ready(function() {
             $("#{/literal}{$block.id}{literal}").tabs({

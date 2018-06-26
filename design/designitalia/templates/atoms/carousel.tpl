@@ -27,7 +27,7 @@
     {ezcss_require(array('owl.carousel.min.css'))}
     {ezscript_require(array('vendor/owl.carousel.min.js', 'plugins/init_carousel.js'))}
 
-    <script type="text/javascript">
+    <script>
         $(document).ready(function(){ldelim}
             $("#carousel_{$css_id}").initOwlCarousel(
                 {ldelim}

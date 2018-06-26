@@ -16,7 +16,7 @@
         <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key={$key}" type="text/javascript"></script>
         {/if}
 
-        <script type="text/javascript">
+        <script>
             YUI(YUI3_config).use('event', function(Y) {ldelim}
                 Y.on('domready', function() {ldelim}
                     if (GBrowserIsCompatible()) {ldelim}

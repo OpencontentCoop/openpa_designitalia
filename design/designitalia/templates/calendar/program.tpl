@@ -1,5 +1,5 @@
 {ezscript_require(array( 'ezjsc::jquery' ) )}
-<script type="text/javascript">
+<script>
 {literal}
 $(function() {
     if (location.hash == '') {

@@ -14,7 +14,7 @@
     {ezscript_require( 'ezjsc::yui2' )}
     {ezcss_require( concat( '/', $base.yui2, 'calendar/assets/calendar.css' ) )}
 
-    <script type="text/javascript">
+    <script>
         (function () {ldelim}
             YUILoader.addModule({ldelim}
                 name: 'datepicker',

@@ -242,7 +242,7 @@
 {ezscript_require( array( 'ezjsc::jquery' ) )}
 {ezscript( array( 'ezjsc::jqueryio', 'jcookie.js' ) )}
 
-<script type="text/javascript">
+<script>
     var previewIcon = {'websitetoolbar/ezwt-icon-preview.png'|ezimage()};
     {*
     {ezcss_require( 'ezmultiupload.css' )}
