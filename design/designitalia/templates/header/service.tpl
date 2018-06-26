@@ -18,7 +18,7 @@
 <div class="Header-banner">
         <div class="Header-owner Headroom-hideme">
             {foreach $header_service_list as $item}
-	            <div {if count($header_service_list)|gt(1)}class="Breadcrumb-item"{/if}>
+	            <div class="{if count($header_service_list)|gt(1)}Breadcrumb-item{else}u-inline{/if}">
 		            <a class="Breadcrumb-link u-color-white" href="{$item.url}">
 		                <span>{$item.name|wash()}</span>
 		            </a>	
