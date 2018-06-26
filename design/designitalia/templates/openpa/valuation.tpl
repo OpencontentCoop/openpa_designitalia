@@ -109,7 +109,7 @@
                         {if $data_map.antispam.data_type_string|eq('ocrecaptcha')}
                             <div class="Form-field">
                                 <label class="Form-label"
-                                       for="helpcomment">{$data_map.antispam.contentclass_attribute_name|wash()}</label>
+                                       for="antispam">{$data_map.antispam.contentclass_attribute_name|wash()}</label>
                                 {attribute_view_gui attribute=$data_map.antispam}
                             </div>
                         {else}
