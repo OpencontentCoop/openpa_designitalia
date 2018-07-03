@@ -94,7 +94,7 @@
                         {undef $tree_menu}
                     {/foreach}                    
                 {/if}
-                {if openpaini('GeneralSettings','service_menu', 1)}
+                {if openpaini('GeneralSettings','service_menu', 0)}
                 <li>
                     <a href="{'/accedi-ai-servizi'|ezurl(no)}" class="Button u-border-none u-color-95 u-background-compl u-text-r-xxs is-focus">Accedi ai servizi</a>
                   </li>
