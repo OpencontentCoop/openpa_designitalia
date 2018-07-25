@@ -137,7 +137,10 @@
 </div>
 </form>
 
+{if openpaini( 'WebsiteToolbar', 'ShowTranslate', 'disabled' )|eq('enabled')}
 {include uri='design:parts/websitetoolbar/smart_translate.tpl'}
+{/if}
+
 {*
 {def $disable_oo=true()}
 {if $odf_display_classes|contains( $content_object.content_class.identifier )}
