@@ -30,8 +30,6 @@
               {include uri=$openpa.content_albotelematico.container_template}
             {else}
 
-                {include uri=$openpa.content_detail.template}
-
                 {include uri="design:parts/children/default.tpl" view_parameters=$view_parameters exclude_classes=array()}
             {/if}
 
