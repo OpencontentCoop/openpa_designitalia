@@ -46,4 +46,10 @@
                  {def $pnkParts = $contacts.web|explode('//')}{if is_set( $pnkParts[1] )}{$pnkParts[1]}{/if}
             </a></li>
     {/if}
+    {if is_set($contacts.partita_iva)}
+        <li><i class="fa fa-code u-textClean"></i> P.IVA {$contacts.partita_iva}</li>
+    {/if}
+    {if is_set($contacts.codice_fiscale)}
+        <li><i class="fa fa-code u-textClean"></i> C.F. {$contacts.codice_fiscale}</li>
+    {/if}
 </ul>
