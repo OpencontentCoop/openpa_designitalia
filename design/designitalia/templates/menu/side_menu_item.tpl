@@ -1,7 +1,7 @@
 {def $path_array = $current_node.path_string|explode( '/' )
-$current_node_id = $current_node.node_id
-$is_current = $menu_item.item.node_id|eq($current_node_id)
-$is_active = $path_array|contains($menu_item.item.node_id)}
+     $current_node_id = $current_node.node_id
+     $is_current = $menu_item.item.node_id|eq($current_node_id)
+     $is_active = $path_array|contains($menu_item.item.node_id)}
 
 <li class="{if or($is_active, $is_current)}active current{/if}">
     <a href="{if $menu_item.item.internal}{$menu_item.item.url|ezurl(no)}{else}{$menu_item.item.url}{/if}"

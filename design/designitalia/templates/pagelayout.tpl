@@ -6,38 +6,64 @@
 <html xmlns="http://www.w3.org/1999/xhtml" class="ie ie9 no-js"
       lang="{$site.http_equiv.Content-language|wash}"><![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
-<html xmlns="http://www.w3.org/1999/xhtml"  class="no-js" lang="{$site.http_equiv.Content-language|wash}">
+<html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="{$site.http_equiv.Content-language|wash}">
 <!--<![endif]-->
 <head>
 
-    {def $user_hash_cache_key = concat( $current_user.role_id_list|implode( ',' ), ',', $current_user.limited_assignment_value_list|implode( ',' ) )}
-
-    {if is_set( $extra_cache_key )|not}
+{if is_set( $extra_cache_key )|not}
         {def $extra_cache_key = ''}
     {/if}
 
-{cache-block keys=array( $module_result.uri, $user_hash_cache_key, $access_type.name, $extra_cache_key )}
-    {def $pagedata = openpapagedata()
-         $locales = fetch( 'content', 'translation_list' )
-         $current_node_id = $pagedata.node_id
-         $theme = openpaini('GeneralSettings','theme', 'pac')
-         $main_content_class = ''}
-
-    {if is_set($pagedata.persistent_variable.has_container)|not()}
-        {if $pagedata.is_homepage}
-            {set $main_content_class = 'u-layout-wide u-layoutCenter'}
-        {else}
-            {set $main_content_class = 'u-layout-medium u-layoutCenter'}
-        {/if}
+    {if openpacontext().is_homepage}
+        {set $extra_cache_key = concat($extra_cache_key, 'homepage')}
     {/if}
 
+    {if openpacontext().is_login_page}
+        {set $extra_cache_key = concat($extra_cache_key, 'login')}
+    {/if}
 
-    {include uri='design:page_head.tpl'}
+    {if openpacontext().is_edit}
+        {set $extra_cache_key = concat($extra_cache_key, 'edit')}
+    {/if}
+
+    {if openpacontext().is_area_tematica}
+        {set $extra_cache_key = concat($extra_cache_key, 'areatematica_', openpacontext().is_area_tematica)}
+    {/if}
+
+    {debug-accumulator id=page_head name=page_head}
+    {include uri='design:page_head.tpl' canonical_url=openpacontext().canonical_url}
+    {/debug-accumulator}
+
+    {debug-accumulator id=page_head_style name=page_head_style}
     {include uri='design:page_head_style.tpl'}
+    {/debug-accumulator}
+
+    {debug-accumulator id=page_head_script name=page_head_script}
     {include uri='design:page_head_script.tpl'}
+    {/debug-accumulator}
+
+    {no_index_if_needed()}
+
+    {def $theme = openpaini('GeneralSettings','theme', 'pac')
+         $main_content_class = ''
+         $has_container = cond(is_set($module_result.content_info.persistent_variable.has_container), true(), false())
+         $has_sidemenu = cond(and(is_set($module_result.content_info.persistent_variable.has_sidemenu), $module_result.content_info.persistent_variable.has_sidemenu), true(), false())}
+
+    {if $has_container|not()}
+        {set $main_content_class = cond(openpacontext().is_homepage, 'u-layout-wide u-layoutCenter', 'u-layout-medium u-layoutCenter')}
+    {/if}
 
 </head>
 <body class="{$theme}">
+<script type="text/javascript">
+//<![CDATA[
+var CurrentUserIsLoggedIn = {cond(fetch('user','current_user').is_logged_in, 'true', 'false')};
+var UiContext = "{$ui_context}";
+var UriPrefix = {'/'|ezurl()};
+var PathArray = [{if is_set( openpacontext().path_array[0].node_id )}{foreach openpacontext().path_array|reverse as $path}{$path.node_id}{delimiter},{/delimiter}{/foreach}{/if}];
+(function(){ldelim}var c = document.body.className;c = c.replace(/no-js/, 'js');document.body.className = c;{rdelim})();
+//]]>
+</script>
 
     <ul class="Skiplinks js-fr-bypasslinks">
         <li><a accesskey="2" href="#main">Vai al Contenuto</a></li>
@@ -46,56 +72,69 @@
 
     {include uri='design:page_browser_alert.tpl'}
 
-    {if and( $pagedata.website_toolbar, array( 'edit', 'browse' )|contains( $ui_context )|not() )}
-        {include uri='design:page_toolbar.tpl'}
-    {/if}
+    {debug-accumulator id=page_toolbar name=page_toolbar}
+    {include uri='design:page_toolbar.tpl'}
+    {/debug-accumulator}
 
-    {include uri='design:page_header.tpl'}
-
-    {include uri='design:menu/offcanvas_menu.tpl'}
+    {cache-block expiry=86400 ignore_content_expiry keys=array( $access_type.name, $extra_cache_key )}
+    {debug-accumulator id=page_header_and_offcanvas_menu name=page_header_and_offcanvas_menu}
+        {def $pagedata = openpapagedata()}
+        {include uri='design:page_header.tpl'}
+        {include uri='design:menu/offcanvas_menu.tpl'}
+        {undef $pagedata}
+    {/debug-accumulator}
+    {/cache-block}
 
     <div id="main">
-        {if and(is_set($pagedata.persistent_variable.has_sidemenu), $pagedata.persistent_variable.has_sidemenu)}
-            <p class="u-md-hidden u-lg-hidden u-padding-r-all u-text-m u-background-grey-20">
-                <span class="Icon-list u-text-r-xl u-alignMiddle u-padding-r-right" aria-hidden="true"></span>
-                <a accesskey="3"  class="js-scrollTo u-text-r-s u-textClean u-color-grey-50 u-alignMiddle" href="#subnav" >Vai menu di sezione</a>
-            </p>
+
+        {if and(is_set($module_result.content_info.persistent_variable.has_sidemenu), $module_result.content_info.persistent_variable.has_sidemenu)}
+        <p class="u-md-hidden u-lg-hidden u-padding-r-all u-text-m u-background-grey-20">
+            <span class="Icon-list u-text-r-xl u-alignMiddle u-padding-r-right" aria-hidden="true"></span>
+            <a accesskey="3" class="js-scrollTo u-text-r-s u-textClean u-color-grey-50 u-alignMiddle" href="#subnav">Vai menu di sezione</a>
+        </p>
         {/if}
+
         <section class="{$main_content_class}">
-            {if and( $pagedata.is_homepage|not(), $pagedata.is_search_page|not(), $pagedata.show_path, array( 'edit', 'browse' )|contains( $ui_context )|not(), is_set( $module_result.content_info ) )}
-                {include uri='design:breadcrumb.tpl'}
+
+            {if openpacontext().show_breadcrumb}
+            {debug-accumulator id=breadcrumb name=breadcrumb}
+                {include uri='design:breadcrumb.tpl' path_array=openpacontext().path_array}
+            {/debug-accumulator}
             {/if}
 
-            {if is_set($pagedata.persistent_variable.has_container)|not()}
-                <div class="u-text-r-xl u-layout-r-withGutter u-padding-r-top">
-            {/if}
+            {include uri='design:page_mainarea.tpl'}
 
-{/cache-block}
-
-                {include uri='design:page_mainarea.tpl'}
-{cache-block keys=array( $module_result.uri, $user_hash_cache_key, $access_type.name, $extra_cache_key )}
-
-            {if is_set($pagedata.persistent_variable.has_container)|not()}
-                </div>
-            {/if}
         </section>
 
-            {if is_unset($pagedata)}{def $pagedata = openpapagedata()}{/if}
-            {if and( $pagedata.is_login_page|not(), $pagedata.show_path, array( 'edit', 'browse' )|contains( $ui_context )|not() )}
-                {include uri='design:page_footer.tpl'}
-            {/if}
+        {if is_set($module_result.content_info.persistent_variable.valuation)}
+            <div class="u-background-95 u-padding-all-xl u-layoutCenter u-hiddenPrint">
+                <p class="u-textCenter u-margin-top-m u-margin-bottom-m">
+                    <a href="#" id="toggle-validation" class="u-color-white u-textClean u-text-h3">
+                        <span class="u-padding-r-right Icon Icon-comment"></span> Valuta questo sito
+                    </a>
+                </p>
+                <div style="display: none" id="openpa-valuation" data-loaded="0">
+                    {include name=valuation uri='design:openpa/load_valuation.tpl' parameters=$module_result.content_info.persistent_variable.valuation}
+                </div>
+            </div>
+        {/if}
 
-{/cache-block}
-
-
+        {if and(openpacontext().is_login_page|not(), openpacontext().is_edit|not())}
+        {debug-accumulator id=page_footer name=page_footer}
+        {cache-block expiry=86400 ignore_content_expiry keys=array( $access_type.name )}
+            {def $pagedata = openpapagedata()}
+            {include uri='design:page_footer.tpl'}
+            {undef $pagedata}
+        {/cache-block}
+        {/debug-accumulator}
+        {/if}
 
     </div>
 
-    {* Codice extra usato da plugin javascript *}
     {include uri='design:page_extra.tpl'}
 
-    <!--DEBUG_REPORT-->
     {include uri='design:page_footer_script.tpl'}
 
+<!--DEBUG_REPORT-->
 </body>
 </html>

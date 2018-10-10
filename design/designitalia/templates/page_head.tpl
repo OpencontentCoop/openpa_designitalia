@@ -6,8 +6,8 @@
 {let name=Path
      path=$module_result.path
      reverse_path=array()}
-  {if is_set($pagedata.path_array)}
-    {set path=$pagedata.path_array}
+  {if is_set(openpacontext().path_array)}
+    {set path=openpacontext().path_array}
   {elseif is_set($module_result.title_path)}
     {set path=$module_result.title_path}
   {/if}
