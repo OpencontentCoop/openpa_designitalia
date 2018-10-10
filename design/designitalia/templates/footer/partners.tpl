@@ -1,9 +1,8 @@
 <div class="u-layout-wide u-layoutCenter u-text-r-xl partners">
     <div class="Grid Grid--withGutter u-padding-all-l u-layout-centerContent">
-        {foreach $pagedata.homepage|attribute('partners').content.relation_list as $related}
+        {foreach $homepage|attribute('partners').content.relation_list as $related}
             {def $valid_node = fetch( 'content', 'node', hash( 'node_id', $related.node_id ) )
                  $link = '#'}
-
             {if object_handler($valid_node).content_link.full_link|ne('')}
                 {set $link = object_handler($valid_node).content_link.full_link}
             {/if}

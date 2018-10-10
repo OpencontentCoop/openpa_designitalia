@@ -10,13 +10,17 @@
          $show_link = false()}
 {/if}
 
+{if is_set($link_top_title)|not()}
+    {def $link_top_title = $show_link}
+{/if}
+
 {def $calendarData = fetch( openpa, calendario_eventi, hash( 'calendar', $valid_node, 'params', hash( 'interval', 'P30D' ) ) )}
 
 {set_defaults(hash('show_title', true(), 'items_per_row', 1))}
-
+{if count($calendarData.events)|gt(0)}
 <div class="openpa-widget {$block.view} {if and(is_set($block.custom_attributes.color_style), $block.custom_attributes.color_style|ne(''))}color color-{$block.custom_attributes.color_style}{/if}">
     {if and( $show_link, $show_title, $block.name|ne('') )}
-        <h3 class="openpa-widget-title">{if $link_top_title}<a href="{$valid_node.url_alias|ezurl(no)}" title="Vai al calendario">{/if}{$block.name|wash()}{if $link_top_title}</a>{/if}</h3>
+        <h3 class="openpa-widget-title">{if $link_top_title}<a href="{$valid_node.url_alias|ezurl(no)}" title="Vai al calendario">{else}<span>{/if}{$block.name|wash()}{if $link_top_title}</a>{else}</span>{/if}</h3>
     {/if}
     <div class="openpa-widget-content">
         {if count($calendarData.events)|gt(0)}
@@ -46,4 +50,7 @@
       </p>
     {/if}
 </div>
+{else}
+    {editor_warning("Nessuno evento trovato per il prossimo mese")}
+{/if}
 {unset_defaults(array('show_title','items_per_row'))}

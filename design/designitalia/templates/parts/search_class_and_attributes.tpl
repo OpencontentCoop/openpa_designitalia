@@ -2,13 +2,7 @@
 
 <div class="openpa-widget nav-section">
 
-    <h3 class="openpa-widget-title">
-        {if $node|ne( false() )}
-            Cerca in {$node.name|wash()}
-        {else}
-            Cerca
-        {/if}
-    </h3>
+    <h3 class="openpa-widget-title"><span>{if $node|ne( false() )}Cerca in {$node.name|wash()}{else}Cerca{/if}</span></h3>
 
     <div class="openpa-widget-content">
 

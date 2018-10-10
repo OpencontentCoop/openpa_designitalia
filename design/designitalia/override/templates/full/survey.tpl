@@ -39,3 +39,10 @@
         </div>
     </div>
 </div>
+
+
+{include uri='design:parts/load_website_toolbar.tpl' current_user=fetch(user, current_user)}
+
+{if openpaini('GeneralSettings','valutation', 1)}
+    {ezpagedata_set( 'valuation', $node.node_id )}
+{/if}

@@ -19,7 +19,7 @@
 
     {if $sites|count()|gt(0)}
       <div class="openpa-widget nav-section">
-        <h3 class="openpa-widget-title"><i class="fa fa-magic" aria-hidden="true"></i> Dove</h3>
+        <h3 class="openpa-widget-title"><span><i class="fa fa-magic" aria-hidden="true"></i> Dove</span></h3>
         <div class="openpa-widget-content">
           <ul>
             {foreach $sites as $s}
