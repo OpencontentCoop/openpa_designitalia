@@ -59,7 +59,7 @@
         {if $objects_count|lt(100)}
             {def $done = array()}
             <div class="openpa-widget nav-section oggetti-correlati">
-                <h3 class="openpa-widget-title">{$title}</h3>
+                <h3 class="openpa-widget-title"><span>{$title}</span></h3>
                 <div class="openpa-widget-content">
                     <ul class="Linklist Linklist--padded u-layout-prose">
                     {foreach $objects as $object}
@@ -104,7 +104,7 @@
             {/set-block}
             {if $reverse_servizio|trim()}
                 <div class="openpa-widget oggetti-correlati">
-                    <h3 class="openpa-widget-title">{$title}</h2>
+                    <h3 class="openpa-widget-title"><span>{$title}</span></h2>
                         <div class="openpa-widget-content">
                             <ul class="Linklist Linklist--padded u-layout-prose">
                                 {$reverse_servizio}

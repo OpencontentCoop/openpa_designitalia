@@ -33,7 +33,7 @@
     {if $objects_count|lt(100)}
         <div class="openpa-widget {if $objects|count()|not()} nocontent{/if}">
 
-            <h3 class="openpa-widget-title">{$title}</h3>
+            <h3 class="openpa-widget-title"><span>{$title}</span></h3>
 
             <div class="openpa-widget-content content-view-children">
 

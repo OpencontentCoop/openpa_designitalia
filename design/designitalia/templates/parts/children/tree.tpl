@@ -29,7 +29,6 @@
   </ul>    
 </div>
 
-{ezscript_require(array('ezjsc::jquery','ezjsc::jqueryio'))}
 {literal}
 <script>
   $(document).ready(function(){

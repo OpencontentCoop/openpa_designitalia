@@ -1,7 +1,7 @@
 {if $openpa.content_gallery.has_images}
     {if $openpa.content_gallery.has_single_images}
         <div class="openpa-widget u-margin-top-l">
-            <h3 class="openpa-widget-title"><i class="fa fa-camera"></i> {$openpa.content_gallery.title}</h3>
+            <h3 class="openpa-widget-title"><span><i class="fa fa-camera"></i> {$openpa.content_gallery.title}</span></h3>
             <div class="openpa-widget-content">
                 {include uri='design:atoms/gallery.tpl' items=$openpa.content_gallery.images title=false()}
             </div>

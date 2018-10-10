@@ -44,7 +44,7 @@
             </div>
 
             {if or( $openpa.content_attachment.has_content, $openpa.content_attachment.children_count )}
-                <h3 class="openpa-widget-title">Allegati</h3>
+                <h3 class="openpa-widget-title"><span>Allegati</span></h3>
                 {include uri=$openpa.content_attachment.template}
             {/if}
 

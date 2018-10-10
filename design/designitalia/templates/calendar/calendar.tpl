@@ -1,5 +1,4 @@
 {ezcss_require( array( 'plugins/table-calendar.css' ) )}
-{ezscript_require(array( 'ezjsc::jquery' ) )}
 <script>
 {literal}
 $(function() {

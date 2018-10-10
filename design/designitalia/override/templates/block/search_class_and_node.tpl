@@ -51,7 +51,6 @@
 	{set $subtreearray=is_area_tematica().node_id}
 {/if}
 
-{ezscript_require(array( 'ezjsc::jquery' ) )}
 <script>
 {literal}
 $(function() {
@@ -68,7 +67,7 @@ $(function() {
      $anni = openpaini( 'MotoreDiRicerca', 'RicercaAvanzataSelezionaAnni', array())
 }
 <div class="openpa-widget {$block.view} {if and(is_set($block.custom_attributes.color_style), $block.custom_attributes.color_style|ne(''))}color color-{$block.custom_attributes.color_style}{/if}">
-	<h3 class="openpa-widget-title">Cerca in {$folder}</h3>
+	<h3 class="openpa-widget-title"><span>Cerca in {$folder}</span></h3>
 
 	<div class="openpa-widget-content">
 

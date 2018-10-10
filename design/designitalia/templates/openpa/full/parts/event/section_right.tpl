@@ -1,7 +1,7 @@
 <div class="content-related">
 
   <div class="openpa-widget nav-section">
-	<h2 class="openpa-widget-title"><i class="fa fa-calendar-o"></i> Quando</h2>
+      <h2 class="openpa-widget-title"><span><i class="fa fa-calendar-o"></i> Quando</span></h2>
 	<div class="openpa-widget-content">
 
         {if $node|has_attribute( 'periodo_svolgimento' )}
@@ -45,7 +45,7 @@
 
 
   <div class="openpa-widget nav-section">
-	<h2 class="openpa-widget-title"><i class="fa fa-map-marker"></i> Dove</h2>
+      <h2 class="openpa-widget-title"><span><i class="fa fa-map-marker"></i> Dove</span></h2>
 	<div class="openpa-widget-content">
       {if $node|has_attribute( 'indirizzo' )}
         <p class="Prose">{attribute_view_gui attribute=$node.data_map.indirizzo}</p>
@@ -60,7 +60,7 @@
         <p class="Prose">{$node.data_map.geo.content.address}</p>
       {/if}
       {if $node|has_attribute( 'geo' )}
-        {attribute_view_gui attribute=$node.data_map.geo zoom=3}
+        {attribute_view_gui attribute=$node.data_map.geo zoom=3 map_id=concat('event-',$node.data_map.geo.id)}
       {/if}
     </div>
   </div>
@@ -73,7 +73,7 @@
         $node|has_attribute( 'fax' )
   )}
     <div class="openpa-widget nav-section">
-	  <h2 class="openpa-widget-title">Contatti</h2>
+        <h2 class="openpa-widget-title"><span>Contatti</span></h2>
 	  <div class="openpa-widget-content">
         <ul class="Linklist Linklist--padded u-layout-prose">
           {if $node|has_attribute( 'telefono' )}
@@ -96,7 +96,7 @@
   {def $classification = $openpa.content_related.classification}
   {if count($classification)|gt(0)}
     <div class="openpa-widget nav-section">
-	  <h2 class="openpa-widget-title"><i class="fa fa-info"></i> Informazioni</h2>
+        <h2 class="openpa-widget-title"><span><i class="fa fa-info"></i> Informazioni</span></h2>
     <div class="openpa-widget-content">
         <ul class="Linklist Linklist--padded u-layout-prose">
           {foreach $classification as $className => $objects}
@@ -113,7 +113,7 @@
 
   {if $openpa.content_gallery.has_images}
     <div class="openpa-widget nav-section">
-	  <h2 class="openpa-widget-title"><i class="fa fa-camera"></i> {$openpa.content_gallery.title}</h2>
+        <h2 class="openpa-widget-title"><span><i class="fa fa-camera"></i> {$openpa.content_gallery.title}</span></h2>
     <div class="openpa-widget-content">
         {include uri='design:atoms/gallery.tpl' items=$openpa.content_gallery.images title=false()}
       </div>
@@ -122,7 +122,7 @@
 
   {if count($openpa.content_related.info)|gt(0)}
         <div class="openpa-widget nav-section">
-            <h2 class="openpa-widget-title">Informazioni correlate</h2>
+            <h2 class="openpa-widget-title"><span>Informazioni correlate</span></h2>
             <div class="openpa-widget-content">
                 {foreach $openpa.content_related.info as $class_name => $infos}
                     <ul class="Linklist Linklist--padded u-layout-prose">
@@ -140,7 +140,7 @@
 
     {if $openpa.content_facets.has_data}
         <div class="openpa-widget nav-section">
-            <h2 class="openpa-widget-title">Riferibili a {$node.name|wash()}</h2>
+            <h2 class="openpa-widget-title"><span>Riferibili a {$node.name|wash()}</span></h2>
             <div class="openpa-widget-content">
                 {foreach $openpa.content_facets.items as $item}
                     <ul class="Linklist Linklist--padded u-layout-prose">

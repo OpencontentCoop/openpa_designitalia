@@ -10,7 +10,7 @@
 
     <section class="Prose Alert Alert--info">
 
-        <h3 class="openpa-widget-title">Personale</h3>
+        <h3 class="openpa-widget-title"><span>Personale</span></h3>
 
         <div class="openpa-widget attribute-ruoli Prose">             
         

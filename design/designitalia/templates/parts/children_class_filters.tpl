@@ -17,7 +17,7 @@
 
 {foreach $classes as $class}
 <div class="openpa-widget nav-section">
-    <h2 class="openpa-widget-title">Cerca {$class.name|wash()|downcase()}</h2>
+    <h2 class="openpa-widget-title"><span>Cerca {$class.name|wash()|downcase()}</span></h2>
     <div class="u-padding-all-s u-background-grey-10">
         {class_search_form( $class.identifier, hash( 'RedirectNodeID', $node.node_id ) )}
     </div>

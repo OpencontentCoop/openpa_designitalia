@@ -1,7 +1,7 @@
 <div class="Breadcrumb-container">
     <nav aria-label="sei qui:" role="navigation">
         <ul class="Breadcrumb">
-            {foreach $pagedata.default_path_array as $path}
+            {foreach openpacontext().path_array as $path}
                 {if $path.url}
                     <li class="Breadcrumb-item">
                         <a class="Breadcrumb-link u-color-50" href={cond( is_set( $path.url_alias ), $path.url_alias, $path.url )|ezurl}>{$path.text|wash}</a>

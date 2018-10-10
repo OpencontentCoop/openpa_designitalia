@@ -28,20 +28,18 @@
                         {include recursion=0
                                  name=top_menu
                                  uri='design:menu/header_menu_item.tpl'
-                                 menu_item=$tree_menu
-                                 current=or($tree_menu.item.node_id|eq($current_node_id), $pagedata.path_id_array|contains($tree_menu.item.node_id))
-                                 has_link=cond( $tree_menu.has_children, false(), true())}
+                                 has_link=cond( $tree_menu.has_children, false(), true())
+                                 menu_item=$tree_menu}
                         {if $tree_menu.has_children}
                             {if $tree_menu.max_recursion|eq(1)}
                                 <div class="Megamenu-subnav u-jsDisplayNone">
                                     {foreach $tree_menu.children as $child}
                                         <ul class="Megamenu-subnavGroup">
                                             <li>
-                                                {include
-                                                recursion=1
-                                                name="top_sub_menu" uri='design:menu/header_menu_item.tpl'
-                                                menu_item=$child
-                                                current=or($child.item.node_id|eq($current_node_id), $pagedata.path_id_array|contains($child.item.node_id))}
+                                                {include recursion=1
+                                                         name="top_sub_menu"
+                                                         uri='design:menu/header_menu_item.tpl'
+                                                         menu_item=$child}
                                             </li>
                                         </ul>
                                     {/foreach}
@@ -55,17 +53,14 @@
                                                 recursion=2
                                                 name="top_sub_menu"
                                                 uri='design:menu/header_menu_item.tpl'
-                                                menu_item=$child
-                                                current=or($child.item.node_id|eq($current_node_id), $pagedata.path_id_array|contains($child.item.node_id))}
+                                                menu_item=$child}
                                                 <ul>
                                                     {if $child.has_children}
                                                         {foreach $child.children as $sub_child}
-                                                            <li>{include
-                                                                recursion=3
-                                                                name="top_sub_menu"
-                                                                uri='design:menu/header_menu_item.tpl'
-                                                                menu_item=$sub_child
-                                                                current=or($sub_child.item.node_id|eq($current_node_id), $pagedata.path_id_array|contains($sub_child.item.node_id))}
+                                                            <li>{include recursion=3
+                                                                         name="top_sub_menu"
+                                                                         uri='design:menu/header_menu_item.tpl'
+                                                                         menu_item=$sub_child}
                                                             </li>
                                                         {/foreach}
                                                     {/if}

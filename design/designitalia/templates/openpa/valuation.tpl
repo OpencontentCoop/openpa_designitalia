@@ -2,177 +2,184 @@
 	TEMPLATE  per la valutazione delle pagine da parte degli utenti
 	node_id	nodo di riferimento
 *}
+{debug-accumulator id=valuation name=valuation}
+{def $node = fetch(content,node,hash(node_id,$node_id))}
+<div class="valuation u-padding-all-xxl u-color-white text-left" xmlns="http://www.w3.org/1999/xhtml">
+    <form class="Form Form--spaced" action="{'/content/action'|ezurl(no)}" method="post">
+{cache-block expiry=86400 ignore_content_expiry keys=array( 'valuation_form' )}
+        {def $valuations=fetch( 'content', 'class', hash( 'class_id', 'valuation' ) )}
+        {if and( $valuations|count(), $valuations.object_list|count() )}
+        {def $valutazione=$valuations.object_list[0]
+             $data_map=$valutazione.data_map}
+        <div class="Grid Grid--withGutter">
+            <div class="Grid-cell u-md-size1of3 u-lg-size1of3 u-md-before1of6 u-lg-before1of6">
 
-{def $valuations=fetch( 'content', 'class', hash( 'class_id', 'valuation' ) )}
+                {if is_set( $data_map.useful )}
+                    <input type="hidden" value=""
+                           name="ContentObjectAttribute_ezselect_selected_array_{$data_map.useful.id}"/>
+                    <fieldset class="Form-field Form-field--choose Grid-cell">
 
-{if and( $valuations|count(), $valuations.object_list|count() )}
-    <div class="valuation u-padding-all-xxl u-color-white text-left" xmlns="http://www.w3.org/1999/xhtml">
+                        <legend class="Form-legend">{$data_map.useful.contentclass_attribute_name|wash()}</legend>
 
+                        <label class="Form-label Form-label--block u-color-black" for="utilita1">
+                            <input class="Form-input" id="utilita1" type="radio" value="0"
+                                   name="ContentObjectAttribute_ezselect_selected_array_{$data_map.useful.id}[]"/>
+                            <span class="Form-fieldIcon" role="presentation"></span> per nulla
+                        </label>
 
-{def $valutazione=$valuations.object_list[0]
-     $node = fetch(content,node,hash(node_id,$node_id))
-     $data_map=$valutazione.data_map}
+                        <label class="Form-label Form-label--block u-color-black" for="utilita2">
+                            <input class="Form-input" id="utilita2" type="radio" value="1"
+                                   name="ContentObjectAttribute_ezselect_selected_array_{$data_map.useful.id}[]"/>
+                            <span class="Form-fieldIcon" role="presentation"></span> poco
+                        </label>
 
-        <form class="Form Form--spaced" action="{'/content/action'|ezurl(no)}" method="post">
-            <div class="Grid Grid--withGutter">
-                <div class="Grid-cell u-md-size1of3 u-lg-size1of3 u-md-before1of6 u-lg-before1of6">
+                        <label class="Form-label Form-label--block u-color-black" for="utilita3">
+                            <input class="Form-input" id="utilita3" type="radio" value="2"
+                                   name="ContentObjectAttribute_ezselect_selected_array_{$data_map.useful.id}[]"/>
+                            <span class="Form-fieldIcon" role="presentation"></span> abbastanza
+                        </label>
+                        <label class="Form-label Form-label--block u-color-black" for="utilita4">
+                            <input class="Form-input" id="utilita4" type="radio" value="3"
+                                   name="ContentObjectAttribute_ezselect_selected_array_{$data_map.useful.id}[]"/>
+                            <span class="Form-fieldIcon" role="presentation"></span> molto
+                        </label>
 
-                    {if is_set( $data_map.useful )}
-                        <input type="hidden" value=""
-                               name="ContentObjectAttribute_ezselect_selected_array_{$data_map.useful.id}"/>
-                        <fieldset class="Form-field Form-field--choose Grid-cell">
+                    </fieldset>
+                {/if}
 
-                            <legend class="Form-legend">{$data_map.useful.contentclass_attribute_name|wash()}</legend>
+                {if is_set( $data_map.easy )}
+                    <input type="hidden" value=""
+                           name="ContentObjectAttribute_ezselect_selected_array_{$data_map.easy.id}"/>
+                    <fieldset class="Form-field Form-field--choose Grid-cell">
 
-                            <label class="Form-label Form-label--block u-color-black" for="utilita1">
-                                <input class="Form-input" id="utilita1" type="radio" value="0"
-                                       name="ContentObjectAttribute_ezselect_selected_array_{$data_map.useful.id}[]"/>
-                                <span class="Form-fieldIcon" role="presentation"></span> {'per nulla'|i18n('openpa/valuation')}
-                            </label>
+                        <legend class="Form-legend">{$data_map.easy.contentclass_attribute_name|wash()}</legend>
 
-                            <label class="Form-label Form-label--block u-color-black" for="utilita2">
-                                <input class="Form-input" id="utilita2" type="radio" value="1"
-                                       name="ContentObjectAttribute_ezselect_selected_array_{$data_map.useful.id}[]"/>
-                                <span class="Form-fieldIcon" role="presentation"></span> {'poco'|i18n('openpa/valuation')}
-                            </label>
+                        <label class="Form-label Form-label--block u-color-black" for="semplicita1">
+                            <input class="Form-input" id="semplicita1" type="radio" value="0"
+                                   name="ContentObjectAttribute_ezselect_selected_array_{$data_map.easy.id}[]"/>
+                            <span class="Form-fieldIcon" role="presentation"></span> per nulla
+                        </label>
 
-                            <label class="Form-label Form-label--block u-color-black" for="utilita3">
-                                <input class="Form-input" id="utilita3" type="radio" value="2"
-                                       name="ContentObjectAttribute_ezselect_selected_array_{$data_map.useful.id}[]"/>
-                                <span class="Form-fieldIcon" role="presentation"></span> {'abbastanza'|i18n('openpa/valuation')}
-                            </label>
-                            <label class="Form-label Form-label--block u-color-black" for="utilita4">
-                                <input class="Form-input" id="utilita4" type="radio" value="3"
-                                       name="ContentObjectAttribute_ezselect_selected_array_{$data_map.useful.id}[]"/>
-                                <span class="Form-fieldIcon" role="presentation"></span> {'molto'|i18n('openpa/valuation')}
-                            </label>
+                        <label class="Form-label Form-label--block u-color-black" for="semplicita2">
+                            <input class="Form-input" id="semplicita2" type="radio" value="1"
+                                   name="ContentObjectAttribute_ezselect_selected_array_{$data_map.easy.id}[]"/>
+                            <span class="Form-fieldIcon" role="presentation"></span> poco
+                        </label>
 
-                        </fieldset>
-                    {/if}
+                        <label class="Form-label Form-label--block u-color-black" for="semplicita3">
+                            <input class="Form-input" id="semplicita3" type="radio" value="2"
+                                   name="ContentObjectAttribute_ezselect_selected_array_{$data_map.easy.id}[]"/>
+                            <span class="Form-fieldIcon" role="presentation"></span> abbastanza
+                        </label>
 
-                    {if is_set( $data_map.easy )}
-                        <input type="hidden" value=""
-                               name="ContentObjectAttribute_ezselect_selected_array_{$data_map.easy.id}"/>
-                        <fieldset class="Form-field Form-field--choose Grid-cell">
+                        <label class="Form-label Form-label--block u-color-black" for="semplicita4">
+                            <input class="Form-input" id="semplicita4" type="radio" value="3"
+                                   name="ContentObjectAttribute_ezselect_selected_array_{$data_map.easy.id}[]"/>
+                            <span class="Form-fieldIcon" role="presentation"></span> molto
+                        </label>
+                    </fieldset>
+                {/if}
 
-                            <legend class="Form-legend">{$data_map.easy.contentclass_attribute_name|wash()}</legend>
+            </div>
 
-                            <label class="Form-label Form-label--block u-color-black" for="semplicita1">
-                                <input class="Form-input" id="semplicita1" type="radio" value="0"
-                                       name="ContentObjectAttribute_ezselect_selected_array_{$data_map.easy.id}[]"/>
-                                <span class="Form-fieldIcon" role="presentation"></span> {'per nulla'|i18n('openpa/valuation')}
-                            </label>
+            <div class="Grid-cell u-md-size1of3 u-lg-size1of3">
+                {if is_set( $data_map.comment )}
+                    <div class="Form-field">
+                        <label class="Form-label"
+                               for="helpcomment">{$data_map.comment.contentclass_attribute_name|wash()}</label>
+                        <textarea style="height: 100px" id="helpcomment" class="Form-input u-color-black"
+                                  name="ContentObjectAttribute_ezstring_data_text_{$data_map.comment.id}" cols="20"
+                                  rows="4"></textarea>
+                    </div>
+                {/if}
 
-                            <label class="Form-label Form-label--block u-color-black" for="semplicita2">
-                                <input class="Form-input" id="semplicita2" type="radio" value="1"
-                                       name="ContentObjectAttribute_ezselect_selected_array_{$data_map.easy.id}[]"/>
-                                <span class="Form-fieldIcon" role="presentation"></span> {'poco'|i18n('openpa/valuation')}
-                            </label>
+                {if is_set( $data_map.email_aiutaci )}
+                    <div class="Form-field">
+                        <label class="Form-label" for="helpemail_aiutaci"
+                        >{$data_map.email_aiutaci.contentclass_attribute_name|wash()}</label>
+                        <input id="helpemail_aiutaci" class="Form-input u-color-black" type="text" value=""
+                               name="ContentObjectAttribute_ezstring_data_text_{$data_map.email_aiutaci.id}"/>
+                    </div>
+                {/if}
 
-                            <label class="Form-label Form-label--block u-color-black" for="semplicita3">
-                                <input class="Form-input" id="semplicita3" type="radio" value="2"
-                                       name="ContentObjectAttribute_ezselect_selected_array_{$data_map.easy.id}[]"/>
-                                <span class="Form-fieldIcon" role="presentation"></span> {'abbastanza'|i18n('openpa/valuation')}
-                            </label>
-
-                            <label class="Form-label Form-label--block u-color-black" for="semplicita4">
-                                <input class="Form-input" id="semplicita4" type="radio" value="3"
-                                       name="ContentObjectAttribute_ezselect_selected_array_{$data_map.easy.id}[]"/>
-                                <span class="Form-fieldIcon" role="presentation"></span> {'molto'|i18n('openpa/valuation')}
-                            </label>
-                        </fieldset>
-                    {/if}
-
-                </div>
-
-                <div class="Grid-cell u-md-size1of3 u-lg-size1of3">
-                    {if is_set( $data_map.comment )}
+                {if is_set($data_map.antispam)}
+                    {if $data_map.antispam.data_type_string|eq('ocrecaptcha')}
                         <div class="Form-field">
                             <label class="Form-label"
-                                   for="helpcomment">{$data_map.comment.contentclass_attribute_name|wash()}</label>
-                            <textarea style="height: 100px" id="helpcomment" class="Form-input u-color-black"
-                                      name="ContentObjectAttribute_ezstring_data_text_{$data_map.comment.id}" cols="20"
-                                      rows="4"></textarea>
+                                   for="helpcomment">{$data_map.antispam.contentclass_attribute_name|wash()}</label>
+                            {attribute_view_gui attribute=$data_map.antispam}
                         </div>
-                    {/if}
+                    {else}
+                        {*                        {ezcss_require( array( 'nxc.captcha.css' ) )}*}
+                        <link rel="stylesheet" href="{'stylesheets/nxc.captcha.css'|ezdesign(no)}"
+                              property='stylesheet'/>
+                        {ezscript_require( array( 'nxc.captcha.js' ) )}
 
-                    {if is_set( $data_map.email_aiutaci )}
-                        <div class="Form-field">
-                            <label class="Form-label" for="helpemail_aiutaci"
-                            >{$data_map.email_aiutaci.contentclass_attribute_name|wash()}</label>
-                            <input id="helpemail_aiutaci" class="Form-input u-color-black" type="text" value=""
-                                   name="ContentObjectAttribute_ezstring_data_text_{$data_map.email_aiutaci.id}"/>
-                        </div>
-                    {/if}
+                        {def $attribute = $data_map.antispam $class_content = $attribute.contentclass_attribute.content $regenerate = 1}
+                        {if ezhttp( 'ActionCollectInformation', 'post', true() )}
+                            {set $regenerate = 0}
+                        {/if}
 
-                    {if is_set($data_map.antispam)}
-                        {if $data_map.antispam.data_type_string|eq('ocrecaptcha')}
+                        {if eq( $attribute.data_int, 1 )}
                             <div class="Form-field">
-                                <label class="Form-label">{$data_map.antispam.contentclass_attribute_name|wash()}</label>
-                                {attribute_view_gui attribute=$data_map.antispam}
+                                <label class="Form-label" for="nxc-captcha-collection-input-{$attribute.id}">Antispam</label>
+
+                                <p class="text-center u-padding-all-m">
+                                    <img id="nxc-captcha-{$attribute.id}"
+                                         alt="{'Secure code'|i18n( 'extension/nxc_captcha' )}"
+                                         title="{'Secure code'|i18n( 'extension/nxc_captcha' )}"
+                                         src="{concat( 'nxc_captcha/get/', $attribute.contentclass_attribute.id, '/nxc_captcha_collection_attribute_', $attribute.id, '/', $regenerate )|ezurl( 'no' )}"/>
+                                    <a href="{concat( 'nxc_captcha/get/', $attribute.contentclass_attribute.id, '/nxc_captcha_collection_attribute_', $attribute.id, '/1' )|ezurl( 'no' )}"
+                                       style="display: inline-block; vertical-align: super; padding: 0px 5px;"
+                                       class="nxc-captcha-regenerate u-color-white"
+                                       id="nxc-captcha-regenerate-{$attribute.id}">
+                                        <i class="fa fa-repeat fa-2x"></i>
+                                    </a>
+                                </p>
+
+                                <p class="u-padding-bottom-l">
+                                    <input class="captcha-input Form-input u-color-black"
+                                           id="nxc-captcha-collection-input-{$attribute.id}" type="text"
+                                           name="nxc_captcha_{$attribute.id}" value=""
+                                           size="{$class_content.length.value}"
+                                           placeholder="Inserisci qui il codice"
+                                           maxlength="{$class_content.length.value}"/>
+                                </p>
+                                <span>Inserisci il codice di sicurezza che vedi nell'immagine per proteggere il sito dallo spam </span>
+
                             </div>
                         {else}
-                            {*                        {ezcss_require( array( 'nxc.captcha.css' ) )}*}
-                            <link rel="stylesheet" href="{'stylesheets/nxc.captcha.css'|ezdesign(no)}"
-                                  property='stylesheet'/>
-                            {ezscript_require( array( 'nxc.captcha.js' ) )}
-
-                            {def $attribute = $data_map.antispam $class_content = $attribute.contentclass_attribute.content $regenerate = 1}
-                            {if ezhttp( 'ActionCollectInformation', 'post', true() )}
-                                {set $regenerate = 0}
-                            {/if}
-
-                            {if eq( $attribute.data_int, 1 )}
-                                <div class="Form-field">
-                                    <label class="Form-label" for="nxc-captcha-collection-input-{$attribute.id}">Antispam</label>
-
-                                    <p class="text-center u-padding-all-m">
-                                        <img id="nxc-captcha-{$attribute.id}"
-                                             alt="{'Secure code'|i18n( 'extension/nxc_captcha' )}"
-                                             title="{'Secure code'|i18n( 'extension/nxc_captcha' )}"
-                                             src="{concat( 'nxc_captcha/get/', $attribute.contentclass_attribute.id, '/nxc_captcha_collection_attribute_', $attribute.id, '/', $regenerate )|ezurl( 'no' )}"/>
-                                        <a href="{concat( 'nxc_captcha/get/', $attribute.contentclass_attribute.id, '/nxc_captcha_collection_attribute_', $attribute.id, '/1' )|ezurl( 'no' )}"
-                                           style="display: inline-block; vertical-align: super; padding: 0px 5px;"
-                                           class="nxc-captcha-regenerate u-color-white"
-                                           id="nxc-captcha-regenerate-{$attribute.id}">
-                                            <i class="fa fa-repeat fa-2x"></i>
-                                        </a>
-                                    </p>
-
-                                    <p class="u-padding-bottom-l">
-                                        <input class="captcha-input Form-input u-color-black"
-                                               id="nxc-captcha-collection-input-{$attribute.id}" type="text"
-                                               name="nxc_captcha_{$attribute.id}" value=""
-                                               size="{$class_content.length.value}"
-                                               placeholder="Inserisci qui il codice"
-                                               maxlength="{$class_content.length.value}"/>
-                                    </p>
-                                    <span>Inserisci il codice di sicurezza che vedi nell'immagine per proteggere il sito dallo spam </span>
-
-                                </div>
-                            {else}
-                                {*<p>{'Secure code is allready entered'|i18n( 'extension/nxc_captcha' )}</p>*}
-                                <input type="hidden" name="nxc_captcha_{$attribute.id}" value=""/>
-                            {/if}
-                            {undef $attribute $class_content $regenerate}
+                            {*<p>{'Secure code is allready entered'|i18n( 'extension/nxc_captcha' )}</p>*}
+                            <input type="hidden" name="nxc_captcha_{$attribute.id}" value=""/>
                         {/if}
+                        {undef $attribute $class_content $regenerate}
                     {/if}
+                {/if}
 
-                    <input class="box" type="hidden"
-                           value="Nodo: {$node.node_id}; Oggetto:{$node.contentobject_id}; Versione: {$node.contentobject_version}; Titolo: {$node.name|wash()}"
-                           name="ContentObjectAttribute_ezstring_data_text_{$data_map.nodo.id}"/>
-                    <input class="box" type="hidden" value="{$node.url_alias|ezurl(no,full)}"
-                           name="ContentObjectAttribute_ezstring_data_text_{$data_map.link.id}"/>
-                    <input type="hidden" value="{$valutazione.main_node.node_id}" name="TopLevelNode"/>
-                    <input type="hidden" value="{$valutazione.main_node.node_id}" name="ContentNodeID"/>
-                    <input type="hidden" value="{$valutazione.id}" name="ContentObjectID"/>
-                    <input type="hidden" name="ViewMode" value="full"/>
-                    <input class="Button Button--info pull-right" type="submit" value="{'Invia la valutazione'|i18n('openpa/valuation')}"
-                           name="ActionCollectInformation"/>
+                <input class="Button Button--info pull-right" type="submit" value="Invia la valutazione" name="ActionCollectInformation"/>
 
-                </div>
             </div>
-        </form>
-
-    </div>
-{/if}
+        </div>
+        {/if}
+{/cache-block}
+        <input type="hidden"
+               value="Nodo: {$node.node_id}; Oggetto:{$node.contentobject_id}; Versione: {$node.contentobject_version}; Titolo: {$node.name|wash()}"
+               name="ContentObjectAttribute_ezstring_data_text_{$data_map.nodo.id}"/>
+        <input type="hidden"
+               value="{$node.url_alias|ezurl(no,full)}"
+               name="ContentObjectAttribute_ezstring_data_text_{$data_map.link.id}"/>
+        <input type="hidden"
+               value="{$valutazione.main_node.node_id}"
+               name="TopLevelNode"/>
+        <input type="hidden"
+               value="{$valutazione.main_node.node_id}"
+               name="ContentNodeID"/>
+        <input type="hidden"
+               value="{$valutazione.id}"
+               name="ContentObjectID"/>
+        <input type="hidden"
+               name="ViewMode"
+               value="full"/>
+    </form>
+</div>
+{/debug-accumulator}

@@ -1,4 +1,3 @@
-{ezscript_require('ezjsc::jquery')}
 <div class="Form-field">
 {def $stateListUS = ezini( 'States-US', 'StateList', 'mugosurvey.ini' )}
 {def $stateListCA = ezini( 'States-CA', 'StateList', 'mugosurvey.ini' )}
