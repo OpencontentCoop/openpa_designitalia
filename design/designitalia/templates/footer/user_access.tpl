@@ -23,7 +23,7 @@
                 login.show();
                 register.show();
             }else{
-                loginafter('<span class="u-margin-right-s" id="myprofile"><a href="/user/edit/" title="Visualizza il profilo utente">Il mio profilo</a></span><span class="u-margin-right-s" id="logout"><a href="/user/logout" title="Logout">Logout ('+data.content.name+')</a></span>');
+                login.after('<span class="u-margin-right-s" id="myprofile"><a href="/user/edit/" title="Visualizza il profilo utente">Il mio profilo</a></span><span class="u-margin-right-s" id="logout"><a href="/user/logout" title="Logout">Logout ('+data.content.name+')</a></span>');
                 if(data.content.has_access_to_dashboard){
                     login.after('<span class="u-margin-right-s"><a href="/content/dashboard/" title="Pannello strumenti">Pannello strumenti</a></span>');
                 }
