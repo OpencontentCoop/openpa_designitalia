@@ -17,7 +17,9 @@
 <script>{literal}
     $(document).ready(function(){
         var login = $('#login');
+        login.find('a').attr('href', login.find('a').attr('href') + '?url='+ ModuleResultUri);
         var register = $('#registeruser');
+        login.attr('href', login.attr('href') + '?url='+ ModuleResultUri);
         var injectUserInfo = function(data){
             if(data.error_text || !data.content){
                 login.show();
