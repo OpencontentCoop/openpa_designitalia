@@ -1,7 +1,7 @@
 <p>
 
     <span class="u-margin-right-s" id="login" style="display: none;">
-        <a href="{concat("/user/login?url=",$module_result.uri)|ezurl(no)}"
+        <a href="{"/user/login"|ezurl(no)}"
            title="Esegui il login al sito">Accedi con il tuo account</a>
     </span>
 
