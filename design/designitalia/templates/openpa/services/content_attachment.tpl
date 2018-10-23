@@ -41,6 +41,6 @@
          page_uri=$node.url_alias
          item_count=$openpa.content_attachment.children_count
          view_parameters=$view_parameters
-         item_limit=$openpa.content_attachment.page_limit
+         item_limit=$openpa.content_attachment.page_limit}
 
 {/if}
