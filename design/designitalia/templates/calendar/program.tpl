@@ -1,4 +1,3 @@
-{ezscript_require(array( 'ezjsc::jquery' ) )}
 <script>
 {literal}
 $(function() {

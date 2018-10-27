@@ -1,4 +1,3 @@
-{ezscript_require( array( "ezjsc::jquery", "plugins/blueimp/jquery.blueimp-gallery.min.js" ) )}
 {ezcss_require( array( "plugins/blueimp/blueimp-gallery.css" ) )}
 
 {set_defaults( hash(

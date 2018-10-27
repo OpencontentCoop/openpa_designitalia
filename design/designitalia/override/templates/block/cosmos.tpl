@@ -1,5 +1,3 @@
-{ezscript_require( array( 'ezjsc::jquery' ) )}
-
 <div class="openpa-widget {$block.view} {if and(is_set($block.custom_attributes.color_style), $block.custom_attributes.color_style|ne(''))}color color-{$block.custom_attributes.color_style}{/if}">
 	<h3 class="openpa-widget-title">{if $block.name}{$block.name} <img src="{'images/logo_COsmOs.png'|ezdesign(no)}" alt="logo-cosmos" width="40px" title="logo-cosmos" />{else}Chiedi a COsmOs <img src="{'images/logo_COsmOs.png'|ezdesign(no)}" alt="logo-cosmos" width="40px" title="logo-cosmos" />{/if}</h3>
 

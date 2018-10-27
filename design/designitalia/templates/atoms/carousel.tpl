@@ -25,7 +25,6 @@
     </div>
 
     {ezcss_require(array('owl.carousel.min.css'))}
-    {ezscript_require(array('vendor/owl.carousel.min.js', 'plugins/init_carousel.js'))}
 
     <script>
         $(document).ready(function(){ldelim}

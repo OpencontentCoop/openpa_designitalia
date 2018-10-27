@@ -19,7 +19,10 @@
     'ezjsc::jquery',
     'ezjsc::jqueryUI',
     'ezjsc::jqueryio',
-    'menu.js'
+    'menu.js',
+    'vendor/owl.carousel.min.js',
+    'plugins/init_carousel.js',
+    'plugins/blueimp/jquery.blueimp-gallery.min.js'
 ))}
 <!-- include html5shim per Explorer 8 -->
 <script src="{'javascript/vendor/modernizr.js'|ezdesign(no)}"></script>

@@ -47,9 +47,9 @@
             </a></li>
     {/if}
     {if is_set($contacts.partita_iva)}
-        <li><i class="fa fa-code u-textClean"></i> P.IVA {$contacts.partita_iva}</li>
+        <li><i class="fa fa-file u-textClean"></i> P.IVA {$contacts.partita_iva}</li>
     {/if}
     {if is_set($contacts.codice_fiscale)}
-        <li><i class="fa fa-code u-textClean"></i> C.F. {$contacts.codice_fiscale}</li>
+        <li><i class="fa fa-file u-textClean"></i> C.F. {$contacts.codice_fiscale}</li>
     {/if}
 </ul>

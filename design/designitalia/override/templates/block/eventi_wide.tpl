@@ -108,7 +108,6 @@
       </div>
     </div>
 
-    {ezscript_require(array('jquery-ui.min.js'))}
     <script>
         {literal}
         $(document).ready(function() {

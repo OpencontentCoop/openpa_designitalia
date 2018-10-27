@@ -1,4 +1,3 @@
-{ezscript_require( 'ezjsc::jquery' )}
 <div class="survey-view">
 	{def $survey=$attribute.content.survey}
 	{if is_set($attribute.content.survey_validation.one_answer_need_login)}

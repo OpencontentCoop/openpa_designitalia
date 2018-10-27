@@ -18,7 +18,6 @@
     'dataTables.bootstrap.css'
 ))}
 {ezscript_require(array(
-    'ezjsc::jquery',
     'plugins/chosen.jquery.js',
     'moment.min.js',
     'jquery.dataTables.js',

@@ -51,7 +51,6 @@
 	{set $subtreearray=is_area_tematica().node_id}
 {/if}
 
-{ezscript_require(array( 'ezjsc::jquery' ) )}
 <script>
 {literal}
 $(function() {

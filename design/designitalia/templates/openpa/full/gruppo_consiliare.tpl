@@ -28,7 +28,7 @@
 
             {if $search.SearchCount}
                 <div class="openpa-children">
-                  <h2>Componenti</h2>
+                    <h3 class="openpa-widget-title"><span>Componenti</span></h3>
                   {set_defaults(hash('image_class', 'small'))}
                   {foreach $search.SearchResult as $child }
                       {node_view_gui view='line' content_node=$child}
