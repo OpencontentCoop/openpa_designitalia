@@ -1,4 +1,4 @@
-{default enable_print=true()}
+{default enable_print=false()}
 
 {def $favicon = openpaini('GeneralSettings','favicon', 'favicon.ico')}
 
