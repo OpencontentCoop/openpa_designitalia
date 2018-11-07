@@ -45,7 +45,12 @@
 
             {include uri=$openpa.content_main.template}
 
-            {include uri='design:agenda/parts/calendar/views.tpl' views=array('list','agenda') view_all=$view_all current_view=$current_view}
+            {def $agenda_view = openpaini('ViewSettings', 'DefaultAgendaView', "month")}
+            {if $node|has_attribute('default_agenda_view')}
+                {set $agenda_view = $node|attribute('default_agenda_view').content}
+            {/if}
+
+            {include uri='design:agenda/parts/calendar/views.tpl' views=array('list','agenda') view_all=$view_all current_view=$current_view default_agenda_view=$agenda_view}
 
             {include uri = 'design:agenda/parts/calendar/calendar.tpl'
                      name = home_calendar

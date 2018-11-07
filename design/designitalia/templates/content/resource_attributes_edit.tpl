@@ -23,7 +23,7 @@
         {undef $identifier $parts}
     {/foreach}
 
-    <fieldset class="Form-field">
+    <fieldset class="Form-field" style="border: 1px solid #ccc;padding: 10px;">
         <legend class="Form-label ">
             Risorsa {$number}
         </legend>
@@ -33,33 +33,35 @@
 
             {foreach $other_attributes as $a}
             <div class="row edit-row">
-                <div class="col-md-3">{$a.contentclass_attribute.name|wash}</div>
-                <div class="col-md-9">
-                    {if $a.contentclass_attribute.description}
-                        <p><em class="classattribute-description">{first_set( $a.contentclass_attribute.descriptionList[$content_language], $a.contentclass_attribute.description)|wash}</em></p>
-                    {/if}
-                    {attribute_edit_gui attribute_base=$attribute_base attribute=$a view_parameters=$view_parameters html_class='Form-input'}
+                <div class="col-md-12">
+                    {attribute_edit_gui attribute_base=$attribute_base attribute=$a view_parameters=$view_parameters html_class='Form-input' contentclass_attribute=$a.contentclass_attribute}
                 </div>
             </div>
             {/foreach}
 
-            <div class="row edit-row">
-                <div class="col-md-3">
-                    Sorgente<br />
+            <div class="edit-row">
+                <p>
+                    <strong>Sorgente</strong><br />
                     <em><span class="classattribute-description"><small>Utilizza solo una sorgente</small></span></em>
-                </div>
-                <div class="col-md-9">
+                </p>
 
-                    <div id="coa-{$url.id}" class="resource-panel edit-row{if $url.has_content} has_content active{/if}">
+                <div id="coa-{$url.id}" class="resource-panel edit-row row {if $url.has_content} has_content active{/if}">
+                    <div class="col-md-3">
                         <label>{$url.contentclass_attribute.name|wash}</label>
+                    </div>
+                    <div class="col-md-9">
                         <p>
                             <input class="form-control" type="text" size="70" name="{$attribute_base}_ezurl_url_{$url.id}" value="{$url.content|wash( xhtml )}" />
                             <input type="hidden" name="{$attribute_base}_ezurl_text_{$url.id}" value="{$url.data_text|wash( xhtml )}" />
                         </p>
                     </div>
+                </div>
 
-                    <div id="coa-{$file.id}" class="resource-panel edit-row{if $file.has_content} has_content active{/if}">
+                <div id="coa-{$file.id}" class="resource-panel edit-row row {if $file.has_content} has_content active{/if}">
+                    <div class="col-md-3">
                         <label>{$file.contentclass_attribute.name|wash}</label>
+                    </div>
+                    <div class="col-md-9">
                         <p>
                             {if $file.content}
                                 {$file.content.original_filename|wash( xhtml )}
@@ -69,16 +71,20 @@
                             <input class="inputfile" type="file" name="{$attribute_base}_data_binaryfilename_{$file.id}"  />
                         </p>
                     </div>
+                </div>
 
-                    <div id="coa-{$api.id}" class="resource-panel edit-row{if $api.has_content} has_content active{/if}">
+                <div id="coa-{$api.id}" class="resource-panel edit-row row {if $api.has_content} has_content active{/if}">
+                    <div class="col-md-3">
                         <label>{$api.contentclass_attribute.name|wash}</label>
+                    </div>
+                    <div class="col-md-9">
                         <p>
                             <input class="form-control" type="text" size="70" name="{$attribute_base}_ezurl_url_{$api.id}" value="{$api.content|wash( xhtml )}" />
                             <input type="hidden" name="{$attribute_base}_ezurl_text_{$api.id}" value="{$api.data_text|wash( xhtml )}" />
                         </p>
                     </div>
-
                 </div>
+
             </div>
         </div>
 

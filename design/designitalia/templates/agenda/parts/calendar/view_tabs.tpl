@@ -1,6 +1,6 @@
 <div class="tab-content u-margin-top-s">
     {if $views|contains('agenda')}
-        <div id="agenda" class="tab-pane{if and($current_view, $current_view|eq('agenda'))} active{/if}"></div>
+        <div id="agenda" class="tab-pane{if and($current_view, $current_view|eq('agenda'))} active{/if}" data-default_view="{$default_agenda_view}"></div>
     {/if}
     {if $views|contains('list')}
         <div id="list" class="tab-pane{if and($current_view, $current_view|eq('list'))} active{/if}">

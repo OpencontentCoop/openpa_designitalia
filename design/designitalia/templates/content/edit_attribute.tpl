@@ -42,7 +42,7 @@
                         {else}
                             {if $is_translating_content}
                                 <div class="ezcca-edit-datatype-{$attribute.data_type_string} u-padding-all-s">
-                                    {attribute_edit_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters html_class='Form-input' contentclass_attribute=$attribute.contentclass_attribute}
+                                    {attribute_edit_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters html_class='Form-input' contentclass_attribute=$contentclass_attribute}
                                     <input type="hidden" name="ContentObjectAttribute_id[]" value="{$attribute.id}"/>
 
                                     <div class="u-background-grey-20 u-padding-all-s">
@@ -52,7 +52,7 @@
                                 </div>
                             {else}
                                 <div class="ezcca-edit-datatype-{$attribute.data_type_string} u-padding-all-s">
-                                    {attribute_edit_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters html_class='Form-input' contentclass_attribute=$attribute.contentclass_attribute}
+                                    {attribute_edit_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters html_class='Form-input' contentclass_attribute=$contentclass_attribute}
                                     <input type="hidden" name="ContentObjectAttribute_id[]" value="{$attribute.id}"/>
                                 </div>
                             {/if}

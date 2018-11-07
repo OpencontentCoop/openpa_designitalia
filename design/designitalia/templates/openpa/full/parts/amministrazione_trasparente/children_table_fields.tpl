@@ -16,6 +16,9 @@
     {set $index = $index|inc()}
 
     {def $depth = cond( is_set($fieldsParts[$index]), $fieldsParts[$index], false() )}
+	{set $index = $index|inc()}
+
+	{def $order = cond( is_set($fieldsParts[$index]), $fieldsParts[$index]|explode( ',' ), false() )}
     
     {def $currentLanguage = ezini('RegionalSettings','Locale')
          $depth_query_part = ''}
@@ -40,7 +43,7 @@
 	      {/foreach}
 	    {/foreach}
 
-        {def $query = concat($depth_query_part, " classes [",$class.identifier,"] subtree [",$node.node_id,"]")}        
+        {def $query = concat($depth_query_part, "classes [",$class.identifier,"] subtree [",$node.node_id,"]")}
         {def $facet_buttons = array()}
         
         {if $group_by}
@@ -110,6 +113,7 @@
 	          {rdelim},
 	          "ajax": {ldelim}url: "{'opendata/api/datatable/search'|ezurl(no,full)}/"{rdelim},
 	          "lengthMenu": [ 30, 60, 90, 120 ],
+			  {if $order}"order": [{foreach $order as $item}{def $numDir = $item|explode('-')}[{$numDir[0]}, '{$numDir[1]}']{delimiter},{/delimiter}{undef $numDir}{/foreach}],{/if}
 	          "columns": [
 	            {foreach $class_fields as $field}
 	              {def $title = $field.name[$currentLanguage]}
@@ -201,7 +205,9 @@
 	    
 	    <div class="Callout Callout--could u-text-r-xs u-margin-top-m u-margin-bottom-m">
 			<img style="vertical-align: middle" src="data:image/jpg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAYEBAQFBAYFBQYJBgUGCQsIBgYICwwKCgsKCgwQDAwMDAwMEAwODxAPDgwTExQUExMcGxsbHCAgICAgICAgICD/2wBDAQcHBw0MDRgQEBgaFREVGiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICD/wAARCAASAGEDAREAAhEBAxEB/8QAGwAAAQUBAQAAAAAAAAAAAAAAAAEDBAUHAgb/xAA2EAABAwIDBAgEBQUAAAAAAAACAQMEBREABhITFCHRBxUWIjFBVZMyUVSUI0JW0tNSYWJxc//EABkBAQADAQEAAAAAAAAAAAAAAAABAgMEBf/EACcRAAICAQIFBQADAAAAAAAAAAABAhEDBBITITFRkRQVMkFhcYGh/9oADAMBAAIRAxEAPwDU8l5O6PzyDSqxWqYw488zd54hMjM9S+AhdSWyeCJi0YOTpEN0W0jKfRDHZivHS45BM1JG2bbzhEoJcu6Gok0+d04YusMn/RG9HT2T+iNmRFjrSo5uzR2kZGm3XdQXQdV29SIl1TiuIWGXgbkK5k7ohbCcZU2IiU00bnJY7tkVtN08eN+GHCly5deg3IrukDJuTcvZZeqdPoMJZLZtiO2AzCxmiLwQk8sa6XEsk6fQrllSsz+U3Jiwm5r+V6OMZ0BcA9kpLoP4TIEeUhFfmqY71o8Ddc7MHlmNvE6wy087likA28qCKqyV0Uvh2ibW7d/LXbErQ4X3HGmPSo8uLUAp7+V6MMtwdojaN6kQF/MRi8oin9yXELR4Gr50OLMhyZ7cV8mJGW6QDo+KbA14L4Kio7ZUXyVOGLrQYn3I48hrrmH+nqP9u5/JifbsX75I9RIOuYf6eo/27n8mHt2L98j1EibRnaXVJbsJ+hUxpsoktxHGGTBwTaYIwUSU18CT5Yw1OihDG5K7NMeZt0JvD/8AWuPKOk1TIlIWpdGmXNm7u8qKKSYjyjrEXRUxRSC46ksa8L40xz2/wyslZbLkOnON05qQ4TzMJ2RIdDiO1dk3UluKooohEqomNfUvn+1/hXhjtXyg3OrFPqDToMBADZjGVpVG2sT7ug29K923mmIx56i13EoWxioZEjTGqgm9E1InSd424CiKgLs7snx74Lsk8cWjqWq/EHjI3S3FlSskyWYrDkh1XWbNsgplbaJfujdcW0DSycyM/wATKagVdk09Y7WXZrMp6CzTZUlWnjQ2GC1Dpb0JpLUicbrj1YqKfyVXZyu+w/XKlm+sQZkF+izBjySjEyO7ufhbuGlUujaKev8AyXhiMcMcGna+/vuTKTf0NNyM0s1iRVI9DmNPvQ9zBN3cXQuyFpHOIKhfBeypidsNu1yXWyLd3RErjGaKxNbmP0eaLwx2Y5ru7neVkdOvgCImr5J4Ytj2QVWuvciVsr+z+YfSZ32zv7cacSPdeSu1h2fzD6TO+2d/bhxI915G1lrlij1mPVXXpFOlMMjBnanXWXABLxTtciRExy62cXifNGuFPcRceEdp4Q6rVGS2TMx9tseAgDhoKf6RFwAnXda+vk+6fPAB13Wvr5PunzwAdd1r6+T7p88ACV2tot0qElF/7Oc8Addoa/6lK99znhQDtDX/AFKV77nPCgHaGv8AqUr33OeFAO0Nf9Sle+5zwoB2hr/qUr33OeFAO0Nf9Sle+5zwoB17W3Pw3KhJMC4EBPOKip8lS+ANQ0D8kwB//9k="/>
-			Ottieni questi contenuti in <a href="{concat("exportas/custom/csv_trasparenza/", $query|urlencode, "/",$node.node_id)|ezurl(no)}">formato <abbr title="Comma-separated values">CSV</abbr></a> o in <a href="{concat("/api/opendata/v2/content/search/",$query|urlencode)}">formato <abbr title="JavaScript Object Notation">JSON</abbr></a>            
+			Ottieni questi contenuti in
+			<a href="{concat("exportas/custom/csv_trasparenza/", $query, "/",$node.node_id)|ezurl(no)}">formato <abbr title="Comma-separated values">CSV</abbr></a>
+			o in <a href="{concat("/api/opendata/v2/content/search/",$query|urlencode)}">formato <abbr title="JavaScript Object Notation">JSON</abbr></a>
 		</div>
 		{undef $query}
 

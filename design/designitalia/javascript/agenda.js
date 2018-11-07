@@ -28,51 +28,6 @@
 
             var isChangeView = false;
 
-            /*var initMap = function () {
-                if (document.getElementById('map')) {
-                    var map = tools.initMap(
-                        'map',
-                        function (response) {
-                            return L.geoJson(response, {
-                                pointToLayer: function (feature, latlng) {
-                                    var customIcon = L.MakiMarkers.icon({icon: "circle", size: "l"});
-                                    return L.marker(latlng, {icon: customIcon});
-                                },
-                                onEachFeature: function (feature, layer) {
-                                    var popupDefault = '<p class="text-center"><i class="fa fa-circle-o-notch fa-spin"></i></p><p><a href="' + tools.settings('accessPath') + '/agenda/event/' + feature.properties.mainNodeId + '" target="_blank">';
-                                    popupDefault += feature.properties.name;
-                                    popupDefault += '</a></p>';
-                                    var popup = new L.Popup({maxHeight: 360});
-                                    popup.setContent(popupDefault);
-                                    layer.on('click', function (e) {
-
-                                        tools.findOne('id = ' + e.target.feature.properties.id, function (data) {
-                                            var template = $.templates("#tpl-event");
-                                            $.views.helpers(OpenpaAgendaHelpers);
-                                            var htmlOutput = template.render([data]).replace('col-md-6', '');
-                                            popup.setContent(htmlOutput);
-                                            popup.update();
-                                        })
-                                    });
-                                    layer.bindPopup(popup);
-                                }
-                            });
-                        }
-                    );
-                    map.scrollWheelZoom.disable();
-
-                    $("body").on("shown.bs.tab", function () {
-                        tools.refreshMap();
-                    });
-                }
-            };
-
-            var loadMapResults = function (response, query, appendResults, view) {
-                if (response.totalCount > 0) {
-                    tools.loadMarkersInMap(query);
-                }
-            };*/
-
             var initCalendar = function (view) {
                 $( "#agenda-container" ).on( "tabsactivate", function( event, ui ) {
                   var hash = ui.newTab.context.hash;
@@ -86,27 +41,11 @@
                     $('.widget[data-filter="date"]').removeClass('hide');
                   }
                 });
-                /*$("body").on("shown.bs.tab", function (e) {
-                    if ($(e.target).attr('href') == '#agenda') {
-                        view.setFilterValue('date', 'all');
-                        view.doSearch();
-                        refreshCalendar(view);
-                        $('.widget[data-filter="date"]').addClass('hide');
-                        isChangeView = true;
-                    } else {
-                        $('.widget[data-filter="date"]').removeClass('hide');
-                    }
-                });*/
             };
 
             var refreshCalendar = function (view, response) {
                 if ($.isFunction($.fn.fullCalendar)) {
                     var defaultDate = moment();
-                    //if (response){
-                    //    if (response.totalCount > 0) {
-                    //        defaultDate = moment(response.searchHits[0].data[tools.settings('language')].from_time, moment.ISO_8601);;
-                    //    }
-                    //}
                     if (viewCalendar.data('fullCalendar')) {
                         viewCalendar.fullCalendar('destroy');
                     }
@@ -116,10 +55,10 @@
                             right: "agendaDay,agendaWeek,month",
                             left: "prev,today,next"
                         },
-                        defaultView: 'agendaWeek',
+                        defaultView: viewCalendar.data('default_view') || 'agendaWeek',
                         locale: tools.settings('locale'),
                         axisFormat: 'H(:mm)',
-                        aspectRatio: 1.35,
+                        aspectRatio: 1,
                         selectable: false,
                         defaultDate: defaultDate,
                         editable: false,

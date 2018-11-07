@@ -63,6 +63,28 @@
             </a>
           </li>
         {/if}
+        {if is_set($pagedata.contacts.newsletter)}
+          <li>
+              <a href="{$pagedata.contacts.newsletter}">
+                        <span class="openpa-icon fa-stack">
+                            <i class="fa fa-circle fa-stack-2x u-color-90"></i>
+                            <i class="fa fa-envelope-square fa-stack-1x u-color-white" aria-hidden="true"></i>
+                        </span>
+                  <span class="u-hiddenVisually">Newsletter</span>
+              </a>
+          </li>
+        {/if}
+        {if is_set($pagedata.contacts.youtube)}
+          <li>
+              <a href="{$pagedata.contacts.youtube}">
+                    <span class="openpa-icon fa-stack">
+                        <i class="fa fa-circle fa-stack-2x u-color-90"></i>
+                        <i class="fa fa-youtube fa-stack-1x u-color-white" aria-hidden="true"></i>
+                    </span>
+                  <span class="u-hiddenVisually">YouTube</span>
+              </a>
+          </li>
+        {/if}
 
         {def $forms = fetch( 'content', 'class', hash( 'class_id', 'feedback_form' ) ).object_list
              $form = cond(is_set($forms[0]), $forms[0], false())}

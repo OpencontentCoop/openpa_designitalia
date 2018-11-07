@@ -54,11 +54,11 @@
         {set row_count=0}
 {/if}
 </div>
-<div class="Grid-cell u-size4of12 u-sm-size2of12 u-md-size2of12 u-lg-size1of12">
+<div class="Grid-cell u-size4of12 u-sm-size2of12 u-md-size2of12 u-lg-size2of12">
 <select id="ezcoa-{if ne( $attribute_base, 'ContentObjectAttribute' )}{$attribute_base}-{/if}{$attribute.contentclassattribute_id}_{$attribute.contentclass_attribute_identifier}_add_count"
         class="Form-input form-control matrix_cell ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}"
         name="{$attribute_base}_data_matrix_add_count_{$attribute.id}"
-        title="{'Number of rows to add.'|i18n( 'design/standard/content/datatype' )}" >
+        title="{'Number of rows to add.'|i18n( 'design/standard/content/datatype' )}" style="margin: 0!important;padding: .4em .5em .3em">
     <option value="1">1</option>
     {section loop=$row_count}
         {set index_var=$index_var|inc}
