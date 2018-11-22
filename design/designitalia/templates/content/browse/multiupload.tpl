@@ -53,7 +53,7 @@
             <div class="Grid-cell Form-field Form-field--withPlaceholder">
                 <input style="padding:6px" class="Form-input u-text-r-s u-padding-r-all u-color-black"
                        name="SearchText" type="text"
-                       value="{cond( ezhttp_hasvariable('SearchText','get'), ezhttp('SearchText','get'),'')}"
+                       value="{cond( ezhttp_hasvariable('SearchText','get'), ezhttp('SearchText','get')|wash(),'')}"
                        size="12"/>
                 <input type="hidden" value="Cerca" name="SearchButton"/>
                 <input type="hidden" value="{$browse.start_node}" name="SubTreeArray[]"/>

@@ -113,14 +113,14 @@
                         <input type="text" class="from_picker Form-input" placeholder="Dalla data"
                                id="{$field.identifier}_from"
                                name="Data[{$field.identifier}][]" title="Dalla data"
-                               value="{cond(is_set($Data[$field.identifier]),$Data[$field.identifier][0])}"/>
+                               value="{cond(is_set($Data[$field.identifier]),$Data[$field.identifier][0]|wash())}"/>
                     </div>
                     <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
                         <label class="Form-label u-hiddenVisually" for="{$field.identifier}_to">Alla data:</label>
                         <input class="to_picker Form-input" type="text" placeholder="Alla data"
                                id="{$field.identifier}_to"
                                name="Data[{$field.identifier}][]" title="Alla data"
-                               value="{cond(is_set($Data[$field.identifier]),$Data[$field.identifier][1])}"/>
+                               value="{cond(is_set($Data[$field.identifier]),$Data[$field.identifier][1]|wash())}"/>
                     </div>
                 </fieldset>
             {/case}
@@ -151,7 +151,7 @@
                            type="text"
                            class="Form-input"
                            name="Data[{$field.identifier}]"
-                           value="{cond(is_set($Data[$field.identifier]),$Data[$field.identifier])}"/>
+                           value="{cond(is_set($Data[$field.identifier]),$Data[$field.identifier]|wash())}"/>
                 </div>
             {/case}
 
@@ -170,7 +170,7 @@
                        name="Data[published][]"
                        title="Dalla data"
                        placeholder="Dalla data"
-                       value="{cond(is_set($Data['published']),$Data['published'][0])}"/>
+                       value="{cond(is_set($Data['published']),$Data['published'][0]|wash())}"/>
             </div>
             <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
                 <label class="Form-label u-hiddenVisually" for="published_to">Alla data:</label>
@@ -180,7 +180,7 @@
                        name="Data[published][]"
                        title="Dalla data"
                        placeholder="Alla data"
-                       value="{cond(is_set($Data['published']),$Data['published'][1])}"/>
+                       value="{cond(is_set($Data['published']),$Data['published'][1]|wash())}"/>
             </div>
         </fieldset>
 

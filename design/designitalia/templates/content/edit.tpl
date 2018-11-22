@@ -47,8 +47,8 @@
             <input class="Button Button--default" type="submit" name="PublishButton" value="{'Store'|i18n('ocbootstrap')}"/>
         </div>
         <input type="hidden" name="DiscardConfirm" value="0"/>
-        <input type="hidden" name="RedirectIfDiscarded" value="{if ezhttp_hasvariable( 'RedirectIfDiscarded', 'session' )}{ezhttp( 'RedirectIfDiscarded', 'session' )}{else}{$_redirect}{/if}"/>
-        <input type="hidden" name="RedirectURIAfterPublish" value="{$_redirect}"/>
+        <input type="hidden" name="RedirectIfDiscarded" value="{if ezhttp_hasvariable( 'RedirectIfDiscarded', 'session' )}{ezhttp( 'RedirectIfDiscarded', 'session' )}{else}{$_redirect|wash()}{/if}"/>
+        <input type="hidden" name="RedirectURIAfterPublish" value="{$_redirect|wash()}"/>
     </div>
 
 </form>
