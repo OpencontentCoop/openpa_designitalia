@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 cookieChoices.showCookieConsentBar(
 "Questo sito utilizza cookie tecnici, analytics e di terze parti. Proseguendo nella navigazione accetti l’utilizzo dei cookie.",
 'Accetto',
-'Privacy policy',
+'Cookie policy',
 '{/literal}{'openpa/cookie'|ezurl(no,full)}{literal}'
 );});
 </script>
