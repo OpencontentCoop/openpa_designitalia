@@ -1,5 +1,9 @@
 <?php /*
 
+[TopMenu]
+LimitePrimoLivello=50
+LimiteSecondoLivello=50
+
 [InstanceSettings]
 # Nome dell'amministrazione afferente
 #NomeAmministrazioneAfferente=Provincia autonoma di Trento
