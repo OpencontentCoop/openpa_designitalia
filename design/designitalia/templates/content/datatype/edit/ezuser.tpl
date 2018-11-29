@@ -25,7 +25,7 @@
         <div class="Grid-cell u-md-size1of2 u-lg-size1of2">
             <label class="Form-label" for="{$id_base}_login">{'Username'|i18n( 'design/standard/content/datatype' )}</label>
             {* Username. *}
-            {if $attribute.content.has_stored_login}
+            {if and($attribute.content.has_stored_login, $attribute.content.login|ne(''))}
                 <p><input id="{$id_base}_login" autocomplete="off" type="text" name="{$attribute_base}_data_user_login_{$attribute.id}_stored_login" class="Form-input" value="{$attribute.content.login|wash()}" disabled="disabled" /></p>
                 <input id="{$id_base}_login_hidden" type="hidden" name="{$attribute_base}_data_user_login_{$attribute.id}" value="{$attribute.content.login|wash()}" />
             {else}
