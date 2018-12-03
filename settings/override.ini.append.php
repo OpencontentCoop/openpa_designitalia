@@ -598,3 +598,10 @@ MatchFile=block/html_3_colonne.tpl
 Subdir=templates
 Match[type]=Html3Colonne
 Match[view]=html_3_colonne
+
+[block_facet_search_default]
+Source=block/view/view.tpl
+MatchFile=block/facet_search.tpl
+Subdir=templates
+Match[type]=FacetSearch
+Match[view]=default

@@ -21,6 +21,22 @@ AllowedTypes[]=AreaRiservata
 AllowedTypes[]=Meteo
 AllowedTypes[]=HTML
 AllowedTypes[]=Html3Colonne
+AllowedTypes[]=FacetSearch
+
+[FacetSearch]
+Name=Ricerca a faccette
+ManualAddingOfItems=disabled
+CustomAttributes[]
+CustomAttributes[]=classes
+CustomAttributes[]=attributes
+CustomAttributeNames[]
+CustomAttributeNames[classes]=Identificatori di classe
+CustomAttributeNames[attributes]=Identificatori di attributo
+ViewList[]
+ViewList[]=default
+ViewName[]
+ViewName[default]=Panels
+ItemsPerRow[]
 
 [Singolo]
 Name=Oggetto singolo

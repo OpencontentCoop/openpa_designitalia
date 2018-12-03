@@ -137,7 +137,7 @@
   </div>
 </div>
 
-{* Box al volo per orari *}
+{* Box al volo per orari 
 {literal}
     <style>
         #times {
@@ -232,7 +232,7 @@
 {/literal}
 
 {undef $markets}
-
+*}
 
 <a href="#" title="torna all'inizio del contenuto" class="ScrollTop js-scrollTop js-scrollTo">
     <i class="ScrollTop-icon Icon-collapse" aria-hidden="true"></i>
