@@ -51,8 +51,8 @@
             <li style="margin: 1.8rem !important; padding: 0 !important;">
                 <a href="{$pagedata.contacts.newsletter}">
                     <span class="openpa-icon fa-stack">
-                        <i class="fa fa-circle fa-stack-2x u-color-80"></i>
-                        <i class="fa fa-envelope-square fa-stack-1x u-color-white" aria-hidden="true"></i>
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-envelope-square fa-stack-1x u-color-grey-80" aria-hidden="true"></i>
                     </span>
                     <span class="u-hiddenVisually">Newsletter</span>
                 </a>
@@ -62,8 +62,8 @@
             <li style="margin: 1.8rem !important; padding: 0 !important;">
                 <a href="{$pagedata.contacts.youtube}">
                 <span class="openpa-icon fa-stack">
-                    <i class="fa fa-circle fa-stack-2x u-color-80"></i>
-                    <i class="fa fa-youtube fa-stack-1x u-color-white" aria-hidden="true"></i>
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-youtube fa-stack-1x u-color-grey-80" aria-hidden="true"></i>
                 </span>
                     <span class="u-hiddenVisually">YouTube</span>
                 </a>
