@@ -52,11 +52,26 @@
 
             {include uri='design:agenda/parts/calendar/views.tpl' views=array('list','agenda') view_all=$view_all current_view=$current_view default_agenda_view=$agenda_view}
 
+            {def $base_query_subtree = array($node.node_id)}
+            {if and($node|has_attribute('subtree_array'), $node|attribute('subtree_array').data_type_string|eq('ezobjectrelationlist'))}
+                {foreach $node|attribute('subtree_array').content.relation_list as $item}
+                    {if and(is_set($item.node_id), $item.node_id|gt(0))}
+                        {set $base_query_subtree = $base_query_subtree|append($item.node_id)}
+                    {/if}
+                {/foreach}
+            {elseif and($node|has_attribute('subtree'), $node|attribute('subtree').data_type_string|eq('ezobjectrelation'))}
+                {def $item = $node|attribute('subtree').content}
+                {if and(is_set($item.main_node_id), $item.main_node_id|gt(0))}
+                    {set $base_query_subtree = $base_query_subtree|append($item.node_id)}
+                {/if}
+                {undef $item}
+            {/if}
+
             {include uri = 'design:agenda/parts/calendar/calendar.tpl'
                      name = home_calendar
                      calendar_identifier = concat(site_identifier(), $node.contentobject_id)
                      filters = array('date')
-                     base_query = concat('classes [event] and subtree [', $node.node_id, '] and state sort [from_time=>asc]')}
+                     base_query = concat('classes [event] and subtree [', $base_query_subtree|implode(','), '] and state sort [from_time=>asc]')}
 
         </div>
         {if $show_left}
