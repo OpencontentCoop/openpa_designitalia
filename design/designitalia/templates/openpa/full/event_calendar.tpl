@@ -62,7 +62,7 @@
             {elseif and($node|has_attribute('subtree'), $node|attribute('subtree').data_type_string|eq('ezobjectrelation'))}
                 {def $item = $node|attribute('subtree').content}
                 {if and(is_set($item.main_node_id), $item.main_node_id|gt(0))}
-                    {set $base_query_subtree = $base_query_subtree|append($item.node_id)}
+                    {set $base_query_subtree = $base_query_subtree|append($item.main_node_id)}
                 {/if}
                 {undef $item}
             {/if}
