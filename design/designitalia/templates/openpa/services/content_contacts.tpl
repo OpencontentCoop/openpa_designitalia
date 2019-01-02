@@ -1,7 +1,12 @@
+{if is_set($label)|not}
+    {def $label = cond($openpa.content_contacts.show_label, concat('<i class="fa fa-comments-o fa-lg"></i> ', $openpa.content_contacts.label), '')}
+{/if}
+
+
 {if $openpa.content_contacts.has_content}
     <div class="openpa-widget">
-        {if $openpa.content_contacts.show_label}
-            <h3 class="openpa-widget-title"><span><i class="fa fa-comments-o fa-lg"></i> {$openpa.content_contacts.label}</span></h3>
+        {if $label|ne('')}
+            <h5 class="u-text-h5"><span> {$label}</span></h5>
         {/if}
         <section class="Prose Alert Alert--info u-margin-bottom-l">
             <div class="Grid Grid--withGutter">
