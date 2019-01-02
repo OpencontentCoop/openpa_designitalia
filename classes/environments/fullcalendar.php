@@ -91,9 +91,7 @@ class AgendaFullcalendarEnvironmentSettings extends DefaultEnvironmentSettings
         $calendarQuery = "calendar[] = [$start,$end]";
         $queryObject = $builder->instanceQuery($calendarQuery);
         $calendarQuery = $queryObject->convert();
-        $query = new ArrayObject(
-            array_merge_recursive($query->getArrayCopy(), $calendarQuery->getArrayCopy())
-        );
+        $query['Filter'][] = $calendarQuery->getArrayCopy()['Filter'];
 
         if (isset( $query['SearchLimit'] )) {
             if ($query['SearchLimit'] > $this->maxSearchLimit) {

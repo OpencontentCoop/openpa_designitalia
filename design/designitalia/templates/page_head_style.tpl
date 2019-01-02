@@ -31,3 +31,5 @@
     'all', 'text/css', 'stylesheet' )}
 {/if}
 
+{ezcss_load( array('print.css'),'print', 'text/css', 'stylesheet' )}
+
