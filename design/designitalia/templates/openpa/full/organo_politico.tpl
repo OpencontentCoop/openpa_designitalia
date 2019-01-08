@@ -22,7 +22,7 @@
             {include uri=$openpa.content_detail.template hide_attachment=true() hide_gallery=true()}
 
             <div class="content-view-children">
-                {if $node.name|downcase()|contains('sindaco')}
+                {if or($node.name|downcase()|contains('sindaco'), $node.name|downcase()|contains('commissario straordinario'))}
                     {foreach $node|attribute( 'membri' ).content.relation_list as $relation_item}
                         {if is_set($relation_item.node_id)}
                             {node_view_gui view=line content_node=fetch(content,node,hash(node_id,$relation_item.node_id)) image_class='small'}
@@ -32,7 +32,7 @@
                     {def $attributi_politici = array( 'presidente', 'vicepresidente', 'membri', 'segretario')}
                     {foreach $attributi_politici as $identifier}
                         {if $node|has_attribute( $identifier )}
-                            <h2>{$node|attribute( $identifier ).contentclass_attribute.name|wash()}</h2>
+                            <h2 class="openpa-widget-title">{$node|attribute( $identifier ).contentclass_attribute.name|wash()}</h2>
                             {foreach $node|attribute( $identifier ).content.relation_list as $relation_item}
                                 {if is_set($relation_item.node_id)}
                                     {node_view_gui view=line content_node=fetch(content,node,hash(node_id,$relation_item.node_id)) image_class='small'}
