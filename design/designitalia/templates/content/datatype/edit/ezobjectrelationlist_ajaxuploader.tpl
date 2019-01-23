@@ -1,11 +1,11 @@
-{*$class_content.class_constraint_list|contains( 'image', 'file', 'file_pdf' )		 *}
+{*$class_content.class_constraint_list|contains( 'image', 'file', 'file_pdf' )       *}
 {if and( is_set( $class_content.class_constraint_list ),
-		 $class_content.class_constraint_list|count|ne( 0 ),
+         $class_content.class_constraint_list|count|ne( 0 ),
      ezini( 'ObjectRelationsMultiupload', 'ClassAttributeIdentifiers', 'ocoperatorscollection.ini' )|contains( $attribute.contentclass_attribute_identifier )
 )}
 
 <div id="{concat('multiupload-', $attribute.id, '-container')}" class="pull-left">
-    <span class="btn btn-success u-padding-all-s fileinput-button">
+    <span class="btn btn-success fileinput-button" style="padding: 13px !important;margin-left: 5px;">
         <i class="add glyphicon glyphicon-plus"></i>
         <i class="spinner fa a fa-circle-o-notch fa-spin" style="display: none"></i>
         <span>Inserisci file</span>
@@ -16,15 +16,16 @@
 
 {def $start_node = cond( and( is_set( $class_content.default_placement.node_id ), $class_content.default_placement.node_id|ne( 0 ) ),
                                 $class_content.default_placement.node_id,
-								'auto' )}
+                                'auto' )}
 
-{ezscript_require( array( 'ezjsc::jquery', 'ezjsc::jqueryio', 'ezjsc::jqueryUI', 'plugins/jquery.fileupload/jquery.fileupload.js' ) )}
+{ezscript_require( array( 'ezjsc::jquery', 'ezjsc::jqueryio', 'ezjsc::jqueryUI', 'jquery.fileupload.js' ) )}
 {ezcss_require( 'plugins/jquery.fileupload/jquery.fileupload.css' )}
 <script>
 {literal}
 $(function () {
     'use strict';
     $({/literal}'#{concat('multiupload-', $attribute.id)}'{literal}).fileupload({
+        autoUpload: true,
         url: {/literal}{concat('ocbtools/upload/',$attribute.id, '/', $attribute.version, '/', $start_node)|ezurl()}{literal},
         acceptFileTypes: "{/literal}{$attribute|multiupload_file_types_string_from_attribute()}{literal}",
         dataType: 'json',

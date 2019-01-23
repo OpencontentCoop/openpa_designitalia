@@ -37,7 +37,7 @@
                     node=$node
                     classe='folder'
                     attrib='riferimento'
-                    title="Riferimenti:"
+                    title='References'|i18n('openpa/sidebar')
                     uri='design:parts/reverse_related_objects_specific_class_and_attribute.tpl'}
 
         </div>

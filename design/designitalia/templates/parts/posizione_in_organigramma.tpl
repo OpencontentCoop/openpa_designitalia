@@ -1,7 +1,7 @@
 {def $organigramma = organigramma($node.contentobject_id)}
 {if $organigramma}
     <div class="openpa-widget posizione-organigramma">
-        <h3 class="openpa-widget-title"><span>{"Posizione nell'organigramma"|i18n('openpa/widget')}</span></h3>
+        <h3 class="openpa-widget-title"><span>{"Position in the organization chart"|i18n('openpa/widget')}</span></h3>
 
         <ul class="org-chart">
             <li>

@@ -2,7 +2,15 @@
 
 <div class="openpa-widget nav-section">
 
-    <h3 class="openpa-widget-title"><span>{if $node|ne( false() )}Cerca in {$node.name|wash()}{else}Cerca{/if}</span></h3>
+    <h3 class="openpa-widget-title">
+        <span>
+        {if $node|ne( false() )}
+            {"Search in &apos;%node&apos;"|i18n("design/admin/pagelayout", '', hash('%node', $node.name|wash()))}
+        {else}
+            {"Search"|i18n("design/admin/pagelayout"}
+        {/if}
+        </span>
+    </h3>
 
     <div class="openpa-widget-content">
 

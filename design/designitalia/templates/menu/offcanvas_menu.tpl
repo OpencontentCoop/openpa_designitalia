@@ -33,7 +33,7 @@
                                      name=top_menu
                                      uri='design:menu/offcanvas_menu_item.tpl'
                                      menu_item=$tree_menu}
-                            {if $tree_menu.has_children}
+                            {if and(is_set($tree_menu.has_children), $tree_menu.has_children)}
                                 {if $tree_menu.max_recursion|eq(1)}
                                     <ul>
                                         {foreach $tree_menu.children as $child}

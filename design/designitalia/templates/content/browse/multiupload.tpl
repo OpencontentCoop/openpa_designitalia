@@ -46,65 +46,44 @@
     </div>
 {/if}
 
+<form class="u-padding-bottom-l" action={"/content/search"|ezurl}>
+    <div class="Grid-cell Form-field Form-field--withPlaceholder">
+        <input style="padding:6px" class="Form-input u-text-r-s u-padding-r-all u-color-black"
+               name="SearchText" type="text"
+               value="{cond( ezhttp_hasvariable('SearchText','get'), ezhttp('SearchText','get')|wash(),'')}"
+               size="12"/>
+        <input type="hidden" value="Cerca" name="SearchButton"/>
+        <input type="hidden" value="{$browse.start_node}" name="SubTreeArray[]"/>
+        <input name="Mode" type="hidden" value="browse"/>
+        <button name="SearchButton" value="Cerca" id="searchbox_submit" type="submit"
+                class="u-background-40 u-color-white u-padding-all-s u-text-r-m u-textNoWrap">
+            <span class="fa fa-search"></span>
+        </button>
+    </div>
+    {if and( $is_search, count($node_array)|gt(0) )}
+        <span class="input-group-btn">
+          <a href={concat('content/browse/', $browse.start_node)|ezurl()} class="btn btn-danger">Annulla ricerca</a>
+        </span>
+    {/if}
+</form>
+{if and( $is_search, count($node_array)|eq(0) )}
+    <div class="warning message-warning">
+        Nessun elemento trovato <a href={concat('content/browse/', $browse.start_node)|ezurl()}>[Indietro]</a>
+    </div>
+{/if}
+
 <div class="Grid Grid--withGutter">
     <div class="Grid-cell u-md-size1of2 u-lg-size1of2">
-
-        <form class="u-padding-bottom-l" action={"/content/search"|ezurl}>
-            <div class="Grid-cell Form-field Form-field--withPlaceholder">
-                <input style="padding:6px" class="Form-input u-text-r-s u-padding-r-all u-color-black"
-                       name="SearchText" type="text"
-                       value="{cond( ezhttp_hasvariable('SearchText','get'), ezhttp('SearchText','get')|wash(),'')}"
-                       size="12"/>
-                <input type="hidden" value="Cerca" name="SearchButton"/>
-                <input type="hidden" value="{$browse.start_node}" name="SubTreeArray[]"/>
-                <input name="Mode" type="hidden" value="browse"/>
-                <button name="SearchButton" value="Cerca" id="searchbox_submit" type="submit"
-                        class="u-background-40 u-color-white u-padding-all-s u-text-r-m u-textNoWrap">
-                    <span class="fa fa-search"></span>
-                </button>
-            </div>
-            {if and( $is_search, count($node_array)|gt(0) )}
-                <span class="input-group-btn">
-                  <a href={concat('content/browse/', $browse.start_node)|ezurl()} class="btn btn-danger">Annulla ricerca</a>
-                </span>
-            {/if}
-        </form>
-        {if and( $is_search, count($node_array)|eq(0) )}
-            <div class="warning message-warning">
-                Nessun elemento trovato <a href={concat('content/browse/', $browse.start_node)|ezurl()}>[Indietro]</a>
-            </div>
-        {/if}
-        {*
-        <div class="pull-right">
-            <div class="content-view-ezmultiupload">
-                <div class="attribute-description">
-                    <div id="uploadButtonOverlay" style="position: absolute; z-index: 2"></div>
-                    <button id="uploadButton" class="button" type="button" style="z-index: 1">Aggiungi nuove immagini</button>
-                    <button id="cancelUploadButton" class="button" type="button" style="visibility: hidden">{'Cancel'|i18n('extension/ezmultiupload')}</button>
-                    <noscript>{'Javascript has been disabled, this is needed for multiupload!'|i18n('extension/ezmultiupload')}</noscript>
-                </div>
-                <div id="multiuploadProgress" style="width: 150px;">
-                    <p>
-                        <span id="multiuploadProgressFile">&nbsp;</span>&nbsp;
-                        <span id="multiuploadProgressFileName">&nbsp;</span>
-                    </p>
-                    <p id="multiuploadProgressMessage">&nbsp;</p>
-                    <div id="multiuploadProgressBarOutline"  style="width: 145px;">
-                        <div id="multiuploadProgressBar"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        *}
-
 
         <form class="u-padding-bottom-l" name="browse" method="post" action={$browse.from_page|ezurl}>
 
             <div id="selection" class="context-block" style="margin: 20px 0">
                 <div class="panel panel-success">
-                    <table id="select_table" class="table" cellspacing="0">
-                        <tbody></tbody>
-                    </table>
+                    <div style="background: #eee">
+                        <table id="select_table" class="table" cellspacing="0">
+                            <tbody></tbody>
+                        </table>
+                    </div>
                     {section var=PersistentData show=$browse.persistent_data loop=$browse.persistent_data}
                         <input type="hidden" name="{$PersistentData.key|wash}" value="{$PersistentData.item|wash}"/>
                     {/section}
@@ -117,11 +96,9 @@
                         <input type="hidden" name="BrowseCancelURI" value="{$cancel_action}"/>
                     {/if}
                     <div class="panel-body">
-                        <div class="block">
-                            <input class="defaultbutton" type="submit" name="SelectButton"
-                                   value="{'Upload'|i18n( 'design/admin/content/upload' )}"/>
-                            <input class="button" type="submit" name="BrowseCancelButton"
-                                   value="{'Cancel'|i18n( 'design/admin/content/browse' )}"/>
+                        <div class="text-center">
+                            <input class="defaultbutton" type="submit" name="SelectButton" value="{'Upload'|i18n( 'design/admin/content/upload' )}"/>
+                            <input class="button" type="submit" name="BrowseCancelButton" value="{'Cancel'|i18n( 'design/admin/content/browse' )}"/>
                         </div>
                     </div>
                 </div>
@@ -136,100 +113,97 @@
                     node_id=$browse.start_node
                     item_limit=$number_of_items}
 
-            <div class="panel panel-default">
-                {def $current_node=fetch( content, node, hash( node_id, $browse.start_node ) )}
-                {if $browse.start_node|gt( 1 )}
-                    <div class="panel-heading">
-                        <a href={concat( '/content/browse/', $main_node.parent_node_id, '/' )|ezurl}><span
-                                    class="glyphicon glyphicon-arrow-up"></span></a>
-                        {$current_node.name|wash}&nbsp;[{$current_node.children_count}]
-                    </div>
-                {/if}
-
-                <table id="browse_table" class="table" cellspacing="0">
-                    <tbody>
-                    {foreach $node_array as $item}
-                        <tr id="object-{$item.contentobject_id}">
-                            <td>
-                                {def $ignore_nodes_merge=merge( $browse.ignore_nodes_select_subtree, $item.path_array )
-                                $browse_permission = true()}
-                                {if $browse.permission}
-                                    {if $browse.permission.contentclass_id}
-                                        {if is_array( $browse.permission.contentclass_id )}
-                                            {foreach $browse.permission.contentclass_id as $contentclass_id}
-                                                {set $browse_permission = fetch( 'content', 'access', hash( 'access', $browse.permission.access,
-                                                'contentobject',   $item,
-                                                'contentclass_id', $contentclass_id ) )}
-                                                {if $browse_permission|not}{break}{/if}
-                                            {/foreach}
-                                        {else}
+            
+            <table id="browse_table" class="table" cellspacing="0" style="margin: 20px 0">
+            {def $current_node=fetch( content, node, hash( node_id, $browse.start_node ) )}
+            {if and($browse.start_node|gt( 1 ), $is_search|not() )}
+            <thead>
+                <tr>
+                    <td><a href={concat( '/content/browse/', $main_node.parent_node_id, '/' )|ezurl}><i class="fa fa-arrow-up"></i></a></td>
+                    <td colspan="4">{$current_node.name|wash}&nbsp;[{$current_node.children_count}]</td>
+                </tr>
+            </thead>
+            {/if}
+            <tbody> 
+                {foreach $node_array as $item}
+                    <tr id="object-{$item.contentobject_id}">
+                        <td>
+                            {def $ignore_nodes_merge=merge( $browse.ignore_nodes_select_subtree, $item.path_array )
+                            $browse_permission = true()}
+                            {if $browse.permission}
+                                {if $browse.permission.contentclass_id}
+                                    {if is_array( $browse.permission.contentclass_id )}
+                                        {foreach $browse.permission.contentclass_id as $contentclass_id}
                                             {set $browse_permission = fetch( 'content', 'access', hash( 'access', $browse.permission.access,
                                             'contentobject',   $item,
-                                            'contentclass_id', $browse.permission.contentclass_id ) )}
-                                        {/if}
+                                            'contentclass_id', $contentclass_id ) )}
+                                            {if $browse_permission|not}{break}{/if}
+                                        {/foreach}
                                     {else}
                                         {set $browse_permission = fetch( 'content', 'access', hash( 'access', $browse.permission.access,
-                                        'contentobject',   $item ) )}
-                                    {/if}
-                                {/if}
-                                {if and( $browse_permission, $browse.ignore_nodes_select|contains( $item.node_id )|not, eq( $ignore_nodes_merge|count, $ignore_nodes_merge|unique|count ) )}
-                                    {if is_array( $browse.class_array )}
-                                        {if $browse.class_array|contains( $item.object.content_class.identifier )}
-                                            <input type="{$select_type}" name="{$select_name}[]"
-                                                   value="{$item[$select_attribute]}"/>
-                                        {else}
-                                            <input type="{$select_type}" name="_Disabled" value="" disabled="disabled"/>
-                                        {/if}
-                                    {else}
-                                        {if and( or( eq( $browse.action_name, 'MoveNode' ), eq( $browse.action_name, 'CopyNode' ), eq( $browse.action_name, 'AddNodeAssignment' ) ), $item.object.content_class.is_container|not )}
-                                            <input type="{$select_type}" name="{$select_name}[]"
-                                                   value="{$item[$select_attribute]}" disabled="disabled"/>
-                                        {else}
-                                            <input type="{$select_type}" name="{$select_name}[]"
-                                                   value="{$item[$select_attribute]}"/>
-                                        {/if}
+                                        'contentobject',   $item,
+                                        'contentclass_id', $browse.permission.contentclass_id ) )}
                                     {/if}
                                 {else}
-                                    <input type="{$select_type}" name="_Disabled" value="" disabled="disabled"/>
+                                    {set $browse_permission = fetch( 'content', 'access', hash( 'access', $browse.permission.access,
+                                    'contentobject',   $item ) )}
                                 {/if}
-                            </td>
-                            <td>
-                                {if and( is_set($item.data_map.image), $item.data_map.image.has_content )}
-                                    <img data-object="{$item.contentobject_id}" class="load-preview"
-                                         src="{$item.data_map.image.content['small'].url|ezroot(no)}"
-                                         style="height: 60px; width: auto; max-width: 100px"/>
-                                {/if}
-                            </td>
-                            <td class="object-name">
-                                {set $ignore_nodes_merge=merge( $browse.ignore_nodes_click, $item.path_array )}
-                                {if eq( $ignore_nodes_merge|count, $ignore_nodes_merge|unique|count )}
-                                    {if and( or( ne( $browse.action_name, 'MoveNode' ), ne( $browse.action_name, 'CopyNode' ) ), $item.object.content_class.is_container )}
-                                        <a href={concat( '/content/browse/', $item.node_id )|ezurl}>{$item.name|wash}</a>
+                            {/if}
+                            {if and( $browse_permission, $browse.ignore_nodes_select|contains( $item.node_id )|not, eq( $ignore_nodes_merge|count, $ignore_nodes_merge|unique|count ) )}
+                                {if is_array( $browse.class_array )}
+                                    {if $browse.class_array|contains( $item.object.content_class.identifier )}
+                                        <input type="{$select_type}" name="{$select_name}[]"
+                                               value="{$item[$select_attribute]}"/>
                                     {else}
-                                        {$item.name|wash}
+                                        <input type="{$select_type}" name="_Disabled" value="" disabled="disabled"/>
                                     {/if}
+                                {else}
+                                    {if and( or( eq( $browse.action_name, 'MoveNode' ), eq( $browse.action_name, 'CopyNode' ), eq( $browse.action_name, 'AddNodeAssignment' ) ), $item.object.content_class.is_container|not )}
+                                        <input type="{$select_type}" name="{$select_name}[]"
+                                               value="{$item[$select_attribute]}" disabled="disabled"/>
+                                    {else}
+                                        <input type="{$select_type}" name="{$select_name}[]"
+                                               value="{$item[$select_attribute]}"/>
+                                    {/if}
+                                {/if}
+                            {else}
+                                <input type="{$select_type}" name="_Disabled" value="" disabled="disabled"/>
+                            {/if}
+                        </td>
+                        <td>
+                            {if and( is_set($item.data_map.image), $item.data_map.image.has_content )}
+                                <img data-object="{$item.contentobject_id}" class="load-preview"
+                                     src="{$item.data_map.image.content['small'].url|ezroot(no)}"
+                                     style="height: 60px; width: auto; max-width: 100px"/>
+                            {/if}
+                        </td>
+                        <td class="object-name">
+                            {set $ignore_nodes_merge=merge( $browse.ignore_nodes_click, $item.path_array )}
+                            {if eq( $ignore_nodes_merge|count, $ignore_nodes_merge|unique|count )}
+                                {if and( or( ne( $browse.action_name, 'MoveNode' ), ne( $browse.action_name, 'CopyNode' ) ), $item.object.content_class.is_container )}
+                                    <a href={concat( '/content/browse/', $item.node_id )|ezurl}>{$item.name|wash}</a>
                                 {else}
                                     {$item.name|wash}
                                 {/if}
-                            </td>
-                            <td>
-                                {$item.object.content_class.name|wash}
-                            </td>
-                            <td>
-					  <span data-object="{$item.contentobject_id}" class="load-preview">
-						  <span class="glyphicon glyphicon-zoom-in"></span>
-					  </span>
-                            </td>
-                        </tr>
-                        {undef $ignore_nodes_merge $browse_permission}
-                    {/foreach}
-                    </tbody>
-                </table>
-            </div>
+                            {else}
+                                {$item.name|wash}
+                            {/if}
+                        </td>
+                        <td>
+                            {$item.object.content_class.name|wash}
+                        </td>
+                        <td>
+    					  <span data-object="{$item.contentobject_id}" class="load-preview">
+    						  <span class="glyphicon glyphicon-zoom-in"></span>
+    					  </span>
+                        </td>
+                    </tr>
+                    {undef $ignore_nodes_merge $browse_permission}
+                {/foreach}
+            </tbody>
+            </table>
 
-            <input class="pull-right Button Button--danger" type="submit" name="BrowseCancelButton"
-                   value="Esci"/>
-
+            <input style="margin-bottom: 20px" class="pull-right Button Button--danger" type="submit" name="BrowseCancelButton" value="Esci"/>
         </form>
     </div>
     <div class="Grid-cell u-md-size1of2 u-lg-size1of2">
@@ -244,50 +218,6 @@
 
 <script>
     var previewIcon = {'websitetoolbar/ezwt-icon-preview.png'|ezimage()};
-    {*
-    {ezcss_require( 'ezmultiupload.css' )}
-    {ezscript_require( array( 'ezjsc::yui2' ) )}
-    (function(){ldelim}
-        YUILoader.addModule({ldelim}
-            name: 'ezmultiupload_browse',
-            type: 'js',
-            fullpath: '{"javascript/ezmultiupload_browse.js"|ezdesign( 'no' )}',
-            requires: ["utilities", "json", "uploader"],
-            after: ["uploader"],
-            skinnable: false
-            {rdelim});
-
-        // Load the files using the insert() method and set it up and init it on success.
-        YUILoader.insert({ldelim}
-            require: ["ezmultiupload_browse"],
-            onSuccess: function()
-            {ldelim}
-                YAHOO.ez.MultiUploadBrowse.cfg = {ldelim}
-                    swfURL:"{concat( ezini('eZJSCore', 'LocalScriptBasePath', 'ezjscore.ini').yui2, 'uploader/assets/uploader.swf' )|ezdesign( 'no' )}",
-                    uploadURL: "{concat( 'ocbtools/multiupload/', $browse.start_node )|ezurl( 'no' )}",
-                    uploadVars: {ldelim}
-                        '{session_name()}': '{session_id()}',
-                        'UserSessionHash': '{user_session_hash()}',
-                        //'XDEBUG_SESSION_START': 'XDEBUG_ECLIPSE',
-                        'UploadButton': 'Upload'
-                        {rdelim},
-                    // Filter is passed on to uploader.setFileFilter() in ez.MultiUpload
-                    fileType: [{ldelim} description:"{'Allowed Files'|i18n('extension/ezmultiupload')|wash('javascript')}", extensions:'{$main_node.class_identifier|multiupload_file_types_string()}' {rdelim}],
-                    progressBarWidth: "145",
-                    allFilesRecived:  "{'All files received.'|i18n('extension/ezmultiupload')|wash(javascript)}",
-                    uploadCanceled:   "{'Upload canceled.'|i18n('extension/ezmultiupload')|wash(javascript)}",
-                    thumbnailCreated: "{'Thumbnail created.'|i18n('extension/ezmultiupload')|wash(javascript)}",
-                    flashError: "{'Could not load flash(or not loaded yet), this is needed for multiupload!'|i18n('extension/ezmultiupload')}",
-                    selectType: "{$select_type}",
-                    selectName: "{$select_name}"
-                    {rdelim};
-                YAHOO.ez.MultiUploadBrowse.init();
-                {rdelim},
-            timeout: 10000,
-            combine: true
-            {rdelim}, "js");
-        {rdelim})();
-    *}
     {literal}
     $(document).ready(function () {
 

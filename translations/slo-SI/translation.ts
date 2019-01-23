@@ -4,24 +4,51 @@
 <context>
     <name>openpa/widget</name>    
     <message>        
-        <source>Posizione nell'organigramma</source>
+        <source>Position in the organization chart</source>
         <translation>Položaj v organizacijski shemi</translation>
     </message>
 </context>
 <context>
+    <name>openpa/sidebar</name>    
+    <message>        
+        <source>Related information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>        
+        <source>Referable to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>        
+        <source>Classification</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>        
+        <source>References</source>
+        <translation type="unfinished"></translation>
+    </message>   
+</context>
+<context>
     <name>openpa/footer</name>    
     <message>        
-        <source>Informazioni</source>
+        <source>Informations</source>
         <translation>Informacije</translation>
     </message>
     <message>        
-        <source>Contatti</source>
+        <source>Contacts</source>
         <translation>Stiki</translation>
     </message>
     <message>        
         <source>Links</source>
         <translation>Povezave</translation>
     </message>
+    <message>        
+        <source>Follow us</source>
+        <translation type="unfinished"></translation>
+    </message>   
+    <message>        
+        <source>back to top</source>
+        <translation type="unfinished"></translation>
+    </message> 
 </context>
 <context>
     <name>openpa/valuation</name>    
