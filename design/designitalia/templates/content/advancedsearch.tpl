@@ -25,21 +25,21 @@
 
 <p class="u-md-hidden u-lg-hidden u-padding-r-all u-text-m u-background-grey-20">
     <span class="Icon-list u-text-r-xl u-alignMiddle u-padding-r-right" aria-hidden="true"></span>
-    <a accesskey="3"  class="js-scrollTo u-text-r-s u-textClean u-color-grey-50 u-alignMiddle" href="#subnav" >Vai ai filtri di ricerca</a>
+    <a accesskey="3"  class="js-scrollTo u-text-r-s u-textClean u-color-grey-50 u-alignMiddle" href="#subnav" >{'Go to search filters'|i18n('openpa/search')}</a>
 </p>
 
 <div class="openpa-full">
 
     <div class="title">
         <h2>
-            Cerca
+            {'Search'|i18n('openpa/search')}
             {if $isSubtreeSearch}
-                in "<a href="{$RootNode.url_alias|ezurl(no)}" title='Vai alla pagina "{$RootNode.name|wash}"'>{$RootNode.name|wash}</a>"
+                {'in'|i18n('openpa/search')} "<a href="{$RootNode.url_alias|ezurl(no)}" title='{'Link to'|i18n('openpa/search')} "{$RootNode.name|wash}"'>{$RootNode.name|wash}</a>"
             {else}
-                in tutto il sito
+                {'all website'|i18n('openpa/search')}
             {/if}
             {if $isSingleClassSearch}
-                <small>solo tra informazioni di tipo "{$Class.name}"</small>
+                <small>{'only information of type'|i18n('openpa/search')} "{$Class.name}"</small>
             {/if}
         </h2>
     </div>
@@ -54,43 +54,43 @@
                         {* RICERCA LIBERA *}
                         <div class="Form-field Form-field--withPlaceholder">
                             <input class="Form-input u-text-r-s u-padding-r-all u-color-black" id="SearchText" name="SearchText" value="{$search_text|wash}" style="margin: 0 !important;">
-                            <label class="Form-label u-color-grey-90 u-text-r-m" for="SearchText">Ricerca libera</label>
+                            <label class="Form-label u-color-grey-90 u-text-r-m" for="SearchText">{'Search'|i18n('openpa/search')}</label>
                             <button class="u-background-40 u-color-white u-padding-all-s u-text-r-m u-textNoWrap" name="SearchButton">{'Search'|i18n('design/ezwebin/content/search')}</button>
                         </div>
 
                         {* RICERCA AVANZATA *}
                         <div class="Grid">
                             <div class="Form-field Grid-cell u-sizeFull u-sm-size1of4 u-md-size1of4 u-lg-size1of4">
-                                <label class="Form-label u-hiddenVisually" for="Sort">Ordina per</label>
+                                <label class="Form-label u-hiddenVisually" for="Sort">{"Sorting by"|i18n("openpa/search")}</label>
                                 <select class="Form-input u-color-grey-90" id="Sort" name="Sort">
-                                    <option value="">Ordina per</option>
-                                    <option {if $Sort|eq('score')} selected="selected"{/if} value="score">Rilevanza</option>
-                                    <option {if $Sort|eq('published')} selected="selected"{/if} value="published">Data di pubblicazione</option>
-                                    <option {if $Sort|eq('class_name')} selected="selected"{/if} value="class_name">Tipologia di contenuto</option>
-                                    <option {if $Sort|eq('name')} selected="selected"{/if} value="name">Nome</option>
+                                    <option value="">{"Sorting by"|i18n("openpa/search")}</option>
+                                    <option {if $Sort|eq('score')} selected="selected"{/if} value="score">{"Score"|i18n("openpa/search")}</option>
+                                    <option {if $Sort|eq('published')} selected="selected"{/if} value="published">{"Publication date"|i18n("openpa/search")}</option>
+                                    <option {if $Sort|eq('class_name')} selected="selected"{/if} value="class_name">{"Content type"|i18n("openpa/search")}</option>
+                                    <option {if $Sort|eq('name')} selected="selected"{/if} value="name">{"Name"|i18n("openpa/search")}</option>
                                 </select>
                             </div>
                             <div class="Form-field Grid-cell u-sizeFull u-sm-size1of4 u-md-size1of4 u-lg-size1of4">
-                                <label class="Form-label u-hiddenVisually" for="Order">Ordinamento</label>
+                                <label class="Form-label u-hiddenVisually" for="Order">{"Sorting"|i18n("openpa/search")}</label>
                                 <select class="Form-input u-color-grey-90" id="Order" name="Order">
-                                    <option value="">Ordinamento</option>
-                                    <option {if $Order|eq('desc')} selected="selected"{/if} value="desc">Discendente</option>
-                                    <option {if $Order|eq('asc')} selected="selected"{/if} value="asc">Ascendente</option>
+                                    <option value="">{"Sorting"|i18n("openpa/search")}</option>
+                                    <option {if $Order|eq('desc')} selected="selected"{/if} value="desc">{"Descending"|i18n("openpa/search")}</option>
+                                    <option {if $Order|eq('asc')} selected="selected"{/if} value="asc">{"Ascending"|i18n("openpa/search")}</option>
                                 </select>
                             </div>
                             <div class="Form-field Grid-cell u-sizeFull u-sm-size1of4 u-md-size1of4 u-lg-size1of4">
-                                <label class="Form-label u-hiddenVisually" for="Anno">Anno</label>
+                                <label class="Form-label u-hiddenVisually" for="Anno">{"Year"|i18n("openpa/search")}</label>
                                 <select class="Form-input u-color-grey-90" id="Anno" name="Anno">
-                                    <option value="">Qualsiasi anno</option>
+                                    <option value="">{"Any year"|i18n("openpa/search")}</option>
                                     {foreach $anni as $anno}
                                         <option {if and( is_set($Anno), $anno|eq($Anno))} selected="selected"{/if} value="{$anno}">{$anno}</option>
                                     {/foreach}
                                 </select>
                             </div>
                             <div class="Form-field Grid-cell u-sizeFull u-sm-size1of4 u-md-size1of4 u-lg-size1of4">
-                                <label class="Form-label u-hiddenVisually" for="Logic">Condizioni logiche</label>
+                                <label class="Form-label u-hiddenVisually" for="Logic">{"Logical conditions"|i18n("openpa/search")}</label>
                                 <select class="Form-input u-color-grey-90" id="Logic" name="Logic">
-                                    <option value="">Condizioni logiche</option>
+                                    <option value="">{"Logical conditions"|i18n("openpa/search")}</option>
                                     <option {if $Logic|eq('AND')} selected="selected"{/if} value="AND">AND</option>
                                     <option {if $Logic|eq('OR')} selected="selected"{/if} value="OR">OR</option>
                                 </select>
@@ -104,9 +104,8 @@
                 {if $search_extras.spellcheck_collation}
                     {def $spell_url=concat('content/advancedsearch/',$search_text|count_chars()|gt(0)|choose('',concat('?SearchText=',$search_extras.spellcheck_collation|urlencode)))|ezurl}
                     <p class="Prose u-margin-bottom-l">
-                        <small>
-                            Forse intendevi cercare per <a
-                                    href='{$spell_url}'><strong>{$search_extras.spellcheck_collation}</strong></a> ?
+                        <small>                            
+                            {"Maybe you meant to search for"|i18n("openpa/search")} <a href='{$spell_url}'><strong>{$search_extras.spellcheck_collation}</strong></a> ?
                         </small>
                     </p>
                 {/if}
@@ -129,19 +128,19 @@
                         {if $search_extras.hasError}
                             <h2>{$search_extras.error|wash}</h2>
                         {elseif $search_text|ne('')}
-                            <h2>{'No results were found when searching for "%1".'|i18n("design/ezwebin/content/search",,array($search_text|wash))}</h2>
-                            <p>{'Search tips'|i18n('design/ezwebin/content/search')}</p>
+                            <h2>{'No results were found when searching for "%1".'|i18n("openpa/search",,array($search_text|wash))}</h2>
+                            <p>{'Search tips'|i18n('openpa/search')}</p>
                             <ul>
-                                <li>{'Check spelling of keywords.'|i18n('design/ezwebin/content/search')}</li>
-                                <li>{'Try changing some keywords (eg, "car" instead of "cars").'|i18n('design/ezwebin/content/search')}</li>
-                                <li>{'Try searching with less specific keywords.'|i18n('design/ezwebin/content/search')}</li>
-                                <li>{'Reduce number of keywords to get more results.'|i18n('design/ezwebin/content/search')}</li>
+                                <li>{'Check spelling of keywords.'|i18n('openpa/search')}</li>
+                                <li>{'Try changing some keywords (eg, "car" instead of "cars").'|i18n('openpa/search')}</li>
+                                <li>{'Try searching with less specific keywords.'|i18n('openpa/search')}</li>
+                                <li>{'Reduce number of keywords to get more results.'|i18n('openpa/search')}</li>
                             </ul>
                         {else}
                             <h2>Nessun risultato ottenuto</h2>
-                            <p>{'Search tips'|i18n('design/ezwebin/content/search')}</p>
+                            <p>{'Search tips'|i18n('openpa/search')}</p>
                             <ul>
-                                <li>Riduci il numero di filtri applicati</li>
+                                <li>{'Reduce the number of filters applied'|i18n('openpa/search')}</li>
                             </ul>
                         {/if}
                     </div>
@@ -150,9 +149,9 @@
                     <div class="Prose Alert Alert--success">
                         <h2 class="u-text-r-l">
                             {if $search_text|ne('')}
-                                <strong>{'Search for "%1" returned %2 matches'|i18n("design/ezwebin/content/search",,array($search_text|wash,$count))}</strong>
-                            {else}
-                                <strong>La ricerca ha prodotto {$count} risultati</strong>
+                                <strong>{'Search for "%1" returned %2 matches'|i18n("openpa/search",,array($search_text|wash,$count))}</strong>
+                            {else}                                
+                                <strong>{'Search returned %2 matches'|i18n("openpa/search",,array($search_text|wash,$count))}</strong>
                             {/if}
                         </h2>
                     </div>
@@ -188,16 +187,17 @@
                     </a>
                 {/if}
 
-
                 {if $isSingleClassSearch}
-                    <a class="Button Button--info" href={concat( "/content/advancedsearch/", cond( is_area_tematica(), concat( '?SubTreeArray[]=', is_area_tematica().node_id ), '' ) )|ezurl()}>Annulla tutti i filtri</a>
+                    <a class="Button Button--info" href={concat( "/content/advancedsearch/", cond( is_area_tematica(), concat( '?SubTreeArray[]=', is_area_tematica().node_id ), '' ) )|ezurl()}>
+                        {'Remove all filters'|i18n('openpa/search')}                        
+                    </a>
                     <div class="openpa-widget nav-section u-margin-top-l">
                         {include name = searchform
-                        uri = 'design:parts/class_search_form.tpl'
-                        class = $Class
-                        subtree = $Subtree
-                        open_advanced = true()
-                        exclude_attributes = openpaini( 'GestioneAttributi', 'attributi_da_escludere_dalla_ricerca', array() )}
+                                 uri = 'design:parts/class_search_form.tpl'
+                                 class = $Class
+                                 subtree = $Subtree
+                                 open_advanced = true()
+                                 exclude_attributes = openpaini( 'GestioneAttributi', 'attributi_da_escludere_dalla_ricerca', array() )}
                     </div>
 
                 {elseif and( is_set($search_extras.facet_fields.0.nameList), $search_extras.facet_fields.0.nameList|gt(0) )}
@@ -205,7 +205,7 @@
 
                         <fieldset class="Form-field Form-field--choose Grid-cell">
                             <legend class="openpa-widget-title">
-                                {if $Classes|count()|gt(1)}Stai filtrando per:{else}Restringi la ricerca a:{/if}
+                                {if $Classes|count()|gt(1)}{'You are filtering for'|i18n('openpa/search')}{else}{'Refine your search'|i18n('openpa/search')}{/if}
                             </legend>
                             <div class="u-padding-all-s u-background-grey-10">
                                 {def $faccette = $search_extras.facet_fields.0.nameList}
@@ -227,11 +227,9 @@
                                 {/foreach}
                             </div>
                         </fieldset>
-                        <input class="Button Button--info u-text-r-xs" name="SearchButton" type="submit"
+                        <input class="Button Button--info u-text-r-xs pull-right" name="SearchButton" type="submit"
                                value="{'Search'|i18n('design/ezwebin/content/search')}"/>
-
                     </div>
-
                 {/if}
 
             </div>

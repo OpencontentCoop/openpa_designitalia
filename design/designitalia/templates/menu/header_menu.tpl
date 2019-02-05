@@ -28,9 +28,9 @@
                         {include recursion=0
                                  name=top_menu
                                  uri='design:menu/header_menu_item.tpl'
-                                 has_link=cond( $tree_menu.has_children, false(), true())
+                                 has_link=cond( and(is_set($tree_menu.has_children), $tree_menu.has_children), false(), true())
                                  menu_item=$tree_menu}
-                        {if $tree_menu.has_children}
+                        {if and(is_set($tree_menu.has_children), $tree_menu.has_children)}
                             {if $tree_menu.max_recursion|eq(1)}
                                 <div class="Megamenu-subnav u-jsDisplayNone">
                                     {foreach $tree_menu.children as $child}

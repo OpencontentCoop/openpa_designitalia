@@ -74,7 +74,7 @@
 
             {if $has_notes}
                 <div class="Footer-block Grid-cell {$footerBlocksClass}">
-                    <h2 class="Footer-blockTitle">{'Informazioni'|i18n('openpa/footer')}</h2>
+                    <h2 class="Footer-blockTitle">{'Informations'|i18n('openpa/footer')}</h2>
                     <div class="Footer-subBlock">
                         <div class="u-lineHeight-xl u-color-white">
                             {attribute_view_gui attribute=$footer_notes}
@@ -85,7 +85,7 @@
 
             {if $has_contacts}
                 <div class="Footer-block Grid-cell {$footerBlocksClass}">
-                    <h2 class="Footer-blockTitle">{'Contatti'|i18n('openpa/footer')}</h2>
+                    <h2 class="Footer-blockTitle">{'Contacts'|i18n('openpa/footer')}</h2>
                     {include uri='design:footer/contacts_list.tpl' contacts=$contacts}
                 </div>
             {/if}
@@ -114,7 +114,7 @@
 
             {if $has_social}
                 <div class="Footer-block Grid-cell {$footerBlocksClass}">
-                    <h2 class="Footer-blockTitle">{'Seguici su'|i18n('openpa/footer')}</h2>
+                    <h2 class="Footer-blockTitle">{'Follow us'|i18n('openpa/footer')}</h2>
                     {include uri='design:footer/social.tpl'}
                 </div>
             {/if}
@@ -139,7 +139,7 @@
 
 <a href="#" title="torna all'inizio del contenuto" class="ScrollTop js-scrollTop js-scrollTo">
     <i class="ScrollTop-icon Icon-collapse" aria-hidden="true"></i>
-    <span class="u-hiddenVisually">{"torna all'inizio del contenuto"|i18n('openpa/footer')}</span>
+    <span class="u-hiddenVisually">{"back to top"|i18n('openpa/footer')}</span>
 </a>
 
 {undef}

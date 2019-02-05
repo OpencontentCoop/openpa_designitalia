@@ -1,3 +1,4 @@
+{if is_set($menu_item.item)}
 {set_defaults( hash(
   'has_link', true()
 ))}
@@ -17,3 +18,4 @@
 </a>
 
 {undef $href}
+{/if}

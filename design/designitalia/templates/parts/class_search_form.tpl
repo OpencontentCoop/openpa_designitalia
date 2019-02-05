@@ -5,6 +5,7 @@
   $open_advanced
 *}
 
+{def $language = ezini('RegionalSettings', 'Locale')}
 <div class="u-padding-all-s u-background-grey-10">
 
     {def $SearchText = cond( ezhttp( 'SearchText','get','hasVariable' ), ezhttp( 'SearchText', 'get' ) )}
@@ -48,48 +49,48 @@
 
 
     <div class="Form-field">
-        <label class="Form-label" for="ClassFormSearchText">Ricerca libera</label>
+        <label class="Form-label" for="ClassFormSearchText">{"Search"|i18n("openpa/search")}</label>
         <input class="Form-input" type="text" name="SearchText" id="ClassFormSearchText"
                value="{cond(is_set($SearchText),$SearchText|wash())}"/>
         {if $open_advanced|not()}
             <p class="u-padding-top-m u-textRight">
                 <a class="collapse u-padding-right-m" data-toggle="collapse"
-                   data-target="#OrderSearchPanel-{$class.identifier}">Ordinamento</a>
-                <a class="collapse" data-toggle="collapse" data-target="#AdvancedSearchPanel-{$class.identifier}">Avanzata</a>
+                   data-target="#OrderSearchPanel-{$class.identifier}">{"Sorting"|i18n("openpa/search")}</a>
+                <a class="collapse" data-toggle="collapse" data-target="#AdvancedSearchPanel-{$class.identifier}">{"Advanced search"|i18n("openpa/search")}</a>
             </p>
         {/if}
     </div>
 
     <fieldset {if $open_advanced|not()}style="display: none"{/if} class="Form-fieldset"
               id="OrderSearchPanel-{$class.identifier}">
-        <legend class="Form-legend">Ordinamento</legend>
+        <legend class="Form-legend">{"Sorting"|i18n("openpa/search")}</legend>
         <div class="Grid">
             <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                <label class="Form-label u-hiddenVisually" for="Sort">Ordina per</label>
+                <label class="Form-label u-hiddenVisually" for="Sort">{"Sorting by"|i18n("openpa/search")}</label>
                 <select class="Form-input" id="Sort" name="Sort">
                     <option {if and( is_set($Sort), $Sort|eq('published') )} selected="selected"{/if} value="published">
-                        Data di pubblicazione
+                        {"Publication date"|i18n("openpa/search")}
                     </option>
                     <option {if and( is_set($Sort), $Sort|eq('score'))} selected="selected"{/if} value="score">
-                        Rilevanza
+                        {"Score"|i18n("openpa/search")}
                     </option>
                     <option {if and( is_set($Sort), $Sort|eq('name'))} selected="selected"{/if} value="name">Nome
                     </option>
                     {foreach $fields as $field}
                         <option {if and( is_set($Sort), $Sort|eq($field.identifier) )} selected="selected"{/if}
-                                value="{$field.identifier|wash()}">{$field.name['ita-IT']}</option>
+                                value="{$field.identifier|wash()}">{$field.name[$language]}</option>
                     {/foreach}
                 </select>
             </div>
 
             <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                <label class="Form-label u-hiddenVisually" for="Order">Ordinamento</label>
+                <label class="Form-label u-hiddenVisually" for="Order">{"Sorting"|i18n("openpa/search")}</label>
                 <select class="Form-input" name="Order" id="Order">
                     <option {if and( is_set($Order), $Order|eq('desc') )}selected="selected"{/if} value="desc">
-                        Discendente
+                        {"Descending"|i18n("openpa/search")}
                     </option>
                     <option {if and( is_set($Order), $Order|eq('asc') )}selected="selected"{/if} value="asc">
-                        Ascendente
+                        {"Ascending"|i18n("openpa/search")}
                     </option>
                 </select>
             </div>
@@ -98,7 +99,7 @@
 
     <fieldset {if $open_advanced|not()}style="display: none"{/if} class="Form-fieldset"
               id="AdvancedSearchPanel-{$class.identifier}">
-        <legend class="Form-legend">Avanzata</legend>
+        <legend class="Form-legend">{"Advanced search"|i18n("openpa/search")}</legend>
 
 
         {foreach $fields as $field}
@@ -106,20 +107,20 @@
 
             {case in=array('ezdate', 'ezdatetime')}
                 <fieldset class="Grid">
-                    <legend class="Form-label">{$field.name['ita-IT']}</legend>
+                    <legend class="Form-label">{$field.name[$language]}</legend>
 
                     <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                        <label class="Form-label u-hiddenVisually" for="{$field.identifier}_from">Dalla data:</label>
-                        <input type="text" class="from_picker Form-input" placeholder="Dalla data"
+                        <label class="Form-label u-hiddenVisually" for="{$field.identifier}_from">{"from"|i18n("openpa/search")}</label>
+                        <input type="text" class="from_picker Form-input" placeholder="{"from"|i18n("openpa/search")}"
                                id="{$field.identifier}_from"
-                               name="Data[{$field.identifier}][]" title="Dalla data"
+                               name="Data[{$field.identifier}][]" title="{"from"|i18n("openpa/search")}"
                                value="{cond(is_set($Data[$field.identifier]),$Data[$field.identifier][0]|wash())}"/>
                     </div>
                     <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                        <label class="Form-label u-hiddenVisually" for="{$field.identifier}_to">Alla data:</label>
-                        <input class="to_picker Form-input" type="text" placeholder="Alla data"
+                        <label class="Form-label u-hiddenVisually" for="{$field.identifier}_to">{"to"|i18n("openpa/search")}</label>
+                        <input class="to_picker Form-input" type="text" placeholder="{"to"|i18n("openpa/search")}"
                                id="{$field.identifier}_to"
-                               name="Data[{$field.identifier}][]" title="Alla data"
+                               name="Data[{$field.identifier}][]" title="{"to"|i18n("openpa/search")}"
                                value="{cond(is_set($Data[$field.identifier]),$Data[$field.identifier][1]|wash())}"/>
                     </div>
                 </fieldset>
@@ -128,14 +129,14 @@
             {case in=array('ezobjectrelationlist')}
             {if is_set( $availableValues[$field.identifier] )}
                 <div class="Form-field">
-                    <label class="Form-label" for="{$field.identifier}">{$field.name['ita-IT']}</label>
+                    <label class="Form-label" for="{$field.identifier}">{$field.name[$language]}</label>
                     <select class="Form-input reorder" name="Data[{$field.identifier}][]"
                             id="{$field.identifier}">
                         <option value=""> - Seleziona</option>
                         {foreach $availableValues[$field.identifier] as $name => $count}
                             {def $api_content = api_read($name)}
                             {if is_set($api_content.metadata)}
-                                <option value="{$name|wash()}" {if and(is_set($Data[$field.identifier]),$Data[$field.identifier]|contains($name))}selected="selected"{/if}>{$api_content.metadata.name['ita-IT']} ({$count})</option>
+                                <option value="{$name|wash()}" {if and(is_set($Data[$field.identifier]),$Data[$field.identifier]|contains($name))}selected="selected"{/if}>{$api_content.metadata.name[$language]} ({$count})</option>
                             {/if}
                             {undef $api_content}
                         {/foreach}
@@ -146,7 +147,7 @@
 
             {case in=array('ezstring','eztext','ezinteger')}
                 <div class="Form-field">
-                    <label class="Form-label" for="{$field.identifier}">{$field.name['ita-IT']}</label>
+                    <label class="Form-label" for="{$field.identifier}">{$field.name[$language]}</label>
                     <input id="{$field.identifier}"
                            type="text"
                            class="Form-input"
@@ -161,33 +162,33 @@
         {/foreach}
 
         <fieldset class="Grid">
-            <legend class="Form-label">Data di pubblicazione</legend>
+            <legend class="Form-label">{"Publication date"|i18n("openpa/search")}</legend>
             <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                <label class="Form-label u-hiddenVisually" for="published_from">Dalla data:</label>
+                <label class="Form-label u-hiddenVisually" for="published_from">{"from"|i18n("openpa/search")}</label>
                 <input id="published_from"
                        type="text"
                        class="from_picker Form-input"
                        name="Data[published][]"
-                       title="Dalla data"
-                       placeholder="Dalla data"
+                       title="{"from"|i18n("openpa/search")}"
+                       placeholder="{"from"|i18n("openpa/search")}"
                        value="{cond(is_set($Data['published']),$Data['published'][0]|wash())}"/>
             </div>
             <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                <label class="Form-label u-hiddenVisually" for="published_to">Alla data:</label>
+                <label class="Form-label u-hiddenVisually" for="published_to">{"to"|i18n("openpa/search")}</label>
                 <input id="published_to"
                        type="text"
                        class="to_picker Form-input"
                        name="Data[published][]"
-                       title="Dalla data"
-                       placeholder="Alla data"
+                       title="{"to"|i18n("openpa/search")}"
+                       placeholder="{"to"|i18n("openpa/search")}"
                        value="{cond(is_set($Data['published']),$Data['published'][1]|wash())}"/>
             </div>
         </fieldset>
 
     </fieldset>
 
-    <div class="Form-field">
-        <input id="search-button-button" class="Button Button--info" type="submit" name="SearchButton" value="Cerca"/>
+    <div class="Form-field text-right">
+        <input id="search-button-button pull-right" class="Button Button--info" type="submit" name="SearchButton" value="{"Search"|i18n("design/standard/content/search")}"/>
     </div>
 
 

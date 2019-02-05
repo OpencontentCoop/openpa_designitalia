@@ -2,7 +2,7 @@
 
     {if count($openpa.content_related.info)|gt(0)}
         <div class="openpa-widget nav-section">
-            <h2 class="openpa-widget-title"><span>{'Informazioni correlate'|i18n('openpa/sidebar')}</span></h2>
+            <h2 class="openpa-widget-title"><span>{'Related information'|i18n('openpa/sidebar')}</span></h2>
             <div class="openpa-widget-content">
                 {foreach $openpa.content_related.info as $class_name => $infos}
                     <ul class="Linklist Linklist--padded Treeview Treeview--default js-Treeview u-text-r-xs u-layout-prose">
@@ -20,7 +20,7 @@
 
     {if $openpa.content_facets.has_data}
         <div class="openpa-widget nav-section">
-            <h2 class="openpa-widget-title"><span>{'Riferibili a'|i18n('openpa/sidebar')} {$node.name|wash()}</span></h2>
+            <h2 class="openpa-widget-title"><span>{'Referable to'|i18n('openpa/sidebar')} {$node.name|wash()}</span></h2>
             <div class="openpa-widget-content">
                 {foreach $openpa.content_facets.items as $item}
                     <ul class="Linklist Linklist--padded Treeview Treeview--default js-Treeview u-text-r-xs u-layout-prose">
@@ -67,7 +67,7 @@
     {def $classification = $openpa.content_related.classification}
     {if count($classification)|gt(0)}
         <div class="openpa-widget nav-section">
-            <h2 class="openpa-widget-title"><span>{'Classificazione'|i18n('openpa/sidebar')}</span></h2>
+            <h2 class="openpa-widget-title"><span>{'Classification'|i18n('openpa/sidebar')}</span></h2>
             <div class="openpa-widget-content">
                 <ul class="Linklist Linklist--padded Treeview Treeview--default js-Treeview u-text-r-xs">
                     {foreach $classification as $className => $objects}
@@ -103,7 +103,7 @@
         {*OGGETTI INVERSAMENTE CORRELATI*}
         {include name = reverse_related_objects
         node = $node
-        title = 'Riferimenti'|i18n('openpa/sidebar')
+        title = 'References'|i18n('openpa/sidebar')
         uri = 'design:parts/reverse_related_objects.tpl'}
     {/if}
 

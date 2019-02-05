@@ -95,7 +95,7 @@
                                 <i class="fa fa-circle fa-stack-2x u-color-90"></i>
                                 <i class="fa fa-envelope fa-stack-1x u-color-white" aria-hidden="true"></i>
                             </span>
-              <span class="u-hiddenVisually">Richiedi informaizini</span>
+              <span class="u-hiddenVisually">{'Info'|i18n('openpa/tools')}</span>
             </a>
           </li>
         {/if}
@@ -113,17 +113,16 @@
           <input type="hidden" value="{is_area_tematica().node_id}" name="SubTreeArray[]"/>
           <input type="text" id="cerca" class="Form-input Grid-cell u-sizeFill u-text-r-s u-color-black u-text-r-xs"
                  required name="SearchText" {if $pagedata.is_edit}disabled="disabled"{/if}>
-          <label class="Form-label u-color-grey-50 u-text-r-xxs" for="cerca">Cerca
-            in {is_area_tematica().name|wash()}</label>
+          <label class="Form-label u-color-grey-50 u-text-r-xxs" for="cerca">{'Search'|i18n('openpa/search')} {'in'|i18n('openpa/search')} {is_area_tematica().name|wash()}</label>
         {else}
           <input type="text" id="cerca" class="Form-input Grid-cell u-sizeFill u-text-r-s u-color-black u-text-r-xs"
                  required name="SearchText" {if $pagedata.is_edit}disabled="disabled"{/if}>
-          <label class="Form-label u-color-grey-50 u-text-r-xxs" for="cerca">Cerca nel sito</label>
+          <label class="Form-label u-color-grey-50 u-text-r-xxs" for="cerca">{'Search'|i18n('openpa/search')} {'all website'|i18n('openpa/search')}</label>
         {/if}
 
         <button type="submit" value="cerca" name="SearchButton" {if $pagedata.is_edit}disabled="disabled"{/if}
                 class="Grid-cell u-sizeFit Icon-search Icon--rotated u-color-white u-padding-all-s u-textWeight-700"
-                title="Avvia la ricerca" aria-label="Avvia la ricerca">
+                title="{'Search'|i18n('openpa/search')}" aria-label="{'Search'|i18n('openpa/search')}">
         </button>
       </div>
       {if eq( $ui_context, 'browse' )}
