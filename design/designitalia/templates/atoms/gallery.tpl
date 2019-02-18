@@ -25,7 +25,7 @@
             {if $item|has_attribute( 'caption' )}
                 {set $caption = $item.data_map.caption.data_text|oc_shorten(200)|wash()}
             {/if}
-            <li class="u-alignMiddle">
+            <li class="u-alignMiddle" style="position: relative;">
                 {if $height|eq(false())}
                     {set $height = $item|attribute('image').content[$thumbnail_class].height}
                 {/if}
@@ -35,6 +35,12 @@
                    style="display: inline-block;margin: 10px;">
                     {attribute_view_gui attribute=$item|attribute('image') image_class=$thumbnail_class fluid=$fluid}
                 </a>
+                {if fetch(user,current_user).is_logged_in}
+                <div style="position: absolute; display: inline; white-space: nowrap; left: 0; bottom: 0; background: rgba(255, 255, 255, 0.7);">
+                  {include uri="design:parts/toolbar/node_edit.tpl" current_node=$item}
+                  {include uri="design:parts/toolbar/node_trash.tpl" current_node=$item}
+                </div>
+                {/if}
             </li>
             {undef $caption}
         {/foreach}
