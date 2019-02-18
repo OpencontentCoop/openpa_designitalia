@@ -1,6 +1,6 @@
 {literal}
     <script id="tpl-event" type="text/x-jsrender">
-        <div class="Grid-cell u-sizeFull u-md-size1of2 u-lg-size1of3 u-padding-bottom-xs u-padding-top-xs">
+        <div class="Grid-cell u-sizeFull u-padding-bottom-xs u-padding-top-xs">
             <div class="openpa-panel event">
               {{if ~mainImageUrl(data)}}
               <div class="service_photo">
