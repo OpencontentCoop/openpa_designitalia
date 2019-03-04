@@ -23,7 +23,8 @@
 
             {def $search_hash = hash(  'limit', 100,
                                        'class_id', array( 'politico' ),
-                                       'filter', array( concat( solr_meta_subfield('gruppo_politico','id'),':', $node.object.id ) ) )
+                                       'filter', array( concat( solr_meta_subfield('gruppo_politico','id'),':', $node.object.id ) ),
+                                       'sort_by', hash('name', 'asc') )
                  $search = fetch( ezfind, search, $search_hash )}
 
             {if $search.SearchCount}
