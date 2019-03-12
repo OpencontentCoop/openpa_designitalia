@@ -1,7 +1,7 @@
 <p class="navigation u-padding-bottom-l">
     {foreach $data.fields as $field}
         <a class="Button Button--info u-text-xxs" href={concat( $page_url, $field.remove_view_parameters )|ezurl()}>
-            <i class="fa fa-close"></i> <strong>{$field.name}:</strong> {$field.value}
+            <i class="fa fa-close"></i> <strong>{$field.name|wash()}:</strong> {$field.value|wash()}
         </a>
     {/foreach}
     <a class="Button Button--danger u-text-xxs" href={$page_url|ezurl()}>Annulla ricerca</a>

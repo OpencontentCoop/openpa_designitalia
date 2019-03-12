@@ -8,7 +8,7 @@
 {/if}
 {if $image}
   <div class="carousel-image"
-       style="background-image:url({$image|ezroot(no, full)}); background-repeat: no-repeat; background-size: 100% auto; background-position: center; width: 100%; padding-bottom: {$aspect_ratio}%;">
+       style="background-image:url({$image|ezroot(no, full)}); background-repeat: no-repeat; background-size: cover; background-position: center; width: 100%; padding-bottom: {$aspect_ratio}%;min-height: 300px">
   </div>
 {/if}
 {undef $image}
