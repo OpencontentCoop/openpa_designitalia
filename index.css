@@ -5,20 +5,21 @@
 @import "themes/base/owl.theme.default";
 
 /* Start theme */
+
 /*
- *	Only apply to body class="Pac"
+ *	Only apply to body class="pac"
  */
-.culture {
+
+.pac {
   font-family: var(--Theme-font-family-sans);
 }
 
 /**
  * 	Brand color
  */
+
 :root {
-  /*--Color-primary: #4689c8;*/
-  /*--Color-primary: #0099d1;*/
-  --Color-primary: #007BA7;
+  --Color-primary: #0099d1;
   --Color-secondary: var(--Color-primary);
   --Prose-color-text-primary: #1c2024;
   --Prose-color-text-secondary: #5a6772;
@@ -26,23 +27,25 @@
   --Prose-color-link: var(--Color-primary);
   --Prose-color-link-hover: var(--Color-primary);
   --Prose-color-link-visited: var(--Color-primary);
-  --Color-focus: rgba(255,255,255, 0);
+  --Color-focus: rgba(255, 255, 255, 0);
 }
 
 /**
  * 	Fonts
  */
+
 :root {
   --Theme-font-family-sans: Titillium Web, HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
 }
 
-a{
+a {
   color: var(--Color-primary);
-  text-decoration: none !important;
   cursor: pointer;
+  text-decoration: none !important;
 }
 
-button, input[type=submit]{
+button,
+input[type=submit] {
   cursor: pointer;
 }
 
@@ -52,30 +55,28 @@ a:focus {
   color: var(--Color-primary);
 }
 
-#toolbar{
-@extend .u-hidden;
-@extend .u-md-block;
-@extend .u-lg-block;
+#toolbar {
+  @extend .u-hidden;
+  @extend .u-md-block;
+  @extend .u-lg-block;
 }
 
 .GridStriped .Grid:nth-child(2n) {
-@extend .u-background-grey-10;
+  @extend .u-background-grey-10;
 }
 
 .ContainerStriped .ItemStriped:nth-child(2n) {
-@extend .u-background-grey-10;
+  @extend .u-background-grey-10;
 }
 
 .Header-navbar {
-  /*background-color: var(--Color-primary) !important;*/
-  background-color: color(var(--Color-primary) l(+5%) s(-15%)) !important;
-  border-bottom: 1px solid var(--Color-white);
+  background-color: var(--Color-white) !important;
 }
 
 .Hamburger-toggle,
 .Hamburger-toggle:before,
 .Hamburger-toggle:after {
-  background: var(--Color-white) !important;
+  background: var(--Color-black) !important;
 }
 
 .Hamburger-toggle.is-active {
@@ -89,7 +90,7 @@ a:focus {
 
 .Header-searchTrigger button,
 .Header-search button {
-@extend .u-background-90;
+  @extend .u-background-90;
 }
 
 .Header-toggleText,
@@ -97,37 +98,6 @@ a:focus {
   color: var(--Color-black) !important;
 }
 
-.Header-logo img {
-@extend .u-alignMiddle;
-
-  height: 7rem;
-  width: 7rem;
-
-@media (--sm-viewport), (--md-viewport), (--lg-viewport) {
-  height: 10.5rem;
-  width: 10.5rem;
-}
-}
-
 .owl-theme .owl-nav {
-  top: -83px !important;
-}
-
-.openpa-full.class-homepage .content {
-  @extend .u-padding-bottom-none;
-}
-
-.openpa-panel {
-  @extend .u-borderRadius-m;
-  border: 1px solid #ccc;
-}
-
-/*
-Fix colonne masonry con sidebar
-todo: spostare in base
-*/
-.content.withExtra [data-columns]::before {
-  @media (--lg-viewport) {
-    content: "2 .u-floatLeft.u-size1of2";
-  }
+  top: -80px !important;
 }

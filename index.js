@@ -1,5 +1,12 @@
 const Config = require('./config')
 
+/* Promise polyfill for IE10 */
+import Promise from 'promise-polyfill'
+
+if (!window.Promise) {
+  window.Promise = Promise
+}
+
 /* eslint-disable */
 if (window.__PUBLIC_PATH__) {
   __webpack_public_path__ = window.__PUBLIC_PATH__
