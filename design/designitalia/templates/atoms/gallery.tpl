@@ -31,7 +31,11 @@
                 {/if}
 
                 <a class="gallery-strip-thumbnail"
+                   {if and( $readmore_link, sub($all_items_count, count($items))|gt(0))}
+                   href="{concat($item.parent.url_alias, '#', $item.contentobject_id)|ezurl(no)}" title="{$caption}"
+                   {else}
                    href={$item|attribute('image').content[$wide_class].url|ezroot} title="{$caption}" data-gallery
+                   {/if}
                    style="display: inline-block;margin: 10px;">
                     {attribute_view_gui attribute=$item|attribute('image') image_class=$thumbnail_class fluid=$fluid}
                 </a>

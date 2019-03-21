@@ -51,7 +51,7 @@ $show_left = and( $openpa.control_menu.show_side_menu, count( $tree_menu.childre
               {set $caption = $item.data_map.caption.data_text|oc_shorten(200)|wash()}
             {/if}
             <div class="Masonry-item js-Masonry-item" style="position: relative">
-              <a class="gallery-strip-thumbnail"  href={$item|attribute('image').content[$wide_class].url|ezroot} title="{$caption}" data-gallery>
+              <a data-imageid="{$item.contentobject_id}" class="gallery-strip-thumbnail"  href={$item|attribute('image').content[$wide_class].url|ezroot} title="{$caption}" data-gallery>
                 {attribute_view_gui attribute=$item|attribute('image') image_class=$thumbnail_class fluid=$fluid image_css_class="img-responsive"}
               </a>
               {if $item.can_edit}
@@ -82,3 +82,14 @@ $show_left = and( $openpa.control_menu.show_side_menu, count( $tree_menu.childre
     {include uri=$openpa.content_date.template}
   {/if}
 </div>
+{literal}
+<script>$(document).ready(function(){
+  var hash = window.location.hash;
+  if (hash.length > 1){
+    hash = hash.replace('#', '');
+    setTimeout(function(){
+      $('a[data-imageid="'+hash+'"]').trigger('click');
+    }, 10);
+  }
+});</script>
+{/literal}
