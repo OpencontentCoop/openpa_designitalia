@@ -14,6 +14,7 @@
     {def $objects=fetch( 'content', 'reverse_related_objects', 
                           hash( 'object_id',$node.object.id, 
                                 'sort_by',  array( 'name', true() ),
+                                'ignore_visibility', false(),
                                 'all_relations', true() ) ) 
          $objects_count=$objects|count()}
     {foreach $objects as $object}	
@@ -27,6 +28,7 @@
     {def $objects=fetch( 'content', 'reverse_related_objects', 
                               hash( 'object_id',$node.object.id, 
                                     'sort_by',  array( 'name', true() ),
+                                    'ignore_visibility', false(),
                                     'attribute_identifier', 'politico/membri' 
                                     ) ) 
          $objects_count=$objects|count()}
@@ -41,6 +43,7 @@
     {def $objects=fetch( 'content', 'reverse_related_objects', 
                               hash( 'object_id',$node.object.id, 
                                     'sort_by',  array( 'name', true() ),
+                                    'ignore_visibility', false(),
                                     'attribute_identifier', 'gemellaggio/circoscrizione' 
                                     ) ) 
          $objects_count=$objects|count()}
