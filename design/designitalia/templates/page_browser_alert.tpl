@@ -2,6 +2,7 @@
 {literal}
 <script>
 document.addEventListener('DOMContentLoaded', function(event) {
+cookieChoices.cookieSecure = {/literal}{cond(ezini_variable('Session','CookieSecure')|eq('true'), 'true', 'false')}{literal};
 cookieChoices.showCookieConsentBar(
 "Questo sito utilizza cookie tecnici, analytics e di terze parti. Proseguendo nella navigazione accetti l’utilizzo dei cookie.",
 'Accetto',
