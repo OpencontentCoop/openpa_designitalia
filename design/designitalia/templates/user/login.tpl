@@ -53,8 +53,12 @@
       <input type="hidden" name="RedirectURI" value="{$redirect|wash}" />
       
     </form>
-    <div class='u-textCenter u-padding-all-l u-color-70'>      
-      <a href={'/user/forgotpassword'|ezurl}>{'Forgot your password?'|i18n( 'design/ocbootstrap/user/login' )}</a>
+    <div class='u-textCenter u-padding-all-l u-color-70'>
+      {if ezmodule( 'userpaex' )}
+        <a href={'/userpaex/forgotpassword'|ezurl}>{'Forgot your password?'|i18n( 'design/ocbootstrap/user/login' )}</a>
+      {else}
+        <a href={'/user/forgotpassword'|ezurl}>{'Forgot your password?'|i18n( 'design/ocbootstrap/user/login' )}</a>
+      {/if}
     </div>
   </div>
 </div>
