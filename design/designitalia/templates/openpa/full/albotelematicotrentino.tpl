@@ -5,6 +5,12 @@
 {def $tree_menu = tree_menu( hash( 'root_node_id', $openpa.control_menu.side_menu.root_node.node_id, 'user_hash', $openpa.control_menu.side_menu.user_hash, 'scope', 'side_menu' ))
      $show_left = and( $openpa.control_menu.show_side_menu, count( $tree_menu.children )|gt(0) )}
 
+{def $is_affissione_albo = false()}
+{def $affissione_albo = fetch( 'content', 'class', hash( 'class_id', 'affissione_albo' ))}
+{if and($affissione_albo, $affissione_albo.object_count|gt(0))}
+  {set $is_affissione_albo = true()
+       $show_left = false()}
+{/if}
 <div class="openpa-full class-{$node.class_identifier}">
     <div class="title">
         {include uri='design:openpa/full/parts/node_languages.tpl'}
@@ -15,6 +21,8 @@
 
             {if $node.data_map.page.has_content}
                 {attribute_view_gui attribute=$node.data_map.page}
+            {elseif $is_affissione_albo}
+                {include name=affisioni_albo node=$node uri='design:openpa/full/parts/affisioni_albo.tpl'}
             {else}
                 {node_view_gui content_node=$node view=children view_parameters=$view_parameters}
             {/if}
@@ -28,3 +36,5 @@
         {include uri=$openpa.content_date.template}
     {/if}
 </div>
+
+{undef $affissione_albo $is_affissione_albo}
