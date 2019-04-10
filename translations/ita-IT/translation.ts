@@ -46,7 +46,7 @@
     <name>openpa/sidebar</name>    
     <message>        
         <source>Related information</source>
-        <translation>Related information</translation>
+        <translation>Informazioni correlate</translation>
     </message>
     <message>        
         <source>Referable to</source>

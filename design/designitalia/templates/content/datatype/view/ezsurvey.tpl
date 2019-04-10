@@ -30,7 +30,7 @@
 
 
 				<div class="Prose Callout Callout--should u-margin-top-s u-margin-bottom-s">
-					<mark class="u-text-r-l">{"Questions marked with %mark% are required."|i18n('survey', '', hash( '%mark%', '<strong class="required">*</strong>' ) )}</mark>
+					{"Questions marked with %mark% are required."|i18n('survey', '', hash( '%mark%', '<strong class="required">*</strong>' ) )}
 				</div>
 
 				{if or( is_unset( $preview ), not( $preview ))}

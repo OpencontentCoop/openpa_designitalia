@@ -13,7 +13,7 @@
                     </div>
                     <div class="value">
                         <div class="Prose u-padding-left-s">
-                            {attribute_view_gui attribute=$attribute show_newline=true()}
+                            {attribute_view_gui attribute=$attribute show_newline=true() image_class=medium}
                         </div>
                     </div>
                 </div>

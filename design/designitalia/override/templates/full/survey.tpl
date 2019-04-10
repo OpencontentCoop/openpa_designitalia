@@ -1,43 +1,50 @@
+{def $openpa = object_handler($node)}
 {set-block scope=root variable=cache_ttl}0{/set-block}
 
+{if $openpa.content_tools.editor_tools}
+  {include uri=$openpa.content_tools.template}
+{/if}
+
 <div class="openpa-full class-{$node.class_identifier}">
+  <div class="title">
+    {include uri='design:openpa/full/parts/node_languages.tpl'}
+    <h2>{$node.name|wash()}</h2>
+  </div>
+  <div class="content-container">
+    <div class="content">
 
-    <div class="title">
-        {include uri='design:openpa/full/parts/node_languages.tpl'}
-        <h2>{$node.name|wash()}</h2>
-    </div>
+      {include uri=$openpa.content_main.template}
 
-    <div class="content-container">
-        <div class="content">
+      {include uri=$openpa.content_contacts.template}
 
-            {def $name_pattern = $node.object.content_class.contentobject_name|explode('>')|implode(',')
-                 $name_pattern_array = array('enable_comments', 'enable_tipafriend', 'show_children', 'show_children_exclude', 'show_children_pr_page')
-                 $exclude_datatypes = array('ezoption', 'ezmultioption', 'ezmultioption2', 'ezrangeoption', 'ezprice', 'ezmultiprice')}
-            {set $name_pattern  = $name_pattern|explode('|')|implode(',')}
-            {set $name_pattern  = $name_pattern|explode('<')|implode(',')}
-            {set $name_pattern  = $name_pattern|explode(',')}
-            {foreach $name_pattern  as $name_pattern_string}
-                {set $name_pattern_array = $name_pattern_array|append( $name_pattern_string|trim() )}
-            {/foreach}
-
-            {foreach $node.object.contentobject_attributes as $attribute}
-                {if and($name_pattern_array|contains($attribute.contentclass_attribute_identifier)|not(),
-                        $exclude_datatypes|contains($attribute.data_type_string)|not)}
-                    <div class="attribute-{$attribute.contentclass_attribute_identifier}">
-                        {attribute_view_gui attribute=$attribute}
-                    </div>
-                {/if}
-            {/foreach}
-
-            {def $tipafriend_access=fetch( 'user', 'has_access_to', hash( 'module', 'content',
-                                                                          'function', 'tipafriend' ) )}
-            {if and( ezmodule( 'content/tipafriend' ), $tipafriend_access )}
-            <div class="attribute-tipafriend">
-                <p><a href={concat( "/content/tipafriend/", $node.node_id )|ezurl} title="{'Tip a friend'|i18n( 'design/ezwebin/full/article' )}">{'Tip a friend'|i18n( 'design/ezwebin/full/article' )}</a></p>
-            </div>
+      {if $openpa.content_detail.has_content}
+        <div class="content-detail">
+          {foreach $openpa.content_detail.attributes as $openpa_attribute}
+            {if $openpa_attribute.identifier|begins_with( 'resource' )}
+              {skip}
             {/if}
+            <div class="content-detail-item{if and( $openpa_attribute.full.show_label, $openpa_attribute.full.collapse_label|not() )} withLabel{/if}">
+              {if and( $openpa_attribute.full.show_label, $openpa_attribute.full.collapse_label|not() )}
+                <div class="label">
+                  <strong>{$openpa_attribute.label}</strong>
+                </div>
+              {/if}
+              <div class="value">
+                {if and( $openpa_attribute.full.show_label, $openpa_attribute.full.collapse_label )}
+                  <strong>{$openpa_attribute.label}</strong>
+                {/if}
+                {attribute_view_gui attribute=$openpa_attribute.contentobject_attribute href=cond($openpa_attribute.full.show_link|not, 'no-link', '') show_newline=true()}
+              </div>
+            </div>
+          {/foreach}
         </div>
+      {/if}
+
     </div>
+  </div>
+  {if $openpa.content_date.show_date}
+    {include uri=$openpa.content_date.template}
+  {/if}
 </div>
 
 
