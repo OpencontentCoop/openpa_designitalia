@@ -1,5 +1,5 @@
 {ezscript_require(array('jquery.opendataTools.js', 'jquery.dataTables.js', 'jquery.opendataDataTable.js', 'dataTables.bootstrap.js', 'dataTables.responsive.min.js', 'moment-with-locales.min.js', 'moment-timezone-with-data.js', 'plugins/chosen.jquery.js'))}
-{ezcss_require(array('dataTables.bootstrap.css','responsive.dataTables.min.css'))}
+{ezcss_require(array('dataTables.bootstrap.css','responsive.dataTables.min.css','plugins/chosen.css'))}
 
 <div class="Grid Grid--withGutter">
   <div class="content-data Grid-cell u-sizeFull u-sm-size3of4 u-md-size4of5 u-lg-size4of5"></div>
