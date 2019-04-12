@@ -1,14 +1,17 @@
 {default enable_print=false()}
 
 {def $favicon = openpaini('GeneralSettings','favicon', 'favicon.ico')}
+{def $favicon_src = openpaini('GeneralSettings','favicon_src', 'ezimage')}
 
 <link rel="Home" href={"/"|ezurl} title="{'%sitetitle front page'|i18n('design/ocbootstrap/link',,hash('%sitetitle',$site.title))|wash}" />
 <link rel="Index" href={"/"|ezurl} />
 <link rel="Search" href={"content/advancedsearch"|ezurl} title="{'Search %sitetitle'|i18n('design/ocbootstrap/link',,hash('%sitetitle',$site.title))|wash}" />
-<link rel="Shortcut icon" href={$favicon|ezimage} type="image/x-icon" />
-<link rel="Copyright" href={"/ezinfo/copyright"|ezurl} />
-<link rel="Author" href={"/ezinfo/about"|ezurl} />
-<link rel="Alternate" type="application/rss+xml" title="RSS" href="{'/rss/feed/my_feed'|ezurl(no)}" />
+
+{if $favicon_src|eq('ezimage')}
+  <link rel="icon" href="{$favicon|ezimage(no)}" type="image/x-icon" />
+{else}
+  <link rel="icon" href="{$favicon}" type="image/x-icon" />
+{/if}
 
 {if $enable_print}
 {* Add print <link> tag in JS to be cache safe with query string (not included in cache-block key by default in pagelayout) *}
