@@ -45,10 +45,9 @@
     </div>
     <div class="Grid">
         <div class="Grid-cell u-md-size1of2 u-lg-size1of2">
-            <label class="Form-label" for="{$id_base}_password">{'Password'|i18n( 'design/standard/content/datatype' )}</label>
+            <label class="Form-label" for="{$id_base}_password">{'Password'|i18n( 'design/standard/content/datatype' )} <span id="{$id_base}_help" style="font-size: .8em"></span></label>
             {* Password #1. *}
             <p><input autocomplete="off" readonly="readonly" onfocus="this.removeAttribute('readonly');" id="{$id_base}_password" class="Form-input ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}" type="password" name="{$attribute_base}_data_user_password_{$attribute.id}" value="{if $attribute.content.original_password}{$attribute.content.original_password}{else}{if $attribute.content.has_stored_login}_ezpassword{/if}{/if}" /></p>
-
         </div>
         <div class="Grid-cell u-md-size1of2 u-lg-size1of2">
             <label class="Form-label" for="{$id_base}_password_confirm">{'Confirm password'|i18n( 'design/standard/content/datatype' )}</label>
@@ -59,10 +58,30 @@
         </div>
     </div>
 
-
-
-
-
 </fieldset>
+
+{if or($attribute.content.has_stored_login|not(), $attribute.content.login|eq(''))}
+{ezscript_require(array(
+  "password-score/password-score.js",
+  "password-score/password-score-options.js",
+  "password-score/bootstrap-strength-meter.js"
+))}
+
+<script type="text/javascript">
+  $(document).ready(function() {ldelim}
+    $('#{$id_base}_password').strengthMeter('text', {ldelim}
+      container: $('#{$id_base}_help'),
+      hierarchy: {ldelim}
+        '0':  ['u-color-compl', 'Valutazione della complessità: pessima'],
+        '10': ['u-color-compl', 'Valutazione della complessità: molto debole'],
+        '20': ['u-color-compl', 'Valutazione della complessità: debole'],
+        '30': ['u-color-compl', 'Valutazione della complessità: buona'],
+        '40': ['u-color-compl', 'Valutazione della complessità: molto buona'],
+        '50': ['u-color-compl', 'Valutazione della complessità: ottima']
+        {rdelim}
+      {rdelim});
+    {rdelim});
+</script>
+{/if}
 
 {/default}
