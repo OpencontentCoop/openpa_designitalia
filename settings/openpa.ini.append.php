@@ -10,12 +10,6 @@ LimiteSecondoLivello=50
 # Url dell'amministrazione afferente
 #UrlAmministrazioneAfferente=http://www.provincia.tn.it/
 
-
-[CreditsSettings]
-Name=ComunWEB
-Url=http://www.comunweb.it/
-Title=Progetto ComunWEB - Consorzio dei Comuni Trentini
-
 [GeneralSettings]
 theme=pac
 

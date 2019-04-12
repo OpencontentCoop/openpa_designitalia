@@ -65,7 +65,7 @@
     {if and(is_set($metadata['keywords']), $metadata['keywords']|ne('cms, publish, e-commerce, content management, development framework'))}
         <meta name="keywords" content="{$metadata['keywords']|wash()}" />
     {else}
-        <meta name="keywords" content="comunweb, Rete civica {ezini( 'SiteSettings', 'SiteName' )}, Comunicati Stampa {ezini( 'SiteSettings', 'SiteName' )}, Notizie e eventi da {ezini( 'SiteSettings', 'SiteName' )}" />
+        <meta name="keywords" content="Rete civica {ezini( 'SiteSettings', 'SiteName' )}, Comunicati Stampa {ezini( 'SiteSettings', 'SiteName' )}, Notizie e eventi da {ezini( 'SiteSettings', 'SiteName' )}" />
     {/if}
     {undef $metadata}
 
