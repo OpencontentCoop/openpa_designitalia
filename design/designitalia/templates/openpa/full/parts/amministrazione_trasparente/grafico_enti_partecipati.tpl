@@ -1,4 +1,4 @@
-<script src="//code.highcharts.com/highcharts.js"></script>
+<script src="{'javascript/highcharts.js'|ezdesign(no)}"></script>
 
 <h2>Enti pubblici vigilati</h2>
 <div class="load-grah" data-remote="367f45c867601ef7e8a3d2c125b287ca"
