@@ -76,7 +76,7 @@
         </div>
         {if $show_left}
           {include uri='design:openpa/full/parts/section_left.tpl'}
-        {/if}  
+        {/if}
     </div>
     {if $openpa.content_date.show_date}
         {include uri=$openpa.content_date.template}

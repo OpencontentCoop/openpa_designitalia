@@ -2,198 +2,198 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-    <name>kernel/navigationpart</name>    
-    <message>        
+    <name>kernel/navigationpart</name>
+    <message>
         <source>eZ Tags</source>
         <translation>eZ Tags</translation>
     </message>
-    <message>        
+    <message>
         <source>Apps</source>
         <translation>Apps</translation>
     </message>
-    <message>        
+    <message>
         <source>Amministrazione Trasparente</source>
         <translation>Amministrazione Trasparente</translation>
     </message>
-    <message>        
+    <message>
         <source>Lists by class</source>
         <translation>Contenuti per classe</translation>
     </message>
-    <message>        
+    <message>
         <source>Import management</source>
         <translation>Gestione importazioni</translation>
-    </message>    
+    </message>
 </context>
 <context>
-    <name>openpa/widget</name>    
-    <message>        
+    <name>openpa/widget</name>
+    <message>
         <source>Position in the organization chart</source>
         <translation>Posizione nell'organigramma</translation>
     </message>
-    <message>        
+    <message>
         <source>Add objects</source>
         <translation>Aggiungi oggetti</translation>
-    </message>      
+    </message>
 </context>
 <context>
-    <name>openpa/tools</name>    
-    <message>        
+    <name>openpa/tools</name>
+    <message>
         <source>Info</source>
         <translation>Informazioni</translation>
     </message>
 </context>
 <context>
-    <name>openpa/sidebar</name>    
-    <message>        
+    <name>openpa/sidebar</name>
+    <message>
         <source>Related information</source>
         <translation>Informazioni correlate</translation>
     </message>
-    <message>        
+    <message>
         <source>Referable to</source>
         <translation>Riferibili a</translation>
     </message>
-    <message>        
+    <message>
         <source>Classification</source>
         <translation>Classificazione</translation>
     </message>
-    <message>        
+    <message>
         <source>References</source>
         <translation>Riferimenti</translation>
-    </message>   
+    </message>
 </context>
 <context>
-    <name>openpa/footer</name>        
-    <message>        
+    <name>openpa/footer</name>
+    <message>
         <source>Informations</source>
         <translation>Informazioni</translation>
     </message>
-    <message>        
+    <message>
         <source>Contacts</source>
         <translation>Contatti</translation>
     </message>
-    <message>        
+    <message>
         <source>Links</source>
         <translation>Links</translation>
     </message>
-    <message>        
+    <message>
         <source>Follow us</source>
         <translation>Seguici su</translation>
-    </message>   
-    <message>        
+    </message>
+    <message>
         <source>back to top</source>
         <translation>torna all'inizio del contenuto</translation>
-    </message>  
+    </message>
 </context>
 <context>
-    <name>openpa/valuation</name>    
-    <message>        
+    <name>openpa/valuation</name>
+    <message>
         <source>Valuta questo sito</source>
         <translation>Valuta questo sito</translation>
-    </message>    
-    <message>        
+    </message>
+    <message>
         <source>per nulla</source>
         <translation>per nulla</translation>
     </message>
-    <message>        
+    <message>
         <source>poco</source>
         <translation>poco</translation>
     </message>
-    <message>        
+    <message>
         <source>abbastanza</source>
         <translation>abbastanza</translation>
     </message>
-    <message>        
+    <message>
         <source>molto</source>
         <translation>molto</translation>
     </message>
-    <message>        
+    <message>
         <source>Invia la valutazione</source>
         <translation>Invia la valutazione</translation>
-    </message>    
+    </message>
 </context>
 <context>
-    <name>openpa/search</name>     
-    <message>        
+    <name>openpa/search</name>
+    <message>
         <source>Go to search filters</source>
         <translation>Vai ai filtri di ricerca</translation>
     </message>
-    <message>        
+    <message>
         <source>Link to</source>
         <translation>Link a</translation>
     </message>
-    <message>        
+    <message>
         <source>Search</source>
         <translation>Cerca</translation>
     </message>
-    <message>        
+    <message>
         <source>Advanced search</source>
         <translation>Ricerca avanzata</translation>
     </message>
-    <message>        
+    <message>
         <source>in</source>
         <translation>in</translation>
     </message>
-    <message>        
+    <message>
         <source>all website</source>
         <translation>in tutto il sito</translation>
     </message>
-    <message>        
+    <message>
         <source>only information of type</source>
         <translation>solo informazioni di tipo</translation>
-    </message> 
-    <message>        
+    </message>
+    <message>
         <source>Sorting by</source>
         <translation>Ordina per</translation>
     </message>
-     <message>        
+     <message>
         <source>Sorting</source>
         <translation>Ordinamento</translation>
     </message>
-     <message>        
+     <message>
         <source>Descending</source>
         <translation>Discendente</translation>
     </message>
-    <message>        
+    <message>
         <source>Ascending</source>
         <translation>Ascendente</translation>
     </message>
-    <message>        
+    <message>
         <source>Score</source>
         <translation>Rilevanza</translation>
     </message>
-    <message>        
+    <message>
         <source>Publication date</source>
         <translation>Data di pubblicazione</translation>
     </message>
-    <message>        
+    <message>
         <source>Content type</source>
         <translation>Tipologia di contenuto</translation>
     </message>
-    <message>        
+    <message>
         <source>Name</source>
         <translation>Nome</translation>
     </message>
-    <message>        
+    <message>
         <source>from</source>
         <translation>da</translation>
     </message>
-    <message>        
+    <message>
         <source>to</source>
         <translation>a</translation>
-    </message>    
-    <message>        
+    </message>
+    <message>
         <source>Year</source>
         <translation>Anno</translation>
     </message>
-    <message>        
+    <message>
         <source>Any year</source>
         <translation>Qualsiasi anno</translation>
     </message>
-    <message>        
+    <message>
         <source>Logical conditions</source>
         <translation>Condizioni logiche</translation>
     </message>
-    <message>        
+    <message>
         <source>Maybe you meant to search for</source>
         <translation>Forse cercavi per</translation>
     </message>
@@ -244,7 +244,7 @@
     <message>
         <source>Reduce the number of filters applied</source>
         <translation>Riduci il numero di filtri applicati se presenti</translation>
-    </message>   
+    </message>
     <message>
         <source>Remove all filters</source>
         <translation>Rimuovi tutti i filtri</translation>
@@ -256,6 +256,34 @@
         <message>
         <source>You are filtering for</source>
         <translation>Stai filtrando per:</translation>
-    </message>        
+    </message>
+</context>
+<context>
+<name>openpa/agenda</name>
+    <message>
+        <source>today</source>
+        <translation>Oggi</translation>
+    </message>
+    <message>
+        <source>weekend</source>
+        <translation>Questo fine settimana</translation>
+    </message>
+      <message>
+        <source>month</source>
+        <translation>Questo mese</translation>
+    </message>
+      <message>
+        <source>next 7 days</source>
+        <translation>I prossimi 7 giorni</translation>
+    </message>
+      <message>
+        <source>next 30 days</source>
+        <translation>I prossimi 30 giorni</translation>
+    </message>
+      <message>
+        <source>all</source>
+        <translation>Tutti</translation>
+    </message>
+
 </context>
 </TS>

@@ -62,6 +62,8 @@
                         selectable: false,
                         defaultDate: defaultDate,
                         editable: false,
+                        minTime: viewCalendar.data('min_time') || '00:00:00',
+                        maxTime: viewCalendar.data('max_time') || '24:00:00',
                         timeFormat: 'H:mm',
                         eventClick: function (calEvent, jsEvent, view) {
                             window.location.href = $.opendataTools.settings('accessPath') + '/content/view/full/' + calEvent.content.metadata.mainNodeId;
