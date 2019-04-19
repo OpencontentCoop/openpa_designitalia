@@ -3,7 +3,7 @@
   "config": {
     "theme": "pac"
   },
-  "version": "0.1.2",
+  "version": "1.25.3",
   "description": "Implementazione del design di OpenPA per le linee guida di design della PA",
   "main": "index.js",
   "dependencies": {
@@ -15,7 +15,7 @@
     "jquery.cookie": "^1.4.1",
     "owl.carousel": "^2.1.4",
     "pikaday": "https://registry.npmjs.org/pikaday/-/pikaday-1.5.1.tgz",
-    "popper.js": "^1.11.0",
+    "popper.js": "^1.15.0",
     "promise-polyfill": "^6.0.2",
     "salvattore": "^1.0.9",
     "suitcss": "^2.0.0",
@@ -24,14 +24,11 @@
     "suitcss-components-form": "^1.0.0",
     "suitcss-utils": "^2.0.0",
     "suitcss-utils-flex": "^2.0.0",
-    "tablesaw": "^3.0.0",
+    "tablesaw": "^3.1.2",
     "throttle-debounce": "^1.0.1"
   },
   "devDependencies": {
-    "@frctl/fractal": "^1.1.7",
-    "@frctl/mandelbrot": "^1.2.0",
-    "@frctl/nunjucks": "^1.0.3",
-    "ava": "^0.24.0",
+    "ava": "^1.0.0",
     "babel-core": "^6.9.1",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.4",
@@ -48,7 +45,7 @@
     "faker": "^4.1.0",
     "file-loader": "^0.10.1",
     "gh-pages": "^1.1.0",
-    "lodash": "^4.16.4",
+    "lodash": "^4.17.11",
     "npm-run-all": "^4.0.2",
     "postcss-assets": "^4.1.0",
     "postcss-color-function": "^3.0.0",
@@ -79,8 +76,6 @@
     "watch:css": "suitcss -w -c .postcss.js index.css design/designitalia/stylesheets/build_$npm_package_config_theme.css",
     "build:js": "cross-env WEBPACK_ENV=build webpack",
     "watch:js": "cross-env WEBPACK_ENV=dev webpack --display-modules --progress --colors --watch",
-    "build:styleguide": "fractal build",
-    "watch:styleguide": "fractal start --watch --sync --port 1310",
     "watch": "npm-run-all --parallel build:resources watch:css watch:js",
     "build": "npm-run-all build:resources build:css build:js",
     "echo": "echo $npm_package_config_theme"
