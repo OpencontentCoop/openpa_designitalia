@@ -59,7 +59,7 @@ var OpenpaAgendaDateFilter = {
                     end = moment().add(30, 'days');
                     break;
                 case 'all':
-                    start = '*';
+                    start = moment();
                     end = '*';
                     break;
             }

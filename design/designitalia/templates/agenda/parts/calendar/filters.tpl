@@ -30,15 +30,25 @@
       </div>
   </div>
 
+  {def $extra_parameters = class_extra_parameters($node.class_identifier)}
+
   <div class="Grid-cell u-sizeFull u-margin-all-s widget agenda-filters {if $current_view|eq('agenda')}hide{/if}" data-filter="date">
-      <h4>{'Quando?'|i18n('agenda')}</h4>
-      <ul class="u-sm-flexInline u-md-flexInline u-lg-flexInline">
-          <li><a href="#" data-value="today">{'Oggi'|i18n('agenda')}</a></li>
-          <li><a href="#" data-value="weekend">{'Questo fine settimana'|i18n('agenda')}</a></li>
-          <li class="active"><a href="#" data-value="month">{'Questo mese'|i18n('agenda')}</a></li>
-          <li><a href="#" data-value="next 7 days">{'I prossimi 7 giorni'|i18n('agenda')}</a></li>
-          <li><a href="#" data-value="next 30 days">{'I prossimi 30 giorni'|i18n('agenda')}</a></li>
-          <li><a href="#" data-value="all">{'Tutti'|i18n('agenda')}</a></li>
-      </ul>
+    <h4>{'Quando?'|i18n('agenda')}</h4>
+    <ul class="u-sm-flexInline u-md-flexInline u-lg-flexInline">
+      {if and(is_set($extra_parameters.event_calendar), $extra_parameters.event_calendar.enabled, $extra_parameters.event_calendar.filters|count()|gt(0))}
+        {foreach $extra_parameters.event_calendar.filters as $filter}
+          <li {if $filter|eq($extra_parameters.event_calendar.default_filter)}class="active"{/if}><a href="#" data-value="{$filter}">{$filter|i18n('openpa/agenda')}</a></li>
+        {/foreach}
+      {else}
+        <li><a href="#" data-value="today">{'today'|i18n('agenda')}</a></li>
+        <li><a href="#" data-value="weekend">{'weekend'|i18n('openpa/agenda')}</a></li>
+        <li class="active"><a href="#" data-value="month">{'month'|i18n('openpa/agenda')}</a></li>
+        <li><a href="#" data-value="next 7 days">{'next 7 days'|i18n('openpa/agenda')}</a></li>
+        <li><a href="#" data-value="next 30 days">{'next 30 days'|i18n('openpa/agenda')}</a></li>
+        <li><a href="#" data-value="all">{'all'|i18n('openpa/agenda')}</a></li>
+      {/if}
+    </ul>
   </div>
+
+
 </div>
