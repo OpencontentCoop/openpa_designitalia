@@ -16,8 +16,8 @@
     {if $show_left}
       <div class="nav-section" id="subnav">
         {if count($tree_menu.children)|gt(0)}
-          {if $openpa.control_menu.side_menu.root_node}
-            <h2 class="openpa-widget-title"><span>{$openpa.control_menu.side_menu.root_node.name|wash()}</span></h2>
+          {if and($openpa.control_menu.side_menu.root_node, $openpa.control_menu.side_menu.root_node.node_id|ne($node.node_id))}
+            <h2 class="openpa-widget-title"><a href="{$openpa.control_menu.side_menu.root_node.url_alias|ezurl(no)}">{$openpa.control_menu.side_menu.root_node.name|wash()}</a></h2>
           {/if}
           <ul class="Linklist Linklist--padded Treeview Treeview--default js-Treeview u-text-r-xs">
             {foreach $tree_menu.children as $menu_item}

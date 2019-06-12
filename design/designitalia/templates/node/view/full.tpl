@@ -13,7 +13,7 @@
 {/if}
 
 {def $homepage = fetch('openpa', 'homepage')}
-{if $homepage.node_id|eq($node.node_id)}
+{if or($homepage.node_id|eq($node.node_id), ezini('SiteSettings', 'IndexPage')|eq(concat('content/view/full/', $node.node_id)))}
     {ezpagedata_set('is_homepage', true())}
 {/if}
 
