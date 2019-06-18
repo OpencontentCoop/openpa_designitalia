@@ -25,7 +25,7 @@
           <section class="js-Masonry-container u-layout-wide" data-columns>
             {foreach $nodes as $node}
               <div class="Masonry-item js-Masonry-item">
-                <span class="class-name">{$node.class_name}</span>
+                {*<span class="class-name">{$node.class_name}</span>*}
                 {node_view_gui content_node=$node view='panel' image_class='agid_panel'}
               </div>
             {/foreach}
