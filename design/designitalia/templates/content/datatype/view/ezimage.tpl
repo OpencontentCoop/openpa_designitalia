@@ -35,28 +35,33 @@ Input:
          inline_style = ''
 		 image_css_classes = array()}
 
-	{if $fluid}
-	  {set $image_css_classes = $image_css_classes|append("img-responsive")}
-	{/if}
-	
-	{if $image_css_class}
-	  {set $image_css_classes = $image_css_classes|merge($image_css_class|explode(" "))}
-	{/if}
-    
-	{if $link_to_image}
+    {if $fluid}
+        {set $image_css_classes = $image_css_classes|append("img-responsive")}
+    {/if}
+
+    {if $image_css_class}
+        {set $image_css_classes = $image_css_classes|merge($image_css_class|explode(" "))}
+    {/if}
+
+    {if $href|eq('no-link')}
+        {set $link_to_image = true()}
+    {/if}
+
+	  {if $link_to_image}
         {set href = $image_content['original'].url|ezroot}
     {/if}
+
     {switch match=$alignment}
-    {case match='left'}
-        <div class="pull-left">
-    {/case}
-    {case match='right'}
-        <div class="pull-right">
-    {/case}
-	{case match='center'}
-        {set $image_css_classes = $image_css_classes|append("center-block")}
-    {/case}
-    {case/}
+      {case match='left'}
+          <div class="pull-left">
+      {/case}
+      {case match='right'}
+          <div class="pull-right">
+      {/case}
+      {case match='center'}
+          {set $image_css_classes = $image_css_classes|append("center-block")}
+      {/case}
+      {case/}
     {/switch}
 
     {if $css_class}
