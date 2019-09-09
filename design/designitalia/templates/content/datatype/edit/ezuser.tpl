@@ -43,11 +43,14 @@
 
         </div>
     </div>
-    <div class="Grid">
+    <div class="Grid{if and($attribute.object.current_version|ne(1), $attribute.content.has_stored_login, $attribute.content.login|ne(''))} hide{/if}">
         <div class="Grid-cell u-md-size1of2 u-lg-size1of2">
-            <label class="Form-label" for="{$id_base}_password">{'Password'|i18n( 'design/standard/content/datatype' )} <span id="{$id_base}_help" style="font-size: .8em"></span></label>
+            <label class="Form-label" for="{$id_base}_password">{'Password'|i18n( 'design/standard/content/datatype' )}</label>
             {* Password #1. *}
-            <p><input autocomplete="off" readonly="readonly" onfocus="this.removeAttribute('readonly');" id="{$id_base}_password" class="Form-input ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}" type="password" name="{$attribute_base}_data_user_password_{$attribute.id}" value="{if $attribute.content.original_password}{$attribute.content.original_password}{else}{if $attribute.content.has_stored_login}_ezpassword{/if}{/if}" /></p>
+            <p>
+              <input autocomplete="off" readonly="readonly" onfocus="this.removeAttribute('readonly');" id="{$id_base}_password" class="Form-input ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}" type="password" name="{$attribute_base}_data_user_password_{$attribute.id}" value="{if $attribute.content.original_password}{$attribute.content.original_password}{else}{if $attribute.content.has_stored_login}_ezpassword{/if}{/if}" />
+              {include uri='design:parts/password_meter.tpl'}
+            </p>
         </div>
         <div class="Grid-cell u-md-size1of2 u-lg-size1of2">
             <label class="Form-label" for="{$id_base}_password_confirm">{'Confirm password'|i18n( 'design/standard/content/datatype' )}</label>
@@ -60,28 +63,36 @@
 
 </fieldset>
 
-{if or($attribute.content.has_stored_login|not(), $attribute.content.login|eq(''))}
+{if or($attribute.object.current_version|eq(1), $attribute.content.has_stored_login|not(), $attribute.content.login|eq(''))}
 {ezscript_require(array(
   "password-score/password-score.js",
   "password-score/password-score-options.js",
-  "password-score/bootstrap-strength-meter.js"
+  "password-score/bootstrap-strength-meter.js",
+  "password-score/password.js"
 ))}
-
-<script type="text/javascript">
-  $(document).ready(function() {ldelim}
-    $('#{$id_base}_password').strengthMeter('text', {ldelim}
-      container: $('#{$id_base}_help'),
-      hierarchy: {ldelim}
-        '0':  ['u-color-compl', 'Valutazione della complessità: pessima'],
-        '10': ['u-color-compl', 'Valutazione della complessità: molto debole'],
-        '20': ['u-color-compl', 'Valutazione della complessità: debole'],
-        '30': ['u-color-compl', 'Valutazione della complessità: buona'],
-        '40': ['u-color-compl', 'Valutazione della complessità: molto buona'],
-        '50': ['u-color-compl', 'Valutazione della complessità: ottima']
-        {rdelim}
-      {rdelim});
-    {rdelim});
-</script>
+{ezcss_require(array('password-score/password.css'))}
+{literal}
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#{/literal}{$id_base}{literal}_password').password({
+        minLength:{/literal}{ezini('UserSettings', 'MinPasswordLength')}{literal},
+        message: "{/literal}{'Show/hide password'|i18n('ocbootstrap')}{literal}",
+        hierarchy: {
+          '0':  ['u-color-compl', "{/literal}{'Evaluation of complexity: bad'|i18n('ocbootstrap')}{literal}"],
+          '10': ['u-color-compl', "{/literal}{'Evaluation of complexity: very weak'|i18n('ocbootstrap')}{literal}"],
+          '20': ['u-color-compl', "{/literal}{'Evaluation of complexity: weak'|i18n('ocbootstrap')}{literal}"],
+          '30': ['u-color-compl', "{/literal}{'Evaluation of complexity: good'|i18n('ocbootstrap')}{literal}"],
+          '40': ['u-color-compl', "{/literal}{'Evaluation of complexity: very good'|i18n('ocbootstrap')}{literal}"],
+          '50': ['u-color-compl', "{/literal}{'Evaluation of complexity: excellent'|i18n('ocbootstrap')}{literal}"]
+        }
+      });
+      $('#{/literal}{$id_base}{literal}_password_confirm').password({
+        strengthMeter:false,
+        message: "{/literal}{'Show/hide password'|i18n('ocbootstrap')}{literal}"
+      });
+    });
+  </script>
+{/literal}
 {/if}
 
 {/default}
