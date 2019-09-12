@@ -19,7 +19,7 @@
 
             {include uri=$openpa.content_main.template}
 
-            {include uri=$openpa.content_detail.template}
+            {include uri=$openpa.content_detail.template hide_attachment=true()}
 
             {include uri=$openpa.content_attachment.template}
 
