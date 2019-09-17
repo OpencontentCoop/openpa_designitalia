@@ -5,7 +5,7 @@
     <legend class="Form-label {if $attribute.is_required}is-required{/if}">
         {first_set( $contentclassattribute.nameList[$content_language], $contentclassattribute.name )|wash}
         {if $attribute.is_information_collector} <em class="collector">{'information collector'|i18n( 'design/admin/content/edit_attribute' )}</em>{/if}
-        {if $attribute.is_required} ({'richiesto'|i18n('design/ocbootstrap/designitalia')}){/if}
+        {if $attribute.is_required} ({'required'|i18n('design/ocbootstrap/designitalia')}){/if}
     </legend>
 
 {set $attribute = fill_contacts_matrix( $attribute )}
@@ -24,7 +24,7 @@
 
                 </td>
                 <td>
-                    <input class="Form-input" type="text" id="contact-{$index}" value="{$rows[$index].columns[1]}" name="{$attribute_base}_ezmatrix_cell_{$attribute.id}[]">
+                    <input class="Form-input" type="text" id="contact-{$index}" value="{$rows[$index].columns[1]|wash()}" name="{$attribute_base}_ezmatrix_cell_{$attribute.id}[]">
                 </td>
             </tr>
         {/foreach}

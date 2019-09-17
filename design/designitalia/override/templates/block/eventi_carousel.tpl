@@ -20,7 +20,7 @@
 {if count($calendarData.events)|gt(0)}
 <div class="openpa-widget {$block.view} {if and(is_set($block.custom_attributes.color_style), $block.custom_attributes.color_style|ne(''))}color color-{$block.custom_attributes.color_style}{/if}">
     {if and( $show_link, $show_title, $block.name|ne('') )}
-        <h3 class="openpa-widget-title">{if $link_top_title}<a href="{$valid_node.url_alias|ezurl(no)}" title="Vai al calendario">{else}<span>{/if}{$block.name|wash()}{if $link_top_title}</a>{else}</span>{/if}</h3>
+        <h3 class="openpa-widget-title">{if $link_top_title}<a href="{$valid_node.url_alias|ezurl(no)}" title="{'Go to calendar'|i18n('openpa_designitalia')}">{else}<span>{/if}{$block.name|wash()}{if $link_top_title}</a>{else}</span>{/if}</h3>
     {/if}
     <div class="openpa-widget-content">
         {if count($calendarData.events)|gt(0)}
@@ -46,7 +46,7 @@
     </div>
     {if and( $link_top_title|not(), $calendarData.events|gt(0) )}
       <p class="goto">
-        <a href="{$valid_node.url_alias|ezurl(no)}">Vai al calendario <span></span></a>
+        <a href="{$valid_node.url_alias|ezurl(no)}">{'Go to calendar'|i18n('openpa_designitalia')} <span></span></a>
       </p>
     {/if}
 </div>

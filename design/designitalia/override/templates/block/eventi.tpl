@@ -40,7 +40,7 @@
     <div class="openpa-widget {$block.view} {if and(is_set($block.custom_attributes.color_style), $block.custom_attributes.color_style|ne(''))}color color-{$block.custom_attributes.color_style}{/if}">
 
         {if $block.name|ne('')}
-            <h3 class="openpa-widget-title">{if $show_link}<a href="{$valid_node.url_alias|ezurl(no)}" title="Vai al calendario">{$block.name|wash()}</a>{else}<span>{$block.name|wash()}</span>{/if}</h3>
+            <h3 class="openpa-widget-title">{if $show_link}<a href="{$valid_node.url_alias|ezurl(no)}" title="{'Go to calendar'|i18n('openpa_designitalia')}">{$block.name|wash()}</a>{else}<span>{$block.name|wash()}</span>{/if}</h3>
         {/if}
         <div class="openpa-widget-content">
             <div class="widget_tabs events {if $prossimi_count|gt(0)}subnav{/if} {$block.view}" id="{$block.id}">

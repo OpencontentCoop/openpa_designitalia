@@ -54,7 +54,7 @@ events=$events
 {/foreach}
 
 <div class="table-responsive">
-    <table class="table table-calendar" summary="Calendario degli eventi">
+    <table class="table table-calendar" summary="{'Event calendar'|i18n('openpa_designitalia')}">
         <thead>
             <tr class="calendar_heading">
                 <th class="calendar_heading_prev"><a href={$url_back|ezurl} title=" Previous month ">&lt;</a></th>

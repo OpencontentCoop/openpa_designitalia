@@ -11,7 +11,7 @@
                 <div class="u-textSecondary u-lineHeight-l">
                     {$node|abstract()}
                 </div>
-                <a class="readmore" href="{$openpa.content_link.full_link}" title="{$node.name|wash()}">Leggi</a>
+                <a class="readmore" href="{$openpa.content_link.full_link}" title="{$node.name|wash()}">{'Read more'|i18n('openpa/widget')}</a>
               </div>
             </div>
 
@@ -34,7 +34,7 @@
                 <div class="u-textSecondary u-lineHeight-l">
                   {$node|abstract()}
                 </div>
-                <a class="readmore" href="{$openpa.content_link.full_link}" title="{$node.name|wash()}">Leggi</a>
+                <a class="readmore" href="{$openpa.content_link.full_link}" title="{$node.name|wash()}">{'Read more'|i18n('openpa/widget')}</a>
               </div>
             </div>
           {/if}

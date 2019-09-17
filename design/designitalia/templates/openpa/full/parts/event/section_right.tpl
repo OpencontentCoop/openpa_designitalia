@@ -1,7 +1,7 @@
 <div class="content-related">
 
   <div class="openpa-widget nav-section">
-      <h2 class="openpa-widget-title"><span><i class="fa fa-calendar-o"></i> Quando</span></h2>
+      <h2 class="openpa-widget-title"><span><i class="fa fa-calendar-o"></i> {'When?'|i18n('openpa_designitalia')}</span></h2>
 	<div class="openpa-widget-content">
 
         {if $node|has_attribute( 'periodo_svolgimento' )}
@@ -45,7 +45,7 @@
 
 
   <div class="openpa-widget nav-section">
-      <h2 class="openpa-widget-title"><span><i class="fa fa-map-marker"></i> Dove</span></h2>
+      <h2 class="openpa-widget-title"><span><i class="fa fa-map-marker"></i> {'Where?'|i18n('openpa_designitalia')}</span></h2>
 	<div class="openpa-widget-content">
       {if $node|has_attribute( 'indirizzo' )}
         <p class="Prose">{attribute_view_gui attribute=$node.data_map.indirizzo}</p>

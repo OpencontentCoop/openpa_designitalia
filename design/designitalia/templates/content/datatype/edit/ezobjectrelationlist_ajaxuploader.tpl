@@ -6,9 +6,9 @@
 
 <div id="{concat('multiupload-', $attribute.id, '-container')}" class="pull-left">
     <span class="btn btn-success fileinput-button" style="padding: 13px !important;margin-left: 5px;">
-        <i class="add glyphicon glyphicon-plus"></i>
+        <i class="add fa fa-plus"></i>
         <i class="spinner fa a fa-circle-o-notch fa-spin" style="display: none"></i>
-        <span>Inserisci file</span>
+        <span>{'Add file'|i18n( 'ocmultibinary' )}</span>
         <!-- The file input field used as target for the file upload widget -->
         <input id="{concat('multiupload-', $attribute.id)}" type="file" name="files[]" multiple>
     </span>

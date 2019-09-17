@@ -43,7 +43,7 @@
                             </select>
                             <input value={$customs[attribute]} name="view" type="hidden" />
 
-                            <input id="search-button-{$block.id}" class="defaultbutton" type="submit" name="SearchButton" value="Cerca" />
+                            <input id="search-button-{$block.id}" class="defaultbutton" type="submit" name="SearchButton" value="{'Search'|i18n('openpa_designitalia')}" />
 
 
                         </div>

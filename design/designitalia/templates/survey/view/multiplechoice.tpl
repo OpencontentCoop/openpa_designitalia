@@ -26,7 +26,7 @@
             {section var=option loop=$question.options}
                 <label class="u-margin-rigth-s">
                     <input id="{$attr_id}_{$option.id}" name="{$attr_name}" type="radio" class="Form-input"
-                           value="{$option.value}"{if is_set($previous_vars.answer)}{if $previous_vars.answer|eq($option.value)} checked="checked"{/if}{else}{if is_set( $question_result.content[$option.value] )} checked="checked"{/if}{/if}
+                           value="{$option.value|wash()}"{if is_set($previous_vars.answer)}{if $previous_vars.answer|eq($option.value)} checked="checked"{/if}{else}{if is_set( $question_result.content[$option.value] )} checked="checked"{/if}{/if}
                            onclick="synchFormElements( '{$attr_id}_{$option.id}', '{$attr_alternative}', false );"/>
                     <span class="Form-fieldIcon" role="presentation"></span> {$option.label}
                 </label>
@@ -38,7 +38,7 @@
                     <fieldset class="Form-field Form-field--choose Grid-cell">
                         <label>
                             <input id="{$attr_id}" name="{$attr_name}" type="radio" class="Form-input"
-                                   value="{$question.extra_info.value}"{if is_set($previous_vars.answer)}{if $previous_vars.answer|eq($question.extra_info.value)} checked="checked"{/if}{else}{if is_set( $question_result.content[$question.extra_info.value])} checked="checked"{/if}{/if}
+                                   value="{$question.extra_info.value|wash()}"{if is_set($previous_vars.answer)}{if $previous_vars.answer|eq($question.extra_info.value)} checked="checked"{/if}{else}{if is_set( $question_result.content[$question.extra_info.value])} checked="checked"{/if}{/if}
                                    onclick="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );"/>
                             <span class="Form-fieldIcon" role="presentation"></span> {$question.extra_info.label|wash(xhtml)}
                         </label>
@@ -49,13 +49,13 @@
                         <div class="Form-field">
                             <input id="{$attr_alternative}" type="text"
                                    name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_extra_info_{$attribute_id}"
-                                   value="{if is_set($previous_vars.extra_answer)}{$previous_vars.extra_answer}{else}{$question_result.extra_info.value}{/if}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if} />
+                                   value="{if is_set($previous_vars.extra_answer)}{$previous_vars.extra_answer|wash()}{else}{$question_result.extra_info.value|wash()}{/if}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if} />
                         </div>
                     {else}
                         <div class="Form-field">
                             <textarea id="{$attr_alternative}" type="text"
                                       name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_extra_info_{$attribute_id}"
-                                      rows="{$question.extra_info.row}" cols="{$question.extra_info.column}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if}/>{if is_set($previous_vars.extra_answer)}{$previous_vars.extra_answer}{else}{$question_result.extra_info.value}{/if}</textarea>
+                                      rows="{$question.extra_info.row}" cols="{$question.extra_info.column}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if}/>{if is_set($previous_vars.extra_answer)}{$previous_vars.extra_answer|wash()}{else}{$question_result.extra_info.value|wash()}{/if}</textarea>
                         </div>
                     {/if}
                 </div>
@@ -68,7 +68,7 @@
             {section var=option loop=$question.options}
                 <label class="Form-label Form-label--block">
                     <input id="{$attr_id}_{$option.id}" name="{$attr_name}" type="radio" class="Form-input"
-                           value="{$option.value}"{if is_set($previous_vars.answer)}{if $previous_vars.answer|eq($option.value)} checked="checked"{/if}{else}{if is_set( $question_result.content[$option.value] )} checked="checked"{/if}{/if}
+                           value="{$option.value|wash()}"{if is_set($previous_vars.answer)}{if $previous_vars.answer|eq($option.value)} checked="checked"{/if}{else}{if is_set( $question_result.content[$option.value] )} checked="checked"{/if}{/if}
                            onclick="synchFormElements( '{$attr_id}_{$option.id}', '{$attr_alternative}', false );"/>
                     <span class="Form-fieldIcon" role="presentation"></span> {$option.label}
                 </label>
@@ -80,7 +80,7 @@
                     <fieldset class="Form-field Form-field--choose Grid-cell">
                         <label>
                             <input id="{$attr_id}" name="{$attr_name}" type="radio" class="Form-input"
-                                   value="{$question.extra_info.value}"{if is_set($previous_vars.answer)}{if $previous_vars.answer|eq($question.extra_info.value)} checked="checked"{/if}{else}{if is_set( $question_result.content[$question.extra_info.value])} checked="checked"{/if}{/if}
+                                   value="{$question.extra_info.value|wash()}"{if is_set($previous_vars.answer)}{if $previous_vars.answer|eq($question.extra_info.value)} checked="checked"{/if}{else}{if is_set( $question_result.content[$question.extra_info.value])} checked="checked"{/if}{/if}
                                    onclick="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );"/>
                             <span class="Form-fieldIcon" role="presentation"></span> {$question.extra_info.label|wash(xhtml)}
                         </label>
@@ -91,13 +91,13 @@
                         <div class="Form-field">
                             <input id="{$attr_alternative}" type="text"
                                    name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_extra_info_{$attribute_id}"
-                                   value="{if is_set($previous_vars.extra_answer)}{$previous_vars.extra_answer}{else}{$question_result.extra_info.value}{/if}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if} />
+                                   value="{if is_set($previous_vars.extra_answer)}{$previous_vars.extra_answer|wash()}{else}{$question_result.extra_info.value|wash()}{/if}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if} />
                         </div>
                     {else}
                         <div class="Form-field">
                             <textarea id="{$attr_alternative}" type="text"
                                       name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_extra_info_{$attribute_id}"
-                                      rows="{$question.extra_info.row}" cols="{$question.extra_info.column}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if}/>{if is_set($previous_vars.extra_answer)}{$previous_vars.extra_answer}{else}{$question_result.extra_info.value}{/if}</textarea>
+                                      rows="{$question.extra_info.row}" cols="{$question.extra_info.column}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if}/>{if is_set($previous_vars.extra_answer)}{$previous_vars.extra_answer|wash()}{else}{$question_result.extra_info.value|wash()}{/if}</textarea>
                         </div>
                     {/if}
                 </div>
@@ -110,7 +110,7 @@
             {section var=option loop=$question.options}
                 <label class="u-margin-rigth-s">
                     <input name="{$attr_name}[]" type="checkbox" class="Form-input"
-                           value="{$option.value}"{if is_set($previous_vars.answer)}{if is_set($previous_vars.answer[$option.value])} checked="checked"{/if}{else}{if is_set( $question_result.content[$option.value] )} checked="checked"{/if}{/if} />
+                           value="{$option.value|wash()}"{if is_set($previous_vars.answer)}{if is_set($previous_vars.answer[$option.value])} checked="checked"{/if}{else}{if is_set( $question_result.content[$option.value] )} checked="checked"{/if}{/if} />
                     <span class="Form-fieldIcon" role="presentation"></span> {$option.label}
                 </label>
             {/section}
@@ -121,7 +121,7 @@
                     <fieldset class="Form-field Form-field--choose Grid-cell">
                         <label>
                             <input id="{$attr_id}" name="{$attr_name}[]" type="checkbox"
-                                   value="{$question.extra_info.value}"{if is_set($previous_vars.answer)}{if is_set($previous_vars.answer[$question.extra_info.value])} checked="checked"{/if}{else}{if is_set( $question_result.content[$question.extra_info.value])} checked="checked"{/if}{/if}
+                                   value="{$question.extra_info.value|wash()}"{if is_set($previous_vars.answer)}{if is_set($previous_vars.answer[$question.extra_info.value])} checked="checked"{/if}{else}{if is_set( $question_result.content[$question.extra_info.value])} checked="checked"{/if}{/if}
                                    onclick="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );"/>
                             <span class="Form-fieldIcon" role="presentation"></span> {$question.extra_info.label|wash(xhtml)}
                         </label>
@@ -132,11 +132,11 @@
                         {if $question.extra_info.row|eq(1)}
                             <input id="{$attr_alternative}" type="text"
                                    name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_extra_info_{$attribute_id}"
-                                   value="{if is_set($previous_vars.extra_answer)}{$previous_vars.extra_answer}{else}{$question_result.extra_info.value}{/if}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if} />
+                                   value="{if is_set($previous_vars.extra_answer)}{$previous_vars.extra_answer|wash()}{else}{$question_result.extra_info.value|wash()}{/if}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if} />
                         {else}
                             <textarea id="{$attr_alternative}" type="text"
                                       name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_extra_info_{$attribute_id}"
-                                      rows="{$question.extra_info.row}" cols="{$question.extra_info.column}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if}/>{if is_set($previous_vars.extra_answer)}{$previous_vars.extra_answer}{else}{$question_result.extra_info.value}{/if}</textarea>
+                                      rows="{$question.extra_info.row}" cols="{$question.extra_info.column}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if}/>{if is_set($previous_vars.extra_answer)}{$previous_vars.extra_answer|wash()}{else}{$question_result.extra_info.value|wash()}{/if}</textarea>
                         {/if}
                     </div>
                 </div>
@@ -149,7 +149,7 @@
             {section var=option loop=$question.options}
                 <label class="Form-label Form-label--block">
                     <input name="{$attr_name}[]" type="checkbox" class="Form-input"
-                           value="{$option.value}"{if is_set($previous_vars.answer)}{if is_set($previous_vars.answer[$option.value])} checked="checked"{/if}{else}{if is_set( $question_result.content[$option.value] )} checked="checked"{/if}{/if} />
+                           value="{$option.value|wash()}"{if is_set($previous_vars.answer)}{if is_set($previous_vars.answer[$option.value])} checked="checked"{/if}{else}{if is_set( $question_result.content[$option.value] )} checked="checked"{/if}{/if} />
                     <span class="Form-fieldIcon" role="presentation"></span> {$option.label}
                 </label>
             {/section}
@@ -160,7 +160,7 @@
                     <fieldset class="Form-field Form-field--choose Grid-cell">
                         <label>
                             <input id="{$attr_id}" name="{$attr_name}[]" type="checkbox"
-                                   value="{$question.extra_info.value}"{if is_set($previous_vars.answer)}{if is_set($previous_vars.answer[$question.extra_info.value])} checked="checked"{/if}{else}{if is_set( $question_result.content[$question.extra_info.value])} checked="checked"{/if}{/if}
+                                   value="{$question.extra_info.value|wash()}"{if is_set($previous_vars.answer)}{if is_set($previous_vars.answer[$question.extra_info.value])} checked="checked"{/if}{else}{if is_set( $question_result.content[$question.extra_info.value])} checked="checked"{/if}{/if}
                                    onclick="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );"/>
                             <span class="Form-fieldIcon" role="presentation"></span> {$question.extra_info.label|wash(xhtml)}
                         </label>
@@ -171,11 +171,11 @@
                         {if $question.extra_info.row|eq(1)}
                             <input id="{$attr_alternative}" type="text"
                                    name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_extra_info_{$attribute_id}"
-                                   value="{if is_set($previous_vars.extra_answer)}{$previous_vars.extra_answer}{else}{$question_result.extra_info.value}{/if}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if} />
+                                   value="{if is_set($previous_vars.extra_answer)}{$previous_vars.extra_answer|wash()}{else}{$question_result.extra_info.value|wash()}{/if}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if} />
                         {else}
                             <textarea id="{$attr_alternative}" type="text"
                                       name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_extra_info_{$attribute_id}"
-                                      rows="{$question.extra_info.row}" cols="{$question.extra_info.column}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if}/>{if is_set($previous_vars.extra_answer)}{$previous_vars.extra_answer}{else}{$question_result.extra_info.value}{/if}</textarea>
+                                      rows="{$question.extra_info.row}" cols="{$question.extra_info.column}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if}/>{if is_set($previous_vars.extra_answer)}{$previous_vars.extra_answer|wash()}{else}{$question_result.extra_info.value|wash()}{/if}</textarea>
                         {/if}
                     </div>
                 </div>
@@ -188,7 +188,7 @@
             <select class="Form-input" name="{$attr_name}"
                     onclick="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );">
                 {section var=option loop=$question.options}
-                    <option value="{$option.value}"{if is_set($previous_vars.answer)}{if $previous_vars.answer|eq($option.value)} selected="selected"{/if}{else}{if is_set( $question_result.content[$option.value] )} selected="selected"{/if}{/if}>{$option.label}</option>
+                    <option value="{$option.value|wash()}"{if is_set($previous_vars.answer)}{if $previous_vars.answer|eq($option.value)} selected="selected"{/if}{else}{if is_set( $question_result.content[$option.value] )} selected="selected"{/if}{/if}>{$option.label}</option>
                 {/section}
                 {if $question.extra_info.enabled|eq(1)}
                     <option id="{$attr_id}"
@@ -200,13 +200,13 @@
         <div class="Form-field">
             <input class="Form-input" id="{$attr_alternative}" type="text"
                    name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_extra_info_{$attribute_id}"
-                   value="{if is_set($previous_vars.extra_answer)}{$previous_vars.extra_answer}{else}{$question_result.extra_info.value}{/if}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if} />
+                   value="{if is_set($previous_vars.extra_answer)}{$previous_vars.extra_answer|wash()}{else}{$question_result.extra_info.value|wash()}{/if}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if} />
         </div>
     {else}
         <div class="Form-field">
             <textarea class="Form-input" id="{$attr_alternative}" type="text"
                       name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_extra_info_{$attribute_id}"
-                      rows="{$question.extra_info.row}" cols="{$question.extra_info.column}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if}/>{if is_set($previous_vars.extra_answer)}{$previous_vars.extra_answer}{else}{$question_result.extra_info.value}{/if}</textarea>
+                      rows="{$question.extra_info.row}" cols="{$question.extra_info.column}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if}/>{if is_set($previous_vars.extra_answer)}{$previous_vars.extra_answer|wash()}{else}{$question_result.extra_info.value|wash()}{/if}</textarea>
         </div>
     {/if}
 </div>
@@ -228,7 +228,7 @@
             {section var=option loop=$options}
                 <label class="u-margin-rigth-s">
                     <input id="{$attr_id}_{$option.id}" name="{$attr_name}" type="radio" class="Form-input"
-                           value="{$option.value}"{section show=$option.toggled|eq(1)} checked="checked"{/section}
+                           value="{$option.value|wash()}"{section show=$option.toggled|eq(1)} checked="checked"{/section}
                            onclick="synchFormElements( '{$attr_id}_{$option.id}', '{$attr_alternative}', false );"/>
                     <span class="Form-fieldIcon" role="presentation"></span> {$option.label}
                 </label>
@@ -252,11 +252,11 @@
 
                             <input id="{$attr_alternative}" type="text"
                                    name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_extra_info_{$attribute_id}"
-                                   value="{if is_set($question.extra_info.extra_answer)}{$question.extra_info.extra_answer}{else}{$question.extra_info.default_value}{/if}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if} />
+                                   value="{if is_set($question.extra_info.extra_answer)}{$question.extra_info.extra_answer|wash()}{else}{$question.extra_info.default_value|wash()}{/if}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if} />
                         {else}
                             <textarea id="{$attr_alternative}" type="text"
                                       name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_extra_info_{$attribute_id}"
-                                      rows="{$question.extra_info.row}" cols="{$question.extra_info.column}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if}/>{if is_set($question.extra_info.extra_answer)}{$question.extra_info.extra_answer}{else}{$question.extra_info.default_value}{/if}</textarea>
+                                      rows="{$question.extra_info.row}" cols="{$question.extra_info.column}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if}/>{if is_set($question.extra_info.extra_answer)}{$question.extra_info.extra_answer|wash()}{else}{$question.extra_info.default_value|wash()}{/if}</textarea>
                         {/if}
                     </div>
                 </div>
@@ -269,7 +269,7 @@
         {section var=option loop=$options}
             <label class="Form-label Form-label--block">
                 <input id="{$attr_id}_{$option.id}" name="{$attr_name}" type="radio" class="Form-input"
-                       value="{$option.value}"{section show=$option.toggled|eq(1)} checked="checked"{/section}
+                       value="{$option.value|wash()}"{section show=$option.toggled|eq(1)} checked="checked"{/section}
                        onclick="synchFormElements( '{$attr_id}_{$option.id}', '{$attr_alternative}', false );"/>
                 <span class="Form-fieldIcon" role="presentation"></span> {$option.label}
             </label>
@@ -292,13 +292,13 @@
                     <div class="Form-field">
                         <input id="{$attr_alternative}" type="text"
                                name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_extra_info_{$attribute_id}"
-                               value="{if is_set($question.extra_info.extra_answer)}{$question.extra_info.extra_answer}{else}{$question.extra_info.default_value}{/if}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if} />
+                               value="{if is_set($question.extra_info.extra_answer)}{$question.extra_info.extra_answer|wash()}{else}{$question.extra_info.default_value|wash()}{/if}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if} />
                     </div>
                 {else}
                     <div class="Form-field">
                         <textarea id="{$attr_alternative}" type="text"
                                   name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_extra_info_{$attribute_id}"
-                                  rows="{$question.extra_info.row}" cols="{$question.extra_info.column}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if}/>{if is_set($question.extra_info.extra_answer)}{$question.extra_info.extra_answer}{else}{$question.extra_info.default_value}{/if}</textarea>
+                                  rows="{$question.extra_info.row}" cols="{$question.extra_info.column}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if}/>{if is_set($question.extra_info.extra_answer)}{$question.extra_info.extra_answer|wash()}{else}{$question.extra_info.default_value|wash()}{/if}</textarea>
                     </div>
                 {/if}
             </div>
@@ -311,7 +311,7 @@
             {section var=option loop=$options}
                 <label class="u-margin-rigth-s">
                     <input name="{$attr_name}[]" type="checkbox" class="Form-input"
-                           value="{$option.value}"{section show=$option.toggled|eq(1)} checked="checked"{/section} />
+                           value="{$option.value|wash()}"{section show=$option.toggled|eq(1)} checked="checked"{/section} />
                     <span class="Form-fieldIcon" role="presentation"></span> {$option.label}
                 </label>
             {/section}
@@ -333,13 +333,13 @@
                         <div class="Form-field">
                             <input id="{$attr_alternative}" type="text"
                                    name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_extra_info_{$attribute_id}"
-                                   value="{if is_set($question.extra_info.extra_answer)}{$question.extra_info.extra_answer}{else}{$question.extra_info.default_value}{/if}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if} />
+                                   value="{if is_set($question.extra_info.extra_answer)}{$question.extra_info.extra_answer|wash()}{else}{$question.extra_info.default_value|wash()}{/if}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if} />
                         </div>
                     {else}
                         <div class="Form-field">
                             <textarea id="{$attr_alternative}" type="text"
                                       name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_extra_info_{$attribute_id}"
-                                      rows="{$question.extra_info.row}" cols="{$question.extra_info.column}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if}/>{if is_set($question.extra_info.extra_answer)}{$question.extra_info.extra_answer}{else}{$question.extra_info.default_value}{/if}</textarea>
+                                      rows="{$question.extra_info.row}" cols="{$question.extra_info.column}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if}/>{if is_set($question.extra_info.extra_answer)}{$question.extra_info.extra_answer|wash()}{else}{$question.extra_info.default_value|wash()}{/if}</textarea>
                         </div>
                     {/if}
                 </div>
@@ -352,7 +352,7 @@
             {section var=option loop=$options}
                 <label class="Form-label Form-label--block">
                     <input name="{$attr_name}[]" type="checkbox" class="Form-input"
-                           value="{$option.value}"{section show=$option.toggled|eq(1)} checked="checked"{/section} />
+                           value="{$option.value|wash()}"{section show=$option.toggled|eq(1)} checked="checked"{/section} />
                     <span class="Form-fieldIcon" role="presentation"></span> {$option.label}
                 </label>
             {/section}
@@ -374,13 +374,13 @@
                         <div class="Form-field">
                             <input id="{$attr_alternative}" type="text"
                                    name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_extra_info_{$attribute_id}"
-                                   value="{if is_set($question.extra_info.extra_answer)}{$question.extra_info.extra_answer}{else}{$question.extra_info.default_value}{/if}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if} />
+                                   value="{if is_set($question.extra_info.extra_answer)}{$question.extra_info.extra_answer|wash()}{else}{$question.extra_info.default_value|wash()}{/if}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if} />
                         </div>
                     {else}
                         <div class="Form-field">
                             <textarea id="{$attr_alternative}" type="text"
                                       name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_extra_info_{$attribute_id}"
-                                      rows="{$question.extra_info.row}" cols="{$question.extra_info.column}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if}/>{if is_set($question.extra_info.extra_answer)}{$question.extra_info.extra_answer}{else}{$question.extra_info.default_value}{/if}</textarea>
+                                      rows="{$question.extra_info.row}" cols="{$question.extra_info.column}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if}/>{if is_set($question.extra_info.extra_answer)}{$question.extra_info.extra_answer|wash()}{else}{$question.extra_info.default_value|wash()}{/if}</textarea>
                         </div>
                     {/if}
                 </div>
@@ -393,7 +393,7 @@
             <select class="Form-input" name="{$attr_name}"
                     onclick="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );">
                 {section var=option loop=$options}
-                    <option value="{$option.value}"{section show=$option.toggled|eq(1)} selected="selected"{/section}>{$option.label}</option>
+                    <option value="{$option.value|wash()}"{section show=$option.toggled|eq(1)} selected="selected"{/section}>{$option.label}</option>
                 {/section}
                 {if $question.extra_info.enabled|eq(1)}
                     <option id="{$attr_id}"
@@ -405,14 +405,14 @@
         <div class="Form-field">
             <input class="Form-input" id="{$attr_alternative}" type="text"
                    name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_extra_info_{$attribute_id}"
-                   value="{if is_set($question.extra_info.extra_answer)}{$question.extra_info.extra_answer}{else}{$question.extra_info.default_value}{/if}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if} />
+                   value="{if is_set($question.extra_info.extra_answer)}{$question.extra_info.extra_answer|wash()}{else}{$question.extra_info.default_value|wash()}{/if}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if} />
         </div>
     {else}
         <div class="Form-field">
             <textarea class="Form-input" id="{$attr_alternative}" type="text"
                       name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_extra_info_{$attribute_id}"
                       rows="{$question.extra_info.row}"
-                      cols="{$question.extra_info.column}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if}/>{if is_set($question.extra_info.extra_answer)}{$question.extra_info.extra_answer}{else}{$question.extra_info.default_value}{/if}</textarea>
+                      cols="{$question.extra_info.column}"{if $question.extra_info.enable_css_style|eq(1)} class="Form-input"{/if}/>{if is_set($question.extra_info.extra_answer)}{$question.extra_info.extra_answer|wash()}{else}{$question.extra_info.default_value|wash()}{/if}</textarea>
         </div>
     {/if}
     {/case}

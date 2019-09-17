@@ -70,7 +70,7 @@
 
                           {if $show_link}
                               <li class="jump-to-calendar">
-                                  <a href="{$valid_node.url_alias|ezurl(no)}" title="Vai al calendario">
+                                  <a href="{$valid_node.url_alias|ezurl(no)}" title="{'Go to calendar'|i18n('openpa_designitalia')}">
                                       <i class="fa fa-calendar"></i> Tutti
                                   </a>
                               </li>

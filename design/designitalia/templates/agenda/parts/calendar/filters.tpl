@@ -21,10 +21,10 @@
 <div class="Grid Grid--withGutter">
   <div class="Grid-cell u-sizeFull widget agenda-filters" data-filter="q" style="display: none">
       <div class="input-group">
-          <input type="text" class="form-control" placeholder="Cerca nel titolo o nel testo" name="srch-term"
+          <input type="text" class="form-control" placeholder="{'Search in title or in text'|i18n('openpa_designitalia')}" name="srch-term"
                  id="srch-term">
           <div class="input-group-btn">
-              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i>
+              <button class="btn btn-default" type="submit"><i class="fa fa-search"></i>
               </button>
           </div>
       </div>
@@ -33,7 +33,7 @@
   {def $extra_parameters = class_extra_parameters($node.class_identifier)}
 
   <div class="Grid-cell u-sizeFull u-margin-all-s widget agenda-filters {if $current_view|eq('agenda')}hide{/if}" data-filter="date">
-    <h4>{'Quando?'|i18n('agenda')}</h4>
+    <h4>{'When?'|i18n('openpa_designitalia')}</h4>
     <ul class="u-sm-flexInline u-md-flexInline u-lg-flexInline">
       {if and(is_set($extra_parameters.event_calendar), $extra_parameters.event_calendar.enabled, $extra_parameters.event_calendar.filters|count()|gt(0))}
         {foreach $extra_parameters.event_calendar.filters as $filter}

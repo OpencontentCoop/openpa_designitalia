@@ -12,7 +12,7 @@
 		</div>
 	{/if}
 	{if $question.answer|count|gt(0)}
-		<input type="hidden" name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_{$attribute_id}" value="{$question.answer}">
+		<input type="hidden" name="{$prefix_attribute}_ezsurvey_answer_{$question.id}_{$attribute_id}" value="{$question.answer|wash()}">
 	{/if}
 	<input type="file" class="Form-input" name="{$prefix_attribute}_ezsurvey_file_{$question.id}_{$attribute_id}">
 </div>

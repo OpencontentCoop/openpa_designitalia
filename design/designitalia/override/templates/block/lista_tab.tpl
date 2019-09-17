@@ -18,7 +18,7 @@
                     {foreach $valid_nodes as $index => $child}
                         <div class="tab-pane{if $index|eq(0)} active{/if}" id="{$block.id}-{$child.name|slugize()}">
                             {node_view_gui content_node=$child view=accordion_content image_class=medium}
-                            <a class="readmore" href="{object_handler($child).content_link.full_link}" title="Link alla pagina {$child.name|wash()}">Leggi</a>
+                            <a class="readmore" href="{object_handler($child).content_link.full_link}" title="Link alla pagina {$child.name|wash()}">{'Read more'|i18n('openpa/widget')}</a>
                         </div>
                     {/foreach}
                 </div>

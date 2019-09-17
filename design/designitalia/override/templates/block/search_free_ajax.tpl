@@ -7,7 +7,7 @@
             <ul class="list-unstyled margin-top" id="search-results-{$block.id}"></ul>
 
             <div class="form-group margin-top clearfix">
-            <input id="search-button-{$block.id}" class="btn btn-primary pull-right" type="submit" name="SearchButton" value="Cerca" />
+            <input id="search-button-{$block.id}" class="btn btn-primary pull-right" type="submit" name="SearchButton" value="{'Search'|i18n('openpa_designitalia')}" />
             </div>
         </form>
 

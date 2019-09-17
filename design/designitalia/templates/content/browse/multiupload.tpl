@@ -52,17 +52,17 @@
                name="SearchText" type="text"
                value="{cond( ezhttp_hasvariable('SearchText','get'), ezhttp('SearchText','get')|wash(),'')}"
                size="12"/>
-        <input type="hidden" value="Cerca" name="SearchButton"/>
+        <input type="hidden" value="{'Search'|i18n('openpa_designitalia')}" name="SearchButton"/>
         <input type="hidden" value="{$browse.start_node}" name="SubTreeArray[]"/>
         <input name="Mode" type="hidden" value="browse"/>
-        <button name="SearchButton" value="Cerca" id="searchbox_submit" type="submit"
+        <button name="SearchButton" value="{'Search'|i18n('openpa_designitalia')}" id="searchbox_submit" type="submit"
                 class="u-background-40 u-color-white u-padding-all-s u-text-r-m u-textNoWrap">
             <span class="fa fa-search"></span>
         </button>
     </div>
     {if and( $is_search, count($node_array)|gt(0) )}
         <span class="input-group-btn">
-          <a href={concat('content/browse/', $browse.start_node)|ezurl()} class="btn btn-danger">Annulla ricerca</a>
+          <a href={concat('content/browse/', $browse.start_node)|ezurl()} class="btn btn-danger">{'Reset search'|i18n('openpa_designitalia')}</a>
         </span>
     {/if}
 </form>
@@ -194,7 +194,7 @@
                         </td>
                         <td>
     					  <span data-object="{$item.contentobject_id}" class="load-preview">
-    						  <span class="glyphicon glyphicon-zoom-in"></span>
+    						  <span class="fa fa-expand"></span>
     					  </span>
                         </td>
                     </tr>

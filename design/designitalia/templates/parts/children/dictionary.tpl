@@ -33,12 +33,12 @@
   <form>
     <div class="Grid Grid--withGutter u-margin-bottom-l">
       <div class="Grid-cell u-size5of12">
-        <label for="lemma-{$node.node_id}" class="sr-only"><small>Ricerca per lemma</small></label>
-        <input type="text" class="form-control" id="lemma-{$node.node_id}" data-search="lemma" placeholder="Ricerca per lemma">
+        <label for="lemma-{$node.node_id}" class="sr-only"><small>{'Search by keyword'|i18n('openpa_designitalia')}</small></label>
+        <input type="text" class="form-control" id="lemma-{$node.node_id}" data-search="lemma" placeholder="{'Search by keyword'|i18n('openpa_designitalia')}">
       </div>
       <div class="Grid-cell u-size5of12">
-        <label for="search-{$node.node_id}" class="sr-only"><small>Ricerca libera</small></label>
-        <input type="text" class="form-control" id="search-{$node.node_id}" data-search="q" placeholder="Ricerca libera">
+        <label for="search-{$node.node_id}" class="sr-only"><small>{'Search'|i18n('design/ezwebin/content/search')}/small></label>
+        <input type="text" class="form-control" id="search-{$node.node_id}" data-search="q" placeholder="{'Search'|i18n('design/ezwebin/content/search')}">
       </div>
       <div class="col-md-2 text-center">
         <button type="submit" class="u-padding-all-xs">
