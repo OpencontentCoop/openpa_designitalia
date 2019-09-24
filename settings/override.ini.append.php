@@ -598,3 +598,5 @@ MatchFile=block/html_3_colonne.tpl
 Subdir=templates
 Match[type]=Html3Colonne
 Match[view]=html_3_colonne
+
+*/ ?>

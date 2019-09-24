@@ -67,13 +67,13 @@ $(function() {
      $anni = openpaini( 'MotoreDiRicerca', 'RicercaAvanzataSelezionaAnni', array())
 }
 <div class="openpa-widget {$block.view} {if and(is_set($block.custom_attributes.color_style), $block.custom_attributes.color_style|ne(''))}color color-{$block.custom_attributes.color_style}{/if}">
-	<h3 class="openpa-widget-title"><span>Cerca in {$folder}</span></h3>
+	<h3 class="openpa-widget-title"><span>{'Find in'|i18n('openpa_designitalia')} {$folder}</span></h3>
 
 	<div class="openpa-widget-content">
 
 		<form id="search-form-box" action="{'content/search'|ezurl('no')}" method="get">
 
-			<input placeholder="Ricerca libera" {if $search_included} id="Search" size="20" class="halfbox" {else} id="search-string"{/if} type="text" name="SearchText" value="{$search_text|wash()}" />
+			<input placeholder="{'Text search'|i18n('openpa_designitalia')}" {if $search_included} id="Search" size="20" class="halfbox" {else} id="search-string"{/if} type="text" name="SearchText" value="{$search_text|wash()}" />
       
     {if and($foldersClasses|contains( $node.class_identifier ), $openpa_search_node.content_virtual.folder)}
       {set $class_filters = $openpa_search_node.content_virtual.folder.classes}
@@ -82,7 +82,7 @@ $(function() {
 		{if $class_filters[0]|ne('')}
 
 		<button type="button" class="btn btn-link btn-sm" data-toggle="collapse" data-target="#AdvancedNodePanel">
-			Ricerca avanzata
+      {'Advanced search'|i18n('openpa_designitalia')}
 		</button>
 
 			{foreach $class_filters as $class_filter}
@@ -112,7 +112,7 @@ $(function() {
 							<select class="form-control"  id="{$attribute.identifier}" name="anno_s[]">
 									<option value="">Qualsiasi anno</option>
 									{foreach $anni as $anno}
-									<option {if $anno|eq($anno_s[0])} class="marked" selected="selected"{/if} value="{$anno}">{$anno}</option>
+									<option {if $anno|eq($anno_s[0])} class="marked" selected="selected"{/if} value="{$anno|wash()}">{$anno|wash()}</option>
 									{/foreach}
 							</select>
 						{else}
@@ -132,7 +132,7 @@ $(function() {
 
 		{/if}
 		<div class="form-group margin-top clearfix">
-			<input id="search-button-button" class="defaultbutton pull-right" type="submit" name="SearchButton" value="Cerca" />
+			<input id="search-button-button" class="defaultbutton pull-right" type="submit" name="SearchButton" value="{'Search'|i18n('openpa_designitalia')}" />
 		</div>
 
 		</form>

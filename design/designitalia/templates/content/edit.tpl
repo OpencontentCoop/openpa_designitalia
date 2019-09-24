@@ -25,8 +25,7 @@
 
     <h2 class="u-text-h2">
         <i class='icon-edit'></i>
-        <span>Modifica {$object.name|wash}</span>
-        <small>{$class.name|wash}</small>
+        <span>{'Edit <%object_name> (%class_name)'|i18n( 'design/ezwebin/content/edit', , hash( '%object_name', $object.name, '%class_name', first_set( $class.nameList[$content_language], $class.name ) ) )|wash}</span>
     </h2>
 
     {include uri="design:content/edit_validation.tpl"}

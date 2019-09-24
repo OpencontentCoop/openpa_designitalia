@@ -16,6 +16,6 @@
 
     </div>
 
-    <a class="readmore" href="{object_handler($node).content_link.full_link}" title="{$node.name|wash()}">Leggi</a>
+    <a class="readmore" href="{object_handler($node).content_link.full_link}" title="{$node.name|wash()}">{'Read more'|i18n('openpa/widget')}</a>
 
 </div>

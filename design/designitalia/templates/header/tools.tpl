@@ -5,10 +5,10 @@
 
 <div class="Header-searchTrigger Grid-cell">
   <button aria-controls="header-search" class="js-Header-search-trigger Icon Icon-search Icon--rotated"
-          title="attiva il form di ricerca" aria-label="attiva il form di ricerca" aria-hidden="false">
+          title="{'Enable search form'|i18n('openpa_designitalia')}" aria-label="{'Enable search form'|i18n('openpa_designitalia')}" aria-hidden="false">
   </button>
   <button aria-controls="header-search" class="js-Header-search-trigger Icon Icon-close u-hidden "
-          title="disattiva il form di ricerca" aria-label="disattiva il form di ricerca" aria-hidden="true">
+          title="{'Disable search form'|i18n('openpa_designitalia')}" aria-label="{'Disable search form'|i18n('openpa_designitalia')}" aria-hidden="true">
   </button>
 </div>
 
@@ -16,7 +16,7 @@
   <div class="Header-social Headroom-hideme">
     {if or(is_set($pagedata.contacts.facebook), is_set($pagedata.contacts.twitter), is_set($pagedata.contacts.linkedin), is_set($pagedata.contacts.instagram))}
       
-      <p class="u-color-95">Seguici su</p>
+      <p class="u-color-95">{'Follow us'|i18n('openpa/footer')}</p>
 
       <ul class="Header-socialIcons">
         {if is_set($pagedata.contacts.facebook)}

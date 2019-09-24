@@ -20,7 +20,7 @@
     </td>
     <td>
         <span data-object="{$object.id}" class="load-preview">
-            <span class="glyphicon glyphicon-zoom-in"></span>
+            <span class="fa fa-expand"></span>
         </span>
     </td>
 </tr>

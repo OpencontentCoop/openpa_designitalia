@@ -58,12 +58,12 @@ $(function() {
 
         <div class="Grid u-padding-all-s u-background-grey-10">
             <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                <label class="Form-label u-hiddenVisually" for="Sort">Cerca nel testo</label>
-                <input id="calendar_query"  class="query Form-input" placeholder="Cerca tra gli eventi" type="text" name="Query" value="{$calendarData.parameters.query|wash()}" />
+                <label class="Form-label u-hiddenVisually" for="Sort">{'Search in text'|i18n('openpa_designitalia')}</label>
+                <input id="calendar_query"  class="query Form-input" placeholder="{'Search'|i18n('openpa_designitalia')}" type="text" name="Query" value="{$calendarData.parameters.query|wash()}" />
             </div>
 
             <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                <label class="Form-label u-hiddenVisually" for="Order">Seleziona data</label>
+                <label class="Form-label u-hiddenVisually" for="Order">{'Select date'|i18n('openpa_designitalia')}</label>
                 <input id="calendar_picker" class="calendar_picker Form-input" placeholder="gg-mm-yyyy" type="text" name="SearchDate" title="Seleziona data" value="{$calendarData.parameters.picker_date|wash()}" />
             </div>
 
@@ -72,7 +72,7 @@ $(function() {
                 <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
                     {foreach $calendarData.search_facets as $facetFieldName => $facets}
 
-                            <label class="Form-label u-hiddenVisually" for="calendar_facet">Cerca {$facetFieldName}</label>
+                            <label class="Form-label u-hiddenVisually" for="calendar_facet">{'Search'|i18n('openpa_designitalia')} {$facetFieldName}</label>
                             <select name="{$facetFieldName}" class="Form-input" id="calendar_facet">
                                 <option value="">{$facetFieldName}</option>
                                 {foreach $facets as $styleAndName}
@@ -87,7 +87,7 @@ $(function() {
 
             {if and( count($calendarData.search_facets)|eq(0), is_set( $view_parameters.Manifestazione ) )}
                 <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                    <label class="Form-label u-hiddenVisually" for="calendar_facet">Cerca Manifestazione</label>
+                    <label class="Form-label u-hiddenVisually" for="calendar_facet">{'Search event collection'|i18n('openpa_designitalia')}</label>
                     <select name="Manifestazione" class="Form-input" id="calendar_facet">
                         <option value="">Manifestazione</option>
                         <option value="{$view_parameters.Manifestazione|wash()}" selected="selected">{$view_parameters.Manifestazione|wash()}</option>
@@ -95,10 +95,10 @@ $(function() {
                 </div>
             {/if}
             <div class="Form-field Grid-cell u-size1of3 u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                <button class="Button Button--default" type="submit" name="SearchButton" title="Cerca"><i class="fa fa-search"></i> Cerca</button>
+                <button class="Button Button--default" type="submit" name="SearchButton" title="{'Search'|i18n('openpa_designitalia')}"><i class="fa fa-search"></i> {'Search'|i18n('openpa_designitalia')}</button>
             </div>
             <div class="Form-field Grid-cell u-size2of3 u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                <button class="Button Button--info" type="submit" name="TodayButton" title="Azzera la ricerca"><i class="fa fa-close"></i> Annulla ricerca</button>
+                <button class="Button Button--info" type="submit" name="TodayButton" title="{'Reset search'|i18n('openpa_designitalia')}"><i class="fa fa-close"></i> {'Reset search'|i18n('openpa_designitalia')}</button>
             </div>
         </div>
     </fieldset>
@@ -206,7 +206,7 @@ $(function() {
                                     <li class="Entrypoint-item u-background-50 u-textBreak">
                                         <p>
                                             <a class="u-color-white" href="{concat( $node.url_alias, '/(view)/program', $calendarData.day_by_day[$day_id].uri_suffix, '#day-', $calendarData.day_by_day[$day_id].identifier )|ezurl(no)}">
-                                                <em>{if $altri|eq(1)}...e un altro evento{else}...e altri {$altri} eventi{/if}</em>
+                                                <em>{if $altri|eq(1)}{'...and another event'|i18n('openpa_designitalia')}{else}{'...and another %number events'|i18n('openpa_designitalia', '', hash('%number', $altri))}{/if}</em>
                                             </a>
                                         </p>
                                     </li>

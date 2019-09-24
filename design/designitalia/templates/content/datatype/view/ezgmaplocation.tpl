@@ -10,7 +10,7 @@
   <p class="goto">
     <a class="btn u-layout-matchHeight u-margin-bottom-xs u-margin-top-xs" target="_blank"
        href="https://www.google.com/maps/dir//'{$attribute.content.latitude},{$attribute.content.longitude}'/@{$attribute.content.latitude},{$attribute.content.longitude},15z?hl=it">
-        <small>Come arrivare <i class="fa fa-external-link"></i></small>
+        <small>{'How to get'|i18n('openpa_designitalia')} <i class="fa fa-external-link"></i></small>
     </a>
   </p>
 

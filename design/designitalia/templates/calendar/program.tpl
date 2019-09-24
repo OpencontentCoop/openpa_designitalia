@@ -30,19 +30,19 @@ $(function() {
         {*<legend class="Form-legend">Lista</legend>*}
         <div class="Grid">
             <div class="Form-field Grid-cell u-sizeFull">
-                <input type="submit" name="ViewCalendarButton" class="btn btn-default hidden-xs" value="Visualizza Calendario" />
+                <input type="submit" name="ViewCalendarButton" class="btn btn-default hidden-xs" value="{'View calendar'|i18n('openpa_designitalia')}" />
             </div>
         </div>
 
         <div class="Grid u-padding-all-s u-background-grey-10">
             <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                <label class="Form-label u-hiddenVisually" for="Sort">Cerca nel testo</label>
-                <input id="calendar_query"  class="query Form-input" placeholder="Cerca tra gli eventi" type="text" name="Query" value="{$calendarData.parameters.query|wash()}" />
+                <label class="Form-label u-hiddenVisually" for="Sort">{'Search in text'|i18n('openpa_designitalia')}</label>
+                <input id="calendar_query"  class="query Form-input" placeholder="{'Search events'|i18n('openpa_designitalia')}" type="text" name="Query" value="{$calendarData.parameters.query|wash()}" />
             </div>
 
             <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                <label class="Form-label u-hiddenVisually" for="Order">Seleziona data</label>
-                <input id="calendar_picker" class="calendar_picker Form-input" placeholder="gg-mm-yyyy" type="text" name="SearchDate" title="Seleziona data" value="{$calendarData.parameters.picker_date|wash()}" />
+                <label class="Form-label u-hiddenVisually" for="Order">{'Select date'|i18n('openpa_designitalia')}</label>
+                <input id="calendar_picker" class="calendar_picker Form-input" placeholder="gg-mm-yyyy" type="text" name="SearchDate" title="{'Select date'|i18n('openpa_designitalia')}" value="{$calendarData.parameters.picker_date|wash()}" />
             </div>
 
             {foreach $calendarData.search_facets as $facetFieldName => $facets}
@@ -50,7 +50,7 @@ $(function() {
                 <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
                     {foreach $calendarData.search_facets as $facetFieldName => $facets}
 
-                        <label class="Form-label u-hiddenVisually" for="calendar_facet">Cerca {$facetFieldName}</label>
+                        <label class="Form-label u-hiddenVisually" for="calendar_facet">{'Search'|i18n('openpa_designitalia')} {$facetFieldName}</label>
                         <select name="{$facetFieldName}" class="Form-input" id="calendar_facet">
                             <option value="">{$facetFieldName}</option>
                             {foreach $facets as $styleAndName}
@@ -65,18 +65,18 @@ $(function() {
 
             {if and( count($calendarData.search_facets)|eq(0), is_set( $view_parameters.Manifestazione ) )}
                 <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                    <label class="Form-label u-hiddenVisually" for="calendar_facet">Cerca Manifestazione</label>
+                    <label class="Form-label u-hiddenVisually" for="calendar_facet">{'Search event collection'|i18n('openpa_designitalia')}</label>
                     <select name="Manifestazione" class="Form-input" id="calendar_facet">
-                        <option value="">Manifestazione</option>
+                        <option value="">{'Event collection'|i18n('openpa_designitalia')}</option>
                         <option value="{$view_parameters.Manifestazione|wash()}" selected="selected">{$view_parameters.Manifestazione|wash()}</option>
                     </select>
                 </div>
             {/if}
             <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                <button class="Button Button--default" type="submit" name="SearchButton" title="Cerca"><i class="fa fa-search"></i> Cerca</button>
+                <button class="Button Button--default" type="submit" name="SearchButton" title="{'Search'|i18n('openpa_designitalia')}"><i class="fa fa-search"></i> {'Search'|i18n('openpa_designitalia')}</button>
             </div>
             <div class="Form-field Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2">
-                <button class="Button Button--info" type="submit" name="TodayButton" title="Azzera la ricerca"><i class="fa fa-close"></i> Annulla ricerca</button>
+                <button class="Button Button--info" type="submit" name="TodayButton" title="{'Reset search'|i18n('openpa_designitalia')}"><i class="fa fa-close"></i> {'Reset search'|i18n('openpa_designitalia')}</button>
             </div>
         </div>
     </fieldset>

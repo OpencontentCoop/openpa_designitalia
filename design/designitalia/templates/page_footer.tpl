@@ -104,7 +104,7 @@
                                 {set $href = $item.data_map.location.content}
                             {/if}
                             <li><a href="{$href}"
-                                   title="Leggi {$item.name|wash()}">{$item.name|wash()}</a>
+                                   title="{'Read more'|i18n('openpa/widget')} {$item.name|wash()}">{$item.name|wash()}</a>
                             </li>
                             {undef $href}
                         {/foreach}

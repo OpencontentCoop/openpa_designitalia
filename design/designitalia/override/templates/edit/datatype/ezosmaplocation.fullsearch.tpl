@@ -5,7 +5,7 @@
         {first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}
         {if $attribute.is_information_collector} <em
                 class="collector">{'information collector'|i18n( 'design/admin/content/edit_attribute' )}</em>{/if}
-        {if $attribute.is_required} ({'richiesto'|i18n('design/ocbootstrap/designitalia')}){/if}
+        {if $attribute.is_required} ({'required'|i18n('design/ocbootstrap/designitalia')}){/if}
     </legend>
 
 
@@ -22,37 +22,37 @@
                    style="width: 100%"
                    type="text"
                    name="{$attribute_base}_data_gmaplocation_address_{$attribute.id}"
-                   value="{$attribute.content.address}"/>
+                   value="{$attribute.content.address|wash()}"/>
             <input class="ezgml_hidden_address"
                    type="hidden"
                    name="ezgml_hidden_address"
-                   value="{$attribute.content.address}"
+                   value="{$attribute.content.address|wash()}"
                    disabled="disabled"/>
         </div>
 
         <div class="element latitude">
-            <label class="u-text-xxs">Latitudine</label>
+            <label class="u-text-xxs">{'Latitude'|i18n('openpa_designitalia')}</label>
             <input class="ezgml_new_latitude u-text-xxs"
                    type="text"
                    name="{$attribute_base}_data_gmaplocation_latitude_{$attribute.id}"
-                   value="{$latitude}"/>
+                   value="{$latitude|wash()}"/>
             <input class="ezgml_hidden_latitude"
                    type="hidden"
                    name="ezgml_hidden_latitude"
-                   value="{$latitude}"
+                   value="{$latitude|wash()}"
                    disabled="disabled"/>
         </div>
 
         <div class="element longitude">
-            <label class="u-text-xxs">Longitudine</label>
+            <label class="u-text-xxs">{'Longitude'|i18n('openpa_designitalia')}</label>
             <input class="ezgml_new_longitude u-text-xxs"
                    type="text"
                    name="{$attribute_base}_data_gmaplocation_longitude_{$attribute.id}"
-                   value="{$longitude}"/>
+                   value="{$longitude|wash()}"/>
             <input class="ezgml_hidden_longitude"
                    type="hidden"
                    name="ezgml_hidden_longitude"
-                   value="{$longitude}"
+                   value="{$longitude|wash()}"
                    disabled="disabled"/>
         </div>
 
@@ -61,14 +61,14 @@
     <div class="ezgml-form Grid-cell u-size12of12 u-sm-size12of12 u-md-size6of12 u-lg-size6of12">
 
         <div class="ezgml-form-fields">
-            <legend>Cerca un punto sulla mappa</legend>
+            <legend>{'Find a marker'|i18n('openpa_designitalia')}</legend>
             <div class="Form-field">
                 <input class="box" type="hidden" name="query" placeholder="Query" value=""/>
             </div>
 
             <div class="Form-field">
-                <label>Indirizzo</label>
-                <input type="text" class="Form-input" name="street" placeholder="Indirizzo" value=""/>
+                <label>{'Address'|i18n('openpa_designitalia')}</label>
+                <input type="text" class="Form-input" name="street" placeholder="{'Address'|i18n('openpa_designitalia')}" value=""/>
             </div>
 
             {*<div class="block">
@@ -77,34 +77,34 @@
             </div>*}
 
             <div class="Form-field">
-                <label class="Form-label">CAP</label>
-                <input type="text" name="postcode" class="Form-input" placeholder="CAP" size="10" value="{if is_set($contacts.cap)}{$contacts.cap|wash()}{/if}"/>
+                <label class="Form-label">{'CAP'|i18n('openpa_designitalia')}</label>
+                <input type="text" name="postcode" class="Form-input" placeholder="{'CAP'|i18n('openpa_designitalia')}" size="10" value="{if is_set($contacts.cap)}{$contacts.cap|wash()}{/if}"/>
             </div>
 
             <div class="Form-field">
-                <label class="Form-label">Città</label>
-                <input type="text" name="city" placeholder="City" class="Form-input" size="20" value="{if is_set($contacts.comune)}{$contacts.comune|wash()}{/if}"/>
+                <label class="Form-label">{'City'|i18n('openpa_designitalia')}</label>
+                <input type="text" name="city" placeholder="{'City'|i18n('openpa_designitalia')}" class="Form-input" size="20" value="{if is_set($contacts.comune)}{$contacts.comune|wash()}{/if}"/>
             </div>
 
             <div class="Form-field">
-                <label class="Form-label">Provincia</label>
-                <input type="text" name="county" placeholder="Provincia" class="Form-input" size="20" value="Provincia Autonoma di Trento"/>
+                <label class="Form-label">{'District'|i18n('openpa_designitalia')}</label>
+                <input type="text" name="county" placeholder="{'District'|i18n('openpa_designitalia')}" class="Form-input" size="20" value="Provincia Autonoma di Trento"/>
             </div>
 
             <div class="Form-field">
-                <label class="Form-label">Regione</label>
-                <input type="text" name="state" placeholder="Regione" class="Form-input" size="20" value="Trentino-Alto Adige"/>
+                <label class="Form-label">{'Region'|i18n('openpa_designitalia')}</label>
+                <input type="text" name="state" placeholder="{'Region'|i18n('openpa_designitalia')}" class="Form-input" size="20" value="Trentino-Alto Adige"/>
             </div>
 
             <div class="Form-field">
-                <label class="Form-label">Stato</label>
-                <input type="text" name="country" placeholder="Stato" class="Form-input" size="20" value="Italia"/>
+                <label class="Form-label">{'State'|i18n('openpa_designitalia')}</label>
+                <input type="text" name="country" placeholder="{'State'|i18n('openpa_designitalia')}" class="Form-input" size="20" value="Italia"/>
             </div>
         </div>
 
-        <button class="defaultbutton btn-sm" name="GeoSearch">Cerca indirizzo</button>
-        <button class="button btn-sm" name="MyLocation" title="Rileva posizione del dispositivo"><i class="fa fa-location-arrow"></i> </button>
-        <button class="button btn-sm" name="Reset">Annulla</button>
+        <button class="defaultbutton btn-sm" name="GeoSearch">{'Find address'|i18n('openpa_designitalia')}</button>
+        <button class="button btn-sm" name="MyLocation" title="{'Detect device position'|i18n('openpa_designitalia')}"><i class="fa fa-location-arrow"></i> </button>
+        <button class="button btn-sm" name="Reset">{'Cancel'|i18n('openpa_designitalia')}</button>
     </div>
 
     <div class=" ezgml-search-results Grid-cell u-size12of12 u-sm-size12of12 u-md-size6of12 u-lg-size6of12 u-border-top-m u-background-white" style="display: none;">

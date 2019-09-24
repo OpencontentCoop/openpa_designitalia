@@ -4,7 +4,7 @@
             <i class="fa fa-close"></i> <strong>{$field.name|wash()}:</strong> {$field.value|wash()}
         </a>
     {/foreach}
-    <a class="Button Button--danger u-text-xxs" href={$page_url|ezurl()}>Annulla ricerca</a>
+    <a class="Button Button--danger u-text-xxs" href={$page_url|ezurl()}>{'Reset search'|i18n('openpa_designitalia')}</a>
 </p>
 
 {if $data.count}

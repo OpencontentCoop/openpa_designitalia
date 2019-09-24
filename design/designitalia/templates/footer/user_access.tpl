@@ -2,20 +2,25 @@
 
     <span class="u-margin-right-s" id="login" style="display: none;">
         <a href="{"/user/login"|ezurl(no)}"
-           title="Esegui il login al sito">Accedi con il tuo account</a>
+           title="{"Login"|i18n("design/standard/layout")}">{"Login"|i18n("design/standard/layout")}</a>
     </span>
 
-    {if and(ezmodule( 'user/register' ), fetch( 'user', 'has_access_to', hash( 'module', 'user', 'function', 'register' ) ))}
-        <span class="u-margin-right-s" id="registeruser" style="display: none;">
+  {if and(ezmodule( 'user/register' ), fetch( 'user', 'has_access_to', hash( 'module', 'user', 'function', 'register' ) ))}
+    <span class="u-margin-right-s" id="registeruser" style="display: none;">
             <a href="{"/user/register"|ezurl(no)}"
-               title="Registrati al sito"> Crea il tuo account</a>
+               title="{'Not registered?'|i18n( 'design/standard/toolbar' )}">{'Not registered?'|i18n( 'design/standard/toolbar' )}</a>
         </span>
-    {/if}
+  {/if}
 
 </p>
 
+
 <script>{literal}
     $(document).ready(function(){
+        {/literal}
+        var dashboardString = "{'Dashboard'|i18n('design/admin/content/dashboard')}";
+        var profileString = "{'My profile'|i18n('design/ocbootstrap/pagelayout')}";
+        {literal}
         var login = $('#login');
         login.find('a').attr('href', login.find('a').attr('href') + '?url='+ ModuleResultUri);
         var register = $('#registeruser');
@@ -25,9 +30,9 @@
                 login.show();
                 register.show();
             }else{
-                login.after('<span class="u-margin-right-s" id="myprofile"><a href="/user/edit/" title="Visualizza il profilo utente">Il mio profilo</a></span><span class="u-margin-right-s" id="logout"><a href="/user/logout" title="Logout">Logout ('+data.content.name+')</a></span>');
+                login.after('<span class="u-margin-right-s" id="myprofile"><a href="/user/edit/" title="'+profileString+'">'+profileString+'</a></span><span class="u-margin-right-s" id="logout"><a href="/user/logout" title="Logout">Logout ('+data.content.name+')</a></span>');
                 if(data.content.has_access_to_dashboard){
-                    login.after('<span class="u-margin-right-s"><a href="/content/dashboard/" title="Pannello strumenti">Pannello strumenti</a></span>');
+                    login.after('<span class="u-margin-right-s"><a href="/content/dashboard/" title="'+dashboardString+'">'+dashboardString+'</a></span>');
                 }
                 login.remove();
                 register.remove();
