@@ -33,12 +33,12 @@
   <form>
     <div class="Grid Grid--withGutter u-margin-bottom-l">
       <div class="Grid-cell u-size5of12">
-        <label for="lemma-{$node.node_id}" class="sr-only"><small>{'Search by keyword'|i18n('openpa_designitalia')}</small></label>
-        <input type="text" class="form-control" id="lemma-{$node.node_id}" data-search="lemma" placeholder="{'Search by keyword'|i18n('openpa_designitalia')}">
+        <label for="lemma-{$node.node_id}" class="sr-only"><small>Ricerca per lemma</small></label>
+        <input type="text" class="form-control" id="lemma-{$node.node_id}" data-search="lemma" placeholder="Ricerca per lemma">
       </div>
       <div class="Grid-cell u-size5of12">
-        <label for="search-{$node.node_id}" class="sr-only"><small>{'Search'|i18n('design/ezwebin/content/search')}/small></label>
-        <input type="text" class="form-control" id="search-{$node.node_id}" data-search="q" placeholder="{'Search'|i18n('design/ezwebin/content/search')}">
+        <label for="search-{$node.node_id}" class="sr-only"><small>Ricerca libera</small></label>
+        <input type="text" class="form-control" id="search-{$node.node_id}" data-search="q" placeholder="Ricerca libera">
       </div>
       <div class="col-md-2 text-center">
         <button type="submit" class="u-padding-all-xs">
@@ -69,13 +69,13 @@
 
 {run-once}
 {literal}
-  <script id="tpl-dictionary-spinner" type="text/x-jsrender">
+<script id="tpl-dictionary-spinner" type="text/x-jsrender">
 <div class="spinner text-center u-padding-all-xxl">
     <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
     <span class="sr-only">Attendere il caricamento dei dati...</span>
 </div>
 </script>
-  <script id="tpl-dictionary-results" type="text/x-jsrender">
+<script id="tpl-dictionary-results" type="text/x-jsrender">
 	<div class="u-padding-all-m u-margin-left-m u-padding-bottom-xxl">
     {{if totalCount == 0}}
       <div class="col"><em>Nessun contenuto trovato</em></div>
@@ -109,217 +109,217 @@
 	{{/if}}
 </script>
 
-  <script>
-    $.views.helpers($.opendataTools.helpers);
-    $(document).ready(function () {
-      $('[data-dictionary_subtree]').each(function () {
-        var baseUrl = '/';
-        if (typeof (UriPrefix) !== 'undefined' && UriPrefix !== '/') {
-          baseUrl = UriPrefix + '/';
-        }
-        var container = $(this);
+<script>
+  $.views.helpers($.opendataTools.helpers);
+  $(document).ready(function () {
+    $('[data-dictionary_subtree]').each(function () {
+      var baseUrl = '/';
+      if (typeof (UriPrefix) !== 'undefined' && UriPrefix !== '/') {
+        baseUrl = UriPrefix + '/';
+      }
+      var container = $(this);
 
-        var resultsContainer = container.find('.results');
-        var limitPagination = container.data('limit');
-        var subtree = container.data('dictionary_subtree').toString().split(',');
-        var classes = container.data('dictionary_classes').split(',');
-        var attributes = container.data('dictionary_attributes').split(',');
-        var texts = container.data('dictionary_texts').split(',');
-        var currentPage = 0;
-        var queryPerPage = [];
-        var template = $.templates('#tpl-dictionary-results');
-        var spinner = $($.templates("#tpl-dictionary-spinner").render({}));
-        var isLoadedFacetsCount = false;
+      var resultsContainer = container.find('.results');
+      var limitPagination = container.data('limit');
+      var subtree = container.data('dictionary_subtree').toString().split(',');
+      var classes = container.data('dictionary_classes').split(',');
+      var attributes = container.data('dictionary_attributes').split(',');
+      var texts = container.data('dictionary_texts').split(',');
+      var currentPage = 0;
+      var queryPerPage = [];
+      var template = $.templates('#tpl-dictionary-results');
+      var spinner = $($.templates("#tpl-dictionary-spinner").render({}));
+      var isLoadedFacetsCount = false;
 
-        var buildQuery = function () {
-          var query = 'classes ['+ classes +'] subtree [' + subtree + '] facets [';
-          $.each(attributes, function (index, attribute) {
-            query += "raw[subattr_"+this + "___start_letter____s]|alpha";
-            query += index === (attributes.length - 1) ? '' : ',';
-          });
-          query += ']';
-          if (container.find('[data-search="lemma"]').length > 0) {
-            var searchLemma = container.find('[data-search="lemma"]').val().replace(/"/g, '').replace(/'/g, "").replace(/\(/g, "").replace(/\)/g, "").replace(/\[/g, "").replace(/\]/g, "");
-            if (searchLemma.length > 0) {
-              query += " and ";
-              if (attributes.length === 1) {
-                query += "raw[attr_"+attributes[0] + "_t]" + " = '" + searchLemma + "'";
-              } else {
-                query += "(";
-                $.each(attributes, function (index, attribute) {
-                  query += "raw[attr_"+attribute + "_t]" + " = '" + searchLemma + "'";
-                  query += attributes.length > 1 && index === (attributes.length - 1) ? ' or ' : '';
-                });
-                query += ")";
-              }
-            }
-          }
-          if (container.find('form').length > 0) {
-            var searchText = container.find('[data-search="q"]').val().replace(/"/g, '').replace(/'/g, "").replace(/\(/g, "").replace(/\)/g, "").replace(/\[/g, "").replace(/\]/g, "");
-            if (searchText.length > 0) {
-              query += " and q = '" + searchText + "'";
-            }
-          }
-
-          var startLetterFilters = [];
-          container.find('[data-start_letter].Button--default').each(function(){
-            startLetterFilters.push($(this).data('start_letter'));
-          });
-          if (startLetterFilters .length > 0){
-            query += " and (";
-            $.each(attributes, function (index, attribute) {
-              query += "raw[subattr_"+this + "___start_letter____s] in [\"" + startLetterFilters .join('","') + "\"] or raw[subattr_"+this + "___start_letter____s] in [\"" + startLetterFilters .join('","').toLowerCase() + "\"]";
-              query += attributes.length > 1 && index === (attributes.length - 1) ? ' or ' : '';
-            });
-            query += ") ";
-          }
-
-          query += ' sort [';
-          $.each(attributes, function (index, attribute) {
-            query += "raw[attr_"+attribute + "_t]=>asc";
-            query += attributes.length > 1 && index === (attributes.length - 1) ? ',' : '';
-          });
-          query += ']';
-
-          return query;
-        };
-
-        var loadFacetsCount = function(data){
-          if(isLoadedFacetsCount === false){
-            var hashLetter = false;
-            if (window.location.hash){
-              var match = location.hash.match(/^#?(.*)$/)[1];
-              if (typeof match == 'string') {
-                hashLetter = match.charAt(0).toUpperCase();
-              }
-            }
-
-            var first = false;
-            $.each(data, function(){
-              $.each(this.data, function(letter, count){
-                container.find('[data-start_letter="'+letter+'"]').show();
-                if(first === false){
-                  first = container.find('[data-start_letter="'+letter+'"]');
-                }
+      var buildQuery = function () {
+        var query = 'classes ['+ classes +'] subtree [' + subtree + '] facets [';
+        $.each(attributes, function (index, attribute) {
+          query += "raw[subattr_"+this + "___start_letter____s]|alpha";
+          query += index === (attributes.length - 1) ? '' : ',';
+        });
+        query += ']';
+        if (container.find('[data-search="lemma"]').length > 0) {
+          var searchLemma = container.find('[data-search="lemma"]').val().replace(/"/g, '').replace(/'/g, "").replace(/\(/g, "").replace(/\)/g, "").replace(/\[/g, "").replace(/\]/g, "");
+          if (searchLemma.length > 0) {
+            query += " and ";
+            if (attributes.length === 1) {
+              query += "raw[attr_"+attributes[0] + "_t]" + " = '" + searchLemma + "'";
+            } else {
+              query += "(";
+              $.each(attributes, function (index, attribute) {
+                query += "raw[attr_"+attribute + "_t]" + " = '" + searchLemma + "'";
+                query += attributes.length > 1 && index === (attributes.length - 1) ? ' or ' : '';
               });
-            });
-            if (hashLetter && container.find('[data-start_letter="'+hashLetter+'"]').is(':visible')){
-              first = container.find('[data-start_letter="'+hashLetter+'"]');
+              query += ")";
             }
-            if (first){
-              first.trigger('click');
-            }
-            isLoadedFacetsCount = true;
           }
-        };
+        }
+        if (container.find('form').length > 0) {
+          var searchText = container.find('[data-search="q"]').val().replace(/"/g, '').replace(/'/g, "").replace(/\(/g, "").replace(/\)/g, "").replace(/\[/g, "").replace(/\]/g, "");
+          if (searchText.length > 0) {
+            query += " and q = '" + searchText + "'";
+          }
+        }
 
-        resultsContainer.html(spinner);
-        var loadContents = function () {
-          var baseQuery = buildQuery();
-          var paginatedQuery = baseQuery + ' and limit ' + limitPagination + ' offset ' + currentPage * limitPagination;
-          resultsContainer.html(spinner);
+        var startLetterFilters = [];
+        container.find('[data-start_letter].Button--default').each(function(){
+          startLetterFilters.push($(this).data('start_letter'));
+        });
+        if (startLetterFilters .length > 0){
+          query += " and (";
+          $.each(attributes, function (index, attribute) {
+            query += "raw[subattr_"+this + "___start_letter____s] in [\"" + startLetterFilters .join('","') + "\"] or raw[subattr_"+this + "___start_letter____s] in [\"" + startLetterFilters .join('","').toLowerCase() + "\"]";
+            query += attributes.length > 1 && index === (attributes.length - 1) ? ' or ' : '';
+          });
+          query += ") ";
+        }
 
-          $.opendataTools.find(paginatedQuery, function (response) {
-            queryPerPage[currentPage] = paginatedQuery;
-            response.currentPage = currentPage;
-            response.prevPage = currentPage - 1;
-            response.nextPage = currentPage + 1;
-            var pagination = response.totalCount > 0 ? Math.ceil(response.totalCount / limitPagination) : 0;
-            var pages = [];
-            var i;
-            for (i = 0; i < pagination; i++) {
-              queryPerPage[i] = baseQuery + ' and limit ' + limitPagination + ' offset ' + (limitPagination * i);
-              pages.push({'query': i, 'page': (i + 1)});
+        query += ' sort [';
+        $.each(attributes, function (index, attribute) {
+          query += "raw[subattr_"+attribute + "___normalized_s]=>asc,raw[attr_"+attribute + "_s]=>asc";
+          query += attributes.length > 1 && index === (attributes.length - 1) ? ',' : '';
+        });
+        query += ']';
+
+        return query;
+      };
+
+      var loadFacetsCount = function(data){
+        if(isLoadedFacetsCount === false){
+          var hashLetter = false;
+          if (window.location.hash){
+            var match = location.hash.match(/^#?(.*)$/)[1];
+            if (typeof match == 'string') {
+              hashLetter = match.charAt(0).toUpperCase();
             }
-            response.pages = pages;
-            response.pageCount = pagination;
+          }
 
-            response.prevPageQuery = jQuery.type(queryPerPage[response.prevPage]) === "undefined" ? null : queryPerPage[response.prevPage];
-
-            $.each(response.searchHits, function () {
-              this.baseUrl = baseUrl;
-              this.attributes = attributes;
-              this.texts = texts;
+          var first = false;
+          $.each(data, function(){
+            $.each(this.data, function(letter, count){
+              container.find('[data-start_letter="'+letter.toUpperCase()+'"]').show();
+              if(first === false){
+                first = container.find('[data-start_letter="'+letter.toUpperCase()+'"]');
+              }
             });
-            var renderData = $(template.render(response));
-            resultsContainer.html(renderData);
+          });
+          if (hashLetter && container.find('[data-start_letter="'+hashLetter+'"]').is(':visible')){
+            first = container.find('[data-start_letter="'+hashLetter+'"]');
+          }
+          if (first){
+            first.trigger('click');
+          }
+          isLoadedFacetsCount = true;
+        }
+      };
 
-            resultsContainer.find('.page, .nextPage, .prevPage').on('click', function (e) {
-              currentPage = $(this).data('page');
-              if (currentPage >= 0) loadContents();
-              e.preventDefault();
-            });
-            var more = $('<div class="other FlexItem"><span class="Button Button--info is-disabled">...</span></li');
-            var displayPages = resultsContainer.find('.page[data-page_number]');
+      resultsContainer.html(spinner);
+      var loadContents = function () {
+        var baseQuery = buildQuery();
+        var paginatedQuery = baseQuery + ' and limit ' + limitPagination + ' offset ' + currentPage * limitPagination;
+        resultsContainer.html(spinner);
 
-            var currentPageNumber = resultsContainer.find('.page[data-current]').data('page_number');
-            var length = 7;
-            if (displayPages.length > (length + 2)) {
-              if (currentPageNumber <= (length - 1)) {
-                resultsContainer.find('.page[data-page_number="' + length + '"]').parent().after(more.clone());
-                for (i = length; i < pagination; i++) {
+        $.opendataTools.find(paginatedQuery, function (response) {
+          queryPerPage[currentPage] = paginatedQuery;
+          response.currentPage = currentPage;
+          response.prevPage = currentPage - 1;
+          response.nextPage = currentPage + 1;
+          var pagination = response.totalCount > 0 ? Math.ceil(response.totalCount / limitPagination) : 0;
+          var pages = [];
+          var i;
+          for (i = 0; i < pagination; i++) {
+            queryPerPage[i] = baseQuery + ' and limit ' + limitPagination + ' offset ' + (limitPagination * i);
+            pages.push({'query': i, 'page': (i + 1)});
+          }
+          response.pages = pages;
+          response.pageCount = pagination;
+
+          response.prevPageQuery = jQuery.type(queryPerPage[response.prevPage]) === "undefined" ? null : queryPerPage[response.prevPage];
+
+          $.each(response.searchHits, function () {
+            this.baseUrl = baseUrl;
+            this.attributes = attributes;
+            this.texts = texts;
+          });
+          var renderData = $(template.render(response));
+          resultsContainer.html(renderData);
+
+          resultsContainer.find('.page, .nextPage, .prevPage').on('click', function (e) {
+            currentPage = $(this).data('page');
+            if (currentPage >= 0) loadContents();
+            e.preventDefault();
+          });
+          var more = $('<div class="other FlexItem"><span class="Button Button--info is-disabled">...</span></li');
+          var displayPages = resultsContainer.find('.page[data-page_number]');
+
+          var currentPageNumber = resultsContainer.find('.page[data-current]').data('page_number');
+          var length = 7;
+          if (displayPages.length > (length + 2)) {
+            if (currentPageNumber <= (length - 1)) {
+              resultsContainer.find('.page[data-page_number="' + length + '"]').parent().after(more.clone());
+              for (i = length; i < pagination; i++) {
+                resultsContainer.find('.page[data-page_number="' + i + '"]').parent().hide();
+              }
+            } else if (currentPageNumber >= length) {
+              resultsContainer.find('.page[data-page_number="1"]').parent().after(more.clone());
+              var itemToRemove = (currentPageNumber + 1 - length);
+              for (i = 2; i < pagination; i++) {
+                if (itemToRemove > 0) {
                   resultsContainer.find('.page[data-page_number="' + i + '"]').parent().hide();
-                }
-              } else if (currentPageNumber >= length) {
-                resultsContainer.find('.page[data-page_number="1"]').parent().after(more.clone());
-                var itemToRemove = (currentPageNumber + 1 - length);
-                for (i = 2; i < pagination; i++) {
-                  if (itemToRemove > 0) {
-                    resultsContainer.find('.page[data-page_number="' + i + '"]').parent().hide();
-                    itemToRemove--;
-                  }
-                }
-                if (currentPageNumber < (pagination - 1)) {
-                  resultsContainer.find('.page[data-current]').parent().after(more.clone());
-                }
-                for (i = (currentPageNumber + 1); i < pagination; i++) {
-                  resultsContainer.find('.page[data-page_number="' + i + '"]').parent().hide();
+                  itemToRemove--;
                 }
               }
+              if (currentPageNumber < (pagination - 1)) {
+                resultsContainer.find('.page[data-current]').parent().after(more.clone());
+              }
+              for (i = (currentPageNumber + 1); i < pagination; i++) {
+                resultsContainer.find('.page[data-page_number="' + i + '"]').parent().hide();
+              }
             }
-          });
-        };
-
-        if (container.find('form').length > 0) container.find('form')[0].reset();
-        $.opendataTools.find(buildQuery() + ' limit 1', function (response) {
-          loadFacetsCount(response.facets);
-        });
-
-        container.find('[data-start_letter]').on('click', function (e) {
-          if (container.find('form').length > 0) {
-            container.find('form')[0].reset();
-            container.find('button[type="reset"]').addClass('hide');
           }
-          var listItem = $(this);
-          window.location.hash = listItem.data("start_letter");
-          if (!listItem.hasClass('Button--default')) {
-            container.find('[data-start_letter]').removeClass('Button--default').addClass('Button--info');
-            listItem.removeClass('Button--info').addClass('Button--default');
-          }
-          currentPage = 0;
-          queryPerPage = [];
-          loadContents();
-          e.preventDefault();
         });
+      };
 
-        container.find('button[type="submit"]').on('click', function (e) {
-          container.find('button[type="reset"]').removeClass('hide');
-          container.find('[data-start_letter]').removeClass('Button--default').addClass('Button--info');
-          history.pushState(null, null, ' ')
-          currentPage = 0;
-          loadContents();
-          e.preventDefault();
-        });
-        container.find('button[type="reset"]').on('click', function (e) {
-          if (container.find('form').length > 0) container.find('form')[0].reset();
-          container.find('[data-start_letter]').first().removeClass('Button--info').addClass('Button--default');
+      if (container.find('form').length > 0) container.find('form')[0].reset();
+      $.opendataTools.find(buildQuery() + ' limit 1', function (response) {
+        loadFacetsCount(response.facets);
+      });
+
+      container.find('[data-start_letter]').on('click', function (e) {
+        if (container.find('form').length > 0) {
+          container.find('form')[0].reset();
           container.find('button[type="reset"]').addClass('hide');
-          currentPage = 0;
-          loadContents();
-          e.preventDefault();
-        });
+        }
+        var listItem = $(this);
+        window.location.hash = listItem.data("start_letter");
+        if (!listItem.hasClass('Button--default')) {
+          container.find('[data-start_letter]').removeClass('Button--default').addClass('Button--info');
+          listItem.removeClass('Button--info').addClass('Button--default');
+        }
+        currentPage = 0;
+        queryPerPage = [];
+        loadContents();
+        e.preventDefault();
+      });
+
+      container.find('button[type="submit"]').on('click', function (e) {
+        container.find('button[type="reset"]').removeClass('hide');
+        container.find('[data-start_letter]').removeClass('Button--default').addClass('Button--info');
+        history.pushState(null, null, ' ')
+        currentPage = 0;
+        loadContents();
+        e.preventDefault();
+      });
+      container.find('button[type="reset"]').on('click', function (e) {
+        if (container.find('form').length > 0) container.find('form')[0].reset();
+        container.find('[data-start_letter]').first().removeClass('Button--info').addClass('Button--default');
+        container.find('button[type="reset"]').addClass('hide');
+        currentPage = 0;
+        loadContents();
+        e.preventDefault();
       });
     });
-  </script>
+  });
+</script>
 {/literal}
 {/run-once}
