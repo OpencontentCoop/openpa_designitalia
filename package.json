@@ -7,6 +7,7 @@
   "description": "Implementazione del design di OpenPA per le linee guida di design della PA",
   "main": "index.js",
   "dependencies": {
+    "cross-var": "^1.1.0",
     "fr-accordion": "^1.0.5",
     "fr-bypasslinks": "^1.0.5",
     "fr-dialogmodal": "^1.0.2",
@@ -72,13 +73,13 @@
   },
   "scripts": {
     "build:resources": "shx cp -r ita-web-toolkit/src/vendor design/designitalia/javascript/ && shx cp -r ita-web-toolkit/src/icons design/designitalia/stylesheets/icons",
-    "build:css": "shx cp themes/$npm_package_config_theme/index.css ./index.css && suitcss -m -c .postcss.js index.css design/designitalia/stylesheets/build_$npm_package_config_theme.css",
-    "watch:css": "suitcss -w -c .postcss.js index.css design/designitalia/stylesheets/build_$npm_package_config_theme.css",
+    "build:css": "cross-var shx cp themes/$npm_package_config_theme/index.css ./index.css && suitcss -m -c .postcss.js index.css design/designitalia/stylesheets/build_$npm_package_config_theme.css",
+    "watch:css": "cross-var suitcss -w -c .postcss.js index.css design/designitalia/stylesheets/build_$npm_package_config_theme.css",
     "build:js": "cross-env WEBPACK_ENV=build webpack",
     "watch:js": "cross-env WEBPACK_ENV=dev webpack --display-modules --progress --colors --watch",
     "watch": "npm-run-all --parallel build:resources watch:css watch:js",
     "build": "npm-run-all build:resources build:css build:js",
-    "echo": "echo $npm_package_config_theme"
+    "echo": "cross-var echo $npm_package_config_theme"
   },
   "author": "Opencontent",
   "license": "CC0-1.0",
