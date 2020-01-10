@@ -147,6 +147,7 @@
   @extend .u-lg-size8of12;
 }
 
+.openpa-full .content-detail,
 .openpa-full .content-main-abstract,
 .openpa-full .content-main-body {
   @extend .Prose;
