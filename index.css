@@ -19,7 +19,7 @@
  */
 
 :root {
-  --Color-primary: #0099d1;
+  --Color-primary: #0070AA;
   --Color-secondary: var(--Color-primary);
   --Prose-color-text-primary: #1c2024;
   --Prose-color-text-secondary: #5a6772;
