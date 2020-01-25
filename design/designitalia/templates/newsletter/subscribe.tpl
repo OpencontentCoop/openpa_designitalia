@@ -6,6 +6,13 @@
 
     newsletter/subscribe
 *}
+{def $email = ''}
+{if ezhttp_hasvariable( 'email' , 'get' )}
+  {set $email = ezhttp( 'email', 'get' )|wash()}
+{else}
+  {set $email = cond( and( is_set( $user ), $subscription_data_array['email']|eq('') ), $user.email|wash(), $subscription_data_array['email']|wash}
+{/if}
+
 <div class="newsletter newsletter-subscribe openpa-full">
 
 
@@ -185,7 +192,7 @@
             {* Email. *}
             <div class="Form-field  u-margin-bottom-l">
                 <label class="Form-label" for="Subscription_Email">{"E-mail"|i18n( 'cjw_newsletter/subscribe' )} *:</label>
-                <input class="Form-input" id="Subscription_Email" type="text" name="Subscription_Email" value="{cond( and( is_set( $user ), $subscription_data_array['email']|eq('') ), $user.email|wash(), $subscription_data_array['email']|wash )}" title="{'Email of the subscriber.'|i18n( 'cjw_newsletter/subscribe' )}" />
+                <input class="Form-input" id="Subscription_Email" type="text" name="Subscription_Email" value="{$email}" title="{'Email of the subscriber.'|i18n( 'cjw_newsletter/subscribe' )}" />
             </div>
 
           <fieldset class="Form-field Form-field--choose Grid-cell u-margin-bottom-l">
