@@ -122,12 +122,3 @@ a:focus {
   border: 1px solid #ccc;
 }
 
-/*
-Fix colonne masonry con sidebar
-todo: spostare in base
-*/
-.content.withExtra [data-columns]::before {
-  @media (--lg-viewport) {
-    content: "2 .u-floatLeft.u-size1of2";
-  }
-}
