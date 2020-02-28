@@ -399,5 +399,9 @@
       <source>Search by keyword</source>
       <translation>Cerca per lemma</translation>
     </message>
+    <message>
+      <source>Download file</source>
+      <translation>Scarica il file</translation>
+    </message>
   </context>
 </TS>
