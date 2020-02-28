@@ -92,3 +92,12 @@ a:hover {
 .footer-container {
   background-color: var(--Header-banner-bg);
 }
+
+/*
+  template a 2 colonne masonry con sidebar
+*/
+.content.withExtra [data-columns]::before {
+  @media (--lg-viewport) {
+    content: "2 .u-floatLeft.u-size1of2";
+  }
+}
