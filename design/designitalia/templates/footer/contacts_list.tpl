@@ -54,4 +54,8 @@
         <li><i class="fa fa-file u-textClean"></i>
             <a href="#">C.F. {$contacts.codice_fiscale}</a></li>
     {/if}
+    {if is_set($contacts.codice_sdi)}
+        <li><i class="fa fa-file u-textClean"></i>
+            <a href="#">SDI {$contacts.codice_sdi}</a></li>
+    {/if}
 </ul>
