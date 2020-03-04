@@ -73,7 +73,7 @@
         $node|has_attribute( 'fax' )
   )}
     <div class="openpa-widget nav-section">
-        <h2 class="openpa-widget-title"><span>Contatti</span></h2>
+        <h2 class="openpa-widget-title"><span>{'Contacts'|i18n('openpa/footer')}</span></h2>
 	  <div class="openpa-widget-content">
         <ul class="Linklist Linklist--padded u-layout-prose">
           {if $node|has_attribute( 'telefono' )}

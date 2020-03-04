@@ -5,419 +5,419 @@
     <name>agenda</name>
     <message>
       <source>today</source>
-      <translation type="unfinished"/>
+      <translation>heute</translation>
     </message>
     <message>
       <source>No events found</source>
-      <translation type="unfinished"/>
+      <translation>Keine Termine gefunden</translation>
     </message>
     <message>
       <source>Load more events</source>
-      <translation type="unfinished"/>
+      <translation>Legen Sie mehr Veranstaltungen</translation>
     </message>
     <message>
       <source>Loading...</source>
-      <translation type="unfinished"/>
+      <translation>Wird geladen...</translation>
     </message>
   </context>
   <context>
     <name>design/ocbootstrap/designitalia</name>
     <message>
       <source>required</source>
-      <translation type="unfinished"/>
+      <translation>erforderlich</translation>
     </message>
   </context>
   <context>
     <name>openpa/agenda</name>
     <message>
       <source>weekend</source>
-      <translation type="unfinished"/>
+      <translation>Wochenende</translation>
     </message>
     <message>
       <source>month</source>
-      <translation type="unfinished"/>
+      <translation>Monat</translation>
     </message>
     <message>
       <source>next 7 days</source>
-      <translation type="unfinished"/>
+      <translation>nächste 7 Tage</translation>
     </message>
     <message>
       <source>next 30 days</source>
-      <translation type="unfinished"/>
+      <translation>nächsten 30 Tage</translation>
     </message>
     <message>
       <source>all</source>
-      <translation type="unfinished"/>
+      <translation>alle</translation>
     </message>
   </context>
   <context>
     <name>openpa/footer</name>
     <message>
       <source>Informations</source>
-      <translation type="unfinished"/>
+      <translation>Informationen</translation>
     </message>
     <message>
       <source>Contacts</source>
-      <translation type="unfinished"/>
+      <translation>Impressum</translation>
     </message>
     <message>
       <source>Links</source>
-      <translation type="unfinished"/>
+      <translation>Links</translation>
     </message>
     <message>
       <source>Follow us</source>
-      <translation type="unfinished"/>
+      <translation>Folge uns</translation>
     </message>
     <message>
       <source>back to top</source>
-      <translation type="unfinished"/>
+      <translation>Zurück nach oben</translation>
     </message>
   </context>
   <context>
     <name>openpa/search</name>
     <message>
       <source>Go to search filters</source>
-      <translation type="unfinished"/>
+      <translation>Gehen Sie Filter zur Suche</translation>
     </message>
     <message>
       <source>Link to</source>
-      <translation type="unfinished"/>
+      <translation>Link zu</translation>
     </message>
     <message>
       <source>Search</source>
-      <translation type="unfinished"/>
+      <translation>Suche</translation>
     </message>
     <message>
       <source>Advanced search</source>
-      <translation type="unfinished"/>
+      <translation>Erweiterte Suche</translation>
     </message>
     <message>
       <source>in</source>
-      <translation type="unfinished"/>
+      <translation>im</translation>
     </message>
     <message>
       <source>all website</source>
-      <translation type="unfinished"/>
+      <translation>alle Website</translation>
     </message>
     <message>
       <source>only information of type</source>
-      <translation type="unfinished"/>
+      <translation>nur Informationen vom Typ</translation>
     </message>
     <message>
       <source>Sorting by</source>
-      <translation type="unfinished"/>
+      <translation>Sortieren nach</translation>
     </message>
     <message>
       <source>Sorting</source>
-      <translation type="unfinished"/>
+      <translation>Sortierung</translation>
     </message>
     <message>
       <source>Descending</source>
-      <translation type="unfinished"/>
+      <translation>Absteigend</translation>
     </message>
     <message>
       <source>Ascending</source>
-      <translation type="unfinished"/>
+      <translation>Aufsteigend</translation>
     </message>
     <message>
       <source>Score</source>
-      <translation type="unfinished"/>
+      <translation>Ergebnis</translation>
     </message>
     <message>
       <source>Publication date</source>
-      <translation type="unfinished"/>
+      <translation>Veröffentlichungsdatum</translation>
     </message>
     <message>
       <source>Content type</source>
-      <translation type="unfinished"/>
+      <translation>Inhaltstyp</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Name</translation>
     </message>
     <message>
       <source>from</source>
-      <translation type="unfinished"/>
+      <translation>von</translation>
     </message>
     <message>
       <source>to</source>
-      <translation type="unfinished"/>
+      <translation>zu</translation>
     </message>
     <message>
       <source>Year</source>
-      <translation type="unfinished"/>
+      <translation>Jahr</translation>
     </message>
     <message>
       <source>Any year</source>
-      <translation type="unfinished"/>
+      <translation>Jedes Jahr</translation>
     </message>
     <message>
       <source>Logical conditions</source>
-      <translation type="unfinished"/>
+      <translation>logische Bedingungen</translation>
     </message>
     <message>
       <source>Maybe you meant to search for</source>
-      <translation type="unfinished"/>
+      <translation>Vielleicht bedeutete nach dem Sie suchen</translation>
     </message>
     <message>
       <source>No results were found when searching for "%1".</source>
-      <translation type="unfinished"/>
+      <translation>Keine Ergebnisse gefunden wurden, als für „% 1“ gesucht.</translation>
     </message>
     <message>
       <source>Search tips</source>
-      <translation type="unfinished"/>
+      <translation>Suchvorschläge</translation>
     </message>
     <message>
       <source>Check spelling of keywords.</source>
-      <translation type="unfinished"/>
+      <translation>Überprüfen Sie die Rechtschreibung der Schlüsselwörter.</translation>
     </message>
     <message>
       <source>Try changing some keywords (eg, "car" instead of "cars").</source>
-      <translation type="unfinished"/>
+      <translation>Versuchen Sie einige Schlüsselwörter zu ändern (zB „Auto“ statt „Autos“).</translation>
     </message>
     <message>
       <source>Try searching with less specific keywords.</source>
-      <translation type="unfinished"/>
+      <translation>Versuchen Sie es mit allgemeineren Suchbegriffen.</translation>
     </message>
     <message>
       <source>Reduce number of keywords to get more results.</source>
-      <translation type="unfinished"/>
+      <translation>Reduzieren Sie die Anzahl der Suchbegriffe, um Ergebnisse zu erzielen.</translation>
     </message>
     <message>
       <source>Search for "%1" returned %2 matches</source>
-      <translation type="unfinished"/>
+      <translation>Suche nach „% 1“ ergab% 2 Ursachen</translation>
     </message>
     <message>
       <source>Search returned %2 matches</source>
-      <translation type="unfinished"/>
+      <translation>Suche ergab% 2 Ursachen</translation>
     </message>
     <message>
       <source>Reduce the number of filters applied</source>
-      <translation type="unfinished"/>
+      <translation>Reduzieren der Anzahl von Filtern angewendet</translation>
     </message>
     <message>
       <source>Remove all filters</source>
-      <translation type="unfinished"/>
+      <translation>Alle Filter entfernen</translation>
     </message>
     <message>
       <source>Refine your search</source>
-      <translation type="unfinished"/>
+      <translation>Verfeinere deine Suche</translation>
     </message>
     <message>
       <source>You are filtering for</source>
-      <translation type="unfinished"/>
+      <translation>Sie sind Filterung für</translation>
     </message>
   </context>
   <context>
     <name>openpa/sidebar</name>
     <message>
       <source>Related information</source>
-      <translation type="unfinished"/>
+      <translation>Verwandte Informationen</translation>
     </message>
     <message>
       <source>Referable to</source>
-      <translation type="unfinished"/>
+      <translation>beziehbar auf</translation>
     </message>
     <message>
       <source>Classification</source>
-      <translation type="unfinished"/>
+      <translation>Einstufung</translation>
     </message>
     <message>
       <source>References</source>
-      <translation type="unfinished"/>
+      <translation>Verweise</translation>
     </message>
   </context>
   <context>
     <name>openpa/tools</name>
     <message>
       <source>Info</source>
-      <translation type="unfinished"/>
+      <translation>Die Info</translation>
     </message>
   </context>
   <context>
     <name>openpa/widget</name>
     <message>
       <source>Position in the organization chart</source>
-      <translation type="unfinished"/>
+      <translation>Position im Organigramm</translation>
     </message>
     <message>
       <source>Read more</source>
-      <translation type="unfinished"/>
+      <translation>Weiterlesen</translation>
     </message>
   </context>
   <context>
     <name>openpa_designitalia</name>
     <message>
       <source>Search</source>
-      <translation type="unfinished"/>
+      <translation>Suche</translation>
     </message>
     <message>
       <source>Go to calendar</source>
-      <translation type="unfinished"/>
+      <translation>Zum Kalender</translation>
     </message>
     <message>
       <source>Find in</source>
-      <translation type="unfinished"/>
+      <translation>Zu finden in</translation>
     </message>
     <message>
       <source>Text search</source>
-      <translation type="unfinished"/>
+      <translation>Textsuche</translation>
     </message>
     <message>
       <source>Advanced search</source>
-      <translation type="unfinished"/>
+      <translation>Erweiterte Suche</translation>
     </message>
     <message>
       <source>Latitude</source>
-      <translation type="unfinished"/>
+      <translation>Breite</translation>
     </message>
     <message>
       <source>Longitude</source>
-      <translation type="unfinished"/>
+      <translation>Längengrad</translation>
     </message>
     <message>
       <source>Find a marker</source>
-      <translation type="unfinished"/>
+      <translation>Finden Sie einen Marker</translation>
     </message>
     <message>
       <source>Address</source>
-      <translation type="unfinished"/>
+      <translation>Adresse</translation>
     </message>
     <message>
       <source>CAP</source>
-      <translation type="unfinished"/>
+      <translation>Postleitzahl</translation>
     </message>
     <message>
       <source>City</source>
-      <translation type="unfinished"/>
+      <translation>Stadt</translation>
     </message>
     <message>
       <source>District</source>
-      <translation type="unfinished"/>
+      <translation>Kreis</translation>
     </message>
     <message>
       <source>Region</source>
-      <translation type="unfinished"/>
+      <translation>Region</translation>
     </message>
     <message>
       <source>State</source>
-      <translation type="unfinished"/>
+      <translation>Zustand</translation>
     </message>
     <message>
       <source>Find address</source>
-      <translation type="unfinished"/>
+      <translation>Finde die Adresse</translation>
     </message>
     <message>
       <source>Detect device position</source>
-      <translation type="unfinished"/>
+      <translation>Detect Vorrichtungsposition</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation type="unfinished"/>
+      <translation>Stornieren</translation>
     </message>
     <message>
       <source>Search in title or in text</source>
-      <translation type="unfinished"/>
+      <translation>Suche in Titel oder in Text</translation>
     </message>
     <message>
       <source>When?</source>
-      <translation type="unfinished"/>
+      <translation>Wann?</translation>
     </message>
     <message>
       <source>Calendar</source>
-      <translation type="unfinished"/>
+      <translation>Kalender</translation>
     </message>
     <message>
       <source>List</source>
-      <translation type="unfinished"/>
+      <translation>Aufführen</translation>
     </message>
     <message>
       <source>Search in text</source>
-      <translation type="unfinished"/>
+      <translation>Suche in Text</translation>
     </message>
     <message>
       <source>Select date</source>
-      <translation type="unfinished"/>
+      <translation>Datum auswählen</translation>
     </message>
     <message>
       <source>Search event collection</source>
-      <translation type="unfinished"/>
+      <translation>Suchen Ereignissammlung</translation>
     </message>
     <message>
       <source>Reset search</source>
-      <translation type="unfinished"/>
+      <translation>Suche zurücksetzen</translation>
     </message>
     <message>
       <source>...and another event</source>
-      <translation type="unfinished"/>
+      <translation>... und ein anderes Ereignis</translation>
     </message>
     <message>
       <source>...and another %number events</source>
-      <translation type="unfinished"/>
+      <translation>... und weitere% Anzahl Veranstaltungen</translation>
     </message>
     <message>
       <source>View calendar</source>
-      <translation type="unfinished"/>
+      <translation>Kalender anzeigen</translation>
     </message>
     <message>
       <source>Search events</source>
-      <translation type="unfinished"/>
+      <translation>Suche Veranstaltungen</translation>
     </message>
     <message>
       <source>Event collection</source>
-      <translation type="unfinished"/>
+      <translation>Ereigniserfassung</translation>
     </message>
     <message>
       <source>How to get</source>
-      <translation type="unfinished"/>
+      <translation>Wie kommt man</translation>
     </message>
     <message>
       <source>Event calendar</source>
-      <translation type="unfinished"/>
+      <translation>Veranstaltungskalender</translation>
     </message>
     <message>
       <source>Enable search form</source>
-      <translation type="unfinished"/>
+      <translation>Aktivieren Suchformular</translation>
     </message>
     <message>
       <source>Disable search form</source>
-      <translation type="unfinished"/>
+      <translation>Disable Suchformular</translation>
     </message>
     <message>
       <source>Where?</source>
-      <translation type="unfinished"/>
+      <translation>Wo?</translation>
     </message>
     <message>
       <source>Published</source>
-      <translation type="unfinished"/>
+      <translation>Veröffentlicht</translation>
     </message>
     <message>
       <source>Last modify</source>
-      <translation type="unfinished"/>
+      <translation>Berichtigung</translation>
     </message>
     <message>
       <source>Search by keyword</source>
-      <translation type="unfinished"/>
+      <translation>Über Schlüsselwort suchen</translation>
     </message>
     <message>
       <source>Download file</source>
-      <translation type="unfinished"/>
+      <translation>Download-Datei</translation>
     </message>
     <message>
       <source>This site uses technical, analytics and third-party cookies.</source>
-      <translation type="unfinished"/>
+      <translation>Diese Seite nutzt technisch, Analytik und Cookies von Drittanbietern.</translation>
     </message>
     <message>
       <source>By continuing to browse, you accept the use of cookies.</source>
-      <translation type="unfinished"/>
+      <translation>Weiter zu durchsuchen, akzeptieren Sie die Verwendung von Cookies.</translation>
     </message>
     <message>
       <source>Informations</source>
-      <translation type="unfinished"/>
+      <translation>Informationen</translation>
     </message>
     <message>
       <source>Accept</source>
-      <translation type="unfinished"/>
+      <translation>Akzeptieren</translation>
     </message>
   </context>
 </TS>

@@ -403,5 +403,21 @@
       <source>Download file</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>This site uses technical, analytics and third-party cookies.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>By continuing to browse, you accept the use of cookies.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Informations</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Accept</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
 </TS>

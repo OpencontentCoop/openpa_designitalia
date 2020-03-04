@@ -4,9 +4,9 @@
 document.addEventListener('DOMContentLoaded', function(event) {
 cookieChoices.cookieSecure = {/literal}{cond(ezini('Session','CookieSecure')|eq('true'), 'true', 'false')}{literal};
 cookieChoices.showCookieConsentBar(
-"Questo sito utilizza cookie tecnici, analytics e di terze parti. Proseguendo nella navigazione accetti l’utilizzo dei cookie.",
-'Accetto',
-'Cookie policy',
+"{/literal}{'This site uses technical, analytics and third-party cookies.'|i18n('openpa_designitalia')} {'By continuing to browse, you accept the use of cookies.'|i18n('openpa_designitalia')}{literal}",
+"{/literal}{'Accept'|i18n('openpa_designitalia')}{literal}",
+"{/literal}{'Informations'|i18n('openpa_designitalia')}{literal}",
 '{/literal}{'openpa/cookie'|ezurl(no,full)}{literal}'
 );});
 </script>
