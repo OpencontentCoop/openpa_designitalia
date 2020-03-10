@@ -96,6 +96,17 @@
             </a>
           </li>
         {/if}
+        {if is_set($pagedata.contacts.telegram)}
+          <li>
+            <a href="{$pagedata.contacts.telegram}">
+                    <span class="openpa-icon fa-stack">
+                        <i class="fa fa-circle fa-stack-2x u-color-90"></i>
+                        <i class="fa fa-telegram fa-stack-1x u-color-white" aria-hidden="true"></i>
+                    </span>
+              <span class="u-hiddenVisually">Telegram</span>
+            </a>
+          </li>
+        {/if}
         {def $forms = fetch( 'content', 'class', hash( 'class_id', 'feedback_form' ) ).object_list
              $form = cond(is_set($forms[0]), $forms[0], false())}
         {if $form}
