@@ -403,5 +403,21 @@
       <source>Download file</source>
       <translation>Scarica il file</translation>
     </message>
+    <message>
+      <source>This site uses technical, analytics and third-party cookies.</source>
+      <translation>Questo sito utilizza cookie tecnici, analytics e di terze parti.</translation>
+    </message>
+    <message>
+      <source>By continuing to browse, you accept the use of cookies.</source>
+      <translation>Proseguendo nella navigazione accetti l’utilizzo dei cookie.</translation>
+    </message>
+    <message>
+      <source>Informations</source>
+      <translation>Informazioni</translation>
+    </message>
+    <message>
+      <source>Accept</source>
+      <translation>Accetto</translation>
+    </message>
   </context>
 </TS>
