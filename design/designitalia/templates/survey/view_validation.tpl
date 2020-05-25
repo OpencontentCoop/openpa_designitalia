@@ -1,4 +1,4 @@
-{if and( is_set( $survey_validation ), or( $survey_validation.erros, $survey_validation.warnings ) )}
+{if and( is_set( $survey_validation ), or( $survey_validation.errors, $survey_validation.warnings ) )}
   <div class="Prose Alert Alert--warning" role="alert">
     <h2 class="u-text-r-l">{"Warning"|i18n( 'survey' )}</h2>
     <ul>
