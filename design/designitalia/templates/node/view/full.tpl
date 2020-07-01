@@ -24,3 +24,5 @@
 {if and( $homepage|has_attribute('partners'), $homepage|attribute('partners').has_content) }
     {include uri='design:footer/partners.tpl' homepage=$homepage}
 {/if}
+
+{ezpagedata_set('opengraph', ocdesignitalia_opengraph($node))}
