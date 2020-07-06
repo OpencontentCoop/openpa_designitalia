@@ -13,6 +13,6 @@
         </div>
     </div>
 
-    <a class="readmore" href="{object_handler($node).content_link.full_link}" title="{$node.name|wash()}">Vai alla pagina</a>
+    <a class="readmore" href="{object_handler($node).content_link.full_link}" title="{$node.name|wash()}">{'Go to page'|i18n('openpa_designitalia')}</a>
 
 </div>

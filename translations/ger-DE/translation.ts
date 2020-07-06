@@ -419,5 +419,9 @@
       <source>Accept</source>
       <translation>Akzeptieren</translation>
     </message>
+    <message>
+      <source>Go to page</source>
+      <translation>Gehe zu Seite</translation>
+    </message>
   </context>
 </TS>

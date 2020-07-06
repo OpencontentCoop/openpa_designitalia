@@ -419,5 +419,9 @@
       <source>Accept</source>
       <translation>Sprejmi</translation>
     </message>
+    <message>
+      <source>Go to page</source>
+      <translation>Pojdi na stran</translation>
+    </message>
   </context>
 </TS>
