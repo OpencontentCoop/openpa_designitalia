@@ -32,20 +32,23 @@
             {if and( is_set( $object.data_map.$identifier ), $object.data_map.$identifier.data_type_string|eq( 'ezimage' ), $object.data_map.$identifier.has_content )}
                 {set $cover = $object.data_map.$identifier}
             {/if}
-        {/case}        
+        {/case}
         {case}{/case}
     {/switch}
 {/foreach}
 
-<div class="audio">
-
-    <a	class="player no-js-hide"
-        href={concat("content/download/",$attribute.contentobject_id,"/",$attribute.content.contentobject_attribute_id,"/",$attribute.content.original_filename)|ezurl}
-        style="display:block;width:100%px;height:30px;"
-        title="{$object.name|wash()}"
-        id="audio-{$attribute.contentobject_id}">
-    </a>
-
+<audio controls>
+    <source src="{concat( "content/download/", $attribute.contentobject_id, "/", $attribute.content.contentobject_attribute_id, "/", $attribute.content.original_filename)|ezurl( 'no' )}"
+            type="{$attribute.content.mime_type}">
+    <div class="audio">
+        <a	class="player no-js-hide"
+            href={concat("content/download/",$attribute.contentobject_id,"/",$attribute.content.contentobject_attribute_id,"/",$attribute.content.original_filename)|ezurl}
+            style="display:block;width:100%px;height:30px;"
+            title="{$object.name|wash()}"
+            id="audio-{$attribute.contentobject_id}">
+        </a>
+    </div>
+</audio>
 
 {ezscript_require(array( 'ezjsc::jquery', ocmp('flowplayer','js') ) )}
 {ezcss_require( 'controls-audio.css' )}
@@ -72,45 +75,6 @@ $(document).ready(function(){ldelim}
     {rdelim});
 {rdelim})
 </script>
-
-
-{*
-    <div id="audiocontrols-{$attribute.contentobject_id}" class="controls no-js-hide"></div>
-    <div id="audiocontrolsdetail-{$attribute.contentobject_id}" class="player-detail no-js-hide"></div>
-
-{ezscript_require(array( 'ezjsc::jquery', ocmp('flowplayer','js'), ocmp('controls','js') ) )}
-{ezcss_require( 'controls-audio.css' )}
-<script>
-$(document).ready(function(){ldelim}
-    flowplayer("audio-{$attribute.contentobject_id}", {ocmp('flowplayer','flash')},
-    {ldelim}
-        clip:
-            {ldelim}
-            {if $is_autoplay}autoPlay:true{else}autoPlay:false{/if},
-            onStart: function(song) {ldelim}
-                    $('#audiocontrolsdetail-{$attribute.contentobject_id}').html('<span class="artist">'+song.metaData.TPE1+'</span> <span class="title">'+song.metaData.TIT2+'</span>');
-                    $('#audiocontrolsdetail-{$attribute.contentobject_id}').appendTo($('#audiocontrols-{$attribute.contentobject_id}'));
-                {rdelim}	
-            {rdelim},
-        plugins:
-            {ldelim}
-                controls: {ldelim}
-                    url: {ocmp('controls','flash')},
-                    all: null,
-                    height: 1
-                {rdelim},
-                audio: {ldelim}
-                    url: {ocmp('audio','flash')},
-                    provider: 'audio',
-                {rdelim},
-            {rdelim}
-    {rdelim}).controls("audiocontrols-{$attribute.contentobject_id}");
-{rdelim})
-</script>
-
-*}
-
-</div>
 
 
 {undef}

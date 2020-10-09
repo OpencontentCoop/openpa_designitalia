@@ -40,11 +40,11 @@
      $cover = false()
      $advert = false()
      $captions = false()}
-     
+
 {foreach $identifiers as $key => $identifier}
     {switch match=$key}
-        {case match='cover'}                    
-            {if and( is_set( $object.data_map.$identifier ), $object.data_map.$identifier.data_type_string|eq( 'ezimage' ), $object.data_map.$identifier.has_content )}                                
+        {case match='cover'}
+            {if and( is_set( $object.data_map.$identifier ), $object.data_map.$identifier.data_type_string|eq( 'ezimage' ), $object.data_map.$identifier.has_content )}
                 {set $cover = $object.data_map.$identifier}
             {/if}
         {/case}
@@ -62,20 +62,18 @@
     {/switch}
 {/foreach}
 
-<div class="video">
-
-    <a	class="player no-js-hide"
-        href={concat("content/download/",$attribute.contentobject_id,"/",$attribute.content.contentobject_attribute_id,"/video")|ezurl}
-        style={if is_set($params.style)}{$params.style}{else}"background:#000;display:block;width:100%;height:{$height}px;"{/if}
-        title="{$object.name|wash()}"
-        id="video-{$attribute.contentobject_id}">
-            {*if $cover}
-                {attribute_view_gui attribute=$cover image_class=$cover_image_class}
-            {else
-                <img class='default' src={if is_set($params.image)}{$params.image|ezimage()}{else}{'play.png'|ezimage()}{/if} alt="{$object.name|wash()}" />
-            {if*}
-    </a>
-    
+<video width="{$width}" height="{$height}" controls{if $is_autoplay} autoplay{/if}>
+  <source src="{concat("content/download/",$attribute.contentobject_id,"/",$attribute.content.contentobject_attribute_id,"/",$attribute.content.original_filename)|ezurl(no)}"
+          type="{$attribute.content.mime_type}">
+  <div class="video">
+      <a	class="player no-js-hide"
+          href={concat("content/download/",$attribute.contentobject_id,"/",$attribute.content.contentobject_attribute_id,"/video")|ezurl}
+          style={if is_set($params.style)}{$params.style}{else}"background:#000;display:block;width:100%;height:{$height}px;"{/if}
+          title="{$object.name|wash()}"
+          id="video-{$attribute.contentobject_id}">
+      </a>
+  </div>
+</video>
 
 {ezscript_require(array( 'ezjsc::jquery', ocmp('flowplayer','js'), ocmp('ipad','js') ) )}
 <script>
@@ -94,16 +92,12 @@ $(document).ready(function(){ldelim}
                 controls: {ldelim}
                     url: {ocmp('controls','flash')}
                 {rdelim},
-                {*viral: {ldelim}
-                    url: {ocmp('viral','flash')},
-                    email: false
-                {rdelim},*}
             {if $captions}
                 captions:
                 {ldelim}
                     url: {ocmp('captions','flash')},
                     captionTarget: 'content'
-                {rdelim},        
+                {rdelim},
                 content:
                 {ldelim}
                     url: {ocmp('content','flash')},
@@ -113,9 +107,9 @@ $(document).ready(function(){ldelim}
                     backgroundGradient: 'none',
                     border: 0,
                     textDecoration: 'outline',
-                    style: {ldelim} 
-                        body: {ldelim} 
-                            fontSize: 12, 
+                    style: {ldelim}
+                        body: {ldelim}
+                            fontSize: 12,
                             fontFamily: 'Arial',
                             textAlign: 'center',
                             color: '#ffffff'
@@ -134,14 +128,9 @@ $(document).ready(function(){ldelim}
                         this.hide();
                     {rdelim}
                 {rdelim}
-            {/if}        
+            {/if}
             {rdelim}
     {rdelim}).ipad();
 {rdelim})
-</script>		
-
-
-</div>
-
-
+</script>
 {undef}
