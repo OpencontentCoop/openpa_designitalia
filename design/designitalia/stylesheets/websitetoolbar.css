@@ -1,5 +1,29 @@
 /* Website Toolbar */
 
+body #toolbar
+{
+  display: block !important;
+}
+
+@media screen and (max-width: 991px) {
+  body #toolbar #ezwt-miscaction a.btn-default,
+  body #toolbar #ezwt-ezlogo{
+    display: none !important;
+  }
+  body #toolbar #ezwt-content{
+    padding: 5px;
+    text-align: left;
+  }
+  body #toolbar div#ezwt div.ezwt-actiongroup{
+    margin: 5px;
+  }
+  body #toolbar div#ezwt-help{
+    position: static;
+    display: inline-block;
+    margin: 5px;
+  }
+}
+
 div#ezwt
 {
     margin: 0;
@@ -237,6 +261,6 @@ table#ezwt-sort-list tr.ezwt-sort-drag-handler
     height: 0;
     font-size: 0;
     visibility: hidden;
-    display: block; 
-    clear: both; 
+    display: block;
+    clear: both;
 }
