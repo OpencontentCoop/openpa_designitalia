@@ -14,8 +14,8 @@
 
 <div class="Header-utils Grid-cell">
   <div class="Header-social Headroom-hideme">
-    {if or(is_set($pagedata.contacts.facebook), is_set($pagedata.contacts.twitter), is_set($pagedata.contacts.linkedin), is_set($pagedata.contacts.instagram))}
-      
+    {if or(is_set($pagedata.contacts.facebook), is_set($pagedata.contacts.twitter), is_set($pagedata.contacts.youtube), is_set($pagedata.contacts.linkedin), is_set($pagedata.contacts.instagram))}
+
       <p class="u-color-95">{'Follow us'|i18n('openpa/footer')}</p>
 
       <ul class="Header-socialIcons">

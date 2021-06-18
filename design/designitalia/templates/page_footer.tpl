@@ -40,7 +40,7 @@
     {set $footerBlocks = $footerBlocks|sub(1)}
 {/if}
 
-{if or(is_set($contacts.facebook), is_set($contacts.twitter), is_set($contacts.linkedin), is_set($contacts.instagram))}
+{if or(is_set($contacts.facebook), is_set($contacts.twitter), is_set($contacts.linkedin), is_set($contacts.instagram), is_set($contacts.youtube))}
     {set $has_social = true()}
 {else}
     {set $footerBlocks = $footerBlocks|sub(1)}
