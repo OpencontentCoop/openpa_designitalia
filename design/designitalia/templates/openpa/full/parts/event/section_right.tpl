@@ -6,7 +6,6 @@
 
         {if $node|has_attribute( 'periodo_svolgimento' )}
           <p class="Prose">
-            <strong>{$node.data_map.periodo_svolgimento.contentclass_attribute_name}</strong>
             {attribute_view_gui attribute=$node.data_map.periodo_svolgimento}
           </p>
         {else}
