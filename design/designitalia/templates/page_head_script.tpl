@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href={'fonts/titiliumwebfont.css'|ezdesign()} />
+<link rel="stylesheet" type="text/css" href={'fonts/titiliumweb-local.css'|ezdesign()} />
 
 {ezscript_load( array(
     'ezjsc::jquery',
