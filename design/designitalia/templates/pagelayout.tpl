@@ -117,6 +117,8 @@ var ModuleResultUri = "{$module_result.uri|wash()}";
                         <span class="u-padding-r-right Icon Icon-comment"></span> Valuta questo sito
                     </a>
                 </p>
+<p class="u-textCenter u-color-white u-textClean u-margin-bottom-m">Ti invitiamo a segnalare incompletezze sul contenuto o problemi di accessibilità riscontrati in questa pagina</p>
+
                 <div style="display: none" id="openpa-valuation" data-loaded="0">
                     {include name=valuation uri='design:openpa/load_valuation.tpl' parameters=$module_result.content_info.persistent_variable.valuation}
                 </div>
