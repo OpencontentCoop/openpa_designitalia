@@ -42,3 +42,14 @@
   </script>
   <!-- End Matomo Code -->
 {/if}
+
+{if and(fetch('user','current_user').is_logged_in, openpaini('Monitoring', 'SentryScriptLoader', false()))}
+  <script src="{openpaini('Monitoring', 'SentryScriptLoader', false())}" crossorigin="anonymous"></script>
+  <script>
+    window.Sentry && Sentry.onLoad(function() {ldelim}
+      Sentry.init({ldelim}
+        environment: "{openpa_instance_identifier()}"
+      {rdelim});
+    {rdelim});
+  </script>
+{/if}
