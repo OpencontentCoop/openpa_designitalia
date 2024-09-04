@@ -53,3 +53,5 @@
     {rdelim});
   </script>
 {/if}
+
+{include uri='design:page_footer_plausible.tpl'}
