@@ -2,15 +2,15 @@
 
 <h2>Enti pubblici vigilati</h2>
 <div class="load-grah" data-remote="367f45c867601ef7e8a3d2c125b287ca"
-     style="min-width: 310px; height: 1000px; margin: 0 auto"></div>
+     style="min-width: 310px; height: 1100px; margin: 0 auto"></div>
 
 <h2>Società partecipate</h2>
 <div class="load-grah" data-remote="1b7517be4dde8b70eaf65f69e5c46311"
-     style="min-width: 310px; height: 1000px; margin: 0 auto"></div>
+     style="min-width: 310px; height: 1100px; margin: 0 auto"></div>
 
 <h2>Enti di diritto privato controllati</h2>
 <div class="load-grah" data-remote="b8ba159b3f102091f5f2c41ef32c190b"
-     style="min-width: 310px; height: 1000px; margin: 0 auto"></div>
+     style="min-width: 310px; height: 1100px; margin: 0 auto"></div>
 
 <script>
   {literal}
